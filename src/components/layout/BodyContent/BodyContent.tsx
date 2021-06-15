@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const BodyContent = ({ children }: BodyContentProps) => {
-  return <div>{children}</div>
-}
+const BodyContent = ({ children, ...rest }: BodyContentProps) => {
+  return <div {...rest}>{children}</div>;
+};
 
 interface BodyContentProps {
-  children: any
+  children: any;
+  style?: any | null | undefined;
 }
 
-export default BodyContent
+export default BodyContent;

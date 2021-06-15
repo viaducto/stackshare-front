@@ -20,7 +20,7 @@ const Container = ({
   horizontal = null,
   children,
   ...rest
-}: ContainerProps) => {
+}: any) => {
   const { configuration } = useContext(ConfigContext)
   const getPadding = () => {
     var padding: any = css``
@@ -59,22 +59,11 @@ const Container = ({
       padding={getPadding}
       expandHorizontal={expandHorizontal}
       expandVertical={expandVertical}
+      {...rest}
     >
       {children}
     </StyledContainer>
   )
-}
-
-interface ContainerProps {
-  children: any
-  top?: string | null
-  right?: string | null
-  bottom?: string | null
-  left?: string | null
-  vertical?: string | null
-  horizontal?: string | null
-  expandHorizontal?: boolean
-  expandVertical?: boolean
 }
 
 export default Container

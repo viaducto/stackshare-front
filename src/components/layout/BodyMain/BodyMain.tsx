@@ -1,13 +1,16 @@
-import React from 'react'
-import { Container } from '../../Container'
-const BodyMain = ({ children }: BodyMainProps) => {
+import React from 'react';
+import { Container } from '../../Container';
+const BodyMain = ({ children, ...rest }: BodyMainProps) => {
   return (
-    <Container vertical='md' horizontal='sm' expandHorizontal>
-      {children}
-    </Container>
-  )
-}
+    <div {...rest}>
+      <Container vertical='md' horizontal='sm' expandHorizontal>
+        {children}
+      </Container>
+    </div>
+  );
+};
 interface BodyMainProps {
-  children: any
+  children: any;
+  style?: any | null | undefined;
 }
-export default BodyMain
+export default BodyMain;

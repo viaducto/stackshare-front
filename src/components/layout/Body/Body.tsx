@@ -1,19 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledStackBody = styled.div`
   width: calc(100% - 12.5rem);
   margin-left: 12.5rem;
   float: left;
-  height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
   background-color: #f0f2f5;
-`
+  box-sizing: border-box;
+`;
 const StackBody = ({ children }: StackBodyProps) => {
-  return <StyledStackBody>{children}</StyledStackBody>
-}
+  return <StyledStackBody>{children}</StyledStackBody>;
+};
 
 interface StackBodyProps {
-  children: any
+  children: any;
 }
-export default StackBody
+export default StackBody;
