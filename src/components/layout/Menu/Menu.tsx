@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SidebarSection } from '@jp-olvera/jp-viaducto-components';
+import { Link } from 'react-router-dom';
+import { SidebarSection, MenuItem } from '@jp-olvera/jp-viaducto-components';
 import { Container } from '../../Container';
+import { Chart, Suitcase } from 'react-ikonate';
 
 const StyledStackMenu = styled.div`
   width: 12.5rem;
@@ -26,28 +28,22 @@ const StackMenu = () => {
       <Container vertical='md' horizontal='md'>
         <div style={{ width: '8.375rem', height: '1.5rem', backgroundColor: 'gray' }} />
       </Container>
-      <Container vertical='md' horizontal='md'>
-        <SidebarSection title='Dashboard' isDropdown lead icon='⏲' />
-        <SidebarSection
-          title='Autions'
-          isDropdown
-          items={[{ label: 'Buy parameters' }, { label: 'Sell parameters' }]}
-          lead
-          icon='⏲'
-        />
-        <SidebarSection title='Navigation Four' isDropdown lead icon='⏲' />
-        <SidebarSection
-          title='Settings'
-          lead
-          icon='⏲'
-          isDropdown
-          items={[
-            { label: 'Option 1' },
-            { label: 'Option 2' },
-            { label: 'Option 3 ' },
-            { label: 'Option 4' },
-          ]}
-        />
+      <Container vertical='md' horizontal='md' style={{ position: 'relative' }}>
+        <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} />
+        <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
+          <MenuItem label='Buy parameters' nested href='/buy' />
+          <Link to='/'>
+            <MenuItem label='Sell parameters' nested />
+          </Link>
+        </SidebarSection>
+        <SidebarSection title='Navigation Four' isMenu lead icon='⏲'>
+          <MenuItem label='Option 1' nested />
+          <MenuItem label='Option 2' nested />
+        </SidebarSection>
+        <SidebarSection title='Settings' icon='⏲' isDropdown>
+          <MenuItem label='Option 1' nested href='/' />
+          <MenuItem label='Option 2' nested />
+        </SidebarSection>
       </Container>
     </StyledStackMenu>
   );
