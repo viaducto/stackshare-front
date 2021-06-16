@@ -1,6 +1,6 @@
-import React from 'react'
-import { createPortal } from 'react-dom'
-import StyledDrawer from './StyledDrawer'
+import React from 'react';
+import { createPortal } from 'react-dom';
+import StyledDrawer from './StyledDrawer';
 // import { BareButton } from '../../cells';
 // import { ConfigContext } from '@jp-olvera/jp-viaducto-components'
 
@@ -12,21 +12,18 @@ import StyledDrawer from './StyledDrawer'
  * @param {string} elevationDirection Light indicator for shadows data
  */
 interface DrawerInterface {
-  active: boolean
-  children: any
-  onClose: () => void
+  active: boolean;
+  children: any;
+  onClose: () => void;
 }
 
 const Drawer = ({ active = false, onClose, children }: DrawerInterface) => {
   // const { configuration } = useContext(ConfigContext)
 
-  if (!active) return null
+  if (!active) return null;
 
   return createPortal(
     <div
-      onClick={() => {
-        onClose()
-      }}
       style={{
         backgroundColor: 'rgba(0,0,0,0.3)',
         left: 0,
@@ -40,8 +37,8 @@ const Drawer = ({ active = false, onClose, children }: DrawerInterface) => {
     >
       <StyledDrawer>{children}</StyledDrawer>
     </div>,
-    document.body,
-  )
-}
+    document.body
+  );
+};
 
-export default Drawer
+export default Drawer;

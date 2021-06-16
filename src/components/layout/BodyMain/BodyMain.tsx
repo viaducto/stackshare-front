@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '../../Container';
+
 const BodyMain = ({ children, ...rest }: BodyMainProps) => {
   return (
     <div {...rest}>
