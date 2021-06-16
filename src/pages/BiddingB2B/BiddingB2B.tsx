@@ -23,20 +23,22 @@ const BiddingB2B = () => {
     >
       {/* Header */}
       <BodyHeader>
-        <div style={{ display: 'flex', gap: '.4rem' }}>
-          <Paragraph size='sm' color='#8C8C8C' lineHeight='1.375rem'>
-            Auctions
+        <Container horizontal='md' vertical='sm'>
+          <div style={{ display: 'flex', gap: '.4rem' }}>
+            <Paragraph size='sm' color='#8C8C8C' lineHeight='1.375rem'>
+              Auctions
+            </Paragraph>
+            <Paragraph size='sm' color='#8C8C8C' lineHeight='1.375rem'>
+              /
+            </Paragraph>
+            <Paragraph size='sm' color='#595959' lineHeight='1.375rem'>
+              Bidding
+            </Paragraph>
+          </div>
+          <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
+            Sell parameters
           </Paragraph>
-          <Paragraph size='sm' color='#8C8C8C' lineHeight='1.375rem'>
-            /
-          </Paragraph>
-          <Paragraph size='sm' color='#595959' lineHeight='1.375rem'>
-            Bidding
-          </Paragraph>
-        </div>
-        <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
-          Sell parameters
-        </Paragraph>
+        </Container>
       </BodyHeader>
 
       {/* Body */}

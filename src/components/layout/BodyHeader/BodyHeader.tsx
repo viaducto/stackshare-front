@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '../../Container';
 const BodyHeader = ({ children, ...rest }: BodyHeaderProps) => {
   return (
     <div
@@ -12,9 +11,7 @@ const BodyHeader = ({ children, ...rest }: BodyHeaderProps) => {
       }}
       {...rest}
     >
-      <Container vertical='sm' horizontal='md'>
-        {children}
-      </Container>
+      {children}
     </div>
   );
 };
