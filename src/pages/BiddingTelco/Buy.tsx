@@ -9,10 +9,11 @@ import {
   Tab,
   Table,
   Select,
+  Drawer,
+  Breadcrums,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
 import { Container } from '../../components/Container';
-import { Drawer } from '../../components/Drawer';
 import { dummyData } from './StoryData';
 const details = {
     default: 'transparent',
@@ -28,15 +29,11 @@ const details = {
   };
 
 const Buy = () => {
-  const [open, setOpen] = useState(false);
   const [openTable, setOpenTable] = useState(false);
   const [newBid, setNewBid] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [data, setData] = useState<any>({});
   const [tab, setTab] = useState(0);
-  const handleOpen = () => {
-    setOpen(!open);
-  };
   useEffect(() => {
     const radio: HTMLInputElement | null = document.querySelector('#up');
     if (radio !== null) {
@@ -54,17 +51,13 @@ const Buy = () => {
       {/* Header */}
       <BodyHeader>
         <Container horizontal='md' top='sm'>
-          <div style={{ display: 'flex', gap: '.4rem' }}>
-            <Paragraph size='sm' color='#8C8C8C' lineHeight='1.375rem'>
-              Auctions
-            </Paragraph>
-            <Paragraph size='sm' color='#8C8C8C' lineHeight='1.375rem'>
-              /
-            </Paragraph>
-            <Paragraph size='sm' color='#595959' lineHeight='1.375rem'>
-              Bidding
-            </Paragraph>
-          </div>
+          <Breadcrums
+            fontSize='md'
+            options={[
+              { label: 'Auctions', href: '#' },
+              { label: 'Bidding', href: '#', active: true },
+            ]}
+          />
           <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
             Buy parameters
           </Paragraph>
@@ -201,54 +194,7 @@ const Buy = () => {
         </div>
       </BodyMain>
 
-      <Drawer active={open} onClose={handleOpen}>
-        <div style={{ backgroundColor: 'white' }}>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
-            <Container
-              vertical='md'
-              left='xl'
-              right='md'
-              style={{ display: 'flex', justifyContent: 'space-between' }}
-            >
-              <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                Time preset
-              </Paragraph>
-              <Pill background='transparent' color='dark' handleAction={handleOpen} />
-            </Container>
-          </div>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
-            <Container vertical='md' left='xl' right='md'>
-              <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
-              <div style={{ width: '16rem' }}>
-                <Input label='Medium input' />
-              </div>
-              <Spacer size='md' />
-              <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
-              <Spacer size='md' />
-              <div style={{ width: '100%', backgroundColor: 'gray', height: '72vh' }} />
-            </Container>
-          </div>
-          <div>
-            <Container
-              horizontal='md'
-              vertical='md'
-              style={{ display: 'flex', justifyContent: 'flex-end' }}
-            >
-              <Button
-                label='Save'
-                colors={{
-                  default: '#096DD9',
-                  hover: '#0254ac',
-                  click: '#096dd9bc',
-                  text: '#fff',
-                }}
-                onClick={handleOpen}
-              />
-            </Container>
-          </div>
-        </div>
-      </Drawer>
-      <Drawer active={openTable} onClose={() => null}>
+      <Drawer active={openTable} onClose={() => setOpenTable(false)}>
         <div style={{ backgroundColor: 'white' }}>
           <Container
             vertical='md'
@@ -279,7 +225,7 @@ const Buy = () => {
                 Pending
               </div>
             )}
-            <Pill background='transparent' color='dark' handleAction={() => setOpenTable(false)} />
+            <Pill background='transparent' color='#000' handleAction={() => setOpenTable(false)} />
           </Container>
         </div>
 
@@ -531,7 +477,7 @@ const Buy = () => {
                   click: '#096dd9bc',
                   text: '#fff',
                 }}
-                onClick={handleOpen}
+                onClick={() => setOpenTable(false)}
               />
             )}
           </Container>

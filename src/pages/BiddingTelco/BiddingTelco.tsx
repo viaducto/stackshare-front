@@ -9,10 +9,10 @@ import {
   Pill,
   Button,
   Breadcrums,
+  Drawer,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
 import { Container } from '../../components/Container';
-import { Drawer } from '../../components/Drawer';
 import styled from 'styled-components';
 
 const WrapperSelect = styled.div<any>`
@@ -250,7 +250,7 @@ const BiddingTelco = () => {
               <Spacer size='md' />
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
               <Spacer size='md' />
-              <div style={{ width: '100%', backgroundColor: 'gray', height: '72vh' }} />
+              <div style={{ width: '40rem', backgroundColor: 'gray', height: '72vh' }} />
             </Container>
           </div>
           <div>
