@@ -198,28 +198,30 @@ const BiddingTelco = () => {
                     </>
                   )}
                 </div>
-                <div>
-                  <Paragraph lineHeight='1.375rem' weight='600'>
-                    Potential earnings with current config
-                  </Paragraph>
-                  <Spacer direction='vertical' size='xs' />
-                  <div style={{ width: '40rem' }}>
-                    <Paragraph lineHeight='1.375rem' color='#595959'>
-                      These are stimated by the prices and maximum bandwith usage and the uptime
-                      selected.
+                {simple && (
+                  <div>
+                    <Paragraph lineHeight='1.375rem' weight='600'>
+                      Potential earnings with current config
                     </Paragraph>
+                    <Spacer direction='vertical' size='xs' />
+                    <div style={{ width: '40rem' }}>
+                      <Paragraph lineHeight='1.375rem' color='#595959'>
+                        These are stimated by the prices and maximum bandwith usage and the uptime
+                        selected.
+                      </Paragraph>
+                    </div>
+                    <Spacer direction='vertical' size='xs' />
+                    <div
+                      style={{
+                        display: 'flex',
+                      }}
+                    >
+                      <div style={{ width: '19rem', height: '12rem', backgroundColor: 'gray' }} />
+                      <Spacer size='md' direction='horizontal' />
+                      <div style={{ width: '19rem', height: '12rem', backgroundColor: 'gray' }} />
+                    </div>
                   </div>
-                  <Spacer direction='vertical' size='xs' />
-                  <div
-                    style={{
-                      display: 'flex',
-                    }}
-                  >
-                    <div style={{ width: '19rem', height: '12rem', backgroundColor: 'gray' }} />
-                    <Spacer size='md' direction='horizontal' />
-                    <div style={{ width: '19rem', height: '12rem', backgroundColor: 'gray' }} />
-                  </div>
-                </div>
+                )}
               </div>
             </Container>
           </div>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { SidebarSection, MenuItem } from '@jp-olvera/jp-viaducto-components';
 import { Container } from '../../Container';
-import { Chart, Suitcase } from 'react-ikonate';
+import { Chart, Suitcase, Grid, Settings } from 'react-ikonate';
 
 const StyledStackMenu = styled.div`
   width: 12.5rem;
@@ -35,15 +35,23 @@ const StackMenu = () => {
           <Link to='/'>
             <MenuItem label='Sell parameters' nested />
           </Link>
+          <Link to='/b2b'>
+            <MenuItem label='B2B' nested href='/b2b' />
+          </Link>
         </SidebarSection>
-        <SidebarSection title='Navigation Four' isMenu lead icon='⏲'>
+        <SidebarSection title='Navigation Four' isMenu lead icon={<Grid />}>
           <MenuItem label='Option 1' nested />
           <MenuItem label='Option 2' nested />
         </SidebarSection>
-        <SidebarSection title='Settings' icon='⏲' isDropdown>
-          <MenuItem label='Option 1' nested href='/' />
-          <MenuItem label='Option 2' nested />
+        <SidebarSection title='Settings' icon={<Settings />} isDropdown>
+          <MenuItem label='Menu Group Title' />
+          <MenuItem label='Option' nested />
+          <MenuItem label='Option' nested />
+          <MenuItem label='Menu Group Title' />
+          <MenuItem label='Option' nested />
+          <MenuItem label='Option' nested />
         </SidebarSection>
+        <MenuItem label='Bytebroker shop' lead icon={<Grid />} href='/shop' />
       </Container>
     </StyledStackMenu>
   );

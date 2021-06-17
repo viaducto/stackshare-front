@@ -190,7 +190,7 @@ const Buy = () => {
               />
             </Container>
           )}
-          {tab === 1 && '1'}
+          {tab === 1 && 'Fullfilled tab'}
         </div>
       </BodyMain>
 

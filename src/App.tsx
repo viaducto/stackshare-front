@@ -13,16 +13,16 @@ function App() {
       <Body>
         <Navbar />
         <Switch>
-          <Route path='/b2b'>
+          <Route path='/b2b' exact>
             <BiddingB2B />
           </Route>
-          <Route path='/buy'>
+          <Route path='/buy' exact>
             <Buy />
           </Route>
-          <Route path='/shop'>
+          <Route path='/shop' exact>
             <Shop />
           </Route>
-          <Route path='/'>
+          <Route path='/' exact>
             <BiddingTelco />
           </Route>
         </Switch>
