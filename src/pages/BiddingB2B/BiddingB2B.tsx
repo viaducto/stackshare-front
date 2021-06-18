@@ -86,7 +86,7 @@ const BiddingB2B = () => {
                 <Paragraph color='#595959' weight='600'>
                   $
                 </Paragraph>
-                <Input type='number' size='default' borderColor='#d9d9d9' />
+                <Input type='number' size='large' borderColor='#d9d9d9' />
               </div>
               {!simple && (
                 <>

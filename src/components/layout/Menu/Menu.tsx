@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { SidebarSection, MenuItem } from '@jp-olvera/jp-viaducto-components';
 import { Container } from '../../Container';
 import { Chart, Suitcase, Grid, Settings } from 'react-ikonate';
@@ -32,12 +31,8 @@ const StackMenu = () => {
         <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} />
         <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
           <MenuItem label='Buy parameters' nested href='/buy' />
-          <Link to='/'>
-            <MenuItem label='Sell parameters' nested />
-          </Link>
-          <Link to='/b2b'>
-            <MenuItem label='B2B' nested href='/b2b' />
-          </Link>
+          <MenuItem label='Sell parameters' nested href='/' />
+          <MenuItem label='B2B' nested href='/b2b' />
         </SidebarSection>
         <SidebarSection title='Navigation Four' isMenu lead icon={<Grid />}>
           <MenuItem label='Option 1' nested />

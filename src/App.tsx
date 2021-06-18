@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { ConfigContext } from '@jp-olvera/jp-viaducto-components';
 import { Switch, Route } from 'react-router-dom';
 import BiddingTelco from './pages/BiddingTelco/BiddingTelco';
 import Buy from './pages/BiddingTelco/Buy';
@@ -7,6 +8,21 @@ import BiddingB2B from './pages/BiddingB2B/BiddingB2B';
 import { Menu, Body, Navbar } from './components/layout';
 
 function App() {
+  const { updateConfig } = useContext(ConfigContext);
+
+  const myConfig = {
+    controlHeight: {
+      xsmall: '1.2rem',
+      small: '2.074rem',
+      default: '2rem',
+      large: '2.986rem',
+    },
+  };
+  useEffect(() => {
+    updateConfig(myConfig);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className='wrapper'>
       <Menu />
