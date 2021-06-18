@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Paragraph, Radio, Spacer, Input, Breadcrums } from '@jp-olvera/jp-viaducto-components';
+import {
+  Paragraph,
+  Radio,
+  Spacer,
+  Input,
+  Breadcrums,
+  Breadcrum,
+} from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
 import { Container } from '../../components/Container';
 import { Drawer } from '../../components/Drawer';
@@ -24,12 +31,10 @@ const BiddingB2B = () => {
       {/* Header */}
       <BodyHeader>
         <Container horizontal='md' vertical='sm'>
-          <Breadcrums
-            options={[
-              { href: '#', label: 'Auctions' },
-              { href: '#', label: 'Bidding', active: true },
-            ]}
-          />
+          <Breadcrums fontSize='md'>
+            <Breadcrum label='Auctions' href='#' />
+            <Breadcrum label='Bidding' href='#' active separator={false} />
+          </Breadcrums>
           <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
             Sell parameters
           </Paragraph>

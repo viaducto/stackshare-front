@@ -9,6 +9,7 @@ import {
   Pill,
   Button,
   Breadcrums,
+  Breadcrum,
   Drawer,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
@@ -42,12 +43,10 @@ const BiddingTelco = () => {
       {/* Header */}
       <BodyHeader>
         <Container vertical='sm' horizontal='md'>
-          <Breadcrums
-            options={[
-              { href: '#', label: 'Auctions' },
-              { href: '#', label: 'Bidding', active: true },
-            ]}
-          />
+          <Breadcrums>
+            <Breadcrum label='Auctions' href='' />
+            <Breadcrum label='Bidding' href='' active separator={false} />
+          </Breadcrums>
           <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
             Sell parameters
           </Paragraph>
