@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { SidebarSection, MenuItem } from '@jp-olvera/jp-viaducto-components';
 import { Container } from '../../Container';
@@ -30,9 +31,15 @@ const StackMenu = () => {
       <Container vertical='md' horizontal='md' style={{ position: 'relative' }}>
         <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} />
         <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
-          <MenuItem label='Buy parameters' nested href='/buy' />
-          <MenuItem label='Sell parameters' nested href='/' />
-          <MenuItem label='B2B' nested href='/b2b' />
+          <Link to='/buy' className='link-router'>
+            <MenuItem label='Buy parameters' nested />
+          </Link>
+          <Link to='/' className='link-router'>
+            <MenuItem label='Sell parameters' nested />
+          </Link>
+          <Link to='/b2b' className='link-router'>
+            <MenuItem label='B2B' nested />
+          </Link>
         </SidebarSection>
         <SidebarSection title='Navigation Four' isMenu lead icon={<Grid />}>
           <MenuItem label='Option 1' nested />
@@ -46,7 +53,9 @@ const StackMenu = () => {
           <MenuItem label='Option' nested />
           <MenuItem label='Option' nested />
         </SidebarSection>
-        <MenuItem label='Bytebroker shop' lead icon={<Grid />} href='/shop' />
+        <Link to='/shop' className='link-router'>
+          <MenuItem label='Bytebroker shop' lead icon={<Grid />} />
+        </Link>
       </Container>
     </StyledStackMenu>
   );
