@@ -11,6 +11,7 @@ import {
   Select,
   Drawer,
   Breadcrums,
+  Breadcrum,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
 import { Container } from '../../components/Container';
@@ -51,13 +52,10 @@ const Buy = () => {
       {/* Header */}
       <BodyHeader>
         <Container horizontal='md' top='sm'>
-          <Breadcrums
-            fontSize='md'
-            options={[
-              { label: 'Auctions', href: '#' },
-              { label: 'Bidding', href: '#', active: true },
-            ]}
-          />
+          <Breadcrums fontSize='md'>
+            <Breadcrum label='Auctions' href='' />
+            <Breadcrum label='Bidding' href='' active separator={false} />
+          </Breadcrums>
           <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
             Buy parameters
           </Paragraph>

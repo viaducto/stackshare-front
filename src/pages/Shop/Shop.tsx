@@ -12,6 +12,7 @@ import {
   Drawer,
   Tooltip,
   Breadcrums,
+  Breadcrum,
   Anchor,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
@@ -83,14 +84,11 @@ const Shop = () => {
       {/* Header */}
       <BodyHeader>
         <Container horizontal='md' top='sm'>
-          <Breadcrums
-            fontSize='md'
-            options={[
-              { label: 'Home', href: '#' },
-              { label: 'Documents', href: '#' },
-              { label: 'Invoices', href: '#', active: true },
-            ]}
-          />
+          <Breadcrums fontSize='xl'>
+            <Breadcrum label='Home' href='' />
+            <Breadcrum label='Documents' href='' />
+            <Breadcrum label='Invoices' href='' active separator={false} />
+          </Breadcrums>
           <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
             Buy parameters
           </Paragraph>
