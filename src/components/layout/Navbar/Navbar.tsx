@@ -1,8 +1,9 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Paragraph } from '@jp-olvera/jp-viaducto-components';
 import { Container } from '../../Container';
 import styled from 'styled-components';
-
+import { AppContext } from '../../../providers';
+import { Hamburger } from 'react-ikonate';
 const StyledNavbar = styled.nav`
   position: sticky;
   top: 0;
@@ -26,6 +27,8 @@ const StyledNavbar = styled.nav`
   }
 `;
 const Navbar = () => {
+  const { showMenu } = useContext(AppContext);
+
   return (
     <Container
       vertical='md'
@@ -37,9 +40,9 @@ const Navbar = () => {
       }}
     >
       <StyledNavbar>
-        <div className='icon-sidebar'>
-          <div style={{ height: '1.313rem', width: '1.313rem', backgroundColor: 'gray' }} />
-        </div>
+        <button className='bare-button' onClick={showMenu}>
+          <Hamburger fontSize='1.5rem' />
+        </button>
         <div className='user-navbar'>
           <div style={{ height: '1.313rem', width: '1.313rem', backgroundColor: 'gray' }} />
           <div style={{ height: '1.313rem', width: '1.313rem', backgroundColor: 'gray' }} />

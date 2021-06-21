@@ -1,12 +1,20 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { SidebarSection, MenuItem } from '@jp-olvera/jp-viaducto-components';
 import { Container } from '../../Container';
 import { Chart, Suitcase, Grid, Settings } from 'react-ikonate';
+import { AppContext } from '../../../providers';
 
-const StyledStackMenu = styled.div`
+interface StyledStackMenuProps {
+  active: boolean;
+}
+
+const StyledStackMenu = styled.div<StyledStackMenuProps>`
   width: 12.5rem;
+  /* width: ${(p) => (p.active ? '12.5rem' : '0rem')}; */
+  transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(-100%)')};
+  transition: transform 230ms ease-out;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,14 +29,16 @@ const StyledStackMenu = styled.div`
     }
   }
   box-shadow: 0.125rem 0 0.313rem -0.125rem rgba(0, 0, 0, 0.2);
+  z-index: 1;
 `;
 const StackMenu = () => {
+  const { isMenuActive } = useContext(AppContext);
   return (
-    <StyledStackMenu>
+    <StyledStackMenu active={isMenuActive}>
       <Container vertical='md' horizontal='md'>
         <div style={{ width: '8.375rem', height: '1.5rem', backgroundColor: 'gray' }} />
       </Container>
-      <Container vertical='md' horizontal='md' style={{ position: 'relative' }}>
+      <Container vertical='md' style={{ position: 'relative' }}>
         <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} />
         <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
           <Link to='/buy' className='link-router'>

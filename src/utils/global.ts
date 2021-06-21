@@ -27,4 +27,13 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+
+  .bare-button{
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: inherit;
+    color:inherit;
+    cursor: pointer;
+  }
 `;
