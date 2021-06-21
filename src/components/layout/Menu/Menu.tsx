@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { SidebarSection, MenuItem } from '@jp-olvera/jp-viaducto-components';
 import { Container } from '../../Container';
@@ -33,6 +33,8 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
 `;
 const StackMenu = () => {
   const { isMenuActive } = useContext(AppContext);
+  const { pathname } = useLocation();
+
   return (
     <StyledStackMenu active={isMenuActive}>
       <Container vertical='md' horizontal='md'>
@@ -42,13 +44,13 @@ const StackMenu = () => {
         <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} />
         <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
           <Link to='/buy' className='link-router'>
-            <MenuItem label='Buy parameters' nested />
+            <MenuItem label='Buy parameters' nested active={pathname === '/buy'} />
           </Link>
           <Link to='/' className='link-router'>
-            <MenuItem label='Sell parameters' nested />
+            <MenuItem label='Sell parameters' nested active={pathname === '/'} />
           </Link>
           <Link to='/b2b' className='link-router'>
-            <MenuItem label='B2B' nested />
+            <MenuItem label='B2B' nested active={pathname === '/b2b'} />
           </Link>
         </SidebarSection>
         <SidebarSection title='Navigation Four' isMenu lead icon={<Grid />}>
@@ -64,7 +66,7 @@ const StackMenu = () => {
           <MenuItem label='Option' nested />
         </SidebarSection>
         <Link to='/shop' className='link-router'>
-          <MenuItem label='Bytebroker shop' lead icon={<Grid />} />
+          <MenuItem label='Bytebroker shop' lead icon={<Grid />} active={pathname === '/shop'} />
         </Link>
       </Container>
     </StyledStackMenu>
