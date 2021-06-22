@@ -10,8 +10,9 @@ interface BiddingTimeProps {
 }
 interface PricingColumnProps {
   bidding: BiddingTimeProps[];
+  className?: string;
 }
-const PricingColumn = ({ bidding }: PricingColumnProps) => {
+const PricingColumn = ({ bidding, className = '', ...rest }: PricingColumnProps) => {
   const getTop = (start: string) => {
     let minutos1 = parseInt(start.split(':')[0], 10) * 60;
     minutos1 += parseInt(start.split(':')[1], 10);
@@ -65,6 +66,8 @@ const PricingColumn = ({ bidding }: PricingColumnProps) => {
         display: 'flex',
         flexDirection: 'column',
       }}
+      className={className}
+      {...rest}
     >
       {getEmptySlots()}
       {bidding.map((e, i) => (

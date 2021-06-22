@@ -1,4 +1,4 @@
-import React from 'react';
+import styled from 'styled-components';
 import PricingColumn from './PricingColumn';
 import TimeBlock from './TimeBlock';
 
@@ -13,6 +13,19 @@ import TimeBlock from './TimeBlock';
 // TODO: CÓMO MANEJAR LOS TEXTOS DE NOON, NIGHT
 // FIXME: EL BORDE DE LA COLUMNA DE HORAS NO DEBE SALIR COMPLETO
 
+const StyledPricingTable = styled.div`
+  display: grid;
+  grid-template-columns: 90px repeat(7, minmax(11rem, 1fr));
+  grid-template-rows: 27px 1fr;
+  grid-auto-columns: 200px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 90px repeat(2, minmax(11rem, 1fr));
+    .pc-hide {
+      display: none !important;
+    }
+  }
+`;
 const PricingTable = () => {
   const MONDAY = [
     {
@@ -85,32 +98,25 @@ const PricingTable = () => {
     7: 'SUNDAY',
   };
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '90px repeat(7, minmax(11rem, 1fr))',
-        gridTemplateRows: '27px 1fr',
-        gridAutoColumns: '200px',
-      }}
-    >
+    <StyledPricingTable>
       <div></div>
       <div>{WEEK_DAYS[1]}</div>
       <div>{WEEK_DAYS[2]}</div>
-      <div>{WEEK_DAYS[3]}</div>
-      <div>{WEEK_DAYS[4]}</div>
-      <div>{WEEK_DAYS[5]}</div>
-      <div>{WEEK_DAYS[6]}</div>
-      <div>{WEEK_DAYS[7]}</div>
+      <div className='pc-hide'>{WEEK_DAYS[3]}</div>
+      <div className='pc-hide'>{WEEK_DAYS[4]}</div>
+      <div className='pc-hide'>{WEEK_DAYS[5]}</div>
+      <div className='pc-hide'>{WEEK_DAYS[6]}</div>
+      <div className='pc-hide'>{WEEK_DAYS[7]}</div>
 
       <div>{getTimeBlocks()}</div>
       <PricingColumn bidding={MONDAY} />
       <PricingColumn bidding={TUESDAY} />
-      <PricingColumn bidding={MONDAY} />
-      <PricingColumn bidding={TUESDAY} />
-      <PricingColumn bidding={MONDAY} />
-      <PricingColumn bidding={TUESDAY} />
-      <PricingColumn bidding={TUESDAY} />
-    </div>
+      <PricingColumn className='pc-hide' bidding={MONDAY} />
+      <PricingColumn className='pc-hide' bidding={TUESDAY} />
+      <PricingColumn className='pc-hide' bidding={MONDAY} />
+      <PricingColumn className='pc-hide' bidding={TUESDAY} />
+      <PricingColumn className='pc-hide' bidding={TUESDAY} />
+    </StyledPricingTable>
   );
 };
 
