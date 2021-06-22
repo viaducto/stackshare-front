@@ -13,7 +13,7 @@ import { Button } from '@jp-olvera/jp-viaducto-components';
 // TODO: I18N, RECIBIR LOS NOMBRES DE LOS DÍAS DE LA SEMANA COMO PARÁMETROS PARA LA INTERNACIONALIZACIÓN
 // TODO: CÓMO MANEJAR LOS TEXTOS DE NOON, NIGHT
 // FIXME: EL BORDE DE LA COLUMNA DE HORAS NO DEBE SALIR COMPLETO
-
+// FIXME: CUANDO LLEGAS A JUNE 30 TODO SE VE GRIS
 const StyledPricingTable = styled.div`
   display: grid;
   grid-template-columns: 90px repeat(7, minmax(11rem, 1fr));
@@ -29,29 +29,86 @@ const StyledPricingTable = styled.div`
 `;
 
 interface PricingTableProps {
-  months?: { [key: string]: string };
+  months?: { [key: number]: string };
 }
 const PricingTable = ({
   months = {
-    1: 'JANUARY',
-    2: 'FEBRUARY',
-    3: 'MARCH',
-    4: 'APRIL',
-    5: 'MAY',
-    6: 'JUNE',
-    7: 'JULY',
-    8: 'AUGUST',
-    9: 'SEPTEMBER',
-    10: 'OCTOBER',
-    11: 'NOVEMBER',
-    12: 'DECEMBER',
+    0: 'JANUARY',
+    1: 'FEBRUARY',
+    2: 'MARCH',
+    3: 'APRIL',
+    4: 'MAY',
+    5: 'JUNE',
+    6: 'JULY',
+    7: 'AUGUST',
+    8: 'SEPTEMBER',
+    9: 'OCTOBER',
+    10: 'NOVEMBER',
+    11: 'DECEMBER',
   },
 }: PricingTableProps) => {
   const [month, setMonth] = useState<number>(1);
+  const [weekDates, setWeekDates] = useState<{ [key: number]: [number, number] }>({
+    0: [0, 0],
+    1: [0, 0],
+    2: [0, 0],
+    3: [0, 0],
+    4: [0, 0],
+    5: [0, 0],
+    6: [0, 0],
+  });
+  const [changeWeeks, setChangeWeeks] = useState(0);
+  // const [todayDay, setTodayDay] = useState(0);
+  // const [todayMonth, setTodayMonth] = useState(1);
+  // useEffect(() => {
+  //   const d = new Date();
+  //   setTodayDay(d.getDay());
+  //   setTodayMonth(d.getMonth());
+  // }, []);
+  const handleChangeWeek = (next = true) => {
+    // goes forwards
+    if (next) {
+      setChangeWeeks((d) => d + 1);
+      return;
+    }
+    // goes backwards
+    setChangeWeeks((d) => d - 1);
+  };
+
   useEffect(() => {
-    const d = new Date();
-    setMonth(d.getMonth());
-  }, []);
+    const curr = new Date(); // today
+    curr.setDate(curr.getDate() + changeWeeks * 7); // adjust based on changeWeeks
+    console.log(curr);
+    setMonth(curr.getMonth());
+    const firstDay = curr.getDate() - curr.getDay();
+    setWeekDates({
+      0: [new Date(curr.setDate(firstDay)).getDate(), new Date(curr.setDate(firstDay)).getMonth()],
+      1: [
+        new Date(curr.setDate(firstDay + 1)).getDate(),
+        new Date(curr.setDate(firstDay + 1)).getMonth(),
+      ],
+      2: [
+        new Date(curr.setDate(firstDay + 2)).getDate(),
+        new Date(curr.setDate(firstDay + 2)).getMonth(),
+      ],
+      3: [
+        new Date(curr.setDate(firstDay + 3)).getDate(),
+        new Date(curr.setDate(firstDay + 3)).getMonth(),
+      ],
+      4: [
+        new Date(curr.setDate(firstDay + 4)).getDate(),
+        new Date(curr.setDate(firstDay + 4)).getMonth(),
+      ],
+      5: [
+        new Date(curr.setDate(firstDay + 5)).getDate(),
+        new Date(curr.setDate(firstDay + 5)).getMonth(),
+      ],
+      6: [
+        new Date(curr.setDate(firstDay + 6)).getDate(),
+        new Date(curr.setDate(firstDay + 6)).getMonth(),
+      ],
+    });
+  }, [changeWeeks]);
 
   const MONDAY = [
     {
@@ -130,28 +187,76 @@ const PricingTable = ({
           <b>{months[month]}</b>
         </span>
         <div style={{ marginLeft: 'auto' }}>
-          <Button label='<' shapeColor='success' variant='outline' />
-          <Button label='>' shapeColor='success' variant='outline' />
+          <Button
+            label='<'
+            shapeColor='success'
+            variant='outline'
+            onClick={() => {
+              handleChangeWeek(false);
+            }}
+          />
+          <Button
+            label='>'
+            shapeColor='success'
+            variant='outline'
+            onClick={() => {
+              handleChangeWeek();
+            }}
+          />
         </div>
       </div>
       <div style={{ width: '100%' }}>
         <StyledPricingTable>
           <div></div>
-          <div>{WEEK_DAYS[1]}</div>
-          <div>{WEEK_DAYS[2]}</div>
-          <div className='pc-hide'>{WEEK_DAYS[3]}</div>
-          <div className='pc-hide'>{WEEK_DAYS[4]}</div>
-          <div className='pc-hide'>{WEEK_DAYS[5]}</div>
-          <div className='pc-hide'>{WEEK_DAYS[6]}</div>
-          <div className='pc-hide'>{WEEK_DAYS[0]}</div>
+          <div>
+            {WEEK_DAYS[0]} ({weekDates[0][0]} del {weekDates[0][1]})
+          </div>
+          <div>
+            {WEEK_DAYS[1]} ({weekDates[1][0]} del {weekDates[1][1]})
+          </div>
+          <div className='pc-hide'>
+            {WEEK_DAYS[2]} ({weekDates[2][0]} del {weekDates[2][1]})
+          </div>
+          <div className='pc-hide'>
+            {WEEK_DAYS[3]} ({weekDates[3][0]} del {weekDates[3][1]})
+          </div>
+          <div className='pc-hide'>
+            {WEEK_DAYS[4]} ({weekDates[4][0]} del {weekDates[4][1]})
+          </div>
+          <div className='pc-hide'>
+            {WEEK_DAYS[5]} ({weekDates[5][0]} del {weekDates[5][1]})
+          </div>
+          <div className='pc-hide'>
+            {WEEK_DAYS[6]} ({weekDates[6][0]} del {weekDates[6][1]})
+          </div>
           <div>{getTimeBlocks()}</div>
-          <PricingColumn bidding={MONDAY} />
-          <PricingColumn bidding={TUESDAY} />
-          <PricingColumn className='pc-hide' bidding={MONDAY} />
-          <PricingColumn className='pc-hide' bidding={TUESDAY} />
-          <PricingColumn className='pc-hide' bidding={MONDAY} />
-          <PricingColumn className='pc-hide' bidding={TUESDAY} />
-          <PricingColumn className='pc-hide' bidding={TUESDAY} />
+          <PricingColumn isCurrentMonth={weekDates[0][1] === month} bidding={MONDAY} />
+          <PricingColumn isCurrentMonth={weekDates[1][1] === month} bidding={TUESDAY} />
+          <PricingColumn
+            isCurrentMonth={weekDates[2][1] === month}
+            className='pc-hide'
+            bidding={MONDAY}
+          />
+          <PricingColumn
+            isCurrentMonth={weekDates[3][1] === month}
+            className='pc-hide'
+            bidding={TUESDAY}
+          />
+          <PricingColumn
+            isCurrentMonth={weekDates[4][1] === month}
+            className='pc-hide'
+            bidding={MONDAY}
+          />
+          <PricingColumn
+            isCurrentMonth={weekDates[5][1] === month}
+            className='pc-hide'
+            bidding={TUESDAY}
+          />
+          <PricingColumn
+            isCurrentMonth={weekDates[6][1] === month}
+            className='pc-hide'
+            bidding={TUESDAY}
+          />
         </StyledPricingTable>
       </div>
     </>

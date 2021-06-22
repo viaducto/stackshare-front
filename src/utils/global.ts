@@ -36,4 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     color:inherit;
     cursor: pointer;
   }
+  .iss-today{
+    background-color: green;
+  }
 `;

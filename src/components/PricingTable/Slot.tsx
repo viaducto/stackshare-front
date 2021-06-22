@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Drawer, Tab, Container } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 const StyledSlot = styled.button`
   appearance: none;
@@ -36,11 +38,44 @@ interface SlotProps {
   height: string;
 }
 const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
+  const [activeDrawer, setActiveDrawer] = useState(false);
+  const onCloseDrawer = () => {
+    setActiveDrawer(!activeDrawer);
+  };
+  const showInfo = () => {
+    setActiveDrawer(!activeDrawer);
+  };
   return (
-    <StyledSlot type='button' style={{ top, height }} {...rest}>
-      <span style={{ fontSize: '1rem', textTransform: 'capitalize' }}>{title} </span>
-      <span style={{ fontSize: '0.8rem', marginLeft: 'auto' }}>{timeLapse}</span>
-    </StyledSlot>
+    <>
+      <StyledSlot type='button' style={{ top, height }} onClick={showInfo} {...rest}>
+        <span style={{ fontSize: '1rem', textTransform: 'capitalize' }}>{title} </span>
+        <span style={{ fontSize: '0.8rem', marginLeft: 'auto' }}>{timeLapse}</span>
+      </StyledSlot>
+      <Drawer active={activeDrawer} onClose={onCloseDrawer}>
+        <Container expandVertical expandHorizontal vertical='lg' horizontal='sm'>
+          <h4>Mondays 9:00 AM(EST)</h4>
+          <div style={{ display: 'flex' }}>
+            <Tab text='Bandwidth' />
+            <Tab text='Packages' />
+            <Tab text='Secure channels' />
+          </div>
+          <div style={{ display: 'flex' }}>
+            <Container vertical='sm' horizontal='sm'>
+              <p>Expires by</p>
+              <p>
+                <b>March 4, 2021. 4:00 am</b>
+              </p>
+            </Container>
+            <Container vertical='sm' horizontal='sm'>
+              <p>Expires by</p>
+              <p>
+                <b>March 4, 2021. 4:00 am</b>
+              </p>
+            </Container>
+          </div>
+        </Container>
+      </Drawer>
+    </>
   );
 };
 

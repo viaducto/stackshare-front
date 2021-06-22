@@ -11,8 +11,14 @@ interface BiddingTimeProps {
 interface PricingColumnProps {
   bidding: BiddingTimeProps[];
   className?: string;
+  isCurrentMonth?: boolean;
 }
-const PricingColumn = ({ bidding, className = '', ...rest }: PricingColumnProps) => {
+const PricingColumn = ({
+  bidding,
+  className = '',
+  isCurrentMonth = true,
+  ...rest
+}: PricingColumnProps) => {
   const getTop = (start: string) => {
     let minutos1 = parseInt(start.split(':')[0], 10) * 60;
     minutos1 += parseInt(start.split(':')[1], 10);
@@ -65,6 +71,7 @@ const PricingColumn = ({ bidding, className = '', ...rest }: PricingColumnProps)
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: isCurrentMonth ? 'white' : '#ebebeb',
       }}
       className={className}
       {...rest}
