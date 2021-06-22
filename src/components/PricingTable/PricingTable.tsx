@@ -1,7 +1,8 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PricingColumn from './PricingColumn';
 import TimeBlock from './TimeBlock';
-
+import { Button } from '@jp-olvera/jp-viaducto-components';
 // TODO: OPACIDAD PARA LOS DÍAS QUE NO PERTENECEN A UN MES
 // TODO: INDICADOR PAR UN DÍA DEL MES ANTERIOR JULY/31
 // TODO: DAR CLICK EN UN MARCO PARA CREAR EL CONTEO
@@ -26,7 +27,32 @@ const StyledPricingTable = styled.div`
     }
   }
 `;
-const PricingTable = () => {
+
+interface PricingTableProps {
+  months?: { [key: string]: string };
+}
+const PricingTable = ({
+  months = {
+    1: 'JANUARY',
+    2: 'FEBRUARY',
+    3: 'MARCH',
+    4: 'APRIL',
+    5: 'MAY',
+    6: 'JUNE',
+    7: 'JULY',
+    8: 'AUGUST',
+    9: 'SEPTEMBER',
+    10: 'OCTOBER',
+    11: 'NOVEMBER',
+    12: 'DECEMBER',
+  },
+}: PricingTableProps) => {
+  const [month, setMonth] = useState<number>(1);
+  useEffect(() => {
+    const d = new Date();
+    setMonth(d.getMonth());
+  }, []);
+
   const MONDAY = [
     {
       price: 5,
@@ -89,49 +115,47 @@ const PricingTable = () => {
   };
 
   const WEEK_DAYS = {
-    1: 'MONDAY',
-    2: 'TUESDAY',
-    3: 'WEDNESDAY',
-    4: 'THURSDAY',
-    5: 'FRIDAY',
-    6: 'SATURDAY',
-    7: 'SUNDAY',
+    1: 'MON',
+    2: 'TUES',
+    3: 'WED',
+    4: 'THU',
+    5: 'FRI',
+    6: 'SAT',
+    0: 'SUN',
   };
   return (
-    <StyledPricingTable>
-      <div></div>
-      <div>{WEEK_DAYS[1]}</div>
-      <div>{WEEK_DAYS[2]}</div>
-      <div className='pc-hide'>{WEEK_DAYS[3]}</div>
-      <div className='pc-hide'>{WEEK_DAYS[4]}</div>
-      <div className='pc-hide'>{WEEK_DAYS[5]}</div>
-      <div className='pc-hide'>{WEEK_DAYS[6]}</div>
-      <div className='pc-hide'>{WEEK_DAYS[7]}</div>
-
-      <div>{getTimeBlocks()}</div>
-      <PricingColumn bidding={MONDAY} />
-      <PricingColumn bidding={TUESDAY} />
-      <PricingColumn className='pc-hide' bidding={MONDAY} />
-      <PricingColumn className='pc-hide' bidding={TUESDAY} />
-      <PricingColumn className='pc-hide' bidding={MONDAY} />
-      <PricingColumn className='pc-hide' bidding={TUESDAY} />
-      <PricingColumn className='pc-hide' bidding={TUESDAY} />
-    </StyledPricingTable>
+    <>
+      <div style={{ display: 'flex', fontSize: '2rem' }}>
+        <span>
+          <b>{months[month]}</b>
+        </span>
+        <div style={{ marginLeft: 'auto' }}>
+          <Button label='<' shapeColor='success' variant='outline' />
+          <Button label='>' shapeColor='success' variant='outline' />
+        </div>
+      </div>
+      <div style={{ width: '100%' }}>
+        <StyledPricingTable>
+          <div></div>
+          <div>{WEEK_DAYS[1]}</div>
+          <div>{WEEK_DAYS[2]}</div>
+          <div className='pc-hide'>{WEEK_DAYS[3]}</div>
+          <div className='pc-hide'>{WEEK_DAYS[4]}</div>
+          <div className='pc-hide'>{WEEK_DAYS[5]}</div>
+          <div className='pc-hide'>{WEEK_DAYS[6]}</div>
+          <div className='pc-hide'>{WEEK_DAYS[0]}</div>
+          <div>{getTimeBlocks()}</div>
+          <PricingColumn bidding={MONDAY} />
+          <PricingColumn bidding={TUESDAY} />
+          <PricingColumn className='pc-hide' bidding={MONDAY} />
+          <PricingColumn className='pc-hide' bidding={TUESDAY} />
+          <PricingColumn className='pc-hide' bidding={MONDAY} />
+          <PricingColumn className='pc-hide' bidding={TUESDAY} />
+          <PricingColumn className='pc-hide' bidding={TUESDAY} />
+        </StyledPricingTable>
+      </div>
+    </>
   );
 };
 
-// const MONTHS = {
-//   1: 'JANUARY',
-//   2: 'FEBRUARY',
-//   3: 'MARCH',
-//   4: 'APRIL',
-//   5: 'MAY',
-//   6: 'JUNE',
-//   7: 'JULY',
-//   8: 'AUGUST',
-//   9: 'SEPTEMBER',
-//   10: 'OCTOBER',
-//   11: 'NOVEMBER',
-//   12: 'DECEMBER',
-// };
 export default PricingTable;
