@@ -99,7 +99,7 @@ const BiddingTelco = () => {
                   overflowX: 'auto',
                 }}
               >
-                <div>
+                <div style={{ width: '100%' }}>
                   <Paragraph lineHeight='1.375rem' weight='600'>
                     Minimum ask per Mb/s
                   </Paragraph>

@@ -36,41 +36,4 @@ export const GlobalStyle = createGlobalStyle`
     color:inherit;
     cursor: pointer;
   }
-
-  .pt-col {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    width: 186px;
-    position: relative;
-  }
-  .pt-title {
-    box-sizing: border-box;
-    height: 27.45px;
-    width: 186px;
-    box-sizing: border-box;
-    border-bottom: 1px solid #EBEBEB; 
-  }
-  .pt-time-block{
-    box-sizing: border-box;
-    height: 56px;
-    border-right: 1px solid #EBEBEB;
-    position: relative;
-  }
-  .pt-time-block::before{
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: 0px;
-    height: 1px;
-    width: 1.125rem;
-    background-color: #EBEBEB;
-
-  }
-  .pt-time-tag{
-    position: absolute;
-    bottom: -8px;
-    right: 1.130rem;
-    z-index: 1;
-  }
 `;

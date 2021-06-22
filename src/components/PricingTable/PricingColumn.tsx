@@ -58,7 +58,14 @@ const PricingColumn = ({ bidding }: PricingColumnProps) => {
   };
 
   return (
-    <div className='pt-col'>
+    <div
+      style={{
+        position: 'relative',
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       {getEmptySlots()}
       {bidding.map((e) => (
         <Slot

@@ -1,5 +1,6 @@
 import React from 'react';
 import PricingColumn from './PricingColumn';
+import TimeBlock from './TimeBlock';
 
 // TODO: OPACIDAD PARA LOS DÍAS QUE NO PERTENECEN A UN MES
 // TODO: INDICADOR PAR UN DÍA DEL MES ANTERIOR JULY/31
@@ -69,11 +70,7 @@ const PricingTable = () => {
   const getTimeBlocks = () => {
     let blocks = [];
     for (let i = 1; i <= 24; i++) {
-      blocks.push(
-        <div key={i} className='pt-time-block'>
-          <span className='pt-time-tag'>{i}hrs</span>
-        </div>
-      );
+      blocks.push(<TimeBlock key={i} hora={i} />);
     }
     return blocks;
   };
@@ -88,29 +85,31 @@ const PricingTable = () => {
     7: 'SUNDAY',
   };
   return (
-    <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', width: '100%' }}>
-        <div className='pt-title' style={{ width: '90px' }}></div>
-        <div className='pt-title'>{WEEK_DAYS[1]}</div>
-        <div className='pt-title'>{WEEK_DAYS[2]}</div>
-        <div className='pt-title'>{WEEK_DAYS[3]}</div>
-        <div className='pt-title'>{WEEK_DAYS[4]}</div>
-        <div className='pt-title'>{WEEK_DAYS[5]}</div>
-        <div className='pt-title'>{WEEK_DAYS[6]}</div>
-        <div className='pt-title'>{WEEK_DAYS[7]}</div>
-      </div>
-      <div style={{ display: 'flex' }}>
-        <div className='pt-col' style={{ width: '90px' }}>
-          {getTimeBlocks()}
-        </div>
-        <PricingColumn bidding={MONDAY} />
-        <PricingColumn bidding={TUESDAY} />
-        <PricingColumn bidding={MONDAY} />
-        <PricingColumn bidding={TUESDAY} />
-        <PricingColumn bidding={MONDAY} />
-        <PricingColumn bidding={TUESDAY} />
-        <PricingColumn bidding={TUESDAY} />
-      </div>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '90px repeat(7, minmax(11rem, 1fr))',
+        gridTemplateRows: '27px 1fr',
+        gridAutoColumns: '200px',
+      }}
+    >
+      <div></div>
+      <div>{WEEK_DAYS[1]}</div>
+      <div>{WEEK_DAYS[2]}</div>
+      <div>{WEEK_DAYS[3]}</div>
+      <div>{WEEK_DAYS[4]}</div>
+      <div>{WEEK_DAYS[5]}</div>
+      <div>{WEEK_DAYS[6]}</div>
+      <div>{WEEK_DAYS[7]}</div>
+
+      <div>{getTimeBlocks()}</div>
+      <PricingColumn bidding={MONDAY} />
+      <PricingColumn bidding={TUESDAY} />
+      <PricingColumn bidding={MONDAY} />
+      <PricingColumn bidding={TUESDAY} />
+      <PricingColumn bidding={MONDAY} />
+      <PricingColumn bidding={TUESDAY} />
+      <PricingColumn bidding={TUESDAY} />
     </div>
   );
 };
