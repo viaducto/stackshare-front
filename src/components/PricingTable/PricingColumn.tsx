@@ -1,4 +1,6 @@
 import React from 'react';
+import EmptySlot from './EmptySlot';
+import Slot from './Slot';
 
 interface BiddingTimeProps {
   price: number;
@@ -13,7 +15,7 @@ const PricingColumn = ({ bidding }: PricingColumnProps) => {
   const getTop = (start: string) => {
     let minutos1 = parseInt(start.split(':')[0], 10) * 60;
     minutos1 += parseInt(start.split(':')[1], 10);
-    console.log(minutos1);
+    // console.log(minutos1);
     let top = (minutos1 * 56) / 60;
     return top + 'px';
   };
@@ -47,25 +49,24 @@ const PricingColumn = ({ bidding }: PricingColumnProps) => {
     return `${Math.round(r / 60)}hrs ${r % 60}mins`;
   };
 
-  const getBlocks = () => {
+  const getEmptySlots = () => {
     let blocks = [];
     for (let i = 1; i <= 48; i++) {
-      blocks.push(<div key={i} className='pt-block'></div>);
+      blocks.push(<EmptySlot key={i} />);
     }
     return blocks;
   };
 
   return (
     <div className='pt-col'>
-      {getBlocks()}
+      {getEmptySlots()}
       {bidding.map((e) => (
-        <div
-          className='pt-bidtime'
-          style={{ top: getTop(e.start_time), height: getHeight(e.start_time, e.end_time) }}
-        >
-          <span className='bidding-title'>{e.title} </span>
-          <span className='bidding-time'>{getTimeLapse(e.start_time, e.end_time)}</span>
-        </div>
+        <Slot
+          title={e.title}
+          timeLapse={getTimeLapse(e.start_time, e.end_time)}
+          top={getTop(e.start_time)}
+          height={getHeight(e.start_time, e.end_time)}
+        />
       ))}
     </div>
   );

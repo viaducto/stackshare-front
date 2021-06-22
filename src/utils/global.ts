@@ -51,11 +51,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     border-bottom: 1px solid #EBEBEB; 
   }
-  .pt-block{
-    box-sizing: border-box;
-    height: 28px;
-    border-bottom: 1px solid #EBEBEB; 
-  }
   .pt-time-block{
     box-sizing: border-box;
     height: 56px;
@@ -77,27 +72,5 @@ export const GlobalStyle = createGlobalStyle`
     bottom: -8px;
     right: 1.130rem;
     z-index: 1;
-  }
-  .pt-bidtime {
-    background-color: rgba(124, 179, 5, 0.4);
-    position: absolute;
-    width: 100%;
-    box-sizing: border-box;
-    padding-left: 5px;
-  }
-  .pt-bidtime::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    height: 100%;
-    top: left;
-    width: 0.229rem;
-    background-color: #7CB305;
-  }
-  .bidding-title{
-    font-size: 1rem;
-  }
-  .bidding-time{
-    font-size: 0.8rem;
   }
 `;
