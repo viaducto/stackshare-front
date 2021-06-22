@@ -99,7 +99,7 @@ const BiddingTelco = () => {
                   overflowX: 'auto',
                 }}
               >
-                <div style={{ width: '100%' }}>
+                <div>
                   <Paragraph lineHeight='1.375rem' weight='600'>
                     Minimum ask per Mb/s
                   </Paragraph>
@@ -129,7 +129,7 @@ const BiddingTelco = () => {
                         Blank spaces will be assigned to the default Mb price
                       </Paragraph>
 
-                      <div style={{ height: '35.8rem', width: '100%', overflowX: 'auto' }}>
+                      <div style={{ overflowX: 'auto' }}>
                         <PricingTable />
                         <input type='time' />
                       </div>
