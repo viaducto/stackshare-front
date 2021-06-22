@@ -15,6 +15,7 @@ import {
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
 import { Container } from '../../components/Container';
 import styled from 'styled-components';
+import { PricingTable } from '../../components/PricingTable';
 
 const WrapperSelect = styled.div<any>`
   width: 16rem;
@@ -32,6 +33,7 @@ const BiddingTelco = () => {
   useEffect(() => {
     document.querySelectorAll('input')[0].checked = true;
   }, []);
+
   return (
     <BodyContent
       style={{
@@ -94,6 +96,7 @@ const BiddingTelco = () => {
                   justifyContent: 'flex-start',
                   gap: '5rem',
                   flexWrap: 'wrap',
+                  overflowX: 'auto',
                 }}
               >
                 <div>
@@ -126,9 +129,10 @@ const BiddingTelco = () => {
                         Blank spaces will be assigned to the default Mb price
                       </Paragraph>
 
-                      <div
-                        style={{ height: '35.8rem', backgroundColor: 'gray', width: '36.438rem' }}
-                      />
+                      <div style={{ overflowX: 'auto' }}>
+                        <PricingTable />
+                        <input type='time' />
+                      </div>
                     </>
                   )}
                   <Spacer direction='vertical' size='md' />
