@@ -67,8 +67,9 @@ const PricingColumn = ({ bidding }: PricingColumnProps) => {
       }}
     >
       {getEmptySlots()}
-      {bidding.map((e) => (
+      {bidding.map((e, i) => (
         <Slot
+          key={i}
           title={e.title}
           timeLapse={getTimeLapse(e.start_time, e.end_time)}
           top={getTop(e.start_time)}
