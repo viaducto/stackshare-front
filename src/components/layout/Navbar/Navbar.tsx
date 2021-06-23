@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-import { Paragraph } from '@jp-olvera/jp-viaducto-components';
-import { Container } from '../../Container';
+import { Paragraph, Container } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 import { AppContext } from '../../../providers';
 import { Hamburger } from 'react-ikonate';

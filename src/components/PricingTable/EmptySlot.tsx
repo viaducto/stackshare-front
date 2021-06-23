@@ -49,7 +49,7 @@ const EmptySlot = () => {
             </Container>
           </div>
           <Container vertical='lg' horizontal='md' border='outside'>
-            <Input type='text' label='Name the time preset' />
+            <Input type='text' label='Name the time preset' onClick={() => {}} onKeyUp={() => {}} />
             <Spacer size='sm' />
             <Button label='Save' onClick={onCloseDrawer} />
           </Container>

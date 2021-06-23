@@ -36,7 +36,24 @@ export const GlobalStyle = createGlobalStyle`
     color:inherit;
     cursor: pointer;
   }
-  .iss-today{
-    background-color: green;
+  .is-today{
+    font-weight: bold;
+    color: #7cb305;
+  }
+
+  .resizer{
+    width: .6rem !important;
+    top: 25% !important;
+    background-color: #d9d9d9 !important;
+    height: 50% !important;
+  }
+
+  .flex{
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  table > thead > tr {
+    background-color: #fafafa !important;
   }
 `;

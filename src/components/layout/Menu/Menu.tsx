@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { SidebarSection, MenuItem } from '@jp-olvera/jp-viaducto-components';
-import { Container } from '../../Container';
+import { SidebarSection, MenuItem, Container } from '@jp-olvera/jp-viaducto-components';
 import { Chart, Suitcase, Grid, Settings } from 'react-ikonate';
 import { AppContext } from '../../../providers';
 

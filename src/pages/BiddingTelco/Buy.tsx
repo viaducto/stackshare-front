@@ -7,15 +7,17 @@ import {
   Radio,
   Button,
   Tab,
-  Table,
+  WrapperTable,
   Select,
   Drawer,
   Breadcrums,
   Breadcrum,
+  Container,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
-import { Container } from '../../components/Container';
-import { dummyData } from './StoryData';
+import { dummyData, buyColumns } from './StoryData';
+import { Filter, EllypsisVertical, Plus } from 'react-ikonate';
+import Table from '../../components/Table/Table';
 const details = {
     default: 'transparent',
     hover: 'transparent',
@@ -87,105 +89,115 @@ const Buy = () => {
 
       {/* Body */}
       <BodyMain>
-        <div style={{ backgroundColor: 'white', height: '100%', width: 'min-content' }}>
+        <div style={{ backgroundColor: 'white', height: '100%', width: '80%', overflow: 'auto' }}>
           {tab === 0 && (
-            <Container vertical='md' horizontal='lg'>
-              <Button
-                label='New bid'
-                icon='+'
-                lead
-                colors={{
-                  default: '#096DD9',
-                  hover: '#0254ac',
-                  click: '#096dd9bc',
-                  text: '#fff',
-                }}
-                onClick={() => {
-                  setData({});
-                  setNewBid(true);
-                  setOpenTable(true);
-                }}
-              />
-              <Table
-                align='center'
-                border='horizontal'
-                borderColor='#E8E8E8'
-                buttonVariantColor='info'
-                colorSelected='#ffd37c'
-                columns={[
-                  {
-                    Header: 'Bidding Type',
-                    accessor: 'bidding_type',
-                    Filter: () => null,
-                  },
-                  {
-                    Header: 'Expires by',
-                    accessor: 'expires',
-                    Filter: () => null,
-                  },
-                  {
-                    Header: 'Rate per Mb/sec',
-                    accessor: 'rate',
-                    Filter: () => null,
-                    prefix: '$',
-                  },
-                  {
-                    Header: 'Total',
-                    accessor: 'total',
-                    Filter: () => null,
-                    prefix: '$',
-                  },
-                  {
-                    Header: 'Specification',
-                    accessor: 'specification',
-                    Filter: () => null,
-                    Cell: (props: any) => {
-                      return (
-                        <div style={{ display: 'inline-flex', justifyContent: 'space-between' }}>
-                          <Button
-                            label='See details'
-                            colors={details}
-                            onClick={() => {
-                              setData(props.data[props.row.index]);
-                              setNewBid(false);
-                              setOpenTable(true);
-                            }}
-                          />
-                          <Button
-                            label='Delete'
-                            colors={deleteColor}
-                            onClick={() => {
-                              setData(props.data[props.row.index]);
-                              setNewBid(false);
-                              setOpenTable(true);
-                            }}
-                          />
-                        </div>
-                      );
-                    },
-                  },
-                ]}
-                data={dummyData}
+            <Container vertical='md' horizontal='lg' expandHorizontal>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button
+                  label='New bid'
+                  icon={<Plus />}
+                  lead
+                  colors={{
+                    default: '#096DD9',
+                    hover: '#0254ac',
+                    click: '#096dd9bc',
+                    text: '#fff',
+                  }}
+                  onClick={() => {
+                    setData({});
+                    setNewBid(true);
+                    setOpenTable(true);
+                  }}
+                />
+                <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    icon={<Filter color='#595959' fontSize='1rem' />}
+                    type='button'
+                    onClick={() => {}}
+                    variant='outline'
+                    height='2.063rem'
+                    size='small'
+                    colors={{
+                      text: '#595959',
+                      default: '#D9D9D9',
+                      hover: '#D9D9D9',
+                      click: '#D9D9D9',
+                    }}
+                  />
+                  <Spacer direction='horizontal' size='sm' />
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                    type='button'
+                    onClick={() => {}}
+                    variant='outline'
+                    height='2.063rem'
+                    size='small'
+                    colors={{
+                      text: '#595959',
+                      default: '#D9D9D9',
+                      hover: '#D9D9D9',
+                      click: '#D9D9D9',
+                    }}
+                  />
+                </div>
+              </div>
+              <WrapperTable
                 fontSize='md'
                 headerColor='#FAFAFA'
-                headerElevation={0}
-                headerFixed={false}
-                headerPadding='1.125rem'
-                // horizontalSpacing='lg'
-                minHeight='3.375rem'
-                selectBorder={{
-                  bottom: '0.063rem solid black',
-                  left: '0.063rem solid black',
-                  right: '0.063rem solid black',
-                  top: '0.063rem solid black',
-                }}
-                selectSize='md'
                 textHeaderColor='#000'
                 verticalSpacing='md'
                 zebra={false}
                 zebraHover
                 zebreHoverColor='#D1D5DA'
-              />
+                border='horizontal'
+                borderColor='#E8E8E8'
+              >
+                <Table
+                  cols={[
+                    ...buyColumns,
+                    {
+                      Header: 'Specification',
+                      accessor: 'specification',
+                      width: 230,
+                      maxWidth: 250,
+                      minWidth: 200,
+                      Filter: () => null,
+                      Cell: (props: any) => {
+                        return (
+                          <div style={{ display: 'inline-flex', justifyContent: 'space-between' }}>
+                            <Button
+                              label='See details'
+                              colors={details}
+                              onClick={() => {
+                                setData(props.data[props.row.index]);
+                                setNewBid(false);
+                                setOpenTable(true);
+                              }}
+                            />
+                            <Button
+                              label='Delete'
+                              colors={deleteColor}
+                              onClick={() => {
+                                setData(props.data[props.row.index]);
+                                setNewBid(false);
+                                setOpenTable(true);
+                              }}
+                            />
+                          </div>
+                        );
+                      },
+                    },
+                  ]}
+                  dataTable={dummyData}
+                  filter={false}
+                />
+              </WrapperTable>
             </Container>
           )}
           {tab === 1 && 'Fullfilled tab'}
@@ -193,7 +205,7 @@ const Buy = () => {
       </BodyMain>
 
       <Drawer active={openTable} onClose={() => setOpenTable(false)}>
-        <div style={{ backgroundColor: 'white' }}>
+        <div style={{ backgroundColor: 'white', width: `${!newBid ? '29rem' : '30vw'}` }}>
           <Container
             vertical='md'
             left='xl'
@@ -203,27 +215,34 @@ const Buy = () => {
             <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
               {newBid ? 'New bid' : 'Bid details'}
             </Paragraph>
-            {!newBid && (
-              <div
-                style={{
-                  alignSelf: 'center',
-                  height: '1.375rem',
-                  backgroundColor: '#FFFBE6',
-                  border: `0.063rem solid #FAAD14`,
-                  color: '#FAAD14',
-                  borderRadius: 2,
-                  width: 'fit-content',
-                  boxSizing: 'border-box',
-                  padding: '0.1rem 0.5rem',
-                  textAlign: 'center',
-                  verticalAlign: 'center',
-                  fontSize: 12,
-                }}
-              >
-                Pending
-              </div>
-            )}
-            <Pill background='transparent' color='#000' handleAction={() => setOpenTable(false)} />
+            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+              {!newBid && (
+                <div
+                  style={{
+                    alignSelf: 'center',
+                    height: '1.375rem',
+                    backgroundColor: '#FFFBE6',
+                    border: `0.063rem solid #FAAD14`,
+                    color: '#FAAD14',
+                    borderRadius: 2,
+                    width: 'fit-content',
+                    boxSizing: 'border-box',
+                    padding: '0.1rem 0.5rem',
+                    textAlign: 'center',
+                    verticalAlign: 'center',
+                    fontSize: 12,
+                  }}
+                >
+                  Pending
+                </div>
+              )}
+              {!newBid && <Spacer direction='horizontal' size='lg' />}
+              <Pill
+                background='transparent'
+                color='#000'
+                handleAction={() => setOpenTable(false)}
+              />
+            </div>
           </Container>
         </div>
 
@@ -237,7 +256,7 @@ const Buy = () => {
           </Paragraph>
           <Spacer direction='vertical' size='xs' />
           {newBid ? (
-            <Container right='xs'>
+            <Container right='xxxl'>
               <Select
                 size='sm'
                 radius={0.125}
@@ -266,8 +285,8 @@ const Buy = () => {
           </Paragraph>
           <Spacer direction='vertical' size='xs' />
           {newBid ? (
-            <Container right='xs'>
-              <Input type='date' borderColor='#d9d9d9' />
+            <Container right='xxxl'>
+              <Input type='date' borderColor='#d9d9d9' onClick={() => {}} onKeyUp={() => {}} />
             </Container>
           ) : (
             <Paragraph lineHeight='1.375rem'>{data.expires}</Paragraph>
@@ -291,7 +310,13 @@ const Buy = () => {
                   alignItems: 'center',
                 }}
               >
-                <Input type='number' value='500' borderColor='#d9d9d9' />
+                <Input
+                  type='number'
+                  value='500'
+                  borderColor='#d9d9d9'
+                  onClick={() => {}}
+                  onKeyUp={() => {}}
+                />
                 <Spacer size='xs' direction='horizontal' />
                 <Paragraph>Mb/s</Paragraph>
               </Container>
@@ -327,8 +352,14 @@ const Buy = () => {
                 onChange={() => setDisabled(false)}
               />
               <Spacer direction='vertical' size='xs' />
-              <Container horizontal='lg'>
-                <Input type='time' borderColor='#d9d9d9' disabled={disabled} />
+              <Container left='lg' right='xxxl'>
+                <Input
+                  type='time'
+                  borderColor='#d9d9d9'
+                  disabled={disabled}
+                  onClick={() => {}}
+                  onKeyUp={() => {}}
+                />
               </Container>
             </>
           ) : (
@@ -343,20 +374,28 @@ const Buy = () => {
             Timeframe
           </Paragraph>
           <Spacer direction='vertical' size='md' />
+          <Spacer direction='vertical' size='xs' />
           {newBid ? (
             <div
               style={{
                 display: 'flex',
-                justifyContent: 'space-between',
                 alignItems: 'center',
+                width: '100%',
+                gap: '1.5rem',
               }}
             >
-              <div style={{ width: '8rem' }}>
-                <Input border='outside' label='from' type='date' />
+              <div style={{ width: '40%' }}>
+                <Input
+                  border='outside'
+                  label='from'
+                  type='date'
+                  size='default'
+                  onClick={() => {}}
+                />
               </div>
               <Paragraph>To</Paragraph>
-              <div style={{ width: '8rem' }}>
-                <Input border='outside' label='to' type='date' />
+              <div style={{ width: '40%' }}>
+                <Input border='outside' label='to' type='date' size='default' onKeyUp={() => {}} />
               </div>
             </div>
           ) : (
@@ -390,9 +429,18 @@ const Buy = () => {
                 onChange={() => setDisabled(false)}
               />
               <Spacer direction='vertical' size='xs' />
-              <Container horizontal='lg' style={{ display: 'flex' }}>
-                <Input type='number' borderColor='#d9d9d9' disabled={disabled} value='500' />
-                <Spacer direction='horizontal' size='xs' />
+              <Container left='lg' right='xxxl' style={{ display: 'flex' }}>
+                <div style={{ width: '80%' }}>
+                  <Input
+                    type='number'
+                    borderColor='#d9d9d9'
+                    disabled={disabled}
+                    value='500'
+                    onClick={() => {}}
+                    onKeyUp={() => {}}
+                  />
+                </div>
+                <Spacer direction='horizontal' size='tiny' />
                 <Select
                   size='default'
                   radius={0.125}
@@ -440,8 +488,17 @@ const Buy = () => {
                 onChange={() => setDisabled(false)}
               />
               <Spacer direction='vertical' size='xs' />
-              <Container horizontal='lg'>
-                <Input type='text' icon='grid' borderColor='#d9d9d9' disabled={disabled} />
+              <Container left='lg' right='xxxl'>
+                <div style={{ width: '80%' }}>
+                  <Input
+                    type='text'
+                    icon='grid'
+                    borderColor='#d9d9d9'
+                    disabled={disabled}
+                    onClick={() => {}}
+                    onKeyUp={() => {}}
+                  />
+                </div>
               </Container>
             </>
           ) : (

@@ -151,43 +151,39 @@ export const dummyData = [
   },
 ];
 
-// export const dummyColumns = (active: any, setAvtive: any) => [
-//   {
-//     Header: 'Bidding Type',
-//     accessor: 'bidding_type',
-//     Filter: () => null,
-//   },
-//   {
-//     Header: 'Expires by',
-//     accessor: 'expires',
-//     Filter: () => null,
-//   },
-//   {
-//     Header: 'Rate per Mb/sec',
-//     accessor: 'rate',
-//     Filter: () => null,
-//     prefix: '$',
-//   },
-//   {
-//     Header: 'Total',
-//     accessor: 'total',
-//     Filter: () => null,
-//     prefix: '$',
-//   },
-//   {
-//     Header: 'Specification',
-//     accessor: 'specification',
-//     Filter: () => null,
-//     Cell: (props: any) => {
-//       return (
-//         <div style={{ display: 'inline-flex', justifyContent: 'space-between' }}>
-//           <Button label='See details' colors={details} onClick={() => {}} />
-//           <Button label='Delete' colors={deleteColor} onClick={() => {}} />
-//           <Drawer active={false} onClose={() => null}>
-//             asdasdasd
-//           </Drawer>
-//         </div>
-//       );
-//     },
-//   },
-// ];
+export const buyColumns = [
+  {
+    Header: 'Bidding Type',
+    accessor: 'bidding_type',
+    Filter: () => null,
+    width: 180,
+    maxWidth: 250,
+    minWidth: 100,
+  },
+  {
+    Header: 'Expires by',
+    accessor: 'expires',
+    Filter: () => null,
+    width: 178,
+    maxWidth: 250,
+    minWidth: 100,
+  },
+  {
+    Header: 'Rate per Mb/sec',
+    accessor: 'rate',
+    Filter: () => null,
+    prefix: '$',
+    width: 140,
+    maxWidth: 200,
+    minWidth: 100,
+  },
+  {
+    Header: 'Total',
+    accessor: 'total',
+    Filter: () => null,
+    prefix: '$',
+    width: 140,
+    maxWidth: 200,
+    minWidth: 100,
+  },
+];

@@ -6,10 +6,10 @@ import {
   Input,
   Breadcrums,
   Breadcrum,
+  Container,
+  Drawer,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
-import { Container } from '../../components/Container';
-import { Drawer } from '../../components/Drawer';
 
 const BiddingB2B = () => {
   const [open, setOpen] = useState(false);
@@ -91,7 +91,13 @@ const BiddingB2B = () => {
                 <Paragraph color='#595959' weight='600'>
                   $
                 </Paragraph>
-                <Input type='number' size='large' borderColor='#d9d9d9' />
+                <Input
+                  type='number'
+                  size='large'
+                  borderColor='#d9d9d9'
+                  onClick={() => {}}
+                  onKeyUp={() => {}}
+                />
               </div>
               {!simple && (
                 <>
@@ -128,7 +134,14 @@ const BiddingB2B = () => {
                   gap: '0.438rem',
                 }}
               >
-                <Input type='number' size='default' borderColor='#d9d9d9' value='95' />
+                <Input
+                  type='number'
+                  size='default'
+                  borderColor='#d9d9d9'
+                  value='95'
+                  onClick={() => {}}
+                  onKeyUp={() => {}}
+                />
                 <Paragraph color='#595959' weight='600'>
                   %
                 </Paragraph>

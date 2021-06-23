@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '../../Container';
+import { Container } from '@jp-olvera/jp-viaducto-components';
 
 const BodyMain = ({ children, ...rest }: BodyMainProps) => {
   return (

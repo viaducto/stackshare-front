@@ -7,49 +7,22 @@ import {
   Radio,
   Button,
   Tab,
-  Table,
+  WrapperTable,
   Select,
   Drawer,
   Tooltip,
   Breadcrums,
   Breadcrum,
   Anchor,
+  Container,
 } from '@jp-olvera/jp-viaducto-components';
+import { ChevronLeft } from 'react-ikonate';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
-import { Container } from '../../components/Container';
+import Table from '../../components/Table/Table';
+import AccumulatedBilling from '../../components/AccumulatedBilling/AccumulatedBilling';
+import { colsTabZero, colsTabOne } from './Columns';
 import { appsData } from './AppsData';
-import styled from 'styled-components';
-
-const details = {
-  default: 'transparent',
-  hover: 'transparent',
-  click: 'transparent',
-  text: '#1890FF',
-};
-
-const Styled = styled.div`
-  & div > div {
-    width: 100%;
-  }
-  table {
-    width: 100% !important;
-  }
-  thead {
-    width: 100%;
-    tr {
-      width: 100% !important;
-    }
-    th {
-      width: 100% !important;
-    }
-  }
-  tr {
-    width: 100% !important;
-  }
-  td {
-    width: 100% !important;
-  }
-`;
+import { PricingTable } from '../../components/PricingTable';
 
 const Shop = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -60,19 +33,21 @@ const Shop = () => {
   const [configuration, setConfiguration] = useState(0);
   const [activeTooltip, setActiveTooltip] = useState(false);
   const [appName, setAppName] = useState('App name');
-  const WrapTable = styled.div`
-    table {
-      min-width: ${tab === 2 ? '63vw' : '60vw'};
-      thead,
-      tbody {
-        min-width: ${tab === 2 ? '63vw' : '60vw'};
-      }
-      tbody > tr {
-        max-width: ${tab === 2 ? '63vw' : '60vw'} !important;
-      }
-    }
-  `;
-
+  const addColumn = [
+    tab === 2
+      ? {
+          Header: 'User Group',
+          accessor: 'user_group',
+          Filter: () => null,
+        }
+      : {
+          Header: '',
+          accessor: 'hidden',
+          Filter: () => null,
+          isVisible: false,
+          show: false,
+        },
+  ];
   return (
     <BodyContent
       style={{
@@ -94,7 +69,7 @@ const Shop = () => {
           </Paragraph>
           <Spacer size='md' direction='vertical' />
           <Tab
-            horizontalSpacing='sm'
+            horizontalSpacing='none'
             icon={null}
             iconSpacing='none'
             onClick={() => setTab(0)}
@@ -103,9 +78,11 @@ const Shop = () => {
             type='tab'
             verticalSpacing='sm'
             id='store'
+            active={tab === 0}
           />
+          <Spacer direction='horizontal' size='lg' />
           <Tab
-            horizontalSpacing='sm'
+            horizontalSpacing='none'
             icon={null}
             iconSpacing='none'
             onClick={() => setTab(1)}
@@ -114,9 +91,11 @@ const Shop = () => {
             type='tab'
             verticalSpacing='sm'
             id='apps'
+            active={tab === 1}
           />
+          <Spacer direction='horizontal' size='lg' />
           <Tab
-            horizontalSpacing='sm'
+            horizontalSpacing='none'
             icon={null}
             iconSpacing='none'
             onClick={() => setTab(2)}
@@ -125,128 +104,122 @@ const Shop = () => {
             type='tab'
             verticalSpacing='sm'
             id='org_apps'
+            active={tab === 2}
           />
         </Container>
       </BodyHeader>
-      <BodyMain style={{ width: '100%' }}>
+      <BodyMain style={{ width: '100%', height: '75vh', overflow: 'auto' }}>
         {tab === 0 && (
-          <Styled style={{ backgroundColor: 'white', height: '100%' }}>
-            <Container top='none' horizontal='lg' expandHorizontal>
-              <Table
-                border='horizontal'
-                borderColor='#E8E8E8'
-                buttonVariantColor='info'
-                colorSelected='#ffd37c'
-                columns={[
-                  {
-                    Header: 'App name',
-                    accessor: 'app_name',
-                    Filter: () => null,
-                  },
-                  {
-                    Header: 'Type',
-                    accessor: 'type',
-                    Filter: () => null,
-                  },
-                  {
-                    Header: 'Action',
-                    accessor: 'action',
-                    Filter: () => null,
-                    Cell: (props: any) => {
-                      const installed = [1, 3, 5];
-                      return (
-                        <div style={{ display: 'inline-flex', justifyContent: 'space-between' }}>
-                          {!installed.includes(props.row.index) ? (
-                            <Button
-                              label='Install'
-                              colors={details}
-                              onClick={() => {
-                                setAppName(props.data[props.row.index].app_name);
-                                setOpenshop(true);
-                              }}
-                            />
-                          ) : (
-                            <Button
-                              label='Installed'
-                              variant='ghost'
-                              disabled
-                              style={{ border: 'none' }}
-                            />
-                          )}
-                        </div>
-                      );
-                    },
-                  },
-                ]}
-                data={appsData}
+          <Container style={{ backgroundColor: 'white', height: '100%' }} horizontal='lg'>
+            <Container top='md' horizontal='sm' expandHorizontal style={{ overflow: 'auto' }}>
+              <WrapperTable
                 fontSize='md'
                 headerColor='#FAFAFA'
-                headerElevation={0}
-                headerFixed={false}
-                headerPadding='1.125rem'
-                minHeight='2.5rem'
-                selectBorder={{
-                  bottom: '0.063rem solid black',
-                  left: '0.063rem solid black',
-                  right: '0.063rem solid black',
-                  top: '0.063rem solid black',
-                }}
-                selectSize='md'
                 textHeaderColor='#000'
                 verticalSpacing='md'
                 zebra={false}
                 zebraHover
                 zebreHoverColor='#D1D5DA'
-              />
-            </Container>
-          </Styled>
-        )}
-        {tab === 1 && (
-          <div style={{ backgroundColor: 'white', height: '100%' }}>
-            <Container
-              top='none'
-              horizontal='xl'
-              style={{ display: 'flex', justifiContent: 'space-between', backgroundColor: 'white' }}
-            >
-              <WrapTable>
+                border='horizontal'
+                borderColor='#E8E8E8'
+              >
                 <Table
-                  align='center'
-                  border='horizontal'
-                  borderColor='#E8E8E8'
-                  buttonVariantColor='info'
-                  colorSelected='#ffd37c'
-                  columns={[
-                    {
-                      Header: 'App name',
-                      accessor: 'app_name',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'Type',
-                      accessor: 'type',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'Installed by',
-                      accessor: 'installed_by',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'Expense period',
-                      accessor: 'expense_period',
-                      prefix: '$',
-                      Filter: () => null,
-                    },
+                  dataTable={appsData}
+                  cols={[
+                    ...colsTabZero,
                     {
                       Header: 'Action',
                       accessor: 'action',
+                      width: 150,
+                      minWidth: 100,
+                      maxWidth: 100,
+                      sortable: true,
+                      Filter: () => null,
+                      Cell: (props: any) => {
+                        const installed = [1, 3, 5];
+                        return (
+                          <div>
+                            {!installed.includes(props.row.index) ? (
+                              <Button
+                                label='Install'
+                                variant='ghost'
+                                colors={{
+                                  text: '#fff',
+                                  default: '#1890FF',
+                                  hover: '#1890FF',
+                                  click: '#1890FF',
+                                }}
+                                onClick={() => {
+                                  setAppName(props.data[props.row.index].app_name);
+                                  setOpenshop(true);
+                                }}
+                              />
+                            ) : (
+                              <Button
+                                label='Installed'
+                                variant='ghost'
+                                disabled
+                                style={{ border: 'none' }}
+                              />
+                            )}
+                          </div>
+                        );
+                      },
+                    },
+                  ]}
+                />
+              </WrapperTable>
+            </Container>
+          </Container>
+        )}
+        {(tab === 1 || tab === 2) && (
+          <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
+            <Container
+              top='none'
+              horizontal='xl'
+              style={{
+                display: 'flex',
+                justifiContent: 'space-between',
+                backgroundColor: 'white',
+                minHeight: '72vh',
+                flexWrap: 'wrap',
+              }}
+            >
+              <WrapperTable
+                fontSize='md'
+                headerColor='#FAFAFA'
+                textHeaderColor='#000'
+                verticalSpacing='md'
+                zebra={false}
+                zebraHover
+                zebreHoverColor='#D1D5DA'
+                border='horizontal'
+                borderColor='#E8E8E8'
+              >
+                <Table
+                  dataTable={appsData}
+                  cols={[
+                    ...colsTabOne,
+                    ...addColumn,
+                    {
+                      Header: 'Action',
+                      accessor: 'action',
+                      width: 200,
+                      minWidth: 100,
+                      maxWidth: 300,
                       Filter: () => null,
                       Cell: (props: any) => {
                         return (
-                          <div style={{ display: 'inline-flex', justifyContent: 'space-between' }}>
+                          <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <Button
                               label='Edit'
-                              colors={details}
+                              colors={{
+                                text: '#fff',
+                                default: '#1890FF',
+                                hover: '#1890FF',
+                                click: '#1890FF',
+                              }}
+                              variant='ghost'
                               onClick={() => {
                                 setAppName(props.data[props.row.index].app_name);
                                 setOpenTable(true);
@@ -257,290 +230,17 @@ const Shop = () => {
                       },
                     },
                   ]}
-                  data={appsData}
-                  fontSize='md'
-                  headerColor='#FAFAFA'
-                  headerElevation={0}
-                  headerFixed={false}
-                  headerPadding='1.125rem 0'
-                  minHeight='2.5rem'
-                  selectBorder={{
-                    bottom: '0.063rem solid black',
-                    left: '0.063rem solid black',
-                    right: '0.063rem solid black',
-                    top: '0.063rem solid black',
-                  }}
-                  selectSize='md'
-                  textHeaderColor='#000'
-                  verticalSpacing='md'
-                  zebra={false}
-                  zebraHover
-                  zebreHoverColor='#D1D5DA'
                 />
-              </WrapTable>
-              <Container horizontal='lg' vertical='lg' style={{ backgroundColor: 'white' }}>
-                <Container
-                  horizontal='md'
-                  style={{
-                    width: '23rem',
-                    border: '0.063rem solid #BFBFBF',
-                    borderRadius: 4,
-                    textAlign: 'center',
-                    overflow: 'auto',
-                    backgroundColor: 'white',
-                    maxHeight: '57%',
-                  }}
-                >
-                  <div style={{ position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 1 }}>
-                    <div
-                      style={{
-                        borderBottom: '0.063rem solid #d9d9d9',
-                        overflow: 'auto',
-                        paddingTop: '0.482rem',
-                      }}
-                    >
-                      <Paragraph weight='600' size='lg' lineHeight='1.5rem'>
-                        Accumulated billing
-                      </Paragraph>
-                      <Paragraph weight='400' size='md' lineHeight='1.25rem' color='#8C8C8C'>
-                        To be billed by June 31, 2021
-                      </Paragraph>
-                      <Spacer direction='vertical' size='micro' />
-                    </div>
-                    <Spacer direction='vertical' size='micro' />
-                    <div style={{ borderBottom: '0.063rem solid #d9d9d9', overflow: 'auto' }}>
-                      <div style={{ display: 'flex' }}>
-                        <div style={{ width: '50%', padding: '0 0 0 0.5rem' }}>
-                          <Paragraph lineHeight='1.25rem' color='#595959' size='sm'>
-                            App
-                          </Paragraph>
-                        </div>
-                        <div style={{ width: '50%' }}>
-                          <Paragraph lineHeight='1.25rem' color='#595959' size='sm'>
-                            Expense
-                          </Paragraph>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <Spacer direction='vertical' size='micro' />
-                  <AppsAccumulated app='Atlassian' />
-                  <AppsAccumulated app='Twitter' />
-                  <AppsAccumulated app='Facebook' />
-                  <AppsAccumulated app='Zoom' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='Atlassian' />
-                  <AppsAccumulated app='Google Drive' />
-                  <AppsAccumulated app='Dropbox' />
-                  <AppsAccumulated app='Box' />
-                  <AppsAccumulated app='RainforestQA' />
-                  <AppsAccumulated app='Shopify' />
-                  <AppsAccumulated app='Gorgias' />
-                  <AppsAccumulated app='Wikipedia' />
-                  <AppsAccumulated app='Facebook' />
-                  <AppsAccumulated app='Zoom' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='Box' />
-                  <AppsAccumulated app='RainforestQA' />
-                  <AppsAccumulated app='Shopify' />
-                  <AppsAccumulated app='Gorgias' />
-                  <div
-                    style={{
-                      position: 'sticky',
-                      bottom: 0,
-                      backgroundColor: 'white',
-                      zIndex: 1,
-                      display: 'flex',
-                      padding: '0.482rem 0',
-                      justifyContent: 'space-between',
-                    }}
-                  >
-                    <Paragraph lineHeight='1.5rem' size='lg' weight='400'>
-                      Total
-                    </Paragraph>
-                    <Paragraph lineHeight='1.5rem' size='lg' weight='600'>
-                      $16,000.00
-                    </Paragraph>
-                  </div>
-                </Container>
+              </WrapperTable>
+              <Container
+                horizontal='lg'
+                vertical='xxl'
+                style={{ backgroundColor: 'white', height: '50vh' }}
+              >
+                <AccumulatedBilling />
               </Container>
             </Container>
-          </div>
-        )}
-        {tab === 2 && (
-          <div style={{ backgroundColor: 'white', height: '100%' }}>
-            <Container
-              top='none'
-              horizontal='xl'
-              style={{ display: 'flex', justifiContent: 'space-between', backgroundColor: 'white' }}
-            >
-              <WrapTable>
-                <Table
-                  align='center'
-                  border='horizontal'
-                  borderColor='#E8E8E8'
-                  buttonVariantColor='info'
-                  colorSelected='#ffd37c'
-                  columns={[
-                    {
-                      Header: 'App name',
-                      accessor: 'app_name',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'Type',
-                      accessor: 'type',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'Installed by',
-                      accessor: 'installed_by',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'User Group',
-                      accessor: 'user_group',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'Expense period',
-                      accessor: 'expense_period',
-                      prefix: '$',
-                      Filter: () => null,
-                    },
-                    {
-                      Header: 'Action',
-                      accessor: 'action',
-                      Filter: () => null,
-                      Cell: (props: any) => {
-                        return (
-                          <div style={{ display: 'inline-flex', justifyContent: 'space-between' }}>
-                            <Button
-                              label='Edit'
-                              colors={details}
-                              onClick={() => {
-                                setAppName(props.data[props.row.index].app_name);
-                                setOpenTable(true);
-                              }}
-                            />
-                          </div>
-                        );
-                      },
-                    },
-                  ]}
-                  data={appsData}
-                  fontSize='md'
-                  headerColor='#FAFAFA'
-                  headerElevation={0}
-                  headerFixed={false}
-                  headerPadding='1.125rem 0'
-                  minHeight='2.5rem'
-                  selectBorder={{
-                    bottom: '0.063rem solid black',
-                    left: '0.063rem solid black',
-                    right: '0.063rem solid black',
-                    top: '0.063rem solid black',
-                  }}
-                  selectSize='md'
-                  textHeaderColor='#000'
-                  verticalSpacing='md'
-                  zebra={false}
-                  zebraHover
-                  zebreHoverColor='#D1D5DA'
-                />
-              </WrapTable>
-              <Container horizontal='lg' vertical='lg' style={{ backgroundColor: 'white' }}>
-                <Container
-                  horizontal='md'
-                  style={{
-                    width: '20rem',
-                    border: '0.063rem solid #BFBFBF',
-                    borderRadius: 4,
-                    textAlign: 'center',
-                    overflow: 'auto',
-                    backgroundColor: 'white',
-                    maxHeight: '57%',
-                  }}
-                >
-                  <div style={{ position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 1 }}>
-                    <div
-                      style={{
-                        borderBottom: '0.063rem solid #d9d9d9',
-                        overflow: 'auto',
-                        paddingTop: '0.482rem',
-                      }}
-                    >
-                      <Paragraph weight='600' size='lg' lineHeight='1.5rem'>
-                        Accumulated billing
-                      </Paragraph>
-                      <Paragraph weight='400' size='md' lineHeight='1.25rem' color='#8C8C8C'>
-                        To be billed by June 31, 2021
-                      </Paragraph>
-                      <Spacer direction='vertical' size='micro' />
-                    </div>
-                    <Spacer direction='vertical' size='micro' />
-                    <div style={{ borderBottom: '0.063rem solid #d9d9d9', overflow: 'auto' }}>
-                      <div style={{ display: 'flex' }}>
-                        <div style={{ width: '50%', padding: '0 0 0 0.5rem' }}>
-                          <Paragraph lineHeight='1.25rem' color='#595959' size='sm'>
-                            App
-                          </Paragraph>
-                        </div>
-                        <div style={{ width: '50%' }}>
-                          <Paragraph lineHeight='1.25rem' color='#595959' size='sm'>
-                            Expense
-                          </Paragraph>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <Spacer direction='vertical' size='micro' />
-                  <AppsAccumulated app='Atlassian' />
-                  <AppsAccumulated app='Twitter' />
-                  <AppsAccumulated app='Facebook' />
-                  <AppsAccumulated app='Zoom' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='Atlassian' />
-                  <AppsAccumulated app='Google Drive' />
-                  <AppsAccumulated app='Dropbox' />
-                  <AppsAccumulated app='Box' />
-                  <AppsAccumulated app='RainforestQA' />
-                  <AppsAccumulated app='Shopify' />
-                  <AppsAccumulated app='Gorgias' />
-                  <AppsAccumulated app='Wikipedia' />
-                  <AppsAccumulated app='Facebook' />
-                  <AppsAccumulated app='Zoom' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='YouTube' />
-                  <AppsAccumulated app='Box' />
-                  <AppsAccumulated app='RainforestQA' />
-                  <AppsAccumulated app='Shopify' />
-                  <AppsAccumulated app='Gorgias' />
-                  <div
-                    style={{
-                      position: 'sticky',
-                      bottom: 0,
-                      backgroundColor: 'white',
-                      zIndex: 1,
-                      display: 'flex',
-                      padding: '0.482rem 0',
-                      justifyContent: 'space-between',
-                    }}
-                  >
-                    <Paragraph lineHeight='1.5rem' size='lg' weight='400'>
-                      Total
-                    </Paragraph>
-                    <Paragraph lineHeight='1.5rem' size='lg' weight='600'>
-                      $16,000.00
-                    </Paragraph>
-                  </div>
-                </Container>
-              </Container>
-            </Container>
-          </div>
+          </Container>
         )}
       </BodyMain>
 
@@ -569,34 +269,37 @@ const Shop = () => {
               />
             </Container>
           </div>
-          <Container horizontal='md' vertical='sm'>
-            <Tab
-              horizontalSpacing='sm'
-              icon={null}
-              iconSpacing='none'
-              onClick={() => setTabDrawer(0)}
-              text='Preferences'
-              transition='ease'
-              type='tab'
-              verticalSpacing='sm'
-              id='personal'
-            />
-            <Tab
-              horizontalSpacing='sm'
-              icon={null}
-              iconSpacing='none'
-              onClick={() => setTabDrawer(1)}
-              text='Group Access'
-              transition='ease'
-              type='tab'
-              verticalSpacing='sm'
-              id='group'
-            />
-          </Container>
+          {tab === 2 && (
+            <Container horizontal='md' vertical='sm'>
+              <Tab
+                horizontalSpacing='none'
+                icon={null}
+                iconSpacing='none'
+                onClick={() => setTabDrawer(0)}
+                text='Preferences'
+                transition='ease'
+                type='tab'
+                verticalSpacing='sm'
+                id='personal'
+              />
+              <Spacer direction='horizontal' size='md' />
+              <Tab
+                horizontalSpacing='none'
+                icon={null}
+                iconSpacing='none'
+                onClick={() => setTabDrawer(1)}
+                text='Group Access'
+                transition='ease'
+                type='tab'
+                verticalSpacing='sm'
+                id='group'
+              />
+            </Container>
+          )}
 
           {tabDrawer === 0 && (
             <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
-              <Container vertical='md' left='md' right='md'>
+              <Container vertical='md' left='md' right='xxxl'>
                 <div
                   style={{
                     display: 'flex',
@@ -679,7 +382,14 @@ const Shop = () => {
                     <Paragraph lineHeight='1.5rem'>Upload limit</Paragraph>
                     <Container right='sm' style={{ display: 'flex' }}>
                       <div style={{ width: '70%' }}>
-                        <Input type='number' borderColor='#d9d9d9' disabled={false} value='500' />
+                        <Input
+                          type='number'
+                          borderColor='#d9d9d9'
+                          disabled={false}
+                          value='500'
+                          onClick={() => {}}
+                          onKeyUp={() => {}}
+                        />
                       </div>
                       <Spacer direction='horizontal' size='xs' />
                       <Select
@@ -703,7 +413,14 @@ const Shop = () => {
                     <Paragraph lineHeight='1.5rem'>Download limit</Paragraph>
                     <Container right='sm' style={{ display: 'flex' }}>
                       <div style={{ width: '70%' }}>
-                        <Input type='number' borderColor='#d9d9d9' disabled={false} value='500' />
+                        <Input
+                          type='number'
+                          borderColor='#d9d9d9'
+                          disabled={false}
+                          value='500'
+                          onClick={() => {}}
+                          onKeyUp={() => {}}
+                        />
                       </div>
                       <Spacer direction='horizontal' size='xs' />
                       <Select
@@ -736,7 +453,14 @@ const Shop = () => {
                 <Spacer direction='vertical' size='sm' />
                 <Container right='sm' style={{ display: 'flex', alignItems: 'center' }}>
                   <div style={{ width: '50%' }}>
-                    <Input type='number' borderColor='#d9d9d9' disabled={false} value='500' />
+                    <Input
+                      type='number'
+                      borderColor='#d9d9d9'
+                      disabled={false}
+                      value='500'
+                      onClick={() => {}}
+                      onKeyUp={() => {}}
+                    />
                   </div>
                   <Spacer direction='horizontal' size='sm' />
                   <Paragraph>Mb/s</Paragraph>
@@ -770,7 +494,14 @@ const Shop = () => {
                   />
                   <Spacer direction='vertical' size='xs' />
                   <Container horizontal='lg' style={{ display: 'flex', width: '29%' }}>
-                    <Input type='number' borderColor='#d9d9d9' disabled={false} value='100' />
+                    <Input
+                      type='number'
+                      borderColor='#d9d9d9'
+                      disabled={false}
+                      value='100'
+                      onClick={() => {}}
+                      onKeyUp={() => {}}
+                    />
                     <Spacer direction='horizontal' size='xs' />
                     <Paragraph>%</Paragraph>
                   </Container>
@@ -853,7 +584,13 @@ const Shop = () => {
                 </Paragraph>
                 <Spacer direction='vertical' size='xs' />
                 <Container right='lg'>
-                  <Input type='text' borderColor='#d9d9d9' value='$1000' />
+                  <Input
+                    type='text'
+                    borderColor='#d9d9d9'
+                    value='$1000'
+                    onClick={() => {}}
+                    onKeyUp={() => {}}
+                  />
                 </Container>
                 <Spacer direction='vertical' size='xs' />
               </Container>
@@ -906,7 +643,13 @@ const Shop = () => {
                     </Paragraph>
                   </Container>
                   <Container top='xs' bottom='sm' horizontal='xs'>
-                    <Input label='Search here' icon='search' borderColor='#d9d9d9' />
+                    <Input
+                      label='Search here'
+                      icon='search'
+                      borderColor='#d9d9d9'
+                      onClick={() => {}}
+                      onKeyUp={() => {}}
+                    />
                   </Container>
                   <Container
                     bottom='md'
@@ -1131,7 +874,7 @@ const Shop = () => {
           setOpenTable(true);
         }}
       >
-        <div style={{ backgroundColor: 'white', height: '100%' }}>
+        <div style={{ backgroundColor: 'white' }}>
           <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
             <Container
               vertical='md'
@@ -1140,7 +883,7 @@ const Shop = () => {
               style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}
             >
               <Button
-                icon='<'
+                icon={<ChevronLeft />}
                 variant='outline'
                 size='small'
                 colors={{ text: '#000' }}
@@ -1156,12 +899,14 @@ const Shop = () => {
             </Container>
           </div>
           <Container top='md' left='sm' right='lg' style={{ height: '88%' }}>
-            <div style={{ backgroundColor: 'gray', height: 603, width: 733 }} />
+            <div style={{ maxWidth: 750 }}>
+              <PricingTable />
+            </div>
           </Container>
+          <Spacer direction='vertical' size='md' />
+          <Spacer direction='vertical' size='md' />
           <Container
             style={{
-              position: 'sticky',
-              bottom: 0,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
@@ -1182,6 +927,7 @@ const Shop = () => {
               }}
             />
           </Container>
+          <Spacer direction='vertical' size='md' />
         </div>
       </Drawer>
     </BodyContent>
@@ -1189,35 +935,6 @@ const Shop = () => {
 };
 
 export default Shop;
-
-const AppsAccumulated = ({ app }: any) => {
-  return (
-    <>
-      <Spacer direction='vertical' size='md' />
-      <div style={{ display: 'flex' }}>
-        <div
-          style={{
-            width: '65%',
-            padding: '0 0 0 0.5rem',
-            display: 'flex',
-            gap: '0.563rem',
-            alignItems: 'center',
-          }}
-        >
-          <img src='https://i.pravatar.cc/32' alt='avatar' style={{ borderRadius: '50%' }} />
-          <Paragraph lineHeight='1.375rem' color='#595959'>
-            {app}
-          </Paragraph>
-        </div>
-        <div style={{ width: '35%' }}>
-          <Paragraph lineHeight='1.375rem' color='#262626'>
-            $400
-          </Paragraph>
-        </div>
-      </div>
-    </>
-  );
-};
 
 const GroupAccessUser = ({ apps, groups }: { apps: string; groups: string }) => (
   <Container bottom='md'>

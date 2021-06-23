@@ -11,9 +11,9 @@ import {
   Breadcrums,
   Breadcrum,
   Drawer,
+  Container,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
-import { Container } from '../../components/Container';
 import styled from 'styled-components';
 import { PricingTable } from '../../components/PricingTable';
 
@@ -116,7 +116,13 @@ const BiddingTelco = () => {
                     <Paragraph color='#595959' weight='600'>
                       $
                     </Paragraph>
-                    <Input type='number' size='default' borderColor='#d9d9d9' />
+                    <Input
+                      type='number'
+                      size='default'
+                      borderColor='#d9d9d9'
+                      onClick={() => {}}
+                      onKeyUp={() => {}}
+                    />
                   </div>
                   {!simple && (
                     <>
@@ -131,7 +137,6 @@ const BiddingTelco = () => {
 
                       <div style={{ overflowX: 'auto' }}>
                         <PricingTable />
-                        <input type='time' />
                       </div>
                     </>
                   )}
@@ -157,7 +162,14 @@ const BiddingTelco = () => {
                       gap: '0.438rem',
                     }}
                   >
-                    <Input type='number' size='default' borderColor='#d9d9d9' value='95' />
+                    <Input
+                      type='number'
+                      size='default'
+                      borderColor='#d9d9d9'
+                      value='95'
+                      onClick={() => {}}
+                      onKeyUp={() => {}}
+                    />
                     <Paragraph color='#595959' weight='600'>
                       %
                     </Paragraph>
@@ -250,12 +262,14 @@ const BiddingTelco = () => {
             <Container vertical='md' left='xl' right='md'>
               <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
               <div style={{ width: '16rem' }}>
-                <Input label='Medium input' />
+                <Input label='Medium input' onClick={() => {}} onKeyUp={() => {}} />
               </div>
               <Spacer size='md' />
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
               <Spacer size='md' />
-              <div style={{ width: '40rem', backgroundColor: 'gray', height: '72vh' }} />
+              <div style={{ maxWidth: 750 }}>
+                <PricingTable />
+              </div>
             </Container>
           </div>
           <div>
