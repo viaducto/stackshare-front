@@ -35,7 +35,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
       label='Search'
       icon='search'
       onClick={() => {}}
-      size='small'
+      size='default'
       onKeyUp={() => {}}
       value={value || ''}
       onChange={(e: any) => {
@@ -322,12 +322,6 @@ const Table = ({ cols, dataTable, filter = true }: any) => {
                   disabled={!canPreviousPage}
                   variant='outline'
                   height='2.063rem'
-                  colors={{
-                    text: '#fff',
-                    default: '#1890FF',
-                    hover: '#1890FF',
-                    click: '#1890FF',
-                  }}
                 />
                 <Button
                   leftSpacing='sm'
@@ -339,12 +333,6 @@ const Table = ({ cols, dataTable, filter = true }: any) => {
                   disabled={!canPreviousPage}
                   variant='outline'
                   height='2.063rem'
-                  colors={{
-                    text: '#fff',
-                    default: '#1890FF',
-                    hover: '#1890FF',
-                    click: '#1890FF',
-                  }}
                 />
                 <Button
                   leftSpacing='sm'
@@ -355,12 +343,6 @@ const Table = ({ cols, dataTable, filter = true }: any) => {
                   disabled={!canNextPage}
                   variant='outline'
                   height='2.063rem'
-                  colors={{
-                    text: '#fff',
-                    default: '#1890FF',
-                    hover: '#1890FF',
-                    click: '#1890FF',
-                  }}
                   icon={<ChevronRight />}
                 />
                 <Button
@@ -373,12 +355,6 @@ const Table = ({ cols, dataTable, filter = true }: any) => {
                   disabled={!canNextPage}
                   variant='outline'
                   height='2.063rem'
-                  colors={{
-                    text: '#fff',
-                    default: '#1890FF',
-                    hover: '#1890FF',
-                    click: '#1890FF',
-                  }}
                 />
               </div>
             </td>

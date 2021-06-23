@@ -9,7 +9,7 @@ import { Menu, Body, Navbar } from './components/layout';
 import { AppProvider } from './providers';
 
 function App() {
-  const { updateConfig } = useContext(ConfigContext);
+  const { updateConfig, configuration } = useContext(ConfigContext);
 
   const myConfig = {
     controlHeight: {
@@ -17,6 +17,16 @@ function App() {
       small: '2.074rem',
       default: '2rem',
       large: '2.986rem',
+    },
+    colors: {
+      ...configuration.colors,
+      primary: {
+        default: '#096DD9',
+        hover: '#0254ac',
+        click: '#096dd9bc',
+        text: '#fff',
+        shadow: 'rgba(9, 109, 217, 0.53)',
+      },
     },
   };
   useEffect(() => {

@@ -143,12 +143,6 @@ const Shop = () => {
                               <Button
                                 label='Install'
                                 variant='ghost'
-                                colors={{
-                                  text: '#fff',
-                                  default: '#1890FF',
-                                  hover: '#1890FF',
-                                  click: '#1890FF',
-                                }}
                                 onClick={() => {
                                   setAppName(props.data[props.row.index].app_name);
                                   setOpenshop(true);
@@ -213,12 +207,6 @@ const Shop = () => {
                           <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <Button
                               label='Edit'
-                              colors={{
-                                text: '#fff',
-                                default: '#1890FF',
-                                hover: '#1890FF',
-                                click: '#1890FF',
-                              }}
                               variant='ghost'
                               onClick={() => {
                                 setAppName(props.data[props.row.index].app_name);
@@ -561,16 +549,7 @@ const Shop = () => {
                   }}
                 >
                   <Paragraph color='#000000'>Monthly price calculated at market value</Paragraph>
-                  <Button
-                    label='Add app'
-                    colors={{
-                      default: '#096DD9',
-                      hover: '#0254ac',
-                      click: '#096dd9bc',
-                      text: '#fff',
-                    }}
-                    onClick={() => setOpenTable(false)}
-                  />
+                  <Button label='Add app' onClick={() => setOpenTable(false)} />
                 </div>
               </Container>
             </>
@@ -731,16 +710,7 @@ const Shop = () => {
                   }}
                 >
                   <Paragraph color='#000000'>Monthly price calculated at market value</Paragraph>
-                  <Button
-                    label='Add app'
-                    colors={{
-                      default: '#096DD9',
-                      hover: '#0254ac',
-                      click: '#096dd9bc',
-                      text: '#fff',
-                    }}
-                    onClick={() => setOpenTable(false)}
-                  />
+                  <Button label='Add app' onClick={() => setOpenTable(false)} />
                 </div>
               </Container>
             </>
@@ -852,16 +822,7 @@ const Shop = () => {
               }}
             >
               <Paragraph color='#000000'>Monthly price calculated at market value</Paragraph>
-              <Button
-                label='Add app'
-                colors={{
-                  default: '#096DD9',
-                  hover: '#0254ac',
-                  click: '#096dd9bc',
-                  text: '#fff',
-                }}
-                onClick={() => setOpenshop(false)}
-              />
+              <Button label='Add app' onClick={() => setOpenshop(false)} />
             </div>
           </Container>
         </div>
@@ -915,12 +876,6 @@ const Shop = () => {
           >
             <Button
               label='Save times'
-              colors={{
-                default: '#096DD9',
-                hover: '#0254ac',
-                click: '#096dd9bc',
-                text: '#fff',
-              }}
               onClick={() => {
                 setOpenTable(true);
                 setOpenConfig(false);

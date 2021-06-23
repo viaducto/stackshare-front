@@ -278,16 +278,7 @@ const BiddingTelco = () => {
               vertical='md'
               style={{ display: 'flex', justifyContent: 'flex-end' }}
             >
-              <Button
-                label='Save'
-                colors={{
-                  default: '#096DD9',
-                  hover: '#0254ac',
-                  click: '#096dd9bc',
-                  text: '#fff',
-                }}
-                onClick={handleOpen}
-              />
+              <Button label='Save' onClick={handleOpen} />
             </Container>
           </div>
         </div>

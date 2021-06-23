@@ -97,12 +97,6 @@ const Buy = () => {
                   label='New bid'
                   icon={<Plus />}
                   lead
-                  colors={{
-                    default: '#096DD9',
-                    hover: '#0254ac',
-                    click: '#096dd9bc',
-                    text: '#fff',
-                  }}
                   onClick={() => {
                     setData({});
                     setNewBid(true);
@@ -120,12 +114,6 @@ const Buy = () => {
                     variant='outline'
                     height='2.063rem'
                     size='small'
-                    colors={{
-                      text: '#595959',
-                      default: '#D9D9D9',
-                      hover: '#D9D9D9',
-                      click: '#D9D9D9',
-                    }}
                   />
                   <Spacer direction='horizontal' size='sm' />
                   <Button
@@ -138,12 +126,6 @@ const Buy = () => {
                     variant='outline'
                     height='2.063rem'
                     size='small'
-                    colors={{
-                      text: '#595959',
-                      default: '#D9D9D9',
-                      hover: '#D9D9D9',
-                      click: '#D9D9D9',
-                    }}
                   />
                 </div>
               </div>
@@ -523,18 +505,7 @@ const Buy = () => {
             vertical='md'
             style={{ display: 'flex', justifyContent: 'flex-end' }}
           >
-            {newBid && (
-              <Button
-                label='Submit'
-                colors={{
-                  default: '#096DD9',
-                  hover: '#0254ac',
-                  click: '#096dd9bc',
-                  text: '#fff',
-                }}
-                onClick={() => setOpenTable(false)}
-              />
-            )}
+            {newBid && <Button label='Submit' onClick={() => setOpenTable(false)} />}
           </Container>
         </div>
       </Drawer>
