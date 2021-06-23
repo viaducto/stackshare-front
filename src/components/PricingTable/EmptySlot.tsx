@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   background-color: inherit;
   cursor: pointer;
   &:hover {
-    box-shadow: rgb(0, 0, 255, 0.3) 0px 0px 0px 3px;
+    box-shadow: inset 0px 0px 0px 3px rgb(24, 144, 255);
   }
 `;
 const EmptySlot = () => {
@@ -51,7 +51,7 @@ const EmptySlot = () => {
           <Container vertical='lg' horizontal='md' border='outside'>
             <Input type='text' label='Name the time preset' />
             <Spacer size='sm' />
-            <Button label='Save' shapeColor='success' />
+            <Button label='Save' onClick={onCloseDrawer} />
           </Container>
         </div>
       </Drawer>

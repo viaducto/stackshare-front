@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Drawer, Tab, Container } from '@jp-olvera/jp-viaducto-components';
+import { Drawer, Tab, Container, Paragraph } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 const StyledSlot = styled.button`
   appearance: none;
@@ -53,7 +53,9 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
       </StyledSlot>
       <Drawer active={activeDrawer} onClose={onCloseDrawer}>
         <Container expandVertical expandHorizontal vertical='lg' horizontal='sm'>
-          <h4>Mondays 9:00 AM(EST)</h4>
+          <Container horizontal='sm'>
+            <Paragraph weight='bold'>Mondays 9:00 AM(EST)</Paragraph>
+          </Container>
           <div style={{ display: 'flex' }}>
             <Tab text='Bandwidth' />
             <Tab text='Packages' />
@@ -61,16 +63,12 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
           </div>
           <div style={{ display: 'flex' }}>
             <Container vertical='sm' horizontal='sm'>
-              <p>Expires by</p>
-              <p>
-                <b>March 4, 2021. 4:00 am</b>
-              </p>
+              <Paragraph>Expires by</Paragraph>
+              <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
             </Container>
             <Container vertical='sm' horizontal='sm'>
-              <p>Expires by</p>
-              <p>
-                <b>March 4, 2021. 4:00 am</b>
-              </p>
+              <Paragraph>Expires by</Paragraph>
+              <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
             </Container>
           </div>
         </Container>
