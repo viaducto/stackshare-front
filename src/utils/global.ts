@@ -12,9 +12,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   * {
+    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
     margin: 0;
     padding: 0%;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     box-sizing: border-box;
   }
   .wrapper{
@@ -59,5 +60,13 @@ export const GlobalStyle = createGlobalStyle`
 
   .selected > td {
     background-color: #d9d9d9 !important;
+  }
+
+  .notification{
+    border-radius: 1rem !important;
+    color: white !important;
+    padding: 0.63rem .5rem !important;
+    border: 0.063rem solid white !important;
+    box-sizing: border-box;
   }
 `;

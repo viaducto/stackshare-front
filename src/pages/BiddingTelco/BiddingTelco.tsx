@@ -16,6 +16,7 @@ import {
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
 import styled from 'styled-components';
 import { PricingTable } from '../../components/PricingTable';
+import Graph from './Graph';
 
 const WrapperSelect = styled.div<any>`
   width: 16rem;
@@ -116,13 +117,7 @@ const BiddingTelco = () => {
                     <Paragraph color='#595959' weight='600'>
                       $
                     </Paragraph>
-                    <Input
-                      type='number'
-                      size='default'
-                      borderColor='#d9d9d9'
-                      onClick={() => {}}
-                      onKeyUp={() => {}}
-                    />
+                    <Input type='number' size='small' borderColor='#d9d9d9' border='outside' />
                   </div>
                   {!simple && (
                     <>
@@ -164,11 +159,10 @@ const BiddingTelco = () => {
                   >
                     <Input
                       type='number'
-                      size='default'
+                      size='small'
                       borderColor='#d9d9d9'
                       value='95'
-                      onClick={() => {}}
-                      onKeyUp={() => {}}
+                      border='outside'
                     />
                     <Paragraph color='#595959' weight='600'>
                       %
@@ -231,9 +225,9 @@ const BiddingTelco = () => {
                         display: 'flex',
                       }}
                     >
-                      <div style={{ width: '19rem', height: '12rem', backgroundColor: 'gray' }} />
+                      <Graph />
                       <Spacer size='md' direction='horizontal' />
-                      <div style={{ width: '19rem', height: '12rem', backgroundColor: 'gray' }} />
+                      <Graph />
                     </div>
                   </div>
                 )}
@@ -261,8 +255,9 @@ const BiddingTelco = () => {
           <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
             <Container vertical='md' left='xl' right='md'>
               <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
+              <Spacer size='md' />
               <div style={{ width: '16rem' }}>
-                <Input label='Medium input' onClick={() => {}} onKeyUp={() => {}} />
+                <Input label='Medium input' size='small' border='outside' />
               </div>
               <Spacer size='md' />
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>

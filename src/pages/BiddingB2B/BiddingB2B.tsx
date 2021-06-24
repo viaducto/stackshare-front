@@ -91,13 +91,7 @@ const BiddingB2B = () => {
                 <Paragraph color='#595959' weight='600'>
                   $
                 </Paragraph>
-                <Input
-                  type='number'
-                  size='large'
-                  borderColor='#d9d9d9'
-                  onClick={() => {}}
-                  onKeyUp={() => {}}
-                />
+                <Input type='number' size='small' borderColor='#d9d9d9' border='outside' />
               </div>
               {!simple && (
                 <>
@@ -136,11 +130,10 @@ const BiddingB2B = () => {
               >
                 <Input
                   type='number'
-                  size='default'
+                  size='small'
                   borderColor='#d9d9d9'
                   value='95'
-                  onClick={() => {}}
-                  onKeyUp={() => {}}
+                  border='outside'
                 />
                 <Paragraph color='#595959' weight='600'>
                   %

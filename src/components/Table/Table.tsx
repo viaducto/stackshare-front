@@ -34,9 +34,8 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
     <Input
       label='Search'
       icon='search'
-      onClick={() => {}}
-      size='default'
-      onKeyUp={() => {}}
+      size='small'
+      border='outside'
       value={value || ''}
       onChange={(e: any) => {
         setValue(e.target.value);

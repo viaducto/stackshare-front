@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { ConfigContext } from '@jp-olvera/jp-viaducto-components';
 import { Switch, Route } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import BiddingTelco from './pages/BiddingTelco/BiddingTelco';
 import Buy from './pages/BiddingTelco/Buy';
 import Shop from './pages/Shop/Shop';
@@ -35,28 +36,39 @@ function App() {
   }, []);
 
   return (
-    <AppProvider>
-      <div className='wrapper'>
-        <Menu />
-        <Body>
-          <Navbar />
-          <Switch>
-            <Route path='/b2b' exact>
-              <BiddingB2B />
-            </Route>
-            <Route path='/buy' exact>
-              <Buy />
-            </Route>
-            <Route path='/shop' exact>
-              <Shop />
-            </Route>
-            <Route path='/' exact>
-              <BiddingTelco />
-            </Route>
-          </Switch>
-        </Body>
-      </div>
-    </AppProvider>
+    <HelmetProvider>
+      <AppProvider>
+        <Helmet>
+          <title>Stackshare</title>
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='' />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap'
+            rel='stylesheet'
+          />
+        </Helmet>
+        <div className='wrapper'>
+          <Menu />
+          <Body>
+            <Navbar />
+            <Switch>
+              <Route path='/b2b' exact>
+                <BiddingB2B />
+              </Route>
+              <Route path='/buy' exact>
+                <Buy />
+              </Route>
+              <Route path='/shop' exact>
+                <Shop />
+              </Route>
+              <Route path='/' exact>
+                <BiddingTelco />
+              </Route>
+            </Switch>
+          </Body>
+        </div>
+      </AppProvider>
+    </HelmetProvider>
   );
 }
 

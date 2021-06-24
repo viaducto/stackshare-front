@@ -375,8 +375,8 @@ const Shop = () => {
                           borderColor='#d9d9d9'
                           disabled={false}
                           value='500'
-                          onClick={() => {}}
-                          onKeyUp={() => {}}
+                          size='small'
+                          border='outside'
                         />
                       </div>
                       <Spacer direction='horizontal' size='xs' />
@@ -406,8 +406,8 @@ const Shop = () => {
                           borderColor='#d9d9d9'
                           disabled={false}
                           value='500'
-                          onClick={() => {}}
-                          onKeyUp={() => {}}
+                          size='small'
+                          border='outside'
                         />
                       </div>
                       <Spacer direction='horizontal' size='xs' />
@@ -446,8 +446,8 @@ const Shop = () => {
                       borderColor='#d9d9d9'
                       disabled={false}
                       value='500'
-                      onClick={() => {}}
-                      onKeyUp={() => {}}
+                      size='small'
+                      border='outside'
                     />
                   </div>
                   <Spacer direction='horizontal' size='sm' />
@@ -487,8 +487,8 @@ const Shop = () => {
                       borderColor='#d9d9d9'
                       disabled={false}
                       value='100'
-                      onClick={() => {}}
-                      onKeyUp={() => {}}
+                      size='small'
+                      border='outside'
                     />
                     <Spacer direction='horizontal' size='xs' />
                     <Paragraph>%</Paragraph>
@@ -567,8 +567,8 @@ const Shop = () => {
                     type='text'
                     borderColor='#d9d9d9'
                     value='$1000'
-                    onClick={() => {}}
-                    onKeyUp={() => {}}
+                    size='small'
+                    border='outside'
                   />
                 </Container>
                 <Spacer direction='vertical' size='xs' />
@@ -626,8 +626,8 @@ const Shop = () => {
                       label='Search here'
                       icon='search'
                       borderColor='#d9d9d9'
-                      onClick={() => {}}
-                      onKeyUp={() => {}}
+                      size='small'
+                      border='outside'
                     />
                   </Container>
                   <Container

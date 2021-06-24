@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { Paragraph, Container } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
+import { Hamburger, Help, ChevronDown } from 'react-ikonate';
 import { AppContext } from '../../../providers';
-import { Hamburger } from 'react-ikonate';
+import Notification from './Notification';
 const StyledNavbar = styled.nav`
   position: sticky;
   top: 0;
@@ -40,15 +41,15 @@ const Navbar = () => {
     >
       <StyledNavbar>
         <button className='bare-button' onClick={showMenu}>
-          <Hamburger fontSize='1.5rem' />
+          <Hamburger fontSize='1.5rem' color='#595959' />
         </button>
         <div className='user-navbar'>
-          <div style={{ height: '1.313rem', width: '1.313rem', backgroundColor: 'gray' }} />
-          <div style={{ height: '1.313rem', width: '1.313rem', backgroundColor: 'gray' }} />
+          <Help fontSize='1.5rem' color='#595959' />
+          <Notification number={12} />
           <div className='user-data'>
             <img src='https://i.pravatar.cc/32' alt='avatar' style={{ borderRadius: '50%' }} />
             <Paragraph>Ted Russell</Paragraph>
-            <div style={{ height: '0.466rem', width: '0.466rem', backgroundColor: 'gray' }} />
+            <ChevronDown fontSize='0.9rem' color='#595959' />
           </div>
         </div>
       </StyledNavbar>

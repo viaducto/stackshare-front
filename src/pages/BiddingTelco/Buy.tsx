@@ -268,7 +268,7 @@ const Buy = () => {
           <Spacer direction='vertical' size='xs' />
           {newBid ? (
             <Container right='xxxl'>
-              <Input type='date' borderColor='#d9d9d9' onClick={() => {}} onKeyUp={() => {}} />
+              <Input type='date' borderColor='#d9d9d9' size='small' border='outside' />
             </Container>
           ) : (
             <Paragraph lineHeight='1.375rem'>{data.expires}</Paragraph>
@@ -296,8 +296,8 @@ const Buy = () => {
                   type='number'
                   value='500'
                   borderColor='#d9d9d9'
-                  onClick={() => {}}
-                  onKeyUp={() => {}}
+                  size='small'
+                  border='outside'
                 />
                 <Spacer size='xs' direction='horizontal' />
                 <Paragraph>Mb/s</Paragraph>
@@ -339,8 +339,8 @@ const Buy = () => {
                   type='time'
                   borderColor='#d9d9d9'
                   disabled={disabled}
-                  onClick={() => {}}
-                  onKeyUp={() => {}}
+                  size='small'
+                  border='outside'
                 />
               </Container>
             </>
@@ -367,25 +367,11 @@ const Buy = () => {
               }}
             >
               <div style={{ width: '40%' }}>
-                <Input
-                  border='outside'
-                  label='from'
-                  type='date'
-                  size='default'
-                  onClick={() => {}}
-                  onKeyUp={() => {}}
-                />
+                <Input border='outside' label='from' type='date' size='small' />
               </div>
               <Paragraph>To</Paragraph>
               <div style={{ width: '40%' }}>
-                <Input
-                  border='outside'
-                  label='to'
-                  type='date'
-                  size='default'
-                  onClick={() => {}}
-                  onKeyUp={() => {}}
-                />
+                <Input label='to' type='date' size='small' border='outside' />
               </div>
             </div>
           ) : (
@@ -426,8 +412,8 @@ const Buy = () => {
                     borderColor='#d9d9d9'
                     disabled={disabled}
                     value='500'
-                    onClick={() => {}}
-                    onKeyUp={() => {}}
+                    size='small'
+                    border='outside'
                   />
                 </div>
                 <Spacer direction='horizontal' size='tiny' />
@@ -485,8 +471,8 @@ const Buy = () => {
                     icon='grid'
                     borderColor='#d9d9d9'
                     disabled={disabled}
-                    onClick={() => {}}
-                    onKeyUp={() => {}}
+                    size='small'
+                    border='outside'
                   />
                 </div>
               </Container>
