@@ -23,6 +23,7 @@ import AccumulatedBilling from '../../components/AccumulatedBilling/AccumulatedB
 import { colsTabZero, colsTabOne } from './Columns';
 import { appsData } from './AppsData';
 import { PricingTable } from '../../components/PricingTable';
+import { MONDAY } from '../../dummy_data/pricingtable';
 
 const Shop = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -861,7 +862,7 @@ const Shop = () => {
           </div>
           <Container top='md' left='sm' right='lg' style={{ height: '88%' }}>
             <div style={{ maxWidth: 750 }}>
-              <PricingTable />
+              <PricingTable sun={MONDAY} tues={MONDAY} />
             </div>
           </Container>
           <Spacer direction='vertical' size='md' />

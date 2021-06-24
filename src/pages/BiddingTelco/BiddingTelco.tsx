@@ -17,6 +17,7 @@ import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
 import styled from 'styled-components';
 import { PricingTable } from '../../components/PricingTable';
 import Graph from './Graph';
+import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
 
 const WrapperSelect = styled.div<any>`
   width: 16rem;
@@ -131,7 +132,14 @@ const BiddingTelco = () => {
                       </Paragraph>
 
                       <div style={{ overflowX: 'auto' }}>
-                        <PricingTable />
+                        <PricingTable
+                          sun={TUESDAY}
+                          mon={MONDAY}
+                          tues={TUESDAY}
+                          wed={MONDAY}
+                          thu={TUESDAY}
+                          sat={TUESDAY}
+                        />
                       </div>
                     </>
                   )}
@@ -263,7 +271,14 @@ const BiddingTelco = () => {
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
               <Spacer size='md' />
               <div style={{ maxWidth: 750 }}>
-                <PricingTable />
+                <PricingTable
+                  sun={TUESDAY}
+                  mon={MONDAY}
+                  tues={TUESDAY}
+                  wed={MONDAY}
+                  thu={TUESDAY}
+                  sat={TUESDAY}
+                />
               </div>
             </Container>
           </div>

@@ -28,35 +28,56 @@ const StyledPricingTable = styled.div`
   }
 `;
 
+const MONTHS = {
+  0: 'JANUARY',
+  1: 'FEBRUARY',
+  2: 'MARCH',
+  3: 'APRIL',
+  4: 'MAY',
+  5: 'JUNE',
+  6: 'JULY',
+  7: 'AUGUST',
+  8: 'SEPTEMBER',
+  9: 'OCTOBER',
+  10: 'NOVEMBER',
+  11: 'DECEMBER',
+};
+const WEEK_DAYS = {
+  1: 'MON',
+  2: 'TUES',
+  3: 'WED',
+  4: 'THU',
+  5: 'FRI',
+  6: 'SAT',
+  0: 'SUN',
+};
+interface SlotProps {
+  price: number;
+  start_time: string;
+  end_time: string;
+  title: string;
+}
 interface PricingTableProps {
   months?: { [key: number]: string };
   week_days?: { [key: number]: string };
+  sun?: SlotProps[];
+  mon?: SlotProps[];
+  tues?: SlotProps[];
+  wed?: SlotProps[];
+  thu?: SlotProps[];
+  fri?: SlotProps[];
+  sat?: SlotProps[];
 }
-
 const PricingTable = ({
-  months = {
-    0: 'JANUARY',
-    1: 'FEBRUARY',
-    2: 'MARCH',
-    3: 'APRIL',
-    4: 'MAY',
-    5: 'JUNE',
-    6: 'JULY',
-    7: 'AUGUST',
-    8: 'SEPTEMBER',
-    9: 'OCTOBER',
-    10: 'NOVEMBER',
-    11: 'DECEMBER',
-  },
-  week_days = {
-    1: 'MON',
-    2: 'TUES',
-    3: 'WED',
-    4: 'THU',
-    5: 'FRI',
-    6: 'SAT',
-    0: 'SUN',
-  },
+  months = MONTHS,
+  week_days = WEEK_DAYS,
+  sun = [],
+  mon = [],
+  tues = [],
+  wed = [],
+  thu = [],
+  fri = [],
+  sat = [],
 }: PricingTableProps) => {
   const [month, setMonth] = useState<number>(1);
   const [weekDates, setWeekDates] = useState<{ [key: string]: { day: number; month: number } }>({
@@ -101,59 +122,6 @@ const PricingTable = ({
       sat: { day: weekDays[6].getDate(), month: weekDays[6].getMonth() },
     });
   }, [changeWeeks]);
-
-  const MONDAY = [
-    {
-      price: 5,
-      start_time: '00:00',
-      end_time: '01:15',
-      title: 'comer',
-    },
-    {
-      price: 5,
-      start_time: '01:20',
-      end_time: '02:25',
-      title: 'Uptime',
-    },
-    {
-      price: 5,
-      start_time: '03:45',
-      end_time: '04:10',
-      title: 'Uptime',
-    },
-    {
-      price: 5,
-      start_time: '09:00',
-      end_time: '10:00',
-      title: 'almorzar',
-    },
-    {
-      price: 5,
-      start_time: '12:45',
-      end_time: '13:30',
-      title: 'cenar',
-    },
-  ];
-  const TUESDAY = [
-    {
-      price: 5,
-      start_time: '07:00',
-      end_time: '07:30',
-      title: 'Uptime',
-    },
-    {
-      price: 5,
-      start_time: '09:30',
-      end_time: '09:45',
-      title: 'quinceminutos',
-    },
-    {
-      price: 5,
-      start_time: '10:00',
-      end_time: '10:30',
-      title: 'Uptime',
-    },
-  ];
 
   const getTimeBlocks = () => {
     let blocks = [];
@@ -254,32 +222,32 @@ const PricingTable = ({
             {week_days[6]} {weekDates.sat.day}
           </div>
           <div>{getTimeBlocks()}</div>
-          <PricingColumn isCurrentMonth={weekDates.sun.month === month} bidding={MONDAY} />
-          <PricingColumn isCurrentMonth={weekDates.mon.month === month} bidding={TUESDAY} />
+          <PricingColumn isCurrentMonth={weekDates.sun.month === month} bidding={sun} />
+          <PricingColumn isCurrentMonth={weekDates.mon.month === month} bidding={mon} />
           <PricingColumn
             isCurrentMonth={weekDates.tues.month === month}
             className='pc-hide'
-            bidding={MONDAY}
+            bidding={tues}
           />
           <PricingColumn
             isCurrentMonth={weekDates.wed.month === month}
             className='pc-hide'
-            bidding={TUESDAY}
+            bidding={wed}
           />
           <PricingColumn
             isCurrentMonth={weekDates.thu.month === month}
             className='pc-hide'
-            bidding={MONDAY}
+            bidding={thu}
           />
           <PricingColumn
             isCurrentMonth={weekDates.fri.month === month}
             className='pc-hide'
-            bidding={TUESDAY}
+            bidding={fri}
           />
           <PricingColumn
             isCurrentMonth={weekDates.sat.month === month}
             className='pc-hide'
-            bidding={TUESDAY}
+            bidding={sat}
           />
         </StyledPricingTable>
       </div>

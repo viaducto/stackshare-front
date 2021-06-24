@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
-import { Drawer, Tab, Container, Paragraph, Popover } from '@jp-olvera/jp-viaducto-components';
+import { Tab, Container, Paragraph, Popover, Anchor } from '@jp-olvera/jp-viaducto-components';
+import { XYPlot, LineSeries } from 'react-vis';
 import styled from 'styled-components';
+
 const StyledSlot = styled.button<any>`
   appearance: none;
   background-color: rgba(124, 179, 5, 0.4);
@@ -46,6 +48,48 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
   const showInfo = () => {
     setActivePopover(!activePopover);
   };
+  const myData = [
+    {
+      x: 0,
+      y: 5.3,
+    },
+    {
+      x: 2,
+      y: 4,
+    },
+    {
+      x: 3,
+      y: 5,
+    },
+    {
+      x: 4,
+      y: 6.5,
+    },
+    {
+      x: 5,
+      y: 5.5,
+    },
+    {
+      x: 6,
+      y: 3,
+    },
+    {
+      x: 7,
+      y: 4.5,
+    },
+    {
+      x: 8,
+      y: 3,
+    },
+    {
+      x: 9,
+      y: 5,
+    },
+    {
+      x: 10,
+      y: 4.7,
+    },
+  ];
   return (
     <>
       <StyledSlot type='button' ref={ref} style={{ top, height }} onClick={showInfo} {...rest}>
@@ -56,26 +100,33 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
         target={ref}
         active={activePopover}
         position='right'
-        elevation={3}
-        elevationDirection='bottom'
+        elevation={1}
         content={
-          <Container expandVertical expandHorizontal vertical='lg' horizontal='sm'>
-            <Container horizontal='sm'>
-              <Paragraph weight='bold'>Mondays 9:00 AM(EST)</Paragraph>
+          <Container expandVertical expandHorizontal vertical='lg' horizontal='lg'>
+            <Container>
+              <Paragraph weight='bold' size='lg'>
+                Mondays 9:00 AM(EST)
+              </Paragraph>
             </Container>
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Tab text='Bandwidth' />
               <Tab text='Packages' />
               <Tab text='Secure channels' />
             </div>
+            <Container vertical='sm'>
+              <XYPlot height={100} width={300} style={{ fill: 'none', strokeWidth: 3 }}>
+                <LineSeries data={myData} color='#1665D8' />
+              </XYPlot>
+            </Container>
             <div style={{ display: 'flex' }}>
-              <Container vertical='sm' horizontal='sm'>
-                <Paragraph>Expires by</Paragraph>
-                <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
+              <Container vertical='sm' right='sm'>
+                <Paragraph color='darkGray'>Expires by</Paragraph>
+                <Paragraph size='lg'>March 4, 2021. 4:00 am</Paragraph>
               </Container>
-              <Container vertical='sm' horizontal='sm'>
-                <Paragraph>Expires by</Paragraph>
-                <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
+              <Container vertical='sm'>
+                <Paragraph color='darkGray'>Expires by</Paragraph>
+                <Paragraph size='lg'>March 4, 2021. 4:00 am</Paragraph>
+                <Anchor color='#1665D8' href='#' label='See all' size='lg' transition='ease' />
               </Container>
             </div>
           </Container>
