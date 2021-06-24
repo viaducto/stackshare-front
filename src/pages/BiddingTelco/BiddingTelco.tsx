@@ -231,11 +231,17 @@ const BiddingTelco = () => {
                     <div
                       style={{
                         display: 'flex',
+                        justifyContent: 'space-around',
                       }}
                     >
-                      <Graph />
+                      <Graph
+                        title='Earnings'
+                        percent='+11.3%'
+                        data='$13,893'
+                        profit='Total Profit'
+                      />
                       <Spacer size='md' direction='horizontal' />
-                      <Graph />
+                      <Graph title='Broadband Usage' percent='+11.3%' data='659Gb' />
                     </div>
                   </div>
                 )}
