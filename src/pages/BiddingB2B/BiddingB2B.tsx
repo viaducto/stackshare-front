@@ -10,6 +10,7 @@ import {
   Drawer,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
+import { PricingTable } from '../../components/PricingTable';
 
 const BiddingB2B = () => {
   const [open, setOpen] = useState(false);
@@ -104,7 +105,7 @@ const BiddingB2B = () => {
                     Blank spaces will be assigned to the default Mb price
                   </Paragraph>
 
-                  <div style={{ height: '35.8rem', backgroundColor: 'gray', width: '36.438rem' }} />
+                  <PricingTable />
                 </>
               )}
               <Spacer direction='vertical' size='md' />
