@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Drawer, Tab, Container, Paragraph } from '@jp-olvera/jp-viaducto-components';
+import { useState, useRef } from 'react';
+import { Drawer, Tab, Container, Paragraph, Popover } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
-const StyledSlot = styled.button`
+const StyledSlot = styled.button<any>`
   appearance: none;
   background-color: rgba(124, 179, 5, 0.4);
   box-sizing: border-box;
@@ -38,41 +38,50 @@ interface SlotProps {
   height: string;
 }
 const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
-  const [activeDrawer, setActiveDrawer] = useState(false);
-  const onCloseDrawer = () => {
-    setActiveDrawer(!activeDrawer);
+  const ref = useRef();
+  const [activePopover, setActivePopover] = useState(false);
+  const onClose = () => {
+    setActivePopover(!activePopover);
   };
   const showInfo = () => {
-    setActiveDrawer(!activeDrawer);
+    setActivePopover(!activePopover);
   };
   return (
     <>
-      <StyledSlot type='button' style={{ top, height }} onClick={showInfo} {...rest}>
+      <StyledSlot type='button' ref={ref} style={{ top, height }} onClick={showInfo} {...rest}>
         <span style={{ fontSize: '1rem', textTransform: 'capitalize' }}>{title} </span>
         <span style={{ fontSize: '0.8rem', marginLeft: 'auto' }}>{timeLapse}</span>
       </StyledSlot>
-      <Drawer active={activeDrawer} onClose={onCloseDrawer}>
-        <Container expandVertical expandHorizontal vertical='lg' horizontal='sm'>
-          <Container horizontal='sm'>
-            <Paragraph weight='bold'>Mondays 9:00 AM(EST)</Paragraph>
+      <Popover
+        target={ref}
+        active={activePopover}
+        position='right'
+        elevation={3}
+        elevationDirection='bottom'
+        content={
+          <Container expandVertical expandHorizontal vertical='lg' horizontal='sm'>
+            <Container horizontal='sm'>
+              <Paragraph weight='bold'>Mondays 9:00 AM(EST)</Paragraph>
+            </Container>
+            <div style={{ display: 'flex' }}>
+              <Tab text='Bandwidth' />
+              <Tab text='Packages' />
+              <Tab text='Secure channels' />
+            </div>
+            <div style={{ display: 'flex' }}>
+              <Container vertical='sm' horizontal='sm'>
+                <Paragraph>Expires by</Paragraph>
+                <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
+              </Container>
+              <Container vertical='sm' horizontal='sm'>
+                <Paragraph>Expires by</Paragraph>
+                <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
+              </Container>
+            </div>
           </Container>
-          <div style={{ display: 'flex' }}>
-            <Tab text='Bandwidth' />
-            <Tab text='Packages' />
-            <Tab text='Secure channels' />
-          </div>
-          <div style={{ display: 'flex' }}>
-            <Container vertical='sm' horizontal='sm'>
-              <Paragraph>Expires by</Paragraph>
-              <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
-            </Container>
-            <Container vertical='sm' horizontal='sm'>
-              <Paragraph>Expires by</Paragraph>
-              <Paragraph weight='bold'>March 4, 2021. 4:00 am</Paragraph>
-            </Container>
-          </div>
-        </Container>
-      </Drawer>
+        }
+        handleClose={onClose}
+      />
     </>
   );
 };
