@@ -5,6 +5,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import BiddingTelco from './pages/BiddingTelco/BiddingTelco';
 import Buy from './pages/BiddingTelco/Buy';
 import Shop from './pages/Shop/Shop';
+import GraphsPage from './pages/GraphsPage/GraphsPage';
 import BiddingB2B from './pages/BiddingB2B/BiddingB2B';
 import { Menu, Body, Navbar } from './components/layout';
 import { AppProvider } from './providers';
@@ -60,6 +61,9 @@ function App() {
               </Route>
               <Route path='/shop' exact>
                 <Shop />
+              </Route>
+              <Route path='/graphs' exact>
+                <GraphsPage />
               </Route>
               <Route path='/' exact>
                 <BiddingTelco />

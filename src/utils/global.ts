@@ -69,4 +69,20 @@ export const GlobalStyle = createGlobalStyle`
     border: 0.063rem solid white !important;
     box-sizing: border-box;
   }
+
+  input:focus~.label,
+  input:valid~.label{
+    left: -.8rem !important;
+  }
+
+  .rv-discrete-color-legend{
+    display: flex;
+    align-items: center;
+    & .horizontal {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    gap: 1rem;
+  }
 `;

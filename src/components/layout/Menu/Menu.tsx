@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { SidebarSection, MenuItem, Container } from '@jp-olvera/jp-viaducto-components';
-import { Chart, Suitcase, Grid, Settings } from 'react-ikonate';
+import { Chart, Suitcase, Grid, Settings, Activity } from 'react-ikonate';
 import { AppContext } from '../../../providers';
 
 interface StyledStackMenuProps {
@@ -11,7 +11,6 @@ interface StyledStackMenuProps {
 
 const StyledStackMenu = styled.div<StyledStackMenuProps>`
   width: 12.5rem;
-  /* width: ${(p) => (p.active ? '12.5rem' : '0rem')}; */
   transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 230ms ease-out;
   position: fixed;
@@ -66,6 +65,9 @@ const StackMenu = () => {
         </SidebarSection>
         <Link to='/shop' className='link-router'>
           <MenuItem label='Bytebroker shop' lead icon={<Grid />} active={pathname === '/shop'} />
+        </Link>
+        <Link to='/graphs' className='link-router'>
+          <MenuItem label='Graphs' lead icon={<Activity />} active={pathname === '/graphs'} />
         </Link>
       </Container>
     </StyledStackMenu>
