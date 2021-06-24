@@ -373,11 +373,19 @@ const Buy = () => {
                   type='date'
                   size='default'
                   onClick={() => {}}
+                  onKeyUp={() => {}}
                 />
               </div>
               <Paragraph>To</Paragraph>
               <div style={{ width: '40%' }}>
-                <Input border='outside' label='to' type='date' size='default' onKeyUp={() => {}} />
+                <Input
+                  border='outside'
+                  label='to'
+                  type='date'
+                  size='default'
+                  onClick={() => {}}
+                  onKeyUp={() => {}}
+                />
               </div>
             </div>
           ) : (

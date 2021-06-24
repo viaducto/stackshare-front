@@ -56,4 +56,8 @@ export const GlobalStyle = createGlobalStyle`
   table > thead > tr {
     background-color: #fafafa !important;
   }
+
+  .selected > td {
+    background-color: #d9d9d9 !important;
+  }
 `;
