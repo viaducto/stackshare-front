@@ -7,11 +7,15 @@ const Graph = ({
   profit = null,
   data,
   percent,
+  color = '#34AA44',
+  progress = null,
 }: {
   title: string;
   profit?: string | null;
+  color?: string;
   data: string;
   percent: string;
+  progress?: string | null;
 }) => {
   const myDATA = [
     {
@@ -78,12 +82,34 @@ const Graph = ({
       </div>
       <Spacer size='md' />
       <Container horizontal='lg'>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <XYPlot margin={{ left: 20, right: 20 }} width={230} height={100} xType='ordinal'>
-            <VerticalBarSeries barWidth={0.6} data={myDATA} color='#34AA44' />
-          </XYPlot>
-        </div>
+        {progress === null && (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <XYPlot margin={{ left: 20, right: 20 }} width={230} height={100} xType='ordinal'>
+              <VerticalBarSeries barWidth={0.6} data={myDATA} color={color} />
+            </XYPlot>
+          </div>
+        )}
       </Container>
+      {progress !== null && (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            flexDirection: 'column',
+            height: 100,
+            width: '100%',
+          }}
+        >
+          <div style={{ width: '100%', height: 4, background: '#EAECEE' }}>
+            <div style={{ width: progress, height: 4, background: color }} />
+          </div>
+          <Spacer size='sm' />
+          <Paragraph size='sm' color='#9EA0A5'>
+            Yearly Goal
+          </Paragraph>
+        </div>
+      )}
     </Container>
   );
 };

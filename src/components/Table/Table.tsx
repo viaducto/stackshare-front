@@ -45,7 +45,17 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   );
 };
 
-const Table = ({ cols, dataTable, filter = true }: any) => {
+const Table = ({
+  cols,
+  dataTable,
+  filter = true,
+  pagination = true,
+}: {
+  cols: any[];
+  dataTable: any[];
+  filter?: boolean;
+  pagination?: boolean;
+}) => {
   const defaultColumn = useMemo(() => ({}), []);
   const renderRowSubComponent = React.useCallback(({ row }) => row.original.expandible, []);
   const {
@@ -307,58 +317,61 @@ const Table = ({ cols, dataTable, filter = true }: any) => {
             );
           })}
         </tbody>
-        <tfoot>
-          <tr style={{ display: 'flex', justifyContent: 'center' }}>
-            <td colSpan={10} style={{ display: 'flex', justifyContent: 'center' }}>
-              <div className='pagination'>
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  icon={<ChevronsLeft />}
-                  onClick={() => gotoPage(0)}
-                  type='button'
-                  disabled={!canPreviousPage}
-                  variant='outline'
-                  height='2.063rem'
-                />
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  icon={<ChevronLeft />}
-                  type='button'
-                  onClick={() => previousPage()}
-                  disabled={!canPreviousPage}
-                  variant='outline'
-                  height='2.063rem'
-                />
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  type='button'
-                  onClick={() => nextPage()}
-                  disabled={!canNextPage}
-                  variant='outline'
-                  height='2.063rem'
-                  icon={<ChevronRight />}
-                />
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  icon={<ChevronsRight />}
-                  type='button'
-                  onClick={() => gotoPage(pageCount - 1)}
-                  disabled={!canNextPage}
-                  variant='outline'
-                  height='2.063rem'
-                />
-              </div>
-            </td>
-          </tr>
-        </tfoot>
+
+        {pagination && (
+          <tfoot>
+            <tr style={{ display: 'flex', justifyContent: 'center' }}>
+              <td colSpan={10} style={{ display: 'flex', justifyContent: 'center' }}>
+                <div className='pagination'>
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    icon={<ChevronsLeft />}
+                    onClick={() => gotoPage(0)}
+                    type='button'
+                    disabled={!canPreviousPage}
+                    variant='outline'
+                    height='2.063rem'
+                  />
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    icon={<ChevronLeft />}
+                    type='button'
+                    onClick={() => previousPage()}
+                    disabled={!canPreviousPage}
+                    variant='outline'
+                    height='2.063rem'
+                  />
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    type='button'
+                    onClick={() => nextPage()}
+                    disabled={!canNextPage}
+                    variant='outline'
+                    height='2.063rem'
+                    icon={<ChevronRight />}
+                  />
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    icon={<ChevronsRight />}
+                    type='button'
+                    onClick={() => gotoPage(pageCount - 1)}
+                    disabled={!canNextPage}
+                    variant='outline'
+                    height='2.063rem'
+                  />
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        )}
       </table>
     </>
   );
