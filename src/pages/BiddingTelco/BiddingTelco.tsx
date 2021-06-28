@@ -118,7 +118,13 @@ const BiddingTelco = () => {
                     <Paragraph color='#595959' weight='600'>
                       $
                     </Paragraph>
-                    <Input type='number' size='small' borderColor='#d9d9d9' border='outside' />
+                    <Input
+                      type='number'
+                      size='small'
+                      borderColor='#d9d9d9'
+                      border='outside'
+                      id='askMB'
+                    />
                   </div>
                   {!simple && (
                     <>
@@ -171,6 +177,7 @@ const BiddingTelco = () => {
                       borderColor='#d9d9d9'
                       value='95'
                       border='outside'
+                      id='bandwith'
                     />
                     <Paragraph color='#595959' weight='600'>
                       %
@@ -210,6 +217,7 @@ const BiddingTelco = () => {
                           color='#40A9FF'
                           icon='🔵'
                           onClick={handleOpen}
+                          data-testid='hrefDrawer'
                         />
                       </div>
                     </>

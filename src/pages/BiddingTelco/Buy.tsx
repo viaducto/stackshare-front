@@ -72,6 +72,7 @@ const Buy = () => {
             type='tab'
             verticalSpacing='sm'
             id='ActiveBids'
+            active={tab === 0}
           />
           <Tab
             horizontalSpacing='sm'
@@ -83,6 +84,7 @@ const Buy = () => {
             type='tab'
             verticalSpacing='sm'
             id='Fullfilled'
+            active={tab === 1}
           />
         </Container>
       </BodyHeader>
@@ -192,7 +194,7 @@ const Buy = () => {
             vertical='md'
             left='xl'
             right='md'
-            style={{ display: 'flex', justifyContent: 'space-between' }}
+            style={{ display: 'flex', justifyContent: 'space-between', width: '40vw' }}
           >
             <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
               {newBid ? 'New bid' : 'Bid details'}
@@ -249,9 +251,9 @@ const Buy = () => {
                   left: '0.063rem solid #d9d9d9',
                 }}
               >
-                <option>Bandwith</option>
-                <option>Secure Channel</option>
-                <option>Data package</option>
+                <option value='Bandwith'>Bandwith</option>
+                <option value='Secure Channel'>Secure Channel</option>
+                <option value='Data package'>Data package</option>
               </Select>
             </Container>
           ) : (
