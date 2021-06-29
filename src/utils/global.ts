@@ -70,11 +70,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  input:focus~.label,
-  input:valid~.label{
-    left: -.8rem !important;
-  }
-
   .rv-discrete-color-legend{
     display: flex;
     align-items: center;
