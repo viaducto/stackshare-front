@@ -17,7 +17,7 @@ import Day from './Day';
 // FIXME: CAMBIAR SEMANA MARCA MAL LAS FECHAS
 const StyledPricingTable = styled.div`
   display: grid;
-  grid-template-columns: 90px repeat(7, minmax(11rem, 1fr));
+  grid-template-columns: 50px repeat(7, minmax(11rem, 1fr));
   grid-template-rows: 50px 50px 1fr;
   grid-auto-columns: 200px;
   padding-bottom: 1rem;
@@ -85,13 +85,6 @@ const PricingTable = ({
     sat: { day: 1, month: 0 },
   });
   const [changeWeeks, setChangeWeeks] = useState(0);
-  const [todayDay, setTodayDay] = useState(0);
-  const [todayMonth, setTodayMonth] = useState(1);
-  useEffect(() => {
-    const d = new Date();
-    setTodayDay(d.getDate());
-    setTodayMonth(d.getMonth());
-  }, []);
   const handleChangeWeek = (next = true) => {
     // goes forwards
     if (next) {
@@ -130,11 +123,10 @@ const PricingTable = ({
     <StyledPricingTable>
       <div
         style={{
-          gridColumnStart: 1,
+          gridColumnStart: 2,
           gridColumnEnd: 9,
           display: 'flex',
           alignItems: 'center',
-          paddingLeft: '90px',
         }}
       >
         <span>
