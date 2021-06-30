@@ -31,15 +31,17 @@ const SellAdvanced = () => {
       <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
         Blank spaces will be assigned to the default Mb price
       </Paragraph>
-      <div style={{ overflowX: 'auto' }}>
-        <PricingTable
-          sun={TUESDAY}
-          mon={MONDAY}
-          tues={TUESDAY}
-          wed={MONDAY}
-          thu={TUESDAY}
-          sat={TUESDAY}
-        />
+      <div className=' blurred-border'>
+        <div className='overflow'>
+          <PricingTable
+            sun={TUESDAY}
+            mon={MONDAY}
+            tues={TUESDAY}
+            wed={MONDAY}
+            thu={TUESDAY}
+            sat={TUESDAY}
+          />
+        </div>
       </div>
       <Spacer direction='vertical' size='xl' />
       <div style={{ width: '32rem' }}>

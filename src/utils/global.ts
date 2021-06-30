@@ -86,4 +86,24 @@ export const GlobalStyle: any = createGlobalStyle`
     }
     gap: 1rem;
   }
+
+  .overflow {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+  .blurred-border {
+    position: relative;
+    &:after {
+      border-color: transparent;
+      background: linear-gradient(270deg,rgba(23, 135, 239, 0.3) 0%,rgba(255, 255, 255, 0) 100%);
+      background-clip: border-box;
+      border: inherit;
+      content: '';
+      position: absolute;
+      height: 100%;
+      right: 0;
+      top: 0;
+      width: 3px;
+    }
+  }
 `;

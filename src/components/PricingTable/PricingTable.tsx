@@ -127,6 +127,7 @@ const PricingTable = ({
           gridColumnEnd: 9,
           display: 'flex',
           alignItems: 'center',
+          paddingRight: '2px',
         }}
       >
         <span>

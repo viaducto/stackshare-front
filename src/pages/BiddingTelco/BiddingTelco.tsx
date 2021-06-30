@@ -79,15 +79,17 @@ const BiddingTelco = () => {
               <Spacer size='md' />
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
               <Spacer size='md' />
-              <div style={{ width: 750, overflow: 'auto' }}>
-                <PricingTable
-                  sun={TUESDAY}
-                  mon={MONDAY}
-                  tues={TUESDAY}
-                  wed={MONDAY}
-                  thu={TUESDAY}
-                  sat={TUESDAY}
-                />
+              <div className='blurred-border'>
+                <div style={{ width: 750, overflow: 'auto' }}>
+                  <PricingTable
+                    sun={TUESDAY}
+                    mon={MONDAY}
+                    tues={TUESDAY}
+                    wed={MONDAY}
+                    thu={TUESDAY}
+                    sat={TUESDAY}
+                  />
+                </div>
               </div>
             </Container>
           </div>
