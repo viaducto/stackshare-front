@@ -149,3 +149,173 @@ export const socialColumns = [
   { Header: 'Network', accessor: 'network', Filter: () => null, width: 90 },
   { Header: 'Visitors', accessor: 'traffic', Filter: () => null, width: 200 },
 ];
+
+export const ITEMS = [
+  { title: 'Profit', color: '#1665D8', strokeStyle: 'solid' },
+  {
+    title: 'Profit/Expenses',
+    color: '#9EA0A5',
+    strokeDasharray: '2 2',
+  },
+];
+export const DATA = [
+  {
+    x: 1,
+    y: 3.1,
+  },
+  {
+    x: 2,
+    y: 4.8,
+  },
+  {
+    x: 3,
+    y: 5.8,
+  },
+  {
+    x: 4,
+    y: 2,
+  },
+  {
+    x: 5,
+    y: 4.8,
+  },
+  {
+    x: 6,
+    y: 5.8,
+  },
+  {
+    x: 7,
+    y: 3.2,
+  },
+  {
+    x: 8,
+    y: 5,
+  },
+  {
+    x: 9,
+    y: 2,
+  },
+  {
+    x: 10,
+    y: 5.6,
+  },
+  {
+    x: 11,
+    y: 3.1,
+  },
+  {
+    x: 12,
+    y: 6.9,
+  },
+  {
+    x: 13,
+    y: 5,
+  },
+  {
+    x: 14,
+    y: 5.8,
+  },
+  {
+    x: 15,
+    y: 2.2,
+  },
+  {
+    x: 16,
+    y: 3,
+  },
+  {
+    x: 17,
+    y: 2,
+  },
+  {
+    x: 18,
+    y: 6.2,
+  },
+  {
+    x: 19,
+    y: 2,
+  },
+  {
+    x: 20,
+    y: 5.2,
+  },
+  {
+    x: 21,
+    y: 5.7,
+  },
+  {
+    x: 22,
+    y: 3,
+  },
+  {
+    x: 23,
+    y: 6.3,
+  },
+  {
+    x: 24,
+    y: 2,
+  },
+  {
+    x: 25,
+    y: 3.2,
+  },
+  {
+    x: 26,
+    y: 3.1,
+  },
+  {
+    x: 27,
+    y: 2,
+  },
+  {
+    x: 28,
+    y: 5.1,
+  },
+  {
+    x: 29,
+    y: 2,
+  },
+  {
+    x: 30,
+    y: 3,
+  },
+  {
+    x: 31,
+    y: 6.4,
+  },
+];
+
+export const DAYS = ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ''];
+const objToday = new Date(),
+  weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  dayOfWeek = weekday[objToday.getDay()],
+  domEnder = (function () {
+    let a = objToday;
+    if (/1/.test(a.toString().charAt(0))) return 'th';
+    return 1 === parseInt(a.toString().charAt(1))
+      ? 'st'
+      : 2 === parseInt(a.toString().charAt(1))
+      ? 'nd'
+      : 3 === parseInt(a.toString().charAt(1))
+      ? 'rd'
+      : 'th';
+  })();
+const dayOfMonth =
+    objToday.getDate() < 10 ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
+  months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ],
+  curMonth = months[objToday.getMonth()],
+  curYear = objToday.getFullYear();
+export const today: string = dayOfWeek + ' ' + dayOfMonth + ' of ' + curMonth + ', ' + curYear;

@@ -2,29 +2,18 @@ import React, { useState, useEffect } from 'react';
 import {
   Paragraph,
   Spacer,
-  Radio,
   Input,
-  Select,
-  Anchor,
   Pill,
   Button,
-  Breadcrums,
-  Breadcrum,
   Drawer,
   Container,
 } from '@jp-olvera/jp-viaducto-components';
-import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
-import styled from 'styled-components';
-import { PricingTable } from '../../components/PricingTable';
-import Graph from './Graph';
+import { BodyContent, BodyMain } from '../../components/layout';
 import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
+import { PricingTable } from '../../components/PricingTable';
 
-const WrapperSelect = styled.div<any>`
-  width: 16rem;
-  & > select {
-    box-shadow: 0 0 0.25rem rgba(24, 144, 255, 0.5);
-  }
-`;
+import SellParameters from '../../components/SellParameters/SellParameters';
+import HeaderSell from '../../components/SellParameters/HeaderSell';
 
 const BiddingTelco = () => {
   const [open, setOpen] = useState(false);
@@ -45,217 +34,23 @@ const BiddingTelco = () => {
       }}
     >
       {/* Header */}
-      <BodyHeader>
-        <Container vertical='sm' horizontal='md'>
-          <Breadcrums>
-            <Breadcrum label='Auctions' href='' />
-            <Breadcrum label='Bidding' href='' active separator={false} />
-          </Breadcrums>
-          <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
-            Sell parameters
-          </Paragraph>
-        </Container>
-      </BodyHeader>
+      <HeaderSell
+        title='Sell parameters'
+        breadcrums={[
+          { label: 'Auctions', href: '#', active: false },
+          { label: 'Bidding', href: '#', active: true },
+        ]}
+      />
 
       {/* Body */}
       <BodyMain>
         <div style={{ backgroundColor: 'white', height: '100%' }}>
-          <div style={{ borderBottom: '0.063rem solid #D9D9D9' }}>
-            <Container vertical='md' horizontal='lg' expandHorizontal expandVertical>
-              <Paragraph lineHeight='1.375rem' weight='600'>
-                Pricing definition
-              </Paragraph>
-              <Spacer direction='vertical' size='sm' />
-              <div>
-                <Radio
-                  radioSize='sm'
-                  name='princig'
-                  label='Simple'
-                  spacing='sm'
-                  color='#1890FF'
-                  checked={simple}
-                  onChange={() => setSimple(true)}
-                />
-                <Spacer direction='horizontal' size='xl' />
-                <Radio
-                  checked={!simple}
-                  radioSize='sm'
-                  name='princig'
-                  label='Advanced'
-                  spacing='sm'
-                  color='#1890FF'
-                  onChange={() => setSimple(false)}
-                />
-              </div>
-            </Container>
-          </div>
-          <div>
-            <Container vertical='md' horizontal='lg' expandHorizontal expandVertical>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  justifyContent: 'flex-start',
-                  gap: '5rem',
-                  flexWrap: 'wrap',
-                  overflowX: 'auto',
-                }}
-              >
-                <div>
-                  <Paragraph lineHeight='1.375rem' weight='600'>
-                    Minimum ask per Mb/s
-                  </Paragraph>
-                  <Spacer direction='vertical' size='xs' />
-                  <div
-                    style={{
-                      width: '6.625rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      gap: '0.438rem',
-                    }}
-                  >
-                    <Paragraph color='#595959' weight='600'>
-                      $
-                    </Paragraph>
-                    <Input
-                      type='number'
-                      size='small'
-                      borderColor='#d9d9d9'
-                      border='outside'
-                      id='askMB'
-                    />
-                  </div>
-                  {!simple && (
-                    <>
-                      <Spacer direction='vertical' size='lg' />
-                      <Paragraph lineHeight='1.375rem' weight='600'>
-                        Prices and availiability
-                      </Paragraph>
-                      <Spacer direction='vertical' size='xs' />
-                      <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
-                        Blank spaces will be assigned to the default Mb price
-                      </Paragraph>
-
-                      <div style={{ overflowX: 'auto' }}>
-                        <PricingTable
-                          sun={TUESDAY}
-                          mon={MONDAY}
-                          tues={TUESDAY}
-                          wed={MONDAY}
-                          thu={TUESDAY}
-                          sat={TUESDAY}
-                        />
-                      </div>
-                    </>
-                  )}
-                  <Spacer direction='vertical' size='md' />
-                  <Paragraph lineHeight='1.375rem' weight='600'>
-                    Infractrusture bandwith cap
-                  </Paragraph>
-                  <Spacer direction='vertical' size='xs' />
-                  <div style={{ width: '34rem' }}>
-                    <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
-                      This percentage will define the stop line, in which Stackshare will stop
-                      allocating bids inside your infrastructure.{' '}
-                      <b>Can’t be setted at more than 95%</b>
-                    </Paragraph>
-                  </div>
-                  <Spacer direction='vertical' size='xs' />
-                  <div
-                    style={{
-                      width: '6.625rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      gap: '0.438rem',
-                    }}
-                  >
-                    <Input
-                      type='number'
-                      size='small'
-                      borderColor='#d9d9d9'
-                      value='95'
-                      border='outside'
-                      id='bandwith'
-                    />
-                    <Paragraph color='#595959' weight='600'>
-                      %
-                    </Paragraph>
-                  </div>
-                  {simple && (
-                    <>
-                      <Spacer direction='vertical' size='lg' />
-                      <Paragraph lineHeight='1.375rem' weight='600'>
-                        Time Presets
-                      </Paragraph>
-                      <Spacer direction='vertical' size='xs' />
-                      <WrapperSelect>
-                        <Select
-                          size='sm'
-                          radius={0.125}
-                          name='a'
-                          id='a'
-                          border={{
-                            top: '0.063rem solid #40A9FF',
-                            right: '0.063rem solid #40A9FF',
-                            bottom: '0.063rem solid #40A9FF',
-                            left: '0.063rem solid #40A9FF',
-                          }}
-                        >
-                          <option value='Bussiness Hours'>Bussiness Hours</option>
-                          <option value='Option'>Option</option>
-                          <option value='Another option'>Another option</option>
-                        </Select>
-                      </WrapperSelect>
-                      <Spacer direction='vertical' size='md' />
-                      <div>
-                        <Anchor
-                          label='Add New Time Preset'
-                          lead
-                          href='#'
-                          color='#40A9FF'
-                          icon='🔵'
-                          onClick={handleOpen}
-                          data-testid='hrefDrawer'
-                        />
-                      </div>
-                    </>
-                  )}
-                </div>
-                {simple && (
-                  <div>
-                    <Paragraph lineHeight='1.375rem' weight='600'>
-                      Potential earnings with current config
-                    </Paragraph>
-                    <Spacer direction='vertical' size='xs' />
-                    <div style={{ width: '40rem' }}>
-                      <Paragraph lineHeight='1.375rem' color='#595959'>
-                        These are stimated by the prices and maximum bandwith usage and the uptime
-                        selected.
-                      </Paragraph>
-                    </div>
-                    <Spacer direction='vertical' size='xs' />
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-around',
-                      }}
-                    >
-                      <Graph
-                        title='Earnings'
-                        percent='+11.3%'
-                        data='$13,893'
-                        profit='Total Profit'
-                      />
-                      <Spacer size='md' direction='horizontal' />
-                      <Graph title='Broadband Usage' percent='+11.3%' data='659Gb' />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </Container>
-          </div>
+          <SellParameters
+            handleOpen={handleOpen}
+            setSimple={setSimple}
+            simple={simple}
+            b2b={false}
+          />
         </div>
       </BodyMain>
 
@@ -284,7 +79,7 @@ const BiddingTelco = () => {
               <Spacer size='md' />
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
               <Spacer size='md' />
-              <div style={{ maxWidth: 750 }}>
+              <div style={{ width: 750, overflow: 'auto' }}>
                 <PricingTable
                   sun={TUESDAY}
                   mon={MONDAY}

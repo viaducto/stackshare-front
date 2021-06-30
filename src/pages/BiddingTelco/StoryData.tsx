@@ -25,7 +25,7 @@ const DummyBadge = ({ label, color, textColor }: any) => (
 export const dummyData = [
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' }),
+    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 1,
     total: 500,
@@ -39,7 +39,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' }),
+    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 3,
     total: 500,
@@ -53,7 +53,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' }),
+    bidding_type: { label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 4,
     total: 500,
@@ -67,7 +67,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Secure Channel', color: '#F0F5FF', textColor: '#2F54EB' }),
+    bidding_type: { label: 'Secure Channel', color: '#F0F5FF', textColor: '#2F54EB' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 1,
     total: 500,
@@ -81,7 +81,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' }),
+    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 133,
     total: 500,
@@ -95,7 +95,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' }),
+    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 348,
     total: 500,
@@ -109,7 +109,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' }),
+    bidding_type: { label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 0,
     total: 500,
@@ -123,7 +123,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' }),
+    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 949,
     total: 500,
@@ -137,7 +137,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: DummyBadge({ label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' }),
+    bidding_type: { label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' },
     expires: 'March 4, 2021. 4:00 am',
     rate: 0,
     total: 500,
@@ -156,15 +156,31 @@ export const buyColumns = [
     Header: 'Bidding Type',
     accessor: 'bidding_type',
     Filter: () => null,
-    width: 180,
+    width: 250,
     maxWidth: 250,
     minWidth: 100,
+    Cell: (props: any) => {
+      const { label, color, textColor } = props.data[props.row.index].bidding_type;
+
+      return (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+          }}
+        >
+          <DummyBadge label={label} color={color} textColor={textColor} />
+        </div>
+      );
+    },
   },
   {
     Header: 'Expires by',
     accessor: 'expires',
     Filter: () => null,
-    width: 178,
+    width: 250,
     maxWidth: 250,
     minWidth: 100,
   },
@@ -173,7 +189,7 @@ export const buyColumns = [
     accessor: 'rate',
     Filter: () => null,
     prefix: '$',
-    width: 140,
+    width: 200,
     maxWidth: 200,
     minWidth: 100,
   },
@@ -182,7 +198,7 @@ export const buyColumns = [
     accessor: 'total',
     Filter: () => null,
     prefix: '$',
-    width: 140,
+    width: 200,
     maxWidth: 200,
     minWidth: 100,
   },
