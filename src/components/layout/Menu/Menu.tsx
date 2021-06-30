@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { SidebarSection, MenuItem, Container } from '@jp-olvera/jp-viaducto-components';
 import { Chart, Suitcase, Grid, Settings, Activity } from 'react-ikonate';
 import { AppContext } from '../../../providers';
+import Logo from '../../Logo/Logo';
 
 interface StyledStackMenuProps {
   active: boolean;
@@ -35,8 +36,8 @@ const StackMenu = () => {
 
   return (
     <StyledStackMenu active={isMenuActive}>
-      <Container vertical='md' horizontal='md'>
-        <div style={{ width: '8.375rem', height: '1.5rem', backgroundColor: 'gray' }} />
+      <Container vertical='md' expandHorizontal horizontal='sm'>
+        <Logo />
       </Container>
       <Container vertical='md' style={{ position: 'relative' }}>
         <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} />

@@ -1,7 +1,5 @@
-import React from 'react';
 import EmptySlot from './EmptySlot';
 import Slot from './Slot';
-
 interface BiddingTimeProps {
   price: number;
   start_time: string;

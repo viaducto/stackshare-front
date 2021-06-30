@@ -10,14 +10,13 @@ import {
   WrapperTable,
   Select,
   Drawer,
-  Breadcrums,
-  Breadcrum,
   Container,
 } from '@jp-olvera/jp-viaducto-components';
-import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
+import { BodyContent, BodyMain } from '../../components/layout';
 import { dummyData, buyColumns } from './StoryData';
 import { Filter, EllypsisVertical, Plus } from 'react-ikonate';
 import Table from '../../components/Table/Table';
+import HeaderSell from '../../components/SellParameters/HeaderSell';
 const details = {
     default: 'transparent',
     hover: 'transparent',
@@ -36,7 +35,6 @@ const Buy = () => {
   const [newBid, setNewBid] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [data, setData] = useState<any>({});
-  const [tab, setTab] = useState(0);
   useEffect(() => {
     const radio: HTMLInputElement | null = document.querySelector('#up');
     if (radio !== null) {
@@ -52,139 +50,137 @@ const Buy = () => {
       }}
     >
       {/* Header */}
-      <BodyHeader>
-        <Container horizontal='md' top='sm'>
-          <Breadcrums fontSize='md'>
-            <Breadcrum label='Auctions' href='' />
-            <Breadcrum label='Bidding' href='' active separator={false} />
-          </Breadcrums>
-          <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
-            Buy parameters
-          </Paragraph>
-          <Spacer size='md' direction='vertical' />
+      <HeaderSell
+        title='Buy parameters'
+        breadcrums={[
+          { label: 'Auctions', href: '#', active: false },
+          { label: 'Bidding', href: '#', active: true },
+        ]}
+        tabs={[
           <Tab
             horizontalSpacing='sm'
             icon={null}
             iconSpacing='none'
-            onClick={() => setTab(0)}
             text='Active Bids'
             transition='ease'
             type='tab'
             verticalSpacing='sm'
             id='ActiveBids'
-            active={tab === 0}
-          />
+            active={true}
+          />,
           <Tab
             horizontalSpacing='sm'
             icon={null}
             iconSpacing='none'
-            onClick={() => setTab(1)}
             text='Fullfilled'
             transition='ease'
             type='tab'
             verticalSpacing='sm'
             id='Fullfilled'
-            active={tab === 1}
-          />
-        </Container>
-      </BodyHeader>
+          />,
+        ]}
+      />
 
       {/* Body */}
       <BodyMain>
-        <div style={{ backgroundColor: 'white', height: '100%', width: '80%', overflow: 'auto' }}>
-          {tab === 0 && (
-            <Container vertical='md' horizontal='lg' expandHorizontal>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ backgroundColor: 'white', height: '100%', overflow: 'auto' }}>
+          <Container vertical='md' horizontal='lg' expandHorizontal>
+            <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
+              <Button
+                label='New bid'
+                icon={<Plus />}
+                lead
+                onClick={() => {
+                  setData({});
+                  setNewBid(true);
+                  setOpenTable(true);
+                }}
+              />
+              <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                 <Button
-                  label='New bid'
-                  icon={<Plus />}
-                  lead
-                  onClick={() => {
-                    setData({});
-                    setNewBid(true);
-                    setOpenTable(true);
-                  }}
+                  leftSpacing='sm'
+                  iconSpacing='none'
+                  rightSpacing='sm'
+                  icon={<Filter color='#595959' fontSize='1rem' />}
+                  type='button'
+                  onClick={() => {}}
+                  variant='outline'
+                  height='2.063rem'
+                  size='small'
                 />
-                <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                  <Button
-                    leftSpacing='sm'
-                    iconSpacing='none'
-                    rightSpacing='sm'
-                    icon={<Filter color='#595959' fontSize='1rem' />}
-                    type='button'
-                    onClick={() => {}}
-                    variant='outline'
-                    height='2.063rem'
-                    size='small'
-                  />
-                  <Spacer direction='horizontal' size='sm' />
-                  <Button
-                    leftSpacing='sm'
-                    iconSpacing='none'
-                    rightSpacing='sm'
-                    icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
-                    type='button'
-                    onClick={() => {}}
-                    variant='outline'
-                    height='2.063rem'
-                    size='small'
-                  />
-                </div>
+                <Spacer direction='horizontal' size='sm' />
+                <Button
+                  leftSpacing='sm'
+                  iconSpacing='none'
+                  rightSpacing='sm'
+                  icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                  type='button'
+                  onClick={() => {}}
+                  variant='outline'
+                  height='2.063rem'
+                  size='small'
+                />
               </div>
-              <WrapperTable
-                fontSize='md'
-                headerColor='#FAFAFA'
-                textHeaderColor='#000'
-                verticalSpacing='md'
-                zebra={false}
-                zebraHover
-                zebreHoverColor='#D1D5DA'
-                border='horizontal'
-                borderColor='#E8E8E8'
-              >
-                <Table
-                  cols={[
-                    ...buyColumns,
-                    {
-                      Header: 'Specification',
-                      accessor: 'specification',
-                      width: 230,
-                      maxWidth: 250,
-                      minWidth: 200,
-                      Filter: () => null,
-                      Cell: (props: any) => {
-                        return (
-                          <div style={{ display: 'inline-flex', justifyContent: 'space-between' }}>
-                            <Button
-                              label='See details'
-                              colors={details}
-                              onClick={() => {
-                                setData(props.data[props.row.index]);
-                                setNewBid(false);
-                                setOpenTable(true);
-                              }}
-                            />
-                            <Button
-                              label='Delete'
-                              colors={deleteColor}
-                              onClick={() => {
-                                setData(props.data[props.row.index]);
-                                setNewBid(false);
-                                setOpenTable(true);
-                              }}
-                            />
-                          </div>
-                        );
-                      },
+            </div>
+            <WrapperTable
+              fontSize='md'
+              headerColor='#FAFAFA'
+              textHeaderColor='#000'
+              verticalSpacing='md'
+              zebra={false}
+              zebraHover
+              zebreHoverColor='#D1D5DA'
+              border='horizontal'
+              borderColor='#E8E8E8'
+            >
+              <Table
+                cols={[
+                  ...buyColumns,
+                  {
+                    Header: 'Specification',
+                    accessor: 'specification',
+                    width: 230,
+                    maxWidth: 250,
+                    minWidth: 200,
+                    Filter: () => null,
+                    Cell: (props: any) => {
+                      return (
+                        <div
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            height: '100%',
+                            alignItems: 'center',
+                          }}
+                        >
+                          <Button
+                            label='See details'
+                            colors={details}
+                            onClick={() => {
+                              setData(props.data[props.row.index]);
+                              setNewBid(false);
+                              setOpenTable(true);
+                            }}
+                          />
+                          <Button
+                            label='Delete'
+                            colors={deleteColor}
+                            onClick={() => {
+                              setData(props.data[props.row.index]);
+                              setNewBid(false);
+                              setOpenTable(true);
+                            }}
+                          />
+                        </div>
+                      );
                     },
-                  ]}
-                  dataTable={dummyData}
-                  filter={false}
-                />
-              </WrapperTable>
-            </Container>
-          )}
-          {tab === 1 && 'Fullfilled tab'}
+                  },
+                ]}
+                dataTable={dummyData}
+                filter={false}
+              />
+            </WrapperTable>
+          </Container>
         </div>
       </BodyMain>
 

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle: any = createGlobalStyle`
 
   html{
     background-color: #F0F2F5;
@@ -68,6 +68,12 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0.63rem .5rem !important;
     border: 0.063rem solid white !important;
     box-sizing: border-box;
+  }
+
+  .input:valid, .input:focus{
+    &~.label{
+      left: -0.5rem !important;
+    }
   }
 
   .rv-discrete-color-legend{
