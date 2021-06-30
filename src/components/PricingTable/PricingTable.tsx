@@ -19,13 +19,6 @@ const StyledPricingTable = styled.div`
   grid-template-columns: 90px repeat(7, minmax(11rem, 1fr));
   grid-template-rows: 50px 1fr;
   grid-auto-columns: 200px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 90px repeat(2, minmax(11rem, 1fr));
-    .pc-hide {
-      display: none !important;
-    }
-  }
 `;
 
 const MONTHS = {
@@ -132,7 +125,7 @@ const PricingTable = ({
   };
 
   return (
-    <>
+    <div>
       <Container
         style={{ display: 'flex', fontSize: '1.5rem', alignItems: 'center' }}
         expandHorizontal
@@ -159,99 +152,67 @@ const PricingTable = ({
           />
         </div>
       </Container>
-      <div style={{ width: '100%' }}>
-        <StyledPricingTable>
-          <div></div>
-          <div
-            className={
-              todayDay === weekDates.sun.day && todayMonth === weekDates.sun.month ? 'is-today' : ''
-            }
-          >
-            {week_days[0]} {weekDates.sun.day}
-          </div>
-          <div
-            className={
-              todayDay === weekDates.mon.day && todayMonth === weekDates.mon.month ? 'is-today' : ''
-            }
-          >
-            {week_days[1]} {weekDates.mon.day}
-          </div>
-          <div
-            className={
-              todayDay === weekDates.tues.day && todayMonth === weekDates.tues.month
-                ? 'is-today pc-hide'
-                : 'pc-hide'
-            }
-          >
-            {week_days[2]} {weekDates.tues.day}
-          </div>
-          <div
-            className={
-              todayDay === weekDates.wed.day && todayMonth === weekDates.wed.month
-                ? 'is-today pc-hide'
-                : 'pc-hide'
-            }
-          >
-            {week_days[3]} {weekDates.wed.day}
-          </div>
-          <div
-            className={
-              todayDay === weekDates.thu.day && todayMonth === weekDates.thu.month
-                ? 'is-today pc-hide'
-                : 'pc-hide'
-            }
-          >
-            {week_days[4]} {weekDates.thu.day}
-          </div>
-          <div
-            className={
-              todayDay === weekDates.fri.day && todayMonth === weekDates.fri.month
-                ? 'is-today pc-hide'
-                : 'pc-hide'
-            }
-          >
-            {week_days[5]} {weekDates.fri.day}
-          </div>
-          <div
-            className={
-              todayDay === weekDates.sat.day && todayMonth === weekDates.sat.month
-                ? 'is-today pc-hide'
-                : 'pc-hide'
-            }
-          >
-            {week_days[6]} {weekDates.sat.day}
-          </div>
-          <div>{getTimeBlocks()}</div>
-          <PricingColumn isCurrentMonth={weekDates.sun.month === month} bidding={sun} />
-          <PricingColumn isCurrentMonth={weekDates.mon.month === month} bidding={mon} />
-          <PricingColumn
-            isCurrentMonth={weekDates.tues.month === month}
-            className='pc-hide'
-            bidding={tues}
-          />
-          <PricingColumn
-            isCurrentMonth={weekDates.wed.month === month}
-            className='pc-hide'
-            bidding={wed}
-          />
-          <PricingColumn
-            isCurrentMonth={weekDates.thu.month === month}
-            className='pc-hide'
-            bidding={thu}
-          />
-          <PricingColumn
-            isCurrentMonth={weekDates.fri.month === month}
-            className='pc-hide'
-            bidding={fri}
-          />
-          <PricingColumn
-            isCurrentMonth={weekDates.sat.month === month}
-            className='pc-hide'
-            bidding={sat}
-          />
-        </StyledPricingTable>
-      </div>
-    </>
+      <StyledPricingTable>
+        <div></div>
+        <div
+          className={
+            todayDay === weekDates.sun.day && todayMonth === weekDates.sun.month ? 'is-today' : ''
+          }
+        >
+          {week_days[0]} {weekDates.sun.day}
+        </div>
+        <div
+          className={
+            todayDay === weekDates.mon.day && todayMonth === weekDates.mon.month ? 'is-today' : ''
+          }
+        >
+          {week_days[1]} {weekDates.mon.day}
+        </div>
+        <div
+          className={
+            todayDay === weekDates.tues.day && todayMonth === weekDates.tues.month ? 'is-today' : ''
+          }
+        >
+          {week_days[2]} {weekDates.tues.day}
+        </div>
+        <div
+          className={
+            todayDay === weekDates.wed.day && todayMonth === weekDates.wed.month ? 'is-today ' : ''
+          }
+        >
+          {week_days[3]} {weekDates.wed.day}
+        </div>
+        <div
+          className={
+            todayDay === weekDates.thu.day && todayMonth === weekDates.thu.month ? 'is-today ' : ''
+          }
+        >
+          {week_days[4]} {weekDates.thu.day}
+        </div>
+        <div
+          className={
+            todayDay === weekDates.fri.day && todayMonth === weekDates.fri.month ? 'is-today ' : ''
+          }
+        >
+          {week_days[5]} {weekDates.fri.day}
+        </div>
+        <div
+          className={
+            todayDay === weekDates.sat.day && todayMonth === weekDates.sat.month ? 'is-today ' : ''
+          }
+        >
+          {week_days[6]} {weekDates.sat.day}
+        </div>
+        <div>{getTimeBlocks()}</div>
+        <PricingColumn isCurrentMonth={weekDates.sun.month === month} bidding={sun} />
+        <PricingColumn isCurrentMonth={weekDates.mon.month === month} bidding={mon} />
+        <PricingColumn isCurrentMonth={weekDates.tues.month === month} bidding={tues} />
+        <PricingColumn isCurrentMonth={weekDates.wed.month === month} bidding={wed} />
+        <PricingColumn isCurrentMonth={weekDates.thu.month === month} bidding={thu} />
+        <PricingColumn isCurrentMonth={weekDates.fri.month === month} bidding={fri} />
+        <PricingColumn isCurrentMonth={weekDates.sat.month === month} bidding={sat} />
+      </StyledPricingTable>
+    </div>
   );
 };
 
