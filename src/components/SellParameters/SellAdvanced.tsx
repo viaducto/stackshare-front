@@ -1,9 +1,11 @@
-import React from 'react';
+import { useRef } from 'react';
 import { Paragraph, Spacer, Input } from '@jp-olvera/jp-viaducto-components';
 import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
 import { PricingTable } from '../PricingTable';
+import Overflow from '../Overflow/Overflow';
 
 const SellAdvanced = () => {
+  const ref = useRef<HTMLDivElement>(null);
   return (
     <div>
       <Paragraph lineHeight='1.375rem' weight='600'>
@@ -31,8 +33,8 @@ const SellAdvanced = () => {
       <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
         Blank spaces will be assigned to the default Mb price
       </Paragraph>
-      <div className=' blurred-border'>
-        <div className='overflow'>
+      <Overflow target={ref}>
+        <div className='overflow' ref={ref}>
           <PricingTable
             sun={TUESDAY}
             mon={MONDAY}
@@ -42,7 +44,7 @@ const SellAdvanced = () => {
             sat={TUESDAY}
           />
         </div>
-      </div>
+      </Overflow>
       <Spacer direction='vertical' size='xl' />
       <div style={{ width: '32rem' }}>
         <Paragraph lineHeight='1.375rem' weight='600'>

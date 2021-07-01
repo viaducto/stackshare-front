@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Paragraph,
   Spacer,
@@ -14,6 +14,7 @@ import { PricingTable } from '../../components/PricingTable';
 
 import SellParameters from '../../components/SellParameters/SellParameters';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
+import Overflow from '../../components/Overflow/Overflow';
 
 const BiddingTelco = () => {
   const [open, setOpen] = useState(false);
@@ -24,6 +25,8 @@ const BiddingTelco = () => {
   useEffect(() => {
     document.querySelectorAll('input')[0].checked = true;
   }, []);
+
+  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <BodyContent
@@ -79,8 +82,8 @@ const BiddingTelco = () => {
               <Spacer size='md' />
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
               <Spacer size='md' />
-              <div className='blurred-border'>
-                <div style={{ width: 750, overflow: 'auto' }}>
+              <Overflow target={ref}>
+                <div ref={ref} style={{ width: 750, overflow: 'auto' }}>
                   <PricingTable
                     sun={TUESDAY}
                     mon={MONDAY}
@@ -90,7 +93,7 @@ const BiddingTelco = () => {
                     sat={TUESDAY}
                   />
                 </div>
-              </div>
+              </Overflow>
             </Container>
           </div>
           <div>
