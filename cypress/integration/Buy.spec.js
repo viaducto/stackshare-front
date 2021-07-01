@@ -5,7 +5,8 @@
 
 describe('Buy parameters', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/buy');
+    cy.viewport(1920, 1080);
+    cy.visit('http://localhost:3000/buy');
   });
 
   describe('Active bids', () => {
@@ -14,7 +15,7 @@ describe('Buy parameters', () => {
         .eq(3)
         .click()
         .then(() => {
-          cy.get('button').eq(28).should('be.visible');
+          cy.contains(/New bid/g).should('be.visible');
         });
     });
 
@@ -60,9 +61,8 @@ describe('Buy parameters', () => {
     });
 
     it('should open row details', () => {
-      cy.viewport(1920, 1080);
       cy.get('button')
-        .eq(7)
+        .eq(6)
         .click()
         .then(() => {
           cy.contains(/Pending/g).should('be.visible');
@@ -70,24 +70,10 @@ describe('Buy parameters', () => {
         });
     });
 
-    it('should change content with tabs', () => {
-      cy.contains(/Fullfilled/g)
-        .click()
-        .then(() => {
-          cy.contains(/Fullfilled tab/g).should('be.visible');
-          cy.contains(/Active Bids/g)
-            .click()
-            .then(() => {
-              cy.contains(/New bid/g).should('be.visible');
-            });
-        });
-    });
-
     it('should resize columns in table', () => {
-      cy.viewport(1920, 1080);
-      cy.get('.resizer').eq(1).move({ force: true, x: 500, position: 'right' });
-      cy.get('.resizer').eq(2).move({ force: true, x: 500, position: 'right' });
-      cy.get('.resizer').eq(3).move({ force: true, x: 500, position: 'right' });
+      cy.get('.resizer').eq(1).move({ force: true, x: -100, position: 'right' });
+      cy.get('.resizer').eq(2).move({ force: true, x: -100, position: 'right' });
+      cy.get('.resizer').eq(3).move({ force: true, x: -100, position: 'right' });
     });
   });
 });

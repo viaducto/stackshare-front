@@ -237,7 +237,6 @@ const GraphsPage = () => {
                     Your Performance
                   </Paragraph>
                   <Anchor
-                    lineHeight='1.75rem'
                     label='See more'
                     icon={<ArrowRight color='#9EA0A5' fontSize='1rem' />}
                     color='#9EA0A5'
@@ -374,7 +373,6 @@ const GraphsPage = () => {
                     Monthly Statistics
                   </Paragraph>
                   <Anchor
-                    lineHeight='1.75rem'
                     label='See more'
                     icon={<ArrowRight color='#9EA0A5' fontSize='1rem' />}
                     color='#9EA0A5'
@@ -847,7 +845,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' color='#3E3F42' weight='600'>
                     Most Visited Pages
                   </Paragraph>
-                  <WrapperTable border='horizontal'>
+                  <WrapperTable border='horizontal' columns={[1]} data={[1]} horizontalSpacing='sm'>
                     <Table
                       cols={visitedColumns}
                       dataTable={visitedPages}
@@ -860,7 +858,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' color='#3E3F42' weight='600'>
                     Social Media Traffic
                   </Paragraph>
-                  <WrapperTable border='horizontal'>
+                  <WrapperTable border='horizontal' columns={[1]} data={[1]} horizontalSpacing='sm'>
                     <Table
                       cols={socialColumns}
                       dataTable={socialMedia}

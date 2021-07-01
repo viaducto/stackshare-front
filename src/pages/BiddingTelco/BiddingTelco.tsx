@@ -69,7 +69,7 @@ const BiddingTelco = () => {
               <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
                 Time preset
               </Paragraph>
-              <Pill background='transparent' color='dark' handleAction={handleOpen} />
+              <Pill background='transparent' color='dark' handleAction={handleOpen} label='' />
             </Container>
           </div>
           <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>

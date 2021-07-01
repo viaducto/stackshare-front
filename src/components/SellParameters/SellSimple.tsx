@@ -1,7 +1,9 @@
 import React from 'react';
-import { Paragraph, Spacer, Select, Anchor, Input } from '@jp-olvera/jp-viaducto-components';
+import { Paragraph, Spacer, Select, Input } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 import Graph from '../../pages/BiddingTelco/Graph';
+import { Button } from '@jp-olvera/jp-viaducto-components';
+import { Plus } from 'react-ikonate';
 
 const WrapperSelect = styled.div<any>`
   width: 16rem;
@@ -103,12 +105,13 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               </Select>
             </WrapperSelect>
             <Spacer direction='vertical' size='md' />
-            <Anchor
+            <Button
               label='Add New Time Preset'
               href='#'
               lead
-              color='#40A9FF'
+              variant='ghost'
               onClick={handleOpen}
+              icon={<Plus />}
               data-testid='hrefDrawer'
             />
           </div>

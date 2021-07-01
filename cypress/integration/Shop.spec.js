@@ -6,7 +6,7 @@
 describe('Bytebroker Shop', () => {
   beforeEach(() => {
     cy.viewport(1920, 1080).then(() => {
-      cy.visit('http://138.197.11.134:3000/shop');
+      cy.visit('http://localhost:3000/shop');
     });
   });
 
@@ -50,7 +50,7 @@ describe('Bytebroker Shop', () => {
     });
 
     it('should scroll in billing', () => {
-      cy.get('div').eq(81).scrollTo(0, 500);
+      cy.get('div').eq(79).scrollTo(0, 500);
     });
 
     it('should open drawer with table', () => {
@@ -70,7 +70,7 @@ describe('Bytebroker Shop', () => {
         });
     });
 
-    it('should go to July in calendar', () => {
+    it('should go to change week in calendar', () => {
       cy.contains(/Edit/g)
         .click()
         .then(() => {
@@ -83,7 +83,7 @@ describe('Bytebroker Shop', () => {
                 .click()
                 .click()
                 .then(() => {
-                  cy.contains('JULY').should('be.visible');
+                  cy.contains('SAT').should('be.visible');
                 });
             });
         });

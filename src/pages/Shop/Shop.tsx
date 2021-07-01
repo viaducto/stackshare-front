@@ -46,7 +46,7 @@ const Shop = () => {
         ]}
         tabs={[
           <Tab
-            horizontalSpacing='none'
+            horizontalSpacing='sm'
             icon={null}
             iconSpacing='none'
             onClick={() => setTab(0)}
@@ -58,7 +58,7 @@ const Shop = () => {
             active={tab === 0}
           />,
           <Tab
-            horizontalSpacing='none'
+            horizontalSpacing='sm'
             icon={null}
             iconSpacing='none'
             onClick={() => setTab(1)}
@@ -70,7 +70,7 @@ const Shop = () => {
             active={tab === 1}
           />,
           <Tab
-            horizontalSpacing='none'
+            horizontalSpacing='sm'
             icon={null}
             iconSpacing='none'
             onClick={() => setTab(2)}

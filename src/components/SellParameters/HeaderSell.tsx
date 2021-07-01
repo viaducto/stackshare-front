@@ -17,7 +17,7 @@ const HeaderSell = ({
 }: {
   breadcrums: { label: string; href: string; active: boolean }[];
   title: string;
-  tabs?: typeof Tab[];
+  tabs?: any[];
 }) => (
   <BodyHeader>
     <Container horizontal='md' vertical='sm'>

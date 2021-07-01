@@ -13,7 +13,7 @@ import {
   Container,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
-import { dummyData, buyColumns } from './StoryData';
+import { dummyData, buyColumns, DummyBadge } from './StoryData';
 import { Filter, EllypsisVertical, Plus } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -127,11 +127,13 @@ const Buy = () => {
               headerColor='#FAFAFA'
               textHeaderColor='#000'
               verticalSpacing='md'
-              zebra={false}
               zebraHover
-              zebreHoverColor='#D1D5DA'
+              zebraHoverColor='#D1D5DA'
               border='horizontal'
               borderColor='#E8E8E8'
+              columns={[1]}
+              data={[1]}
+              horizontalSpacing='sm'
             >
               <Table
                 cols={[
@@ -144,6 +146,8 @@ const Buy = () => {
                     minWidth: 200,
                     Filter: () => null,
                     Cell: (props: any) => {
+                      console.log(props);
+
                       return (
                         <div
                           style={{
@@ -190,37 +194,19 @@ const Buy = () => {
             vertical='md'
             left='xl'
             right='md'
-            style={{ display: 'flex', justifyContent: 'space-between', width: '40vw' }}
+            style={{ display: 'flex', justifyContent: 'space-between' }}
           >
             <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
               {newBid ? 'New bid' : 'Bid details'}
             </Paragraph>
             <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-              {!newBid && (
-                <div
-                  style={{
-                    alignSelf: 'center',
-                    height: '1.375rem',
-                    backgroundColor: '#FFFBE6',
-                    border: `0.063rem solid #FAAD14`,
-                    color: '#FAAD14',
-                    borderRadius: 2,
-                    width: 'fit-content',
-                    boxSizing: 'border-box',
-                    padding: '0.1rem 0.5rem',
-                    textAlign: 'center',
-                    verticalAlign: 'center',
-                    fontSize: 12,
-                  }}
-                >
-                  Pending
-                </div>
-              )}
+              {!newBid && <DummyBadge label='Pending' color='#FFFBE6' textColor='#FAAD14' />}
               {!newBid && <Spacer direction='horizontal' size='lg' />}
               <Pill
                 background='transparent'
                 color='#000'
                 handleAction={() => setOpenTable(false)}
+                label=''
               />
             </div>
           </Container>
@@ -253,7 +239,11 @@ const Buy = () => {
               </Select>
             </Container>
           ) : (
-            data.bidding_type
+            <DummyBadge
+              label={data.bidding_type?.label || 'red'}
+              color={data.bidding_type?.color || 'red'}
+              textColor={data.bidding_type?.textColor || 'red'}
+            />
           )}
           <Spacer direction='vertical' size='lg' />
           <Paragraph

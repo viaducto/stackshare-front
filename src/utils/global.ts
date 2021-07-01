@@ -62,7 +62,7 @@ export const GlobalStyle: any = createGlobalStyle`
     background-color: #d9d9d9 !important;
   }
 
-  .notification{
+  .notification > div{
     border-radius: 1rem !important;
     color: white !important;
     padding: 0.63rem .5rem !important;

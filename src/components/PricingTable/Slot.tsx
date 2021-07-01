@@ -40,7 +40,7 @@ interface SlotProps {
   height: string;
 }
 const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
-  const ref = useRef();
+  const ref = useRef(null);
   const [activePopover, setActivePopover] = useState(false);
   const onClose = () => {
     setActivePopover(!activePopover);

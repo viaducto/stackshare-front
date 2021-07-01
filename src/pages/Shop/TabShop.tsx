@@ -35,11 +35,13 @@ export const StoreTab = ({
           headerColor='#FAFAFA'
           textHeaderColor='#000'
           verticalSpacing='md'
-          zebra={false}
           zebraHover
-          zebreHoverColor='#D1D5DA'
+          zebraHoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
+          columns={[1]}
+          data={[2]}
+          horizontalSpacing='sm'
         >
           <Table
             dataTable={appsData}
@@ -112,7 +114,12 @@ export const StoreTabDrawer = ({
                 {appName}
               </Paragraph>
             </div>
-            <Pill background='transparent' color='#000' handleAction={() => setOpenshop(false)} />
+            <Pill
+              label=''
+              background='transparent'
+              color='#000'
+              handleAction={() => setOpenshop(false)}
+            />
           </Container>
         </div>
         <Container
@@ -272,11 +279,13 @@ export const MyAppsOrganizationTab = ({
           headerColor='#FAFAFA'
           textHeaderColor='#000'
           verticalSpacing='md'
-          zebra={false}
           zebraHover
-          zebreHoverColor='#D1D5DA'
+          zebraHoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
+          data={[1]}
+          columns={[1]}
+          horizontalSpacing='sm'
         >
           <Table
             dataTable={appsData}
@@ -361,13 +370,18 @@ export const MyAppsOrganizationDrawer = ({
               {appName}
             </Paragraph>
           </div>
-          <Pill background='transparent' color='#000' handleAction={() => setOpenTable(false)} />
+          <Pill
+            background='transparent'
+            color='#000'
+            handleAction={() => setOpenTable(false)}
+            label=''
+          />
         </Container>
       </div>
       {tab === 2 && (
         <Container horizontal='md' vertical='sm'>
           <Tab
-            horizontalSpacing='none'
+            horizontalSpacing='sm'
             icon={null}
             iconSpacing='none'
             onClick={() => setTabDrawer(0)}
@@ -379,7 +393,7 @@ export const MyAppsOrganizationDrawer = ({
           />
           <Spacer direction='horizontal' size='md' />
           <Tab
-            horizontalSpacing='none'
+            horizontalSpacing='sm'
             icon={null}
             iconSpacing='none'
             onClick={() => setTabDrawer(1)}
@@ -624,9 +638,9 @@ export const MyAppsOrganizationDrawer = ({
                   onChange={() => {}}
                 />
                 <Spacer direction='horizontal' size='xs' />
-                <Anchor
+                <Button
                   label='Configure'
-                  color='#1890FF'
+                  variant='ghost'
                   onClick={() => {
                     setOpenTable(false);
                     setOpenConfig(true);
