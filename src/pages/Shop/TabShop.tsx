@@ -39,8 +39,6 @@ export const StoreTab = ({
           zebraHoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
-          columns={[1]}
-          data={[2]}
           horizontalSpacing='sm'
         >
           <Table
@@ -283,8 +281,6 @@ export const MyAppsOrganizationTab = ({
           zebraHoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
-          data={[1]}
-          columns={[1]}
           horizontalSpacing='sm'
         >
           <Table

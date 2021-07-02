@@ -845,7 +845,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' color='#3E3F42' weight='600'>
                     Most Visited Pages
                   </Paragraph>
-                  <WrapperTable border='horizontal' columns={[1]} data={[1]} horizontalSpacing='sm'>
+                  <WrapperTable border='horizontal' horizontalSpacing='sm'>
                     <Table
                       cols={visitedColumns}
                       dataTable={visitedPages}
@@ -858,7 +858,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' color='#3E3F42' weight='600'>
                     Social Media Traffic
                   </Paragraph>
-                  <WrapperTable border='horizontal' columns={[1]} data={[1]} horizontalSpacing='sm'>
+                  <WrapperTable border='horizontal' horizontalSpacing='sm'>
                     <Table
                       cols={socialColumns}
                       dataTable={socialMedia}
