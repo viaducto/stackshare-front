@@ -52,7 +52,7 @@ const Shop = () => {
             onClick={() => setTab(0)}
             text='Store'
             transition='ease'
-            type='tab'
+            tabType='tab'
             verticalSpacing='sm'
             id='store'
             active={tab === 0}
@@ -64,7 +64,7 @@ const Shop = () => {
             onClick={() => setTab(1)}
             text='My apps'
             transition='ease'
-            type='tab'
+            tabType='tab'
             verticalSpacing='sm'
             id='apps'
             active={tab === 1}
@@ -76,7 +76,7 @@ const Shop = () => {
             onClick={() => setTab(2)}
             text='Organization Apps'
             transition='ease'
-            type='tab'
+            tabType='tab'
             verticalSpacing='sm'
             id='org_apps'
             active={tab === 2}

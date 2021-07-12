@@ -23,7 +23,7 @@ const SellAdvanced = () => {
           $
         </Paragraph>
         <Spacer direction='horizontal' size='sm' />
-        <Input type='number' size='small' borderColor='#d9d9d9' border='outside' id='askMB' />
+        <Input type='number' inputSize='small' borderColor='#d9d9d9' border='outside' id='askMB' />
       </div>
       <Spacer direction='vertical' size='md' />
       <Paragraph lineHeight='1.375rem' weight='600'>
@@ -64,7 +64,13 @@ const SellAdvanced = () => {
             justifyContent: 'space-between',
           }}
         >
-          <Input type='number' size='small' borderColor='#d9d9d9' border='outside' value='95' />
+          <Input
+            type='number'
+            inputSize='small'
+            borderColor='#d9d9d9'
+            border='outside'
+            value='95'
+          />
           <Spacer direction='horizontal' size='sm' />
           <Paragraph color='#595959' weight='400'>
             %

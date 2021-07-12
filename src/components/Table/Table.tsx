@@ -34,7 +34,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
     <Input
       label='Search'
       icon='search'
-      size='small'
+      inputSize='small'
       border='outside'
       value={value || ''}
       onChange={(e: any) => {

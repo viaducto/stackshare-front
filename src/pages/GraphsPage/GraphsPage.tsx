@@ -466,8 +466,8 @@ const GraphsPage = () => {
                 <Paragraph>Daily Visitors</Paragraph>
                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                   <Select
-                    size='small'
-                    radius={0.25}
+                    inputSize='small'
+                    radius='sm'
                     border={{
                       top: '0.063rem solid #D8DCE6',
                       right: '0.063rem solid #D8DCE6',
@@ -479,8 +479,8 @@ const GraphsPage = () => {
                   </Select>
                   <Spacer direction='horizontal' size='sm' />
                   <Select
-                    size='small'
-                    radius={0.25}
+                    inputSize='small'
+                    radius='sm'
                     border={{
                       top: '0.063rem solid #D8DCE6',
                       right: '0.063rem solid #D8DCE6',

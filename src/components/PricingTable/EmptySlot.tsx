@@ -48,8 +48,8 @@ const EmptySlot = () => {
               </Paragraph>
             </Container>
           </div>
-          <Container vertical='lg' horizontal='md' border='outside'>
-            <Input type='text' size='small' label='Name the time preset' border='outside' />
+          <Container vertical='lg' horizontal='md'>
+            <Input type='text' inputSize='small' label='Name the time preset' border='outside' />
             <Spacer size='sm' />
             <Button label='Save' onClick={onCloseDrawer} />
           </Container>

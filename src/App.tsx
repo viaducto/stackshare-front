@@ -33,7 +33,9 @@ function App() {
     },
   };
   useEffect(() => {
-    updateConfig(myConfig);
+    if (updateConfig !== undefined) {
+      updateConfig(myConfig);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

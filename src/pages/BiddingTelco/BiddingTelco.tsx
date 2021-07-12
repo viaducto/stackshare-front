@@ -77,7 +77,7 @@ const BiddingTelco = () => {
               <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
               <Spacer size='md' />
               <div style={{ width: '16rem' }}>
-                <Input label='Medium input' size='small' border='outside' />
+                <Input label='Medium input' inputSize='small' border='outside' />
               </div>
               <Spacer size='md' />
               <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>

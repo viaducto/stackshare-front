@@ -63,7 +63,7 @@ const Buy = () => {
             iconSpacing='none'
             text='Active Bids'
             transition='ease'
-            type='tab'
+            tabType='tab'
             verticalSpacing='sm'
             id='ActiveBids'
             active={true}
@@ -74,7 +74,7 @@ const Buy = () => {
             iconSpacing='none'
             text='Fullfilled'
             transition='ease'
-            type='tab'
+            tabType='tab'
             verticalSpacing='sm'
             id='Fullfilled'
           />,
@@ -124,11 +124,9 @@ const Buy = () => {
             </div>
             <WrapperTable
               fontSize='md'
-              headerColor='#FAFAFA'
-              textHeaderColor='#000'
               verticalSpacing='md'
-              zebraHover
-              zebraHoverColor='#D1D5DA'
+              hover
+              hoverColor='#D1D5DA'
               border='horizontal'
               borderColor='#E8E8E8'
               horizontalSpacing='sm'
@@ -222,8 +220,8 @@ const Buy = () => {
           {newBid ? (
             <Container right='xxxl'>
               <Select
-                size='sm'
-                radius={0.125}
+                inputSize='sm'
+                radius='sm'
                 border={{
                   top: '0.063rem solid #d9d9d9',
                   right: '0.063rem solid #d9d9d9',
@@ -254,7 +252,7 @@ const Buy = () => {
           <Spacer direction='vertical' size='xs' />
           {newBid ? (
             <Container right='xxxl'>
-              <Input type='date' borderColor='#d9d9d9' size='small' border='outside' />
+              <Input type='date' borderColor='#d9d9d9' inputSize='small' border='outside' />
             </Container>
           ) : (
             <Paragraph lineHeight='1.375rem'>{data.expires}</Paragraph>
@@ -282,7 +280,7 @@ const Buy = () => {
                   type='number'
                   value='500'
                   borderColor='#d9d9d9'
-                  size='small'
+                  inputSize='small'
                   border='outside'
                 />
                 <Spacer size='xs' direction='horizontal' />
@@ -325,7 +323,7 @@ const Buy = () => {
                   type='time'
                   borderColor='#d9d9d9'
                   disabled={disabled}
-                  size='small'
+                  inputSize='small'
                   border='outside'
                 />
               </Container>
@@ -353,11 +351,11 @@ const Buy = () => {
               }}
             >
               <div style={{ width: '40%' }}>
-                <Input border='outside' label='from' type='date' size='small' />
+                <Input border='outside' label='from' type='date' inputSize='small' />
               </div>
               <Paragraph>To</Paragraph>
               <div style={{ width: '40%' }}>
-                <Input label='to' type='date' size='small' border='outside' />
+                <Input label='to' type='date' inputSize='small' border='outside' />
               </div>
             </div>
           ) : (
@@ -398,14 +396,13 @@ const Buy = () => {
                     borderColor='#d9d9d9'
                     disabled={disabled}
                     value='500'
-                    size='small'
+                    inputSize='small'
                     border='outside'
                   />
                 </div>
                 <Spacer direction='horizontal' size='tiny' />
                 <Select
-                  size='default'
-                  radius={0.125}
+                  radius='sm'
                   border={{
                     top: '0.063rem solid #d9d9d9',
                     right: '0.063rem solid #d9d9d9',
@@ -457,7 +454,7 @@ const Buy = () => {
                     icon='grid'
                     borderColor='#d9d9d9'
                     disabled={disabled}
-                    size='small'
+                    inputSize='small'
                     border='outside'
                   />
                 </div>

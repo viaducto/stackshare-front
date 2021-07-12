@@ -39,7 +39,13 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
             $
           </Paragraph>
           <Spacer direction='horizontal' size='sm' />
-          <Input type='number' size='small' borderColor='#d9d9d9' border='outside' id='askMB' />
+          <Input
+            type='number'
+            inputSize='small'
+            borderColor='#d9d9d9'
+            border='outside'
+            id='askMB'
+          />
         </div>
         <Spacer direction='vertical' size='md' />
         <Paragraph lineHeight='1.375rem' weight='600'>
@@ -64,7 +70,7 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
         >
           <Input
             type='number'
-            size='small'
+            inputSize='small'
             borderColor='#d9d9d9'
             value='95'
             border='outside'
@@ -88,8 +94,8 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
             <Spacer direction='vertical' size='xs' />
             <WrapperSelect>
               <Select
-                size='sm'
-                radius={0.125}
+                inputSize='sm'
+                radius='sm'
                 name='a'
                 id='a'
                 border={{
@@ -107,10 +113,11 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
             <Spacer direction='vertical' size='md' />
             <Button
               label='Add New Time Preset'
-              href='#'
               lead
               variant='ghost'
-              onClick={handleOpen}
+              onClick={(ev) => {
+                handleOpen(ev);
+              }}
               icon={<Plus />}
               data-testid='hrefDrawer'
             />

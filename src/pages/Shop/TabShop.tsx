@@ -32,11 +32,9 @@ export const StoreTab = ({
       <Container top='md' horizontal='sm' expandHorizontal style={{ overflow: 'auto' }}>
         <WrapperTable
           fontSize='md'
-          headerColor='#FAFAFA'
-          textHeaderColor='#000'
           verticalSpacing='md'
-          zebraHover
-          zebraHoverColor='#D1D5DA'
+          hover
+          hoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
           horizontalSpacing='sm'
@@ -266,7 +264,7 @@ export const MyAppsOrganizationTab = ({
         horizontal='xl'
         style={{
           display: 'flex',
-          justifiContent: 'space-between',
+          justifyContent: 'space-between',
           backgroundColor: 'white',
           minHeight: '72vh',
           flexWrap: 'wrap',
@@ -274,11 +272,9 @@ export const MyAppsOrganizationTab = ({
       >
         <WrapperTable
           fontSize='md'
-          headerColor='#FAFAFA'
-          textHeaderColor='#000'
           verticalSpacing='md'
-          zebraHover
-          zebraHoverColor='#D1D5DA'
+          hover
+          hoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
           horizontalSpacing='sm'
@@ -383,7 +379,7 @@ export const MyAppsOrganizationDrawer = ({
             onClick={() => setTabDrawer(0)}
             text='Preferences'
             transition='ease'
-            type='tab'
+            tabType='tab'
             verticalSpacing='sm'
             id='personal'
           />
@@ -395,7 +391,7 @@ export const MyAppsOrganizationDrawer = ({
             onClick={() => setTabDrawer(1)}
             text='Group Access'
             transition='ease'
-            type='tab'
+            tabType='tab'
             verticalSpacing='sm'
             id='group'
           />
@@ -439,8 +435,8 @@ export const MyAppsOrganizationDrawer = ({
             <Spacer size='xs' direction='vertical' />
             <Container right='lg' style={{ width: '90%' }}>
               <Select
-                size='sm'
-                radius={0.125}
+                inputSize='sm'
+                radius='sm'
                 border={{
                   top: '0.063rem solid #d9d9d9',
                   right: '0.063rem solid #d9d9d9',
@@ -493,14 +489,13 @@ export const MyAppsOrganizationDrawer = ({
                       borderColor='#d9d9d9'
                       disabled={false}
                       value='500'
-                      size='small'
+                      inputSize='small'
                       border='outside'
                     />
                   </div>
                   <Spacer direction='horizontal' size='xs' />
                   <Select
-                    size='default'
-                    radius={0.125}
+                    radius='sm'
                     border={{
                       top: '0.063rem solid #d9d9d9',
                       right: '0.063rem solid #d9d9d9',
@@ -524,14 +519,13 @@ export const MyAppsOrganizationDrawer = ({
                       borderColor='#d9d9d9'
                       disabled={false}
                       value='500'
-                      size='small'
+                      inputSize='small'
                       border='outside'
                     />
                   </div>
                   <Spacer direction='horizontal' size='xs' />
                   <Select
-                    size='default'
-                    radius={0.125}
+                    radius='sm'
                     border={{
                       top: '0.063rem solid #d9d9d9',
                       right: '0.063rem solid #d9d9d9',
@@ -564,7 +558,7 @@ export const MyAppsOrganizationDrawer = ({
                   borderColor='#d9d9d9'
                   disabled={false}
                   value='500'
-                  size='small'
+                  inputSize='small'
                   border='outside'
                 />
               </div>
@@ -605,7 +599,7 @@ export const MyAppsOrganizationDrawer = ({
                   borderColor='#d9d9d9'
                   disabled={false}
                   value='100'
-                  size='small'
+                  inputSize='small'
                   border='outside'
                 />
                 <Spacer direction='horizontal' size='xs' />
@@ -679,7 +673,7 @@ export const MyAppsOrganizationDrawer = ({
                 type='text'
                 borderColor='#d9d9d9'
                 value='$1000'
-                size='small'
+                inputSize='small'
                 border='outside'
               />
             </Container>
@@ -831,7 +825,7 @@ const ButtonDatalist = () => (
         label='Search here'
         icon='search'
         borderColor='#d9d9d9'
-        size='small'
+        inputSize='small'
         border='outside'
       />
     </Container>
