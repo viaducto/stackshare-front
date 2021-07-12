@@ -7,6 +7,7 @@ import Buy from './pages/BiddingTelco/Buy';
 import Shop from './pages/Shop/Shop';
 import GraphsPage from './pages/GraphsPage/GraphsPage';
 import BiddingB2B from './pages/BiddingB2B/BiddingB2B';
+import UserList from './pages/UserList/UserList';
 import { Menu, Body, Navbar } from './components/layout';
 import { AppProvider } from './providers';
 
@@ -64,6 +65,9 @@ function App() {
               </Route>
               <Route path='/graphs' exact>
                 <GraphsPage />
+              </Route>
+              <Route path='/user-list' exact>
+                <UserList />
               </Route>
               <Route path='/' exact>
                 <BiddingTelco />
