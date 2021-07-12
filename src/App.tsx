@@ -10,6 +10,8 @@ import BiddingB2B from './pages/BiddingB2B/BiddingB2B';
 import UserList from './pages/UserList/UserList';
 import { Menu, Body, Navbar } from './components/layout';
 import { AppProvider } from './providers';
+import UserManagement from './pages/UserManagement/UserManagement';
+import GeneralPreferences from './pages/GeneralPreferences/GeneralPreferences';
 
 function App() {
   const { updateConfig, configuration } = useContext(ConfigContext);
@@ -70,6 +72,12 @@ function App() {
               </Route>
               <Route path='/user-list' exact>
                 <UserList />
+              </Route>
+              <Route path='/general/preferences' exact>
+                <GeneralPreferences />
+              </Route>
+              <Route path='/user-management' exact>
+                <UserManagement />
               </Route>
               <Route path='/' exact>
                 <BiddingTelco />
