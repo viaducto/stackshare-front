@@ -47,6 +47,11 @@ export const GlobalStyle: any = createGlobalStyle`
     top: 25% !important;
     background-color: #d9d9d9 !important;
     height: 50% !important;
+    position: absolute;
+    right: 0;
+    &:focus, &:active{
+      background-color: #595959 !important;
+    }
   }
 
   .flex{
@@ -105,5 +110,10 @@ export const GlobalStyle: any = createGlobalStyle`
       top: 0;
       width: 3px;
     }
+  }
+
+  .td-data{
+    width: 100%;
+    display: inline-flex;
   }
 `;

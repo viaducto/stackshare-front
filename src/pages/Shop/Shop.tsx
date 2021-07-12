@@ -18,7 +18,6 @@ import {
   StoreTabDrawer,
   MyAppsOrganizationDrawer,
 } from './TabShop';
-
 const Shop = () => {
   const [openTable, setOpenTable] = useState(false);
   const [openshop, setOpenshop] = useState(false);
@@ -113,6 +112,7 @@ const Shop = () => {
           setOpenConfig(false);
           setOpenTable(true);
         }}
+        size='md'
       >
         <div style={{ backgroundColor: 'white' }}>
           <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>

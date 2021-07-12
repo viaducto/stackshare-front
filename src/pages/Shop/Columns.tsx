@@ -14,6 +14,7 @@ export const colsTabZero = [
     width: 300,
     maxWidth: 400,
     minWidth: 200,
+    Cell: (row: any) => <div style={{ textAlign: 'center' }}>{row.value}</div>,
   },
 ];
 

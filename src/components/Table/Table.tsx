@@ -22,6 +22,7 @@ import {
   ChevronsLeft,
   ChevronsRight,
   Filter,
+  Search,
 } from 'react-ikonate';
 
 const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
@@ -33,7 +34,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   return (
     <Input
       label='Search'
-      icon='search'
+      icon={<Search />}
       inputSize='small'
       border='outside'
       value={value || ''}
@@ -298,9 +299,13 @@ const Table = ({
                     >
                       {typeof cell.value === 'string' || typeof cell.value === 'number' ? (
                         <span className='td-data'>
-                          <Paragraph weight='bold'>{cell.column.prefix}</Paragraph>
+                          {cell.column.prefix && (
+                            <Paragraph weight='bold'>{cell.column.prefix}</Paragraph>
+                          )}
                           <Paragraph>{cell.render('Cell')}</Paragraph>
-                          <Paragraph weight='bold'>{cell.column.sufix}</Paragraph>
+                          {cell.column.sufix && (
+                            <Paragraph weight='bold'>{cell.column.sufix}</Paragraph>
+                          )}
                         </span>
                       ) : (
                         cell.render('Cell')

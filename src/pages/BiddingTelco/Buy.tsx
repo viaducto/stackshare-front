@@ -142,8 +142,6 @@ const Buy = () => {
                     minWidth: 200,
                     Filter: () => null,
                     Cell: (props: any) => {
-                      console.log(props);
-
                       return (
                         <div
                           style={{
@@ -184,13 +182,14 @@ const Buy = () => {
         </div>
       </BodyMain>
 
-      <Drawer active={openTable} onClose={() => setOpenTable(false)}>
-        <div style={{ backgroundColor: 'white', width: `${!newBid ? '29rem' : '30vw'}` }}>
+      <Drawer active={openTable} onClose={() => setOpenTable(false)} size={newBid ? 'md' : 'sm'}>
+        <div style={{ backgroundColor: 'white', width: '100%' }}>
           <Container
             vertical='md'
             left='xl'
             right='md'
             style={{ display: 'flex', justifyContent: 'space-between' }}
+            expandHorizontal
           >
             <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
               {newBid ? 'New bid' : 'Bid details'}

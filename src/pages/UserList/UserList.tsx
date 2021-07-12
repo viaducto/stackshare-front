@@ -6,7 +6,7 @@ import fetchResult from './data';
 
 const UserList = () => {
   const data = useMemo(() => fetchResult, []);
-  const columns = useMemo< any >(
+  const columns = useMemo<any>(
     () => [
       {
         Header: 'Customer',
@@ -54,7 +54,7 @@ const UserList = () => {
           overflowY: 'auto',
         }}
       >
-        <WrapperTable horizontalSpacing='sm'>
+        <WrapperTable horizontalSpacing='sm' zebra={false}>
           <table {...getTableProps()}>
             <thead>
               {

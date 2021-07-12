@@ -19,6 +19,7 @@ import Table from '../../components/Table/Table';
 import { appsData } from './AppsData';
 import { colsTabOne, colsTabZero } from './Columns';
 import AccumulatedBilling from '../../components/AccumulatedBilling/AccumulatedBilling';
+import { Search } from 'react-ikonate';
 
 export const StoreTab = ({
   setAppName,
@@ -32,9 +33,8 @@ export const StoreTab = ({
       <Container top='md' horizontal='sm' expandHorizontal style={{ overflow: 'auto' }}>
         <WrapperTable
           fontSize='md'
+          zebra={false}
           verticalSpacing='md'
-          hover
-          hoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
           horizontalSpacing='sm'
@@ -94,7 +94,7 @@ export const StoreTabDrawer = ({
   appName: string;
 }) => {
   return (
-    <Drawer active={openshop} onClose={() => setOpenshop(false)}>
+    <Drawer active={openshop} onClose={() => setOpenshop(false)} size='md'>
       <div style={{ backgroundColor: 'white', height: '100%' }}>
         <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
           <Container
@@ -122,7 +122,7 @@ export const StoreTabDrawer = ({
           top='md'
           right='lg'
           left='sm'
-          style={{ display: 'flex', justifyContent: 'space-between', height: '87.8%' }}
+          style={{ display: 'flex', justifyContent: 'space-evenly', height: '87.8%' }}
         >
           <Container
             top='xxl'
@@ -274,6 +274,7 @@ export const MyAppsOrganizationTab = ({
           fontSize='md'
           verticalSpacing='md'
           hover
+          zebra={false}
           hoverColor='#D1D5DA'
           border='horizontal'
           borderColor='#E8E8E8'
@@ -346,7 +347,7 @@ export const MyAppsOrganizationDrawer = ({
   setConfiguration: Function;
   setOpenConfig: Function;
 }) => (
-  <Drawer active={openTable} onClose={() => setOpenTable(false)}>
+  <Drawer active={openTable} onClose={() => setOpenTable(false)} size='md'>
     <div style={{ backgroundColor: 'white', height: '100%', overflow: 'hidden' }}>
       <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
         <Container
@@ -823,10 +824,10 @@ const ButtonDatalist = () => (
     <Container top='xs' bottom='sm' horizontal='xs'>
       <Input
         label='Search here'
-        icon='search'
         borderColor='#d9d9d9'
         inputSize='small'
         border='outside'
+        icon={<Search />}
       />
     </Container>
     <Container bottom='md' left='xs' right='sm' style={{ borderBottom: '0.063rem solid #d9d9d9' }}>

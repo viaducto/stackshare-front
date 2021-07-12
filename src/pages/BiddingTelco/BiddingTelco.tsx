@@ -57,7 +57,7 @@ const BiddingTelco = () => {
         </div>
       </BodyMain>
 
-      <Drawer active={open} onClose={handleOpen}>
+      <Drawer active={open} onClose={handleOpen} size='lg'>
         <div style={{ backgroundColor: 'white' }}>
           <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
             <Container
