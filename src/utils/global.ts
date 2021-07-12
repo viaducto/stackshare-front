@@ -116,4 +116,12 @@ export const GlobalStyle: any = createGlobalStyle`
     width: 100%;
     display: inline-flex;
   }
+
+  .flotant{
+    height: 100%;
+    & > div {
+      position: sticky;
+      top: 0;
+    }
+  }
 `;

@@ -1,10 +1,21 @@
 import React from 'react';
 import { Container } from '@jp-olvera/jp-viaducto-components';
 
-const BodyMain = ({ children, ...rest }: BodyMainProps) => {
+const BodyMain = ({
+  children,
+  horizontal,
+  expandVertical,
+  ...rest
+}: BodyMainProps & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div {...rest}>
-      <Container vertical='md' horizontal='sm' expandHorizontal>
+      <Container
+        className='a'
+        vertical='md'
+        horizontal={horizontal || 'sm'}
+        expandHorizontal
+        expandVertical={expandVertical || false}
+      >
         {children}
       </Container>
     </div>
@@ -12,6 +23,7 @@ const BodyMain = ({ children, ...rest }: BodyMainProps) => {
 };
 interface BodyMainProps {
   children: any;
-  style?: any | null | undefined;
+  horizontal?: string;
+  expandVertical?: boolean;
 }
 export default BodyMain;

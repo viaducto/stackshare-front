@@ -12,6 +12,8 @@ import { Menu, Body, Navbar } from './components/layout';
 import { AppProvider } from './providers';
 import UserManagement from './pages/UserManagement/UserManagement';
 import GeneralPreferences from './pages/GeneralPreferences/GeneralPreferences';
+import PermissionManagement from './pages/PermissionManagement/PermissionManagement';
+import Infrastructure from './pages/Infrastructure/Infrastructure';
 
 function App() {
   const { updateConfig, configuration } = useContext(ConfigContext);
@@ -75,6 +77,12 @@ function App() {
               </Route>
               <Route path='/general/preferences' exact>
                 <GeneralPreferences />
+              </Route>
+              <Route path='/permission' exact>
+                <PermissionManagement />
+              </Route>
+              <Route path='/infrastructure' exact>
+                <Infrastructure />
               </Route>
               <Route path='/user-management' exact>
                 <UserManagement />
