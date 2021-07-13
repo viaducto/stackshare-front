@@ -8,12 +8,12 @@ const RolesPermissions = ({ role }: { role: string }) => (
     </Paragraph>
     <Spacer size='sm' />
     <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' />
-      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' />
-      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' />
-      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' />
-      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' />
-      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' />
+      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' defaultChecked />
+      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' defaultChecked />
+      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' defaultChecked />
+      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' defaultChecked />
+      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' defaultChecked />
+      <Checkbox checkSize='sm' label='Permission 1' spacing='sm' color='#1890FF' defaultChecked />
     </div>
   </div>
 );

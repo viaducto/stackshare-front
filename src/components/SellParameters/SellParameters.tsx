@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Paragraph, Spacer, Radio, Container } from '@jp-olvera/jp-viaducto-components';
 import SellSimple from './SellSimple';
 import SellAdvanced from './SellAdvanced';
@@ -15,9 +15,6 @@ const SellParameters = ({
   setSimple: Function;
   handleOpen: Function;
 }) => {
-  useEffect(() => {
-    document.querySelectorAll('input')[0].checked = true;
-  }, []);
   const ref = useRef(null);
   return (
     <>
@@ -34,6 +31,7 @@ const SellParameters = ({
               label='Simple'
               spacing='sm'
               color='#1890FF'
+              defaultChecked
               onChange={() => setSimple(true)}
             />
             <Spacer direction='horizontal' size='xl' />

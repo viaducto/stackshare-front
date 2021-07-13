@@ -37,7 +37,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
       icon={<Search />}
       inputSize='small'
       border='outside'
-      value={value || ''}
+      defaultValue={value || ''}
       onChange={(e: any) => {
         setValue(e.target.value);
         onChangeVal(e.target.value);
@@ -290,7 +290,7 @@ const Table = ({
                           : () => (row.original.expandible ? row.toggleRowExpanded() : null)
                       }
                       onKeyUp={() => {}}
-                      className={`${typeof cell.value === 'number' ? 'size' : ''} ${
+                      className={`${typeof cell.value === 'number' ? 'size' : 'td'} ${
                         cell.column.id !== 'selection'
                           ? row.original.expandible
                             ? 'pointer'
@@ -303,7 +303,7 @@ const Table = ({
                           {cell.column.prefix && (
                             <Paragraph weight='bold'>{cell.column.prefix}</Paragraph>
                           )}
-                          <Paragraph>{cell.render('Cell')}</Paragraph>
+                          {cell.render('Cell')}
                           {cell.column.sufix && (
                             <Paragraph weight='bold'>{cell.column.sufix}</Paragraph>
                           )}

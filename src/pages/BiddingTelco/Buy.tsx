@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Paragraph,
   Spacer,
@@ -14,7 +14,7 @@ import {
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { dummyData, buyColumns, DummyBadge } from './StoryData';
-import { Filter, EllypsisVertical, Plus } from 'react-ikonate';
+import { Filter, EllypsisVertical, Plus, Grid } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 const details = {
@@ -34,13 +34,9 @@ const Buy = () => {
   const [openTable, setOpenTable] = useState(false);
   const [newBid, setNewBid] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  const [disabledCap, setDisabledCap] = useState(true);
+  const [disabledType, setDisabledType] = useState(true);
   const [data, setData] = useState<any>({});
-  useEffect(() => {
-    const radio: HTMLInputElement | null = document.querySelector('#up');
-    if (radio !== null) {
-      radio.checked = true;
-    }
-  }, [newBid]);
   return (
     <BodyContent
       style={{
@@ -277,7 +273,7 @@ const Buy = () => {
               >
                 <Input
                   type='number'
-                  value='500'
+                  defaultValue={500}
                   borderColor='#d9d9d9'
                   inputSize='small'
                   border='outside'
@@ -306,6 +302,7 @@ const Buy = () => {
                 name='uptime'
                 spacing='sm'
                 id='up'
+                defaultChecked
                 onChange={() => setDisabled(true)}
               />
               <Spacer direction='vertical' size='xs' />
@@ -377,7 +374,8 @@ const Buy = () => {
                 name='cap'
                 spacing='sm'
                 id='up'
-                onChange={() => setDisabled(true)}
+                defaultChecked
+                onChange={() => setDisabledCap(true)}
               />
               <Spacer direction='vertical' size='xs' />
               <Radio
@@ -385,7 +383,7 @@ const Buy = () => {
                 label='Specific cap'
                 name='cap'
                 spacing='sm'
-                onChange={() => setDisabled(false)}
+                onChange={() => setDisabledCap(false)}
               />
               <Spacer direction='vertical' size='xs' />
               <Container left='lg' right='xxxl' style={{ display: 'flex' }}>
@@ -393,8 +391,8 @@ const Buy = () => {
                   <Input
                     type='number'
                     borderColor='#d9d9d9'
-                    disabled={disabled}
-                    value='500'
+                    disabled={disabledCap}
+                    defaultValue={500}
                     inputSize='small'
                     border='outside'
                   />
@@ -408,7 +406,7 @@ const Buy = () => {
                     bottom: '0.063rem solid #d9d9d9',
                     left: '0.063rem solid #d9d9d9',
                   }}
-                  disabled={disabled}
+                  disabled={disabledCap}
                 >
                   <option value='GB'>GB</option>
                   <option value='MB'>MB</option>
@@ -435,7 +433,7 @@ const Buy = () => {
                 name='order'
                 spacing='sm'
                 id='up'
-                onChange={() => setDisabled(true)}
+                onChange={() => setDisabledType(true)}
               />
               <Spacer direction='vertical' size='xs' />
               <Radio
@@ -443,16 +441,16 @@ const Buy = () => {
                 label='Limit order'
                 name='order'
                 spacing='sm'
-                onChange={() => setDisabled(false)}
+                onChange={() => setDisabledType(false)}
               />
               <Spacer direction='vertical' size='xs' />
               <Container left='lg' right='xxxl'>
                 <div style={{ width: '80%' }}>
                   <Input
                     type='text'
-                    icon='grid'
+                    icon={<Grid />}
                     borderColor='#d9d9d9'
-                    disabled={disabled}
+                    disabled={disabledType}
                     inputSize='small'
                     border='outside'
                   />

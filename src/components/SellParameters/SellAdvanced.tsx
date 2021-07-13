@@ -76,7 +76,9 @@ const SellAdvanced = () => {
             inputSize='small'
             borderColor='#d9d9d9'
             border='outside'
-            value='95'
+            max={95}
+            min={0}
+            defaultValue={95}
           />
           <Spacer direction='horizontal' size='sm' />
           <Paragraph color='#595959' weight='400'>

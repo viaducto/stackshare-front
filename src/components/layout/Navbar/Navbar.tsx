@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Paragraph, Container } from '@jp-olvera/jp-viaducto-components';
+import { Paragraph, Container, AvatarWithText } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 import { Hamburger, Help, ChevronDown } from 'react-ikonate';
 import { AppContext } from '../../../providers';
@@ -46,11 +46,15 @@ const Navbar = () => {
         <div className='user-navbar'>
           <Help fontSize='1.5rem' color='#595959' />
           <Notification number={12} />
-          <div className='user-data'>
-            <img src='https://i.pravatar.cc/32' alt='avatar' style={{ borderRadius: '50%' }} />
-            <Paragraph>Ted Russell</Paragraph>
-            <ChevronDown fontSize='0.9rem' color='#595959' />
-          </div>
+          <AvatarWithText
+            avatar={{ src: 'https://i.pravatar.cc/32', alt: 'avatar', width: '32', height: '32' }}
+            spacing='xs'
+          >
+            <div className='user-data'>
+              <Paragraph>Ted Russell</Paragraph>
+              <ChevronDown fontSize='0.9rem' color='#595959' />
+            </div>
+          </AvatarWithText>
         </div>
       </StyledNavbar>
     </Container>

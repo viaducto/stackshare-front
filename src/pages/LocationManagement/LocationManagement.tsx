@@ -251,6 +251,7 @@ const LocationManagement = () => {
             position='bottom'
             tabType='tab'
             verticalSpacing='sm'
+            spacing='md'
           >
             <Tab text='All Locations' />
             <Tab text='Country' />
@@ -450,6 +451,9 @@ const LocationManagement = () => {
             <Column size={12}>
               <Paragraph weight='bold'>Available Infrastructure</Paragraph>
             </Column>
+          </Row>
+          <Spacer size='sm' />
+          <Row>
             <Column size={12}>
               <WrapperTable>
                 <Table cols={infrastructureColumns} dataTable={infrastructureData} />

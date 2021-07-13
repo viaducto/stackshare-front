@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Paragraph,
   Spacer,
@@ -22,9 +22,6 @@ const BiddingTelco = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
-  useEffect(() => {
-    document.querySelectorAll('input')[0].checked = true;
-  }, []);
 
   const ref = useRef<HTMLDivElement>(null);
 

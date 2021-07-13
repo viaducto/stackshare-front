@@ -44,6 +44,7 @@ export const GlobalStyle: any = createGlobalStyle`
     color:inherit;
     cursor: pointer;
   }
+  
   .is-today{
     font-weight: bold;
     color: #7cb305;
@@ -119,9 +120,15 @@ export const GlobalStyle: any = createGlobalStyle`
     }
   }
 
+  .td{
+    align-items: center !important;
+    display: flex !important;
+  }
+
   .td-data{
     width: 100%;
-    display: inline-flex;
+    display: flex;
+    align-items: center;
   }
 
   .flotant{

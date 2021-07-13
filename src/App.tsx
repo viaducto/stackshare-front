@@ -19,51 +19,51 @@ import LocationManagement from './pages/LocationManagement/LocationManagement';
 function App() {
   const { updateConfig, configuration } = useContext(ConfigContext);
 
-  const myConfig = {
-    controlHeight: {
-      xsmall: '1.2rem',
-      small: '2.074rem',
-      default: '2rem',
-      large: '2.986rem',
-    },
-    colors: {
-      ...configuration.colors,
-      primary: {
-        default: '#1890FF',
-        hover: '#40A9FF',
-        click: '#096DD9',
-        text: '#fff',
-        shadow: 'rgba(24, 144, 255, 0.3)',
-      },
-      success: {
-        default: '#52C41A',
-        hover: '#73D13D',
-        click: '#B7EB8F',
-        text: '#fff',
-        shadow: 'rgba(82, 196, 26, 0.3)',
-      },
-      warning: {
-        default: '#FAAD14',
-        hover: '#FFC53D',
-        click: '#FFE58F',
-        text: '#fff',
-        shadow: 'rgba(250, 173, 20, 0.3)',
-      },
-      danger: {
-        default: '#F5222D',
-        hover: '#FF4D4F',
-        click: '#FFA39E',
-        text: '#fff',
-        shadow: 'rgba(245, 34, 45, 0.3)',
-      },
-    },
-    drawerSizes: {
-      sm: '28.5rem',
-      md: '53rem',
-      lg: '64rem',
-    },
-  };
   useEffect(() => {
+    const myConfig = {
+      controlHeight: {
+        xsmall: '1.2rem',
+        small: '2.074rem',
+        default: '2rem',
+        large: '2.986rem',
+      },
+      colors: {
+        ...configuration.colors,
+        primary: {
+          default: '#1890FF',
+          hover: '#40A9FF',
+          click: '#096DD9',
+          text: '#fff',
+          shadow: 'rgba(24, 144, 255, 0.3)',
+        },
+        success: {
+          default: '#52C41A',
+          hover: '#73D13D',
+          click: '#B7EB8F',
+          text: '#fff',
+          shadow: 'rgba(82, 196, 26, 0.3)',
+        },
+        warning: {
+          default: '#FAAD14',
+          hover: '#FFC53D',
+          click: '#FFE58F',
+          text: '#fff',
+          shadow: 'rgba(250, 173, 20, 0.3)',
+        },
+        danger: {
+          default: '#F5222D',
+          hover: '#FF4D4F',
+          click: '#FFA39E',
+          text: '#fff',
+          shadow: 'rgba(245, 34, 45, 0.3)',
+        },
+      },
+      drawerSizes: {
+        sm: '28.5rem',
+        md: '53rem',
+        lg: '64rem',
+      },
+    };
     if (updateConfig !== undefined) {
       updateConfig(myConfig);
     }

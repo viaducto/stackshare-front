@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import SellParameters from '../../components/SellParameters/SellParameters';
@@ -9,9 +9,6 @@ const BiddingB2B = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
-  useEffect(() => {
-    document.querySelectorAll('input')[0].checked = true;
-  }, []);
   return (
     <BodyContent
       style={{

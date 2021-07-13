@@ -77,6 +77,7 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
             id='bandwith'
             max={95}
             min={0}
+            defaultValue={95}
           />
           <Paragraph color='#595959' weight='600'>
             %

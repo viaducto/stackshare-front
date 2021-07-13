@@ -180,7 +180,7 @@ const BrandLocalization = () => {
           <Palette main='#F79F1A' secondary='#34AA44' terciary='#73D13D' />
         </div>
         <Spacer direction='horizontal' size='md' />
-        <Radio color='#1890FF' name='colorPalette' radioSize='sm' />
+        <Radio color='#1890FF' name='colorPalette' radioSize='sm' defaultChecked />
       </div>
       <Spacer size='md' />
       <div

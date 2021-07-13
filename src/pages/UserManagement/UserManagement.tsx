@@ -61,11 +61,12 @@ const UserManagement = () => {
             position='bottom'
             tabType='tab'
             verticalSpacing='sm'
+            spacing='lg'
           >
             <Tab text='All users' />
-            <Spacer direction='horizontal' size='lg' />
+
             <Tab text='Active Users' />
-            <Spacer direction='horizontal' size='lg' />
+
             <Tab text='Inactive Users' />
           </GroupTab>
         </Container>
@@ -376,7 +377,7 @@ const UserManagement = () => {
                 }}
               >
                 <Paragraph size='lg'>System Administrator</Paragraph>
-                <Switch inputSize='sm' />
+                <Switch inputSize='sm' defaultChecked color='#1890FF' />
               </div>
               <div
                 style={{
@@ -387,7 +388,7 @@ const UserManagement = () => {
                 }}
               >
                 <Paragraph size='lg'>Billing Manager</Paragraph>
-                <Switch inputSize='sm' />
+                <Switch inputSize='sm' defaultChecked color='#1890FF' />
               </div>
               <div
                 style={{
@@ -398,7 +399,7 @@ const UserManagement = () => {
                 }}
               >
                 <Paragraph size='lg'>Location Owner</Paragraph>
-                <Switch inputSize='sm' />
+                <Switch inputSize='sm' defaultChecked color='#1890FF' />
               </div>
               <div
                 style={{
@@ -409,7 +410,7 @@ const UserManagement = () => {
                 }}
               >
                 <Paragraph size='lg'>Siper admin</Paragraph>
-                <Switch inputSize='sm' />
+                <Switch inputSize='sm' defaultChecked color='#1890FF' />
               </div>
             </Container>
           </Container>
