@@ -18,6 +18,7 @@ import {
 } from '@jp-olvera/jp-viaducto-components';
 import { Plus, Cup } from 'react-ikonate';
 import Table from '../../components/Table/Table';
+import Tag from '../../components/Tag/Tag';
 
 const UserManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -219,7 +220,19 @@ const UserManagement = () => {
               <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
                 User Details
               </Paragraph>
-              <Button label='X' onClick={handleDrawerActive} />
+              <button
+                onClick={handleDrawerActive}
+                style={{
+                  border: 'none',
+                  backgroundColor: 'white',
+                  fontSize: '22px',
+                  padding: 0,
+                  marginLeft: 'auto',
+                  cursor: 'pointer',
+                }}
+              >
+                X
+              </button>
             </Container>
           </div>
           <Container horizontal='md'>
@@ -291,19 +304,29 @@ const UserManagement = () => {
                     Access Groups
                   </Title>
                   <Spacer size='sm' />
-                  <Pill
-                    background='#F5F5F5'
-                    borderColor='#D9D9D9'
-                    color='#595959'
-                    label='Teachers'
-                  />
-                  <Pill background='#F5F5F5' borderColor='#D9D9D9' color='#595959' label='Design' />
-                  <Pill
-                    background='#F5F5F5'
-                    borderColor='#D9D9D9'
-                    color='#595959'
-                    label='Blink 182'
-                  />
+                  <div className='flex'>
+                    <Tag
+                      backgroundColor='#F5F5F5'
+                      borderColor='#D9D9D9'
+                      color='#595959'
+                      label='Teachers'
+                    />
+                    <Spacer size='sm' direction='horizontal' />
+
+                    <Tag
+                      backgroundColor='#F5F5F5'
+                      borderColor='#D9D9D9'
+                      color='#595959'
+                      label='Design'
+                    />
+                    <Spacer size='sm' direction='horizontal' />
+                    <Tag
+                      backgroundColor='#F5F5F5'
+                      borderColor='#D9D9D9'
+                      color='#595959'
+                      label='Blink 182'
+                    />
+                  </div>
                 </>
               ) : (
                 <WrapperTable hover={false}>
@@ -345,19 +368,47 @@ const UserManagement = () => {
               <Title level='5' weight='bold'>
                 Roles
               </Title>
-              <div className='flex' style={{ alignContent: 'center', alignItems: 'center' }}>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                }}
+              >
                 <Paragraph size='lg'>System Administrator</Paragraph>
                 <Switch inputSize='sm' />
               </div>
-              <div className='flex' style={{ alignContent: 'center', alignItems: 'center' }}>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                }}
+              >
                 <Paragraph size='lg'>Billing Manager</Paragraph>
                 <Switch inputSize='sm' />
               </div>
-              <div className='flex' style={{ alignContent: 'center', alignItems: 'center' }}>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                }}
+              >
                 <Paragraph size='lg'>Location Owner</Paragraph>
                 <Switch inputSize='sm' />
               </div>
-              <div className='flex' style={{ alignContent: 'center', alignItems: 'center' }}>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                }}
+              >
                 <Paragraph size='lg'>Siper admin</Paragraph>
                 <Switch inputSize='sm' />
               </div>
