@@ -14,6 +14,7 @@ import UserManagement from './pages/UserManagement/UserManagement';
 import GeneralPreferences from './pages/GeneralPreferences/GeneralPreferences';
 import PermissionManagement from './pages/PermissionManagement/PermissionManagement';
 import Infrastructure from './pages/Infrastructure/Infrastructure';
+import LocationManagement from './pages/LocationManagement/LocationManagement';
 
 function App() {
   const { updateConfig, configuration } = useContext(ConfigContext);
@@ -34,6 +35,11 @@ function App() {
         text: '#fff',
         shadow: 'rgba(9, 109, 217, 0.53)',
       },
+    },
+    drawerSizes: {
+      sm: '28.5rem',
+      md: '53rem',
+      lg: '64rem',
     },
   };
   useEffect(() => {
@@ -86,6 +92,9 @@ function App() {
               </Route>
               <Route path='/user-management' exact>
                 <UserManagement />
+              </Route>
+              <Route path='/location-management' exact>
+                <LocationManagement />
               </Route>
               <Route path='/' exact>
                 <BiddingTelco />
