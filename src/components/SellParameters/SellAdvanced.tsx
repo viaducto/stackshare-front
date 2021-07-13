@@ -23,7 +23,14 @@ const SellAdvanced = () => {
           $
         </Paragraph>
         <Spacer direction='horizontal' size='sm' />
-        <Input type='number' inputSize='small' borderColor='#d9d9d9' border='outside' id='askMB' />
+        <Input
+          type='number'
+          inputSize='small'
+          borderColor='#d9d9d9'
+          border='outside'
+          id='askMB'
+          min={0}
+        />
       </div>
       <Spacer direction='vertical' size='md' />
       <Paragraph lineHeight='1.375rem' weight='600'>
