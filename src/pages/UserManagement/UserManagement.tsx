@@ -13,7 +13,6 @@ import {
   Drawer,
   Avatar,
   Title,
-  Pill,
   Switch,
 } from '@jp-olvera/jp-viaducto-components';
 import { Plus, Cup } from 'react-ikonate';
@@ -74,7 +73,7 @@ const UserManagement = () => {
       <BodyMain>
         <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
-            <Button label='Create New User' icon={<Plus />} lead radius='sm' />
+            <Button label='Create New User' icon={<Plus />} lead radius='sm' shapeColor='danger' />
           </Container>
           <Container
             top='md'
