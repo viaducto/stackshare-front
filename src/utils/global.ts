@@ -18,6 +18,13 @@ export const GlobalStyle: any = createGlobalStyle`
     padding: 0%;
     box-sizing: border-box;
   }
+
+  hr {
+    border-color: #E8E8E8;
+    height: 1px;
+    opacity: 0.5;
+  }
+
   .wrapper{
     width: 100%;
     height: 100vh;
