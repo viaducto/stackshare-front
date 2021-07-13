@@ -73,7 +73,7 @@ const UserManagement = () => {
       <BodyMain>
         <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
-            <Button label='Create New User' icon={<Plus />} lead radius='sm' shapeColor='danger' />
+            <Button label='Create New User' icon={<Plus />} lead radius='sm' />
           </Container>
           <Container
             top='md'
