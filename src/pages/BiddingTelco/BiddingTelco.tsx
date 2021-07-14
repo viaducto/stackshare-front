@@ -1,12 +1,15 @@
 import React, { useState, useRef } from 'react';
 import {
-  Paragraph,
-  Spacer,
-  Input,
-  Pill,
   Button,
-  Drawer,
+  Column,
   Container,
+  Drawer,
+  Grid,
+  Input,
+  Paragraph,
+  Pill,
+  Row,
+  Spacer,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
@@ -55,54 +58,59 @@ const BiddingTelco = () => {
       </BodyMain>
 
       <Drawer active={open} onClose={handleOpen} size='lg'>
-        <div style={{ backgroundColor: 'white' }}>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
-            <Container
-              vertical='md'
-              left='xl'
-              right='md'
-              style={{ display: 'flex', justifyContent: 'space-between' }}
-            >
-              <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                Time preset
-              </Paragraph>
-              <Pill background='transparent' color='dark' handleAction={handleOpen} label='' />
-            </Container>
-          </div>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
-            <Container vertical='md' left='xl' right='md'>
-              <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
-              <Spacer size='md' />
-              <div style={{ width: '16rem' }}>
-                <Input label='Medium input' inputSize='small' border='outside' />
-              </div>
-              <Spacer size='md' />
-              <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
-              <Spacer size='md' />
-              <Overflow target={ref}>
-                <div ref={ref} style={{ width: 750, overflow: 'auto' }}>
-                  <PricingTable
-                    sun={TUESDAY}
-                    mon={MONDAY}
-                    tues={TUESDAY}
-                    wed={MONDAY}
-                    thu={TUESDAY}
-                    sat={TUESDAY}
-                  />
+        <Grid className='border-bottom' expanded>
+          <Row>
+            <Column>
+              <Container vertical='md' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
+                  Time preset
+                </Paragraph>
+                <Pill background='transparent' color='dark' handleAction={handleOpen} label='' />
+              </Container>
+            </Column>
+          </Row>
+        </Grid>
+        <Grid className='border-bottom' expanded>
+          <Row>
+            <Column size={12}>
+              <Container vertical='md'>
+                <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
+                <Spacer size='md' />
+                <div style={{ width: '16rem' }}>
+                  <Input label='Medium input' inputSize='small' border='outside' />
                 </div>
-              </Overflow>
-            </Container>
-          </div>
-          <div>
-            <Container
-              horizontal='md'
-              vertical='md'
-              style={{ display: 'flex', justifyContent: 'flex-end' }}
-            >
-              <Button label='Save' onClick={handleOpen} />
-            </Container>
-          </div>
-        </div>
+                <Spacer size='md' />
+                <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
+                <Spacer size='md' />
+                <Overflow target={ref}>
+                  <div ref={ref} style={{ width: '100%', overflow: 'auto' }}>
+                    <PricingTable
+                      sun={TUESDAY}
+                      mon={MONDAY}
+                      tues={TUESDAY}
+                      wed={MONDAY}
+                      thu={TUESDAY}
+                      sat={TUESDAY}
+                    />
+                  </div>
+                </Overflow>
+              </Container>
+            </Column>
+          </Row>
+        </Grid>
+        <Grid>
+          <Row>
+            <Column>
+              <Container
+                horizontal='md'
+                vertical='md'
+                style={{ display: 'flex', justifyContent: 'flex-end' }}
+              >
+                <Button label='Save' onClick={handleOpen} />
+              </Container>
+            </Column>
+          </Row>
+        </Grid>
       </Drawer>
     </BodyContent>
   );

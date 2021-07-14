@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import {
-  Drawer,
-  Container,
-  Paragraph,
-  Input,
   Button,
+  Container,
+  Column,
+  Drawer,
+  Grid,
+  Input,
+  Paragraph,
+  Row,
   Spacer,
 } from '@jp-olvera/jp-viaducto-components';
 
@@ -35,25 +38,33 @@ const EmptySlot = () => {
     <>
       <StyledButton type='button' onClick={showDrawer}></StyledButton>
       <Drawer active={activeDrawer} onClose={onCloseDrawer}>
-        <div style={{ backgroundColor: 'white' }}>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
-            <Container
-              vertical='md'
-              left='xl'
-              right='md'
-              style={{ display: 'flex', justifyContent: 'space-between' }}
-            >
-              <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                Time preset
-              </Paragraph>
-            </Container>
-          </div>
-          <Container vertical='lg' horizontal='md'>
-            <Input type='text' inputSize='small' label='Name the time preset' border='outside' />
-            <Spacer size='sm' />
-            <Button label='Save' onClick={onCloseDrawer} />
-          </Container>
-        </div>
+        <Grid expanded className='border-bottom'>
+          <Row>
+            <Column>
+              <Container vertical='md' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
+                  Time preset
+                </Paragraph>
+              </Container>
+            </Column>
+          </Row>
+        </Grid>
+        <Grid>
+          <Row>
+            <Column>
+              <Container vertical='lg'>
+                <Input
+                  type='text'
+                  inputSize='small'
+                  label='Name the time preset'
+                  border='outside'
+                />
+                <Spacer size='sm' />
+                <Button label='Save' onClick={onCloseDrawer} />
+              </Container>
+            </Column>
+          </Row>
+        </Grid>
       </Drawer>
     </>
   );

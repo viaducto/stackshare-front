@@ -20,9 +20,9 @@ export const GlobalStyle: any = createGlobalStyle`
   }
 
   hr {
-    border-color: #E8E8E8;
+    border-color: #d9d9d9;
     height: 1px;
-    opacity: 0.5;
+    opacity: 0.3;
   }
 
   .wrapper{
@@ -137,5 +137,9 @@ export const GlobalStyle: any = createGlobalStyle`
       position: sticky;
       top: 0;
     }
+  }
+
+  .border-bottom {
+    border-bottom: 0.063rem solid #d9d9d9;
   }
 `;

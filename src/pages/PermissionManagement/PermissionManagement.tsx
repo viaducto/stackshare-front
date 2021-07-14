@@ -6,6 +6,9 @@ import {
   Spacer,
   Tab,
   WrapperTable,
+  Grid,
+  Row,
+  Column,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -134,10 +137,16 @@ const PermissionManagement = () => {
       </div>
 
       <Drawer onClose={() => setOpen(!open)} active={open} size='sm'>
-        <Container expandHorizontal horizontal='md' vertical='md'>
-          {!create && <Roles setOpen={setOpen} />}
-          {create && <CreateRoles setOpen={setOpen} />}
-        </Container>
+        <Grid expanded>
+          <Row>
+            <Column>
+              <Container expandHorizontal vertical='md'>
+                {!create && <Roles setOpen={setOpen} />}
+                {create && <CreateRoles setOpen={setOpen} />}
+              </Container>
+            </Column>
+          </Row>
+        </Grid>
       </Drawer>
     </BodyContent>
   );

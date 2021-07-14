@@ -59,7 +59,7 @@ function App() {
         },
       },
       drawerSizes: {
-        sm: '28.5rem',
+        sm: '28.563rem',
         md: '53rem',
         lg: '64rem',
       },

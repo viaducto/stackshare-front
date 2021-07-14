@@ -290,50 +290,52 @@ const LocationManagement = () => {
         active={isDrawerActive}
         size='lg'
       >
-        <Container
-          vertical='md'
-          horizontal='md'
-          style={{
-            display: 'flex',
-            alignItems: 'baseline',
-            alignContent: 'baseline',
-          }}
-        >
-          <button
-            onClick={handleDrawerActive}
-            style={{
-              cursor: 'pointer',
-              border: 'none',
-              backgroundColor: 'white',
-            }}
-          >
-            <ArrowLeft />
-          </button>
-          <Spacer size='nano' direction='horizontal' />
-          <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-            Location Name
-          </Paragraph>
-          <Spacer size='nano' direction='horizontal' />
-          <Paragraph lineHeight='1.75rem' color='gray'>
-            {currentLocation?.location_name}
-          </Paragraph>
-          <Spacer size='nano' direction='horizontal' />
-          <Tag
-            label={currentLocation?.type}
-            backgroundColor='#E6F7FF'
-            color='#1890FF'
-            borderColor='#1890FF'
-          />
-          <Button
-            label='Edit Location'
-            disabled
-            radius='none'
-            size='small'
-            style={{ marginLeft: 'auto' }}
-          />
-        </Container>
-
         <Grid expanded>
+          <Row>
+            <Column>
+              <Container
+                vertical='md'
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  alignContent: 'baseline',
+                }}
+              >
+                <button
+                  onClick={handleDrawerActive}
+                  style={{
+                    cursor: 'pointer',
+                    border: 'none',
+                    backgroundColor: 'white',
+                  }}
+                >
+                  <ArrowLeft />
+                </button>
+                <Spacer size='nano' direction='horizontal' />
+                <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
+                  Location Name
+                </Paragraph>
+                <Spacer size='nano' direction='horizontal' />
+                <Paragraph lineHeight='1.75rem' color='gray'>
+                  {currentLocation?.location_name}
+                </Paragraph>
+                <Spacer size='nano' direction='horizontal' />
+                <Tag
+                  label={currentLocation?.type}
+                  backgroundColor='#E6F7FF'
+                  color='#1890FF'
+                  borderColor='#1890FF'
+                />
+                <Button
+                  label='Edit Location'
+                  disabled
+                  radius='none'
+                  size='small'
+                  style={{ marginLeft: 'auto' }}
+                />
+              </Container>
+            </Column>
+          </Row>
           <Row>
             <Column size={12}>
               <div className='flex' style={{ justifyContent: 'space-between' }}>

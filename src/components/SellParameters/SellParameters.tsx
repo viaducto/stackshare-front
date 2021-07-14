@@ -18,7 +18,7 @@ const SellParameters = ({
   const ref = useRef(null);
   return (
     <>
-      <div style={{ borderBottom: '0.063rem solid #D9D9D9' }}>
+      <div className='border-bottom'>
         <Container vertical='md' horizontal='lg' expandHorizontal expandVertical>
           <Paragraph lineHeight='1.375rem' weight='600'>
             Pricing definition
