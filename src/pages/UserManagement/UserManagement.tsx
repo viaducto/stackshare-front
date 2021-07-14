@@ -46,7 +46,7 @@ const UserManagement = () => {
   return (
     <>
       <BodyHeader>
-        <Container horizontal='md' vertical='sm'>
+        <Container vertical='sm'>
           <Breadcrums fontSize='md'>
             <Breadcrum label='Home' href='' />
             <Breadcrum label='Organization Management' href='' />
@@ -61,7 +61,6 @@ const UserManagement = () => {
             position='bottom'
             tabType='tab'
             verticalSpacing='sm'
-            spacing='lg'
           >
             <Tab text='All users' />
 

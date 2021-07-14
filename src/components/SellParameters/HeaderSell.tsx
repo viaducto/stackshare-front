@@ -20,7 +20,7 @@ const HeaderSell = ({
   tabs?: any[];
 }) => (
   <BodyHeader>
-    <Container horizontal='md' vertical='sm'>
+    <Container vertical='sm'>
       <Breadcrums fontSize='md'>
         {breadcrums.map(
           (option: { label: string; href: string; active: boolean }, index: number) => {

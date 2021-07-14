@@ -10,7 +10,6 @@ const BodyMain = ({
   return (
     <div {...rest}>
       <Container
-        className='a'
         vertical='md'
         horizontal={horizontal || 'sm'}
         expandHorizontal

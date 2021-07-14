@@ -43,7 +43,7 @@ const UserList = () => {
       }}
     >
       <BodyHeader>
-        <Container vertical='sm' horizontal='lg'>
+        <Container vertical='sm'>
           <Title level='3'>User Management</Title>
         </Container>
       </BodyHeader>

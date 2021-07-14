@@ -236,7 +236,7 @@ const LocationManagement = () => {
   return (
     <>
       <BodyHeader>
-        <Container horizontal='md' vertical='sm'>
+        <Container vertical='sm'>
           <Breadcrums fontSize='md'>
             <Breadcrum label='Home' href='' />
             <Breadcrum label='Organization Settings' href='' />
@@ -251,7 +251,6 @@ const LocationManagement = () => {
             position='bottom'
             tabType='tab'
             verticalSpacing='sm'
-            spacing='md'
           >
             <Tab text='All Locations' />
             <Tab text='Country' />

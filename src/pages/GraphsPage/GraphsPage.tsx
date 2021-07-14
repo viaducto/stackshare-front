@@ -60,7 +60,7 @@ const GraphsPage = () => {
     >
       {/* Header */}
       <BodyHeader>
-        <Container vertical='sm' horizontal='md'>
+        <Container vertical='sm'>
           <Breadcrums>
             <Breadcrum label='Home' href='/' />
             <Breadcrum label='Graphs' active separator={false} />

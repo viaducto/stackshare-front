@@ -1,4 +1,5 @@
-import React from 'react';
+import { Grid, Row, Column } from '@jp-olvera/jp-viaducto-components';
+
 const BodyHeader = ({ children, ...rest }: BodyHeaderProps) => {
   return (
     <div
@@ -11,7 +12,11 @@ const BodyHeader = ({ children, ...rest }: BodyHeaderProps) => {
       }}
       {...rest}
     >
-      {children}
+      <Grid expanded>
+        <Row>
+          <Column>{children}</Column>
+        </Row>
+      </Grid>
     </div>
   );
 };
