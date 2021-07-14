@@ -104,6 +104,7 @@ export const GlobalStyle: any = createGlobalStyle`
     overflow-x: auto;
     overflow-y: auto;
   }
+  
   .blurred-border {
     position: relative;
     &:after {

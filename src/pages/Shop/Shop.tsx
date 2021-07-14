@@ -6,6 +6,7 @@ import {
   Tab,
   Drawer,
   Container,
+  GroupTab,
 } from '@jp-olvera/jp-viaducto-components';
 import { ChevronLeft } from 'react-ikonate';
 import { BodyContent, BodyMain } from '../../components/layout';
@@ -43,45 +44,18 @@ const Shop = () => {
           { label: 'Documents', href: '#', active: false },
           { label: 'Invoices', href: '#', active: true },
         ]}
-        tabs={[
+      >
+        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+          <Tab onFocus={() => setTab(0)} text='Store' id='store' active={tab === 0} />
+          <Tab onFocus={() => setTab(1)} text='My apps' id='apps' active={tab === 1} />
           <Tab
-            horizontalSpacing='sm'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTab(0)}
-            text='Store'
-            transition='ease'
-            tabType='tab'
-            verticalSpacing='sm'
-            id='store'
-            active={tab === 0}
-          />,
-          <Tab
-            horizontalSpacing='sm'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTab(1)}
-            text='My apps'
-            transition='ease'
-            tabType='tab'
-            verticalSpacing='sm'
-            id='apps'
-            active={tab === 1}
-          />,
-          <Tab
-            horizontalSpacing='sm'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTab(2)}
+            onFocus={() => setTab(2)}
             text='Organization Apps'
-            transition='ease'
-            tabType='tab'
-            verticalSpacing='sm'
             id='org_apps'
             active={tab === 2}
-          />,
-        ]}
-      />
+          />
+        </GroupTab>
+      </HeaderSell>
       {/* Body */}
       <BodyMain style={{ width: '100%', height: '75vh', overflow: 'auto' }}>
         {tab === 0 && <StoreTab setAppName={setAppName} setOpenshop={setOpenshop} />}

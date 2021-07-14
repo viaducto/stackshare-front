@@ -16,6 +16,8 @@ import {
   Grid,
   Row,
   Column,
+  GroupTab,
+  ButtonDatalist,
 } from '@jp-olvera/jp-viaducto-components';
 import { Film, ListAlt, Info, Dolar } from 'react-ikonate';
 import Table from '../../components/Table/Table';
@@ -280,7 +282,7 @@ export const MyAppsOrganizationTab = ({
   ];
 
   return (
-    <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
+    <Container style={{ backgroundColor: 'white', height: '50%' }} top='md'>
       <Container
         top='none'
         horizontal='xl'
@@ -372,6 +374,23 @@ export const MyAppsOrganizationDrawer = ({
   const [dataUsage, setDataUsage] = useState<boolean>(true);
   const [uptime, setUptime] = useState<boolean>(true);
   const [time, setTime] = useState<boolean>(true);
+  const Options = ({ accessor, extra }: { accessor: string; extra?: string }) => (
+    <div
+      style={{
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
+      <Paragraph lineHeight='1.375rem' color='#000000'>
+        {accessor}
+      </Paragraph>
+      <Paragraph lineHeight='1.375rem' color='#9A9494'>
+        {extra}
+      </Paragraph>
+    </div>
+  );
   return (
     <Drawer active={openTable} onClose={() => setOpenTable(false)}>
       <Grid expanded className='border-bottom'>
@@ -400,31 +419,20 @@ export const MyAppsOrganizationDrawer = ({
 
       {tab === 2 && (
         <Container horizontal='md' vertical='sm'>
-          <Tab
-            horizontalSpacing='sm'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTabDrawer(0)}
-            text='Preferences'
-            transition='ease'
-            tabType='tab'
-            verticalSpacing='sm'
-            id='personal'
-            active={tabDrawer === 0}
-          />
-          <Spacer direction='horizontal' size='md' />
-          <Tab
-            horizontalSpacing='sm'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTabDrawer(1)}
-            text='Group Access'
-            transition='ease'
-            tabType='tab'
-            verticalSpacing='sm'
-            id='group'
-            active={tabDrawer === 1}
-          />
+          <GroupTab horizontalSpacing='sm' fontSize='lg'>
+            <Tab
+              onFocus={() => setTabDrawer(0)}
+              text='Preferences'
+              id='personal'
+              active={tabDrawer === 0}
+            />
+            <Tab
+              onFocus={() => setTabDrawer(1)}
+              text='Group Access'
+              id='group'
+              active={tabDrawer === 1}
+            />
+          </GroupTab>
         </Container>
       )}
 
@@ -698,7 +706,7 @@ export const MyAppsOrganizationDrawer = ({
 
           <Container
             left='md'
-            style={{ height: '6rem', boxShadow: ' 0px -4px 12px rgba(0, 0, 0, 0.05)' }}
+            style={{ height: '5rem', boxShadow: ' 0px -4px 12px rgba(0, 0, 0, 0.05)' }}
           >
             <div
               style={{
@@ -805,16 +813,33 @@ export const MyAppsOrganizationDrawer = ({
         </>
       )}
 
-      {tabDrawer === 1 && (
+      {tabDrawer === 1 && tab !== 1 && (
         <>
-          <Container right='lg' left='md' bottom='sm' style={{ height: '80%' }}>
-            {/* <ButtonDatalist
-                onClick={() => {}}
-                options={['Supergroup', '8th Graders', 'Teachers', 'Blink 182']}
-              /> */}
-            <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
-              <ButtonDatalistFake />
-            </div>
+          <Container right='lg' left='md' style={{ height: '80%' }}>
+            <ButtonDatalist
+              titleComponent='Access Groups'
+              inputIcon={<Search />}
+              buttonLabel='Button'
+              onClick={() => {}}
+              options={[
+                {
+                  accessor: 'Supergroup',
+                  data: Options({ accessor: 'Supergroup', extra: '14 members' }),
+                },
+                {
+                  accessor: '8th Graders',
+                  data: Options({ accessor: '8th Graders', extra: '1,984  members' }),
+                },
+                {
+                  accessor: 'Teachers',
+                  data: Options({ accessor: 'Teachers', extra: '201 members' }),
+                },
+                {
+                  accessor: 'Blink 182',
+                  data: Options({ accessor: 'Blink 182', extra: '3 members' }),
+                },
+              ]}
+            />
             <Container top='md'>
               <GroupAccessUser apps='18' groups='Super Group' />
               <GroupAccessUser apps='28' groups='Teachers, 1 more..' />
@@ -830,7 +855,7 @@ export const MyAppsOrganizationDrawer = ({
           >
             <div
               style={{
-                height: '100%',
+                height: '90%',
                 position: 'sticky',
                 bottom: 0,
                 display: 'flex',
@@ -878,78 +903,4 @@ export const GroupAccessUser = ({ apps, groups }: { apps: string; groups: string
       </div>
     </div>
   </Container>
-);
-
-const ButtonDatalistFake = () => (
-  <div
-    style={{
-      border: '0.063rem solid #d9d9d9',
-      width: '80%',
-      minHeight: '14.938rem',
-    }}
-  >
-    <Container vertical='sm' horizontal='sm' className='border-bottom'>
-      <Paragraph lineHeight='1.375rem' color='#595959'>
-        Access Groups
-      </Paragraph>
-    </Container>
-    <Container top='md' bottom='sm' horizontal='xs'>
-      <Input
-        label='Search here'
-        borderColor='#d9d9d9'
-        inputSize='small'
-        border='outside'
-        icon={<Search />}
-      />
-    </Container>
-    <Container bottom='md' left='xs' right='sm' className='border-bottom'>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Paragraph lineHeight='1.375rem' color='#000000'>
-          Supergroup
-        </Paragraph>
-        <Paragraph lineHeight='1.375rem' color='#9A9494'>
-          14 members
-        </Paragraph>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Paragraph lineHeight='1.375rem' color='#000000'>
-          8th Graders
-        </Paragraph>
-        <Paragraph lineHeight='1.375rem' color='#9A9494'>
-          1,984 members
-        </Paragraph>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Paragraph lineHeight='1.375rem' color='#000000'>
-          Teachers
-        </Paragraph>
-        <Paragraph lineHeight='1.375rem' color='#9A9494'>
-          201 members
-        </Paragraph>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Paragraph lineHeight='1.375rem' color='#000000'>
-          Blink 182
-        </Paragraph>
-        <Paragraph lineHeight='1.375rem' color='#9A9494'>
-          3 members
-        </Paragraph>
-      </div>
-    </Container>
-    <Container
-      vertical='xs'
-      horizontal='xs'
-      style={{ display: 'flex', justifyContent: 'flex-end' }}
-    >
-      <Button
-        label='Button'
-        variant='outline'
-        size='small'
-        colors={{
-          text: '#595959',
-          default: '#595959',
-        }}
-      />
-    </Container>
-  </div>
 );

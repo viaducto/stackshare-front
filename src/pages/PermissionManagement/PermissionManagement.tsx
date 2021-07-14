@@ -9,6 +9,7 @@ import {
   Grid,
   Row,
   Column,
+  GroupTab,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -36,12 +37,13 @@ const PermissionManagement = () => {
           { label: 'Organization Management', href: '#', active: false },
           { label: 'User Management', href: '#', active: true },
         ]}
-        tabs={[
-          <Tab text='Roles' active />,
-          <Tab text='Default Roles' />,
-          <Tab text='Custom Roles' />,
-        ]}
-      />
+      >
+        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+          <Tab text='Roles' active />
+          <Tab text='Default Roles' />
+          <Tab text='Custom Roles' />
+        </GroupTab>
+      </HeaderSell>
       <div style={{ display: 'flex', height: '77vh', overflow: 'auto' }}>
         <BodyMain horizontal='md' expandVertical>
           <Container

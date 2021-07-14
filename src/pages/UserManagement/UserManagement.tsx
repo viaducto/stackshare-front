@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { BodyHeader, BodyMain } from '../../components/layout';
+import { BodyMain } from '../../components/layout';
 import {
   Avatar,
-  Breadcrums,
-  Breadcrum,
   Button,
   Column,
   Container,
@@ -21,6 +19,7 @@ import {
 import { Plus, Cup } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import Tag from '../../components/Tag/Tag';
+import HeaderSell from '../../components/SellParameters/HeaderSell';
 
 const UserManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -48,31 +47,20 @@ const UserManagement = () => {
 
   return (
     <>
-      <BodyHeader>
-        <Container vertical='sm'>
-          <Breadcrums fontSize='md'>
-            <Breadcrum label='Home' href='' />
-            <Breadcrum label='Organization Management' href='' />
-            <Breadcrum label='User Management' href='' active />
-          </Breadcrums>
-          <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
-            User Management
-          </Paragraph>
-          <GroupTab
-            fontSize='md'
-            horizontalSpacing='md'
-            position='bottom'
-            tabType='tab'
-            verticalSpacing='sm'
-          >
-            <Tab text='All users' />
-
-            <Tab text='Active Users' />
-
-            <Tab text='Inactive Users' />
-          </GroupTab>
-        </Container>
-      </BodyHeader>
+      <HeaderSell
+        title='User Management'
+        breadcrums={[
+          { label: 'Home', href: '', active: false },
+          { label: 'Organization Management', href: '', active: false },
+          { label: 'User Management', href: '', active: true },
+        ]}
+      >
+        <GroupTab fontSize='lg' verticalSpacing='sm'>
+          <Tab text='All users' />
+          <Tab text='Active Users' />
+          <Tab text='Inactive Users' />
+        </GroupTab>
+      </HeaderSell>
       <BodyMain>
         <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
@@ -295,21 +283,22 @@ const UserManagement = () => {
                 <hr />
                 <Container bottom='lg' top='sm'>
                   <div className='flex'>
-                    <Tab
-                      text='Overview'
-                      active={showApps}
-                      onClick={() => {
-                        setShowApps((d) => !d);
-                      }}
-                    />
-                    <Spacer size='lg' direction='horizontal' />
-                    <Tab
-                      text='Apps'
-                      active={!showApps}
-                      onClick={() => {
-                        setShowApps((d) => !d);
-                      }}
-                    />
+                    <GroupTab>
+                      <Tab
+                        text='Overview'
+                        active={showApps}
+                        onFocus={() => {
+                          setShowApps((d) => !d);
+                        }}
+                      />
+                      <Tab
+                        text='Apps'
+                        active={!showApps}
+                        onFocus={() => {
+                          setShowApps((d) => !d);
+                        }}
+                      />
+                    </GroupTab>
                   </div>
                   <Spacer size='sm' />
                   {showApps ? (

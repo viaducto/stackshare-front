@@ -14,6 +14,7 @@ import {
   Select,
   Tab,
   WrapperTable,
+  GroupTab,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { dummyData, buyColumns, DummyBadge } from './StoryData';
@@ -55,30 +56,12 @@ const Buy = () => {
           { label: 'Auctions', href: '#', active: false },
           { label: 'Bidding', href: '#', active: true },
         ]}
-        tabs={[
-          <Tab
-            horizontalSpacing='sm'
-            icon={null}
-            iconSpacing='none'
-            text='Active Bids'
-            transition='ease'
-            tabType='tab'
-            verticalSpacing='sm'
-            id='ActiveBids'
-            active={true}
-          />,
-          <Tab
-            horizontalSpacing='sm'
-            icon={null}
-            iconSpacing='none'
-            text='Fullfilled'
-            transition='ease'
-            tabType='tab'
-            verticalSpacing='sm'
-            id='Fullfilled'
-          />,
-        ]}
-      />
+      >
+        <GroupTab horizontalSpacing='sm' fontSize='lg'>
+          <Tab text='Active Bids' active />
+          <Tab text='Fullfilled' />
+        </GroupTab>
+      </HeaderSell>
 
       {/* Body */}
       <BodyMain>

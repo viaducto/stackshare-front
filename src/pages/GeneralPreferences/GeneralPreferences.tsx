@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Spacer, Tab } from '@jp-olvera/jp-viaducto-components';
+import { Card, Container, GroupTab, Spacer, Tab } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import { VerticalSteps } from '../../components/VerticalSteps';
@@ -25,12 +25,13 @@ const GeneralPreferences = () => {
           { label: 'Organization Settings', href: '#', active: false },
           { label: 'Organization', href: '#', active: true },
         ]}
-        tabs={[
-          <Tab text='Overview' active={tab === 0} onClick={() => setTab(0)} />,
-          <Tab text='Security' active={tab === 1} onClick={() => setTab(1)} />,
-          <Tab text='Brand Localization' active={tab === 2} onClick={() => setTab(2)} />,
-        ]}
-      />
+      >
+        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+          <Tab text='Overview' onFocus={() => setTab(0)} />
+          <Tab text='Security' onFocus={() => setTab(1)} />
+          <Tab text='Brand Localization' onFocus={() => setTab(2)} />
+        </GroupTab>
+      </HeaderSell>
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
         <BodyMain horizontal='md' style={{ flexBasis: '100%' }} expandVertical>
           <Container

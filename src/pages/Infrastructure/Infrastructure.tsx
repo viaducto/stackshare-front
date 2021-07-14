@@ -2,6 +2,7 @@ import {
   Button,
   Container,
   Drawer,
+  GroupTab,
   Spacer,
   Tab,
   WrapperTable,
@@ -33,14 +34,15 @@ const Infrastructure = () => {
           { label: 'Documents', href: '#', active: false },
           { label: 'Invoices', href: '#', active: true },
         ]}
-        tabs={[
-          <Tab text='All Items' active />,
-          <Tab text='Backbone' />,
-          <Tab text='Points of Presence' />,
-          <Tab text='Network Access Points' />,
-          <Tab text='Routers' />,
-        ]}
-      />
+      >
+        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+          <Tab text='All Items' active />
+          <Tab text='Backbone' />
+          <Tab text='Points of Presence' />
+          <Tab text='Network Access Points' />
+          <Tab text='Routers' />
+        </GroupTab>
+      </HeaderSell>
       <div style={{ display: 'flex', height: '77vh', overflow: 'auto' }}>
         <BodyMain horizontal='md' expandVertical>
           <Container

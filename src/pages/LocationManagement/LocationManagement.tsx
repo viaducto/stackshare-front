@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { BodyHeader, BodyMain } from '../../components/layout';
+import { BodyMain } from '../../components/layout';
 import {
-  Breadcrums,
-  Breadcrum,
   GroupTab,
   Paragraph,
   Tab,
@@ -23,6 +21,7 @@ import { Plus, ArrowLeft } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import Tag from '../../components/Tag/Tag';
 import Graph from '../BiddingTelco/Graph';
+import HeaderSell from '../../components/SellParameters/HeaderSell';
 
 const LocationManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -235,32 +234,23 @@ const LocationManagement = () => {
   ];
   return (
     <>
-      <BodyHeader>
-        <Container vertical='sm'>
-          <Breadcrums fontSize='md'>
-            <Breadcrum label='Home' href='' />
-            <Breadcrum label='Organization Settings' href='' />
-            <Breadcrum label='User Management' href='' active />
-          </Breadcrums>
-          <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
-            Location Management
-          </Paragraph>
-          <GroupTab
-            fontSize='md'
-            horizontalSpacing='md'
-            position='bottom'
-            tabType='tab'
-            verticalSpacing='sm'
-          >
-            <Tab text='All Locations' />
-            <Tab text='Country' />
-            <Tab text='Region' />
-            <Tab text='State' />
-            <Tab text='Market' />
-            <Tab text='Last Mile' />
-          </GroupTab>
-        </Container>
-      </BodyHeader>
+      <HeaderSell
+        title='Location Management'
+        breadcrums={[
+          { label: 'Home', href: '', active: false },
+          { label: 'Organization Settings', href: '', active: false },
+          { label: 'User Management', href: '', active: true },
+        ]}
+      >
+        <GroupTab fontSize='lg' verticalSpacing='sm'>
+          <Tab text='All Locations' />
+          <Tab text='Country' />
+          <Tab text='Region' />
+          <Tab text='State' />
+          <Tab text='Market' />
+          <Tab text='Last Mile' />
+        </GroupTab>
+      </HeaderSell>
       <BodyMain>
         <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
