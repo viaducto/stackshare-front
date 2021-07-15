@@ -24,7 +24,7 @@ const StyledSlot = styled.button<any>`
   padding: 0 0.68rem;
   position: absolute;
   width: 100%;
-  z-index: 1;
+  /* z-index: 1; */
 
   &::before {
     background-color: #7cb305;

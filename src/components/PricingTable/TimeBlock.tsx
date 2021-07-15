@@ -19,7 +19,6 @@ const StyledDiv = styled.div`
     position: absolute;
     bottom: -8px;
     right: 1.13rem;
-    z-index: 1;
   }
 `;
 

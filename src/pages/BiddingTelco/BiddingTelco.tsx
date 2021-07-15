@@ -46,7 +46,7 @@ const BiddingTelco = () => {
       />
 
       {/* Body */}
-      <div style={{ height: '77vh', overflow: 'hidden', width: '100%' }}>
+      <div style={{ height: '77vh', width: '100%' }}>
         <BodyMain className='overflow'>
           <Container
             expandHorizontal
