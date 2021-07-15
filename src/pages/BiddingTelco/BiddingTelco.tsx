@@ -46,16 +46,22 @@ const BiddingTelco = () => {
       />
 
       {/* Body */}
-      <BodyMain>
-        <div style={{ backgroundColor: 'white', height: '100%' }}>
-          <SellParameters
-            handleOpen={handleOpen}
-            setSimple={setSimple}
-            simple={simple}
-            b2b={false}
-          />
-        </div>
-      </BodyMain>
+      <div style={{ height: '77vh', overflow: 'hidden', width: '100%' }}>
+        <BodyMain className='overflow'>
+          <Container
+            expandHorizontal
+            style={{ backgroundColor: 'white', height: '100%' }}
+            className='overflow'
+          >
+            <SellParameters
+              handleOpen={handleOpen}
+              setSimple={setSimple}
+              simple={simple}
+              b2b={false}
+            />
+          </Container>
+        </BodyMain>
+      </div>
 
       <Drawer active={open} onClose={handleOpen} size='lg'>
         <Grid className='border-bottom' expanded>

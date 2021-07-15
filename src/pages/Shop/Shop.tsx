@@ -88,12 +88,13 @@ const Shop = () => {
         }}
         size='md'
       >
-        <div style={{ backgroundColor: 'white' }}>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
+        <div style={{ backgroundColor: 'white', width: '100%' }}>
+          <div style={{ borderBottom: '0.063rem solid #d9d9d9', width: '100%' }}>
             <Container
               vertical='md'
               left='md'
               right='md'
+              expandHorizontal
               style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}
             >
               <Button

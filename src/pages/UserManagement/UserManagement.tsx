@@ -69,6 +69,7 @@ const UserManagement = () => {
           <Container
             top='md'
             horizontal='xl'
+            className='overflow'
             style={{
               display: 'flex',
               justifyContent: 'space-between',

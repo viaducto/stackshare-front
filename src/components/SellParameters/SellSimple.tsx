@@ -138,29 +138,22 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
                 Potential earnings with current config
               </Paragraph>
               <Spacer direction='vertical' size='xs' />
-              <div style={{ width: '40rem' }}>
-                <Paragraph lineHeight='1.375rem' color='#595959'>
-                  These are stimated by the prices and maximum bandwith usage and the uptime
-                  selected.
-                </Paragraph>
-              </div>
+
+              <Paragraph lineHeight='1.375rem' color='#595959'>
+                These are stimated by the prices and maximum bandwith usage and the uptime selected.
+              </Paragraph>
+
               <Spacer direction='vertical' size='xs' />
-              <Grid expanded>
+              <Grid>
                 <Row>
-                  <Column size={6}>
+                  <Column>
                     <Graph title='Earnings' percent='+11.3%' data='$13,893' profit='Total Profit' />
                   </Column>
-                  <Column size={6}>
+                  <Column>
                     <Graph title='Broadband Usage' percent='+11.3%' data='659Gb' />
                   </Column>
                 </Row>
               </Grid>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                }}
-              ></div>
             </div>
           )}
         </Column>

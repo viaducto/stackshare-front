@@ -104,6 +104,14 @@ export const GlobalStyle: any = createGlobalStyle`
     overflow-x: auto;
     overflow-y: auto;
   }
+
+  tfoot{
+    border-top: 0.063rem solid #d9d9d9;
+    border-bottom: 0.063rem solid #d9d9d9;
+    & > tr {
+      border: none !important;
+    }
+  }
   
   .blurred-border {
     position: relative;

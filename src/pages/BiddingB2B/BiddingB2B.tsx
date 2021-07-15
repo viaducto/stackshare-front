@@ -26,16 +26,18 @@ const BiddingB2B = () => {
         ]}
       />
       {/* Body */}
-      <BodyMain>
-        <div style={{ backgroundColor: 'white', height: '100%' }}>
-          <SellParameters
-            handleOpen={handleOpen}
-            setSimple={setSimple}
-            simple={simple}
-            b2b={true}
-          />
-        </div>
-      </BodyMain>
+      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+        <BodyMain className='overflow'>
+          <div style={{ backgroundColor: 'white', height: '100%' }}>
+            <SellParameters
+              handleOpen={handleOpen}
+              setSimple={setSimple}
+              simple={simple}
+              b2b={true}
+            />
+          </div>
+        </BodyMain>
+      </div>
     </BodyContent>
   );
 };

@@ -44,12 +44,12 @@ const PermissionManagement = () => {
           <Tab text='Custom Roles' />
         </GroupTab>
       </HeaderSell>
-      <div style={{ display: 'flex', height: '77vh', overflow: 'auto' }}>
-        <BodyMain horizontal='md' expandVertical>
+      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
+        <BodyMain horizontal='md' expandVertical className='overflow'>
           <Container
             vertical='md'
             horizontal='md'
-            style={{ backgroundColor: 'white', height: '95%', overflow: 'auto' }}
+            style={{ backgroundColor: 'white', height: '95%' }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
               <Button
@@ -87,53 +87,55 @@ const PermissionManagement = () => {
                 />
               </div>
             </div>
-            <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA'>
-              <Table
-                filter={false}
-                cols={[
-                  ...permissionColumns,
-                  {
-                    Header: 'Action',
-                    accessor: 'action',
-                    Filter: () => null,
-                    width: 180,
-                    maxWidth: 250,
-                    minWidth: 150,
-                    Cell: (props: any) => {
-                      const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
-                        props.data[props.row.index].action;
+            <Container className='overflow'>
+              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA'>
+                <Table
+                  filter={false}
+                  cols={[
+                    ...permissionColumns,
+                    {
+                      Header: 'Action',
+                      accessor: 'action',
+                      Filter: () => null,
+                      width: 180,
+                      maxWidth: 250,
+                      minWidth: 150,
+                      Cell: (props: any) => {
+                        const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
+                          props.data[props.row.index].action;
 
-                      return (
-                        <div
-                          style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            height: '100%',
-                          }}
-                        >
-                          {deleteBtn && (
-                            <Button variant='ghost' label='Delete' shapeColor='danger' />
-                          )}
-                          <Spacer direction='horizontal' size='micro' />
-                          <div style={{ width: 1, height: '100%', backgroundColor: '#d9d9d9' }} />
-                          <Spacer direction='horizontal' size='micro' />
-                          <Button
-                            variant='ghost'
-                            label={action}
-                            onClick={() => {
-                              setCreate(false);
-                              setOpen(true);
+                        return (
+                          <div
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              height: '100%',
                             }}
-                          />
-                        </div>
-                      );
+                          >
+                            {deleteBtn && (
+                              <Button variant='ghost' label='Delete' shapeColor='danger' />
+                            )}
+                            <Spacer direction='horizontal' size='micro' />
+                            <div style={{ width: 1, height: '100%', backgroundColor: '#d9d9d9' }} />
+                            <Spacer direction='horizontal' size='micro' />
+                            <Button
+                              variant='ghost'
+                              label={action}
+                              onClick={() => {
+                                setCreate(false);
+                                setOpen(true);
+                              }}
+                            />
+                          </div>
+                        );
+                      },
                     },
-                  },
-                ]}
-                dataTable={permissionData}
-              />
-            </WrapperTable>
+                  ]}
+                  dataTable={permissionData}
+                />
+              </WrapperTable>
+            </Container>
           </Container>
         </BodyMain>
       </div>

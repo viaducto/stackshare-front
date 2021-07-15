@@ -47,69 +47,71 @@ const UserList = () => {
           <Title level='3'>User Management</Title>
         </Container>
       </BodyHeader>
-      <BodyMain
-        style={{
-          boxSizing: 'border-box',
-          height: '100%',
-          overflowY: 'auto',
-        }}
-      >
-        <WrapperTable horizontalSpacing='sm' zebra={false}>
-          <table {...getTableProps()}>
-            <thead>
-              {
-                // Loop over the header rows
-                headerGroups.map((headerGroup) => (
-                  // Apply the header row props
-                  <tr {...headerGroup.getHeaderGroupProps()}>
-                    {
-                      // Loop over the headers in each row
-                      headerGroup.headers.map((column) => (
-                        // Apply the header cell props
-                        <th {...column.getHeaderProps()}>
-                          {
-                            // Render the header
-                            column.render('Header')
-                          }
-                        </th>
-                      ))
-                    }
-                  </tr>
-                ))
-              }
-            </thead>
-            {/* Apply the table body props */}
-            <tbody {...getTableBodyProps()}>
-              {
-                // Loop over the table rows
-                rows.map((row) => {
-                  // Prepare the row for display
-                  prepareRow(row);
-                  return (
-                    // Apply the row props
-                    <tr {...row.getRowProps()}>
+      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+        <BodyMain
+          style={{
+            boxSizing: 'border-box',
+            height: '100%',
+            overflowY: 'auto',
+          }}
+        >
+          <WrapperTable horizontalSpacing='sm' zebra={false}>
+            <table {...getTableProps()}>
+              <thead>
+                {
+                  // Loop over the header rows
+                  headerGroups.map((headerGroup) => (
+                    // Apply the header row props
+                    <tr {...headerGroup.getHeaderGroupProps()}>
                       {
-                        // Loop over the rows cells
-                        row.cells.map((cell) => {
-                          // Apply the cell props
-                          return (
-                            <td {...cell.getCellProps()}>
-                              {
-                                // Render the cell contents
-                                cell.render('Cell')
-                              }
-                            </td>
-                          );
-                        })
+                        // Loop over the headers in each row
+                        headerGroup.headers.map((column) => (
+                          // Apply the header cell props
+                          <th {...column.getHeaderProps()}>
+                            {
+                              // Render the header
+                              column.render('Header')
+                            }
+                          </th>
+                        ))
                       }
                     </tr>
-                  );
-                })
-              }
-            </tbody>
-          </table>
-        </WrapperTable>
-      </BodyMain>
+                  ))
+                }
+              </thead>
+              {/* Apply the table body props */}
+              <tbody {...getTableBodyProps()}>
+                {
+                  // Loop over the table rows
+                  rows.map((row) => {
+                    // Prepare the row for display
+                    prepareRow(row);
+                    return (
+                      // Apply the row props
+                      <tr {...row.getRowProps()}>
+                        {
+                          // Loop over the rows cells
+                          row.cells.map((cell) => {
+                            // Apply the cell props
+                            return (
+                              <td {...cell.getCellProps()}>
+                                {
+                                  // Render the cell contents
+                                  cell.render('Cell')
+                                }
+                              </td>
+                            );
+                          })
+                        }
+                      </tr>
+                    );
+                  })
+                }
+              </tbody>
+            </table>
+          </WrapperTable>
+        </BodyMain>
+      </div>
     </BodyContent>
   );
 };

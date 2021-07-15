@@ -61,6 +61,7 @@ const LocationManagement = () => {
       Header: 'Specification',
       accessor: 'specification',
       sortable: false,
+      minWidth: 180,
       Filter: () => null,
       Cell: (props: any) => {
         return (
@@ -257,6 +258,7 @@ const LocationManagement = () => {
             <Button label='Create New Location' icon={<Plus />} lead radius='sm' />
           </Container>
           <Container
+            className='overflow'
             top='md'
             horizontal='xl'
             style={{
@@ -446,9 +448,11 @@ const LocationManagement = () => {
           <Spacer size='sm' />
           <Row>
             <Column size={12}>
-              <WrapperTable>
-                <Table cols={infrastructureColumns} dataTable={infrastructureData} />
-              </WrapperTable>
+              <Container className='overflow'>
+                <WrapperTable>
+                  <Table cols={infrastructureColumns} dataTable={infrastructureData} />
+                </WrapperTable>
+              </Container>
             </Column>
           </Row>
         </Grid>

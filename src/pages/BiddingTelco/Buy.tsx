@@ -45,7 +45,6 @@ const Buy = () => {
     <BodyContent
       style={{
         boxSizing: 'border-box',
-        height: '100%',
         overflowY: 'auto',
       }}
     >
@@ -62,108 +61,112 @@ const Buy = () => {
           <Tab text='Fullfilled' />
         </GroupTab>
       </HeaderSell>
-
       {/* Body */}
-      <BodyMain>
-        <div style={{ backgroundColor: 'white', height: '100%', overflow: 'auto' }}>
-          <Container vertical='md' horizontal='lg' expandHorizontal>
-            <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
-              <Button
-                label='New bid'
-                icon={<Plus />}
-                lead
-                onClick={() => {
-                  setData({});
-                  setNewBid(true);
-                  setOpenTable(true);
-                }}
-              />
-              <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  icon={<Filter color='#595959' fontSize='1rem' />}
-                  type='button'
-                  onClick={() => {}}
-                  variant='outline'
-                  height='2.063rem'
-                  size='small'
-                />
-                <Spacer direction='horizontal' size='sm' />
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
-                  type='button'
-                  onClick={() => {}}
-                  variant='outline'
-                  height='2.063rem'
-                  size='small'
-                />
+      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+        <BodyMain style={{ overflow: 'auto' }}>
+          <div style={{ backgroundColor: 'white' }}>
+            <Container vertical='md' horizontal='lg' expandHorizontal>
+              <div className='overflow'>
+                <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
+                  <Button
+                    label='New bid'
+                    icon={<Plus />}
+                    lead
+                    onClick={() => {
+                      setData({});
+                      setNewBid(true);
+                      setOpenTable(true);
+                    }}
+                  />
+                  <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                    <Button
+                      leftSpacing='sm'
+                      iconSpacing='none'
+                      rightSpacing='sm'
+                      icon={<Filter color='#595959' fontSize='1rem' />}
+                      type='button'
+                      onClick={() => {}}
+                      variant='outline'
+                      height='2.063rem'
+                      size='small'
+                    />
+                    <Spacer direction='horizontal' size='sm' />
+                    <Button
+                      leftSpacing='sm'
+                      iconSpacing='none'
+                      rightSpacing='sm'
+                      icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                      type='button'
+                      onClick={() => {}}
+                      variant='outline'
+                      height='2.063rem'
+                      size='small'
+                    />
+                  </div>
+                </div>
+                <Container expandHorizontal className='overflow'>
+                  <WrapperTable
+                    fontSize='md'
+                    verticalSpacing='md'
+                    hover
+                    hoverColor='#D1D5DA'
+                    border='horizontal'
+                    borderColor='#E8E8E8'
+                    horizontalSpacing='sm'
+                  >
+                    <Table
+                      cols={[
+                        ...buyColumns,
+                        {
+                          Header: 'Specification',
+                          accessor: 'specification',
+                          width: 230,
+                          maxWidth: 250,
+                          minWidth: 200,
+                          Filter: () => null,
+                          Cell: (props: any) => {
+                            return (
+                              <div
+                                style={{
+                                  display: 'flex',
+                                  justifyContent: 'space-between',
+                                  height: '100%',
+                                  alignItems: 'center',
+                                }}
+                              >
+                                <Button
+                                  label='See details'
+                                  colors={details}
+                                  onClick={() => {
+                                    setData(props.data[props.row.index]);
+                                    setNewBid(false);
+                                    setOpenTable(true);
+                                  }}
+                                />
+                                <Button
+                                  label='Delete'
+                                  colors={deleteColor}
+                                  onClick={() => {
+                                    setData(props.data[props.row.index]);
+                                    setNewBid(false);
+                                    setOpenTable(true);
+                                  }}
+                                />
+                              </div>
+                            );
+                          },
+                        },
+                      ]}
+                      dataTable={dummyData}
+                      filter={false}
+                    />
+                  </WrapperTable>
+                </Container>
               </div>
-            </div>
-            <WrapperTable
-              fontSize='md'
-              verticalSpacing='md'
-              hover
-              hoverColor='#D1D5DA'
-              border='horizontal'
-              borderColor='#E8E8E8'
-              horizontalSpacing='sm'
-            >
-              <Table
-                cols={[
-                  ...buyColumns,
-                  {
-                    Header: 'Specification',
-                    accessor: 'specification',
-                    width: 230,
-                    maxWidth: 250,
-                    minWidth: 200,
-                    Filter: () => null,
-                    Cell: (props: any) => {
-                      return (
-                        <div
-                          style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            height: '100%',
-                            alignItems: 'center',
-                          }}
-                        >
-                          <Button
-                            label='See details'
-                            colors={details}
-                            onClick={() => {
-                              setData(props.data[props.row.index]);
-                              setNewBid(false);
-                              setOpenTable(true);
-                            }}
-                          />
-                          <Button
-                            label='Delete'
-                            colors={deleteColor}
-                            onClick={() => {
-                              setData(props.data[props.row.index]);
-                              setNewBid(false);
-                              setOpenTable(true);
-                            }}
-                          />
-                        </div>
-                      );
-                    },
-                  },
-                ]}
-                dataTable={dummyData}
-                filter={false}
-              />
-            </WrapperTable>
-          </Container>
-        </div>
-      </BodyMain>
-
+            </Container>
+          </div>
+        </BodyMain>
+      </div>
       <Drawer active={openTable} onClose={() => setOpenTable(false)} size={newBid ? 'md' : 'sm'}>
         <Grid expanded>
           <Row>

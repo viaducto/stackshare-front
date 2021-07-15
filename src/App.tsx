@@ -21,12 +21,6 @@ function App() {
 
   useEffect(() => {
     const myConfig = {
-      controlHeight: {
-        xsmall: '1.2rem',
-        small: '2.074rem',
-        default: '2rem',
-        large: '2.986rem',
-      },
       colors: {
         ...configuration.colors,
         primary: {
