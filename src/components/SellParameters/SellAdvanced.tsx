@@ -1,9 +1,11 @@
-import React from 'react';
+import { useRef } from 'react';
 import { Paragraph, Spacer, Input } from '@jp-olvera/jp-viaducto-components';
 import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
 import { PricingTable } from '../PricingTable';
+import Overflow from '../Overflow/Overflow';
 
 const SellAdvanced = () => {
+  const ref = useRef<HTMLDivElement>(null);
   return (
     <div>
       <Paragraph lineHeight='1.375rem' weight='600'>
@@ -21,7 +23,14 @@ const SellAdvanced = () => {
           $
         </Paragraph>
         <Spacer direction='horizontal' size='sm' />
-        <Input type='number' size='small' borderColor='#d9d9d9' border='outside' id='askMB' />
+        <Input
+          type='number'
+          inputSize='small'
+          borderColor='#d9d9d9'
+          border='outside'
+          id='askMB'
+          min={0}
+        />
       </div>
       <Spacer direction='vertical' size='md' />
       <Paragraph lineHeight='1.375rem' weight='600'>
@@ -31,16 +40,18 @@ const SellAdvanced = () => {
       <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
         Blank spaces will be assigned to the default Mb price
       </Paragraph>
-      <div style={{ overflowX: 'auto' }}>
-        <PricingTable
-          sun={TUESDAY}
-          mon={MONDAY}
-          tues={TUESDAY}
-          wed={MONDAY}
-          thu={TUESDAY}
-          sat={TUESDAY}
-        />
-      </div>
+      <Overflow target={ref}>
+        <div className='overflow' ref={ref}>
+          <PricingTable
+            sun={TUESDAY}
+            mon={MONDAY}
+            tues={TUESDAY}
+            wed={MONDAY}
+            thu={TUESDAY}
+            sat={TUESDAY}
+          />
+        </div>
+      </Overflow>
       <Spacer direction='vertical' size='xl' />
       <div style={{ width: '32rem' }}>
         <Paragraph lineHeight='1.375rem' weight='600'>
@@ -60,7 +71,15 @@ const SellAdvanced = () => {
             justifyContent: 'space-between',
           }}
         >
-          <Input type='number' size='small' borderColor='#d9d9d9' border='outside' value='95' />
+          <Input
+            type='number'
+            inputSize='small'
+            borderColor='#d9d9d9'
+            border='outside'
+            max={95}
+            min={0}
+            defaultValue={95}
+          />
           <Spacer direction='horizontal' size='sm' />
           <Paragraph color='#595959' weight='400'>
             %

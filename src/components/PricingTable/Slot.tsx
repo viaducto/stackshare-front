@@ -1,5 +1,12 @@
 import { useState, useRef } from 'react';
-import { Tab, Container, Paragraph, Popover, Anchor } from '@jp-olvera/jp-viaducto-components';
+import {
+  Tab,
+  Container,
+  Paragraph,
+  Popover,
+  Anchor,
+  GroupTab,
+} from '@jp-olvera/jp-viaducto-components';
 import { XYPlot, LineSeries } from 'react-vis';
 import styled from 'styled-components';
 
@@ -40,7 +47,7 @@ interface SlotProps {
   height: string;
 }
 const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
-  const ref = useRef();
+  const ref = useRef(null);
   const [activePopover, setActivePopover] = useState(false);
   const onClose = () => {
     setActivePopover(!activePopover);
@@ -109,9 +116,11 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
               </Paragraph>
             </Container>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Tab text='Bandwidth' />
-              <Tab text='Packages' />
-              <Tab text='Secure channels' />
+              <GroupTab fontSize='lg'>
+                <Tab text='Bandwidth' />
+                <Tab text='Packages' />
+                <Tab text='Secure channels' />
+              </GroupTab>
             </div>
             <Container vertical='sm'>
               <XYPlot height={100} width={300} style={{ fill: 'none', strokeWidth: 3 }}>
@@ -126,7 +135,7 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
               <Container vertical='sm'>
                 <Paragraph color='darkGray'>Expires by</Paragraph>
                 <Paragraph size='lg'>March 4, 2021. 4:00 am</Paragraph>
-                <Anchor color='#1665D8' href='#' label='See all' size='lg' transition='ease' />
+                <Anchor color='#1665D8' href='#' label='See all' size='lg' />
               </Container>
             </div>
           </Container>

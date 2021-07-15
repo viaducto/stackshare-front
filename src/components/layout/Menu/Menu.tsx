@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { SidebarSection, MenuItem, Container } from '@jp-olvera/jp-viaducto-components';
-import { Chart, Suitcase, Grid, Settings, Activity } from 'react-ikonate';
+import { Suitcase, Grid, Activity } from 'react-ikonate';
 import { AppContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
 
@@ -30,6 +30,8 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
   box-shadow: 0.125rem 0 0.313rem -0.125rem rgba(0, 0, 0, 0.2);
   z-index: 1;
 `;
+
+/** The sidebar Menu */
 const StackMenu = () => {
   const { isMenuActive } = useContext(AppContext);
   const { pathname } = useLocation();
@@ -40,7 +42,7 @@ const StackMenu = () => {
         <Logo />
       </Container>
       <Container vertical='md' style={{ position: 'relative' }}>
-        <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} />
+        {/* <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} /> */}
         <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
           <Link to='/buy' className='link-router'>
             <MenuItem label='Buy parameters' nested active={pathname === '/buy'} />
@@ -52,18 +54,18 @@ const StackMenu = () => {
             <MenuItem label='B2B' nested active={pathname === '/b2b'} />
           </Link>
         </SidebarSection>
-        <SidebarSection title='Navigation Four' isMenu lead icon={<Grid />}>
+        {/* <SidebarSection title='Navigation Four' isMenu lead icon={<Grid />}>
           <MenuItem label='Option 1' nested />
           <MenuItem label='Option 2' nested />
-        </SidebarSection>
-        <SidebarSection title='Settings' icon={<Settings />} isDropdown>
+        </SidebarSection> */}
+        {/* <SidebarSection title='Settings' icon={<Settings />} isDropdown>
           <MenuItem label='Menu Group Title' />
           <MenuItem label='Option' nested />
           <MenuItem label='Option' nested />
           <MenuItem label='Menu Group Title' />
           <MenuItem label='Option' nested />
           <MenuItem label='Option' nested />
-        </SidebarSection>
+        </SidebarSection> */}
         <Link to='/shop' className='link-router'>
           <MenuItem label='Bytebroker shop' lead icon={<Grid />} active={pathname === '/shop'} />
         </Link>

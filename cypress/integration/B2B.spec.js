@@ -5,7 +5,7 @@
 
 describe('B2B option', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/b2b');
+    cy.visit('http://localhost:3000/b2b');
   });
   describe('Simple option', () => {
     it('should change input values', () => {

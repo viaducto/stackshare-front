@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import SellParameters from '../../components/SellParameters/SellParameters';
@@ -9,9 +9,6 @@ const BiddingB2B = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
-  useEffect(() => {
-    document.querySelectorAll('input')[0].checked = true;
-  }, []);
   return (
     <BodyContent
       style={{
@@ -29,16 +26,18 @@ const BiddingB2B = () => {
         ]}
       />
       {/* Body */}
-      <BodyMain>
-        <div style={{ backgroundColor: 'white', height: '100%' }}>
-          <SellParameters
-            handleOpen={handleOpen}
-            setSimple={setSimple}
-            simple={simple}
-            b2b={true}
-          />
-        </div>
-      </BodyMain>
+      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+        <BodyMain className='overflow'>
+          <div style={{ backgroundColor: 'white', height: '100%' }}>
+            <SellParameters
+              handleOpen={handleOpen}
+              setSimple={setSimple}
+              simple={simple}
+              b2b={true}
+            />
+          </div>
+        </BodyMain>
+      </div>
     </BodyContent>
   );
 };

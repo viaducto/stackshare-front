@@ -22,6 +22,7 @@ import {
   ChevronsLeft,
   ChevronsRight,
   Filter,
+  Search,
 } from 'react-ikonate';
 
 const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
@@ -33,14 +34,15 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   return (
     <Input
       label='Search'
-      icon='search'
-      size='small'
+      icon={<Search />}
+      inputSize='small'
       border='outside'
-      value={value || ''}
+      defaultValue={value || ''}
       onChange={(e: any) => {
         setValue(e.target.value);
         onChangeVal(e.target.value);
       }}
+      borderColor='#D9D9D9'
     />
   );
 };
@@ -288,7 +290,7 @@ const Table = ({
                           : () => (row.original.expandible ? row.toggleRowExpanded() : null)
                       }
                       onKeyUp={() => {}}
-                      className={`${typeof cell.value === 'number' ? 'size' : ''} ${
+                      className={`${typeof cell.value === 'number' ? 'size' : 'td'} ${
                         cell.column.id !== 'selection'
                           ? row.original.expandible
                             ? 'pointer'
@@ -298,9 +300,13 @@ const Table = ({
                     >
                       {typeof cell.value === 'string' || typeof cell.value === 'number' ? (
                         <span className='td-data'>
-                          <Paragraph weight='bold'>{cell.column.prefix}</Paragraph>
-                          <Paragraph>{cell.render('Cell')}</Paragraph>
-                          <Paragraph weight='bold'>{cell.column.sufix}</Paragraph>
+                          {cell.column.prefix && (
+                            <Paragraph weight='bold'>{cell.column.prefix}</Paragraph>
+                          )}
+                          {cell.render('Cell')}
+                          {cell.column.sufix && (
+                            <Paragraph weight='bold'>{cell.column.sufix}</Paragraph>
+                          )}
                         </span>
                       ) : (
                         cell.render('Cell')

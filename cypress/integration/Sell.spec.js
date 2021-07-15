@@ -5,7 +5,7 @@
 
 describe('Sell parameters', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/');
+    cy.visit('http://localhost:3000/');
   });
 
   describe('Simple option', () => {
@@ -36,8 +36,8 @@ describe('Sell parameters', () => {
     });
 
     it('should open drawer', () => {
-      cy.get('a')
-        .eq(4)
+      cy.get('button')
+        .eq(1)
         .click()
         .then(() => {
           cy.then(() => {

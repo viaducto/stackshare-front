@@ -6,7 +6,7 @@
 describe('Graphs option', () => {
   beforeEach(() => {
     cy.viewport(1920, 1080).then(() => {
-      cy.visit('http://138.197.11.134:3000/graphs');
+      cy.visit('http://localhost:3000/graphs');
     });
   });
 
@@ -16,7 +16,7 @@ describe('Graphs option', () => {
 
   it('should open graph popover', () => {
     cy.get('div')
-      .eq(31)
+      .eq(29)
       .scrollTo(0, 200)
       .then(() => {
         cy.get('rect')

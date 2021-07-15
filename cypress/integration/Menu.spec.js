@@ -5,11 +5,11 @@
 
 describe('Menu Test', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/');
+    cy.visit('http://localhost:3000/');
   });
 
   it('should render properly', () => {
-    cy.contains(/Dashboard/g).should('be.visible');
+    cy.contains(/Auctions/g).should('be.visible');
   });
 
   it('should open a dropdown', () => {
@@ -19,15 +19,6 @@ describe('Menu Test', () => {
         cy.contains(/Buy parameters/g).should('be.visible');
         cy.contains(/Sell parameters/g).should('be.visible');
         cy.contains(/B2B/g).should('be.visible');
-      });
-  });
-
-  it('should open a submenu', () => {
-    cy.contains(/Navigation Four/g)
-      .click()
-      .then(() => {
-        cy.contains(/Option 1/g).should('be.visible');
-        cy.contains(/Option 2/g).should('be.visible');
       });
   });
 

@@ -18,6 +18,13 @@ export const GlobalStyle: any = createGlobalStyle`
     padding: 0%;
     box-sizing: border-box;
   }
+
+  hr {
+    border-color: #d9d9d9;
+    height: 1px;
+    opacity: 0.3;
+  }
+
   .wrapper{
     width: 100%;
     height: 100vh;
@@ -37,6 +44,7 @@ export const GlobalStyle: any = createGlobalStyle`
     color:inherit;
     cursor: pointer;
   }
+  
   .is-today{
     font-weight: bold;
     color: #7cb305;
@@ -47,6 +55,11 @@ export const GlobalStyle: any = createGlobalStyle`
     top: 25% !important;
     background-color: #d9d9d9 !important;
     height: 50% !important;
+    position: absolute;
+    right: 0;
+    &:focus, &:active{
+      background-color: #595959 !important;
+    }
   }
 
   .flex{
@@ -62,7 +75,7 @@ export const GlobalStyle: any = createGlobalStyle`
     background-color: #d9d9d9 !important;
   }
 
-  .notification{
+  .notification > div{
     border-radius: 1rem !important;
     color: white !important;
     padding: 0.63rem .5rem !important;
@@ -85,5 +98,57 @@ export const GlobalStyle: any = createGlobalStyle`
       gap: 0.2rem;
     }
     gap: 1rem;
+  }
+
+  .overflow {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  tfoot{
+    border-top: 0.063rem solid #d9d9d9;
+    border-bottom: 0.063rem solid #d9d9d9;
+    & > tr {
+      border: none !important;
+    }
+  }
+  
+  .blurred-border {
+    position: relative;
+    &:after {
+      border-color: transparent;
+      background: linear-gradient(270deg,rgba(23, 135, 239, 0.3) 0%,rgba(255, 255, 255, 0) 100%);
+      background-clip: border-box;
+      border: inherit;
+      content: '';
+      position: absolute;
+      height: 100%;
+      right: 0;
+      top: 0;
+      width: 3px;
+    }
+  }
+
+  .td{
+    align-items: center !important;
+    display: flex !important;
+  }
+
+  .td-data{
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .flotant{
+    height: 100%;
+    & > div {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  .border-bottom {
+    border-bottom: 0.063rem solid #d9d9d9;
   }
 `;

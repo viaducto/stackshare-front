@@ -60,7 +60,7 @@ const GraphsPage = () => {
     >
       {/* Header */}
       <BodyHeader>
-        <Container vertical='sm' horizontal='md'>
+        <Container vertical='sm'>
           <Breadcrums>
             <Breadcrum label='Home' href='/' />
             <Breadcrum label='Graphs' active separator={false} />
@@ -237,7 +237,6 @@ const GraphsPage = () => {
                     Your Performance
                   </Paragraph>
                   <Anchor
-                    lineHeight='1.75rem'
                     label='See more'
                     icon={<ArrowRight color='#9EA0A5' fontSize='1rem' />}
                     color='#9EA0A5'
@@ -374,7 +373,6 @@ const GraphsPage = () => {
                     Monthly Statistics
                   </Paragraph>
                   <Anchor
-                    lineHeight='1.75rem'
                     label='See more'
                     icon={<ArrowRight color='#9EA0A5' fontSize='1rem' />}
                     color='#9EA0A5'
@@ -468,8 +466,8 @@ const GraphsPage = () => {
                 <Paragraph>Daily Visitors</Paragraph>
                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                   <Select
-                    size='small'
-                    radius={0.25}
+                    inputSize='small'
+                    radius='sm'
                     border={{
                       top: '0.063rem solid #D8DCE6',
                       right: '0.063rem solid #D8DCE6',
@@ -481,8 +479,8 @@ const GraphsPage = () => {
                   </Select>
                   <Spacer direction='horizontal' size='sm' />
                   <Select
-                    size='small'
-                    radius={0.25}
+                    inputSize='small'
+                    radius='sm'
                     border={{
                       top: '0.063rem solid #D8DCE6',
                       right: '0.063rem solid #D8DCE6',
@@ -847,7 +845,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' color='#3E3F42' weight='600'>
                     Most Visited Pages
                   </Paragraph>
-                  <WrapperTable border='horizontal'>
+                  <WrapperTable border='horizontal' horizontalSpacing='sm'>
                     <Table
                       cols={visitedColumns}
                       dataTable={visitedPages}
@@ -860,7 +858,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' color='#3E3F42' weight='600'>
                     Social Media Traffic
                   </Paragraph>
-                  <WrapperTable border='horizontal'>
+                  <WrapperTable border='horizontal' horizontalSpacing='sm'>
                     <Table
                       cols={socialColumns}
                       dataTable={socialMedia}

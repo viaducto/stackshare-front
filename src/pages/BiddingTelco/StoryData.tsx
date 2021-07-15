@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import React from 'react';
 
-const DummyBadge = ({ label, color, textColor }: any) => (
+export const DummyBadge = ({ label, color, textColor }: any) => (
   <div
     style={{
       alignSelf: 'center',

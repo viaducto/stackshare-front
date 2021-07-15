@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Paragraph, Spacer, Radio, Container } from '@jp-olvera/jp-viaducto-components';
 import SellSimple from './SellSimple';
 import SellAdvanced from './SellAdvanced';
+import { useRef } from 'react';
 
 const SellParameters = ({
   simple = true,
@@ -14,31 +15,27 @@ const SellParameters = ({
   setSimple: Function;
   handleOpen: Function;
 }) => {
-  useEffect(() => {
-    document.querySelectorAll('input')[0].checked = true;
-  }, []);
-
+  const ref = useRef(null);
   return (
     <>
-      <div style={{ borderBottom: '0.063rem solid #D9D9D9' }}>
+      <div className='border-bottom'>
         <Container vertical='md' horizontal='lg' expandHorizontal expandVertical>
           <Paragraph lineHeight='1.375rem' weight='600'>
             Pricing definition
           </Paragraph>
           <Spacer direction='vertical' size='sm' />
-          <div>
+          <div ref={ref}>
             <Radio
               radioSize='sm'
               name='princig'
               label='Simple'
               spacing='sm'
               color='#1890FF'
-              checked={simple}
+              defaultChecked
               onChange={() => setSimple(true)}
             />
             <Spacer direction='horizontal' size='xl' />
             <Radio
-              checked={!simple}
               radioSize='sm'
               name='princig'
               label='Advanced'

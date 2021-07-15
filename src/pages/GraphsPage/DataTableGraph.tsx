@@ -74,7 +74,7 @@ export const LoaderTable = ({
     }}
   >
     <Paragraph>{visitors}</Paragraph>
-    <Progress totalSteps={10} loader='progress' currrentStep={current} completedSteps={completed} />
+    <Progress totalSteps={10} loader='progress' currentStep={current} completedSteps={completed} />
   </div>
 );
 

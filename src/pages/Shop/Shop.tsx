@@ -6,6 +6,7 @@ import {
   Tab,
   Drawer,
   Container,
+  GroupTab,
 } from '@jp-olvera/jp-viaducto-components';
 import { ChevronLeft } from 'react-ikonate';
 import { BodyContent, BodyMain } from '../../components/layout';
@@ -18,7 +19,6 @@ import {
   StoreTabDrawer,
   MyAppsOrganizationDrawer,
 } from './TabShop';
-
 const Shop = () => {
   const [openTable, setOpenTable] = useState(false);
   const [openshop, setOpenshop] = useState(false);
@@ -44,45 +44,18 @@ const Shop = () => {
           { label: 'Documents', href: '#', active: false },
           { label: 'Invoices', href: '#', active: true },
         ]}
-        tabs={[
+      >
+        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+          <Tab onFocus={() => setTab(0)} text='Store' id='store' active={tab === 0} />
+          <Tab onFocus={() => setTab(1)} text='My apps' id='apps' active={tab === 1} />
           <Tab
-            horizontalSpacing='none'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTab(0)}
-            text='Store'
-            transition='ease'
-            type='tab'
-            verticalSpacing='sm'
-            id='store'
-            active={tab === 0}
-          />,
-          <Tab
-            horizontalSpacing='none'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTab(1)}
-            text='My apps'
-            transition='ease'
-            type='tab'
-            verticalSpacing='sm'
-            id='apps'
-            active={tab === 1}
-          />,
-          <Tab
-            horizontalSpacing='none'
-            icon={null}
-            iconSpacing='none'
-            onClick={() => setTab(2)}
+            onFocus={() => setTab(2)}
             text='Organization Apps'
-            transition='ease'
-            type='tab'
-            verticalSpacing='sm'
             id='org_apps'
             active={tab === 2}
-          />,
-        ]}
-      />
+          />
+        </GroupTab>
+      </HeaderSell>
       {/* Body */}
       <BodyMain style={{ width: '100%', height: '75vh', overflow: 'auto' }}>
         {tab === 0 && <StoreTab setAppName={setAppName} setOpenshop={setOpenshop} />}
@@ -113,13 +86,15 @@ const Shop = () => {
           setOpenConfig(false);
           setOpenTable(true);
         }}
+        size='md'
       >
-        <div style={{ backgroundColor: 'white' }}>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9' }}>
+        <div style={{ backgroundColor: 'white', width: '100%' }}>
+          <div style={{ borderBottom: '0.063rem solid #d9d9d9', width: '100%' }}>
             <Container
               vertical='md'
               left='md'
               right='md'
+              expandHorizontal
               style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}
             >
               <Button

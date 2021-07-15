@@ -2,10 +2,10 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from '../../../providers';
 
-interface StyledStackBodyProps {
+interface StyledBodyProps {
   active: boolean;
 }
-const StyledStackBody = styled.div<StyledStackBodyProps>`
+const StyledBody = styled.div<StyledBodyProps>`
   width: ${(p) => (p.active ? 'calc(100% - 12.5rem)' : '100%')};
   margin-left: ${(p) => (p.active ? '12.5rem' : '0')};
   float: left;
@@ -14,13 +14,15 @@ const StyledStackBody = styled.div<StyledStackBodyProps>`
   box-sizing: border-box;
   transition: width 235ms ease-out, margin 230ms ease-out;
 `;
-const StackBody = ({ children }: StackBodyProps) => {
+
+/** Body component */
+const Body = ({ children }: StackBodyProps) => {
   const { isMenuActive } = useContext(AppContext);
 
-  return <StyledStackBody active={isMenuActive}>{children}</StyledStackBody>;
+  return <StyledBody active={isMenuActive}>{children}</StyledBody>;
 };
 
 interface StackBodyProps {
   children: any;
 }
-export default StackBody;
+export default Body;
