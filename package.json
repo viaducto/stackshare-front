@@ -1,6 +1,6 @@
 {
   "name": "stackshare-front",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@jp-olvera/jp-viaducto-components": "^6.0.5",
