@@ -117,7 +117,7 @@ export const GlobalStyle: any = createGlobalStyle`
     position: relative;
     &:after {
       border-color: transparent;
-      background: linear-gradient(270deg,rgba(23, 135, 239, 0.3) 0%,rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(270deg,rgba(217, 217, 217, 1) 0%,rgba(255, 255, 255, 0) 100%);
       background-clip: border-box;
       border: inherit;
       content: '';
@@ -125,7 +125,7 @@ export const GlobalStyle: any = createGlobalStyle`
       height: 100%;
       right: 0;
       top: 0;
-      width: 3px;
+      width: 10px;
     }
   }
 
