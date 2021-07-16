@@ -6,8 +6,8 @@ interface StyledBodyProps {
   active: boolean;
 }
 const StyledBody = styled.div<StyledBodyProps>`
-  width: ${(p) => (p.active ? 'calc(100% - 12.5rem)' : '100%')};
-  margin-left: ${(p) => (p.active ? '12.5rem' : '0')};
+  width: ${(p) => (p.active ? 'calc(100% - 17.313rem)' : '100%')};
+  margin-left: ${(p) => (p.active ? '17.313rem' : '0')};
   float: left;
   overflow: hidden;
   background-color: #f0f2f5;

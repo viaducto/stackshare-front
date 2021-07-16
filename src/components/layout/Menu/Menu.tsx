@@ -5,13 +5,14 @@ import { SidebarSection, MenuItem, Container } from '@jp-olvera/jp-viaducto-comp
 import { Suitcase, Grid, Activity } from 'react-ikonate';
 import { AppContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
+import MenuTitle from '../../MenuTitle/MenuTitle';
 
 interface StyledStackMenuProps {
   active: boolean;
 }
 
 const StyledStackMenu = styled.div<StyledStackMenuProps>`
-  width: 12.5rem;
+  width: 17.313rem;
   transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 230ms ease-out;
   position: fixed;
@@ -58,20 +59,51 @@ const StackMenu = () => {
           <MenuItem label='Option 1' nested />
           <MenuItem label='Option 2' nested />
         </SidebarSection> */}
-        {/* <SidebarSection title='Settings' icon={<Settings />} isDropdown>
-          <MenuItem label='Menu Group Title' />
-          <MenuItem label='Option' nested />
-          <MenuItem label='Option' nested />
-          <MenuItem label='Menu Group Title' />
-          <MenuItem label='Option' nested />
-          <MenuItem label='Option' nested />
-        </SidebarSection> */}
         <Link to='/shop' className='link-router'>
           <MenuItem label='Bytebroker shop' lead icon={<Grid />} active={pathname === '/shop'} />
         </Link>
         <Link to='/graphs' className='link-router'>
           <MenuItem label='Graphs' lead icon={<Activity />} active={pathname === '/graphs'} />
         </Link>
+      </Container>
+      <hr />
+      <Container>
+        <MenuTitle title='ORGANIZATIONS' />
+        <SidebarSection title='Viaducto Technologies' isMenu>
+          <Container bottom='md' className='border-bottom'>
+            <MenuTitle title='MENU' />
+            <MenuItem label='Applications' />
+            <MenuItem label='Devices' />
+          </Container>
+          <Container style={{ backgroundColor: 'rgba(246,249,253,0.15)' }}>
+            <MenuTitle title='SUBSCRIPTIONS AND BILLING' />
+            <MenuItem label='Stackshop' />
+            <MenuItem label='Billing Management' />
+            <Container horizontal='sm' top='sm'>
+              <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
+            </Container>
+            <MenuTitle title='HARDWARE MANAGEMENT' />
+            <MenuItem label='End User Devices' />
+            <MenuItem label='Infrastructure Devices' />
+            <Container horizontal='sm' top='sm'>
+              <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
+            </Container>
+            <MenuTitle title='BYTEBROKER' />
+            <MenuItem label='Metrics' />
+            <MenuItem label='Sell Parameters' />
+            <MenuItem label='Buy Parameters' />
+            <Container horizontal='sm' top='sm'>
+              <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
+            </Container>
+            <MenuTitle title='ORGANIZATION MANAGEMENT' />
+            <MenuItem label='Users' />
+            <MenuItem label='Access Groups' />
+            <MenuItem label='Roles and Permissions' />
+            <MenuItem label='Audit Logs' />
+          </Container>
+        </SidebarSection>
+        <SidebarSection title='NFL' isMenu />
+        <SidebarSection title='Televisa Deportes' isMenu />
       </Container>
     </StyledStackMenu>
   );
