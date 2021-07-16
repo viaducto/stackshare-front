@@ -15,6 +15,7 @@ import GeneralPreferences from './pages/GeneralPreferences/GeneralPreferences';
 import PermissionManagement from './pages/PermissionManagement/PermissionManagement';
 import Infrastructure from './pages/Infrastructure/Infrastructure';
 import LocationManagement from './pages/LocationManagement/LocationManagement';
+import Generic from './pages/Generic/Generic';
 
 function App() {
   const { updateConfig, configuration } = useContext(ConfigContext);
@@ -96,23 +97,26 @@ function App() {
               <Route path='/user-list' exact>
                 <UserList />
               </Route>
-              <Route path='/general/preferences' exact>
+              <Route path='/organization/:id/manage' exact>
                 <GeneralPreferences />
               </Route>
-              <Route path='/permission' exact>
+              <Route path='/organization/:id/permissions' exact>
                 <PermissionManagement />
               </Route>
-              <Route path='/infrastructure' exact>
+              <Route path='/organization/:id/infrastructure' exact>
                 <Infrastructure />
               </Route>
-              <Route path='/user-management' exact>
+              <Route path='/organization/:id/user-management' exact>
                 <UserManagement />
               </Route>
               <Route path='/location-management' exact>
                 <LocationManagement />
               </Route>
-              <Route path='/' exact>
+              <Route path='/sell' exact>
                 <BiddingTelco />
+              </Route>
+              <Route path='/'>
+                <Generic />
               </Route>
             </Switch>
           </Body>

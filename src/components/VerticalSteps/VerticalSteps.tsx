@@ -3,8 +3,20 @@ import React from 'react';
 import { Ok } from 'react-ikonate';
 import { StyledVerticalSteps, Step } from './StyledVerticalSteps';
 
-const VerticalSteps = ({ title }: { title: string }) => {
-  const steps: {
+const VerticalSteps = ({
+  title,
+  steps,
+}: {
+  title: string;
+  steps?: {
+    title: string;
+    description: string;
+    finished: boolean;
+    line: boolean;
+    actual: boolean;
+  }[];
+}) => {
+  const stepsFake: {
     title: string;
     description: string;
     finished: boolean;
@@ -40,7 +52,7 @@ const VerticalSteps = ({ title }: { title: string }) => {
       </Title>
       <Spacer size='sm' />
       <StyledVerticalSteps className='wizard-steps'>
-        {steps.map(
+        {(steps || stepsFake).map(
           (
             step: {
               title: string;

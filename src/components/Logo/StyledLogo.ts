@@ -5,6 +5,7 @@ export const StyledLogo = styled.div<any>`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  cursor: pointer;
   & .figure {
     display: flex;
     flex-direction: column;

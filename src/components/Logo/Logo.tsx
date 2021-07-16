@@ -9,7 +9,7 @@ interface LogoI {
 const Logo = ({ title = true }: LogoI) => {
   const { configuration } = useContext(ConfigContext);
   return (
-    <StyledLogo configuration={configuration}>
+    <StyledLogo configuration={configuration} onClick={() => (window.location.href = '/')}>
       <div className='figure'>
         <div className='top' />
         <Spacer size='nano' />
