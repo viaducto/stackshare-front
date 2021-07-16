@@ -12,6 +12,9 @@ interface StyledStackMenuProps {
 }
 
 const StyledStackMenu = styled.div<StyledStackMenuProps>`
+  * {
+    font-family: inherit !important;
+  }
   width: 17.313rem;
   transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 230ms ease-out;
@@ -43,22 +46,17 @@ const StackMenu = () => {
         <Logo />
       </Container>
       <Container vertical='md' style={{ position: 'relative' }}>
-        {/* <MenuItem label='Dashboard' isDropdown lead icon={<Chart />} /> */}
         <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
           <Link to='/buy' className='link-router'>
             <MenuItem label='Buy parameters' nested active={pathname === '/buy'} />
           </Link>
-          <Link to='/' className='link-router'>
+          <Link to='/sell' className='link-router'>
             <MenuItem label='Sell parameters' nested active={pathname === '/'} />
           </Link>
           <Link to='/b2b' className='link-router'>
             <MenuItem label='B2B' nested active={pathname === '/b2b'} />
           </Link>
         </SidebarSection>
-        {/* <SidebarSection title='Navigation Four' isMenu lead icon={<Grid />}>
-          <MenuItem label='Option 1' nested />
-          <MenuItem label='Option 2' nested />
-        </SidebarSection> */}
         <Link to='/shop' className='link-router'>
           <MenuItem label='Bytebroker shop' lead icon={<Grid />} active={pathname === '/shop'} />
         </Link>
