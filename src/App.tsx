@@ -19,7 +19,7 @@ import Generic from './pages/Generic/Generic';
 
 function App() {
   const { updateConfig, configuration } = useContext(ConfigContext);
-
+  const textColors = { ...configuration.text, dark: '#262626', primary: '#1890FF' };
   useEffect(() => {
     const myConfig = {
       colors: {
@@ -58,6 +58,7 @@ function App() {
         md: '53rem',
         lg: '64rem',
       },
+      text: textColors,
     };
     if (updateConfig !== undefined) {
       updateConfig(myConfig);

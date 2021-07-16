@@ -3,7 +3,7 @@ import { Checkbox, Paragraph, Spacer } from '@jp-olvera/jp-viaducto-components';
 
 const RolesPermissions = ({ role }: { role: string }) => (
   <div>
-    <Paragraph color='#262626' lineHeight='1.375rem' weight='600'>
+    <Paragraph lineHeight='1.375rem' weight='600'>
       {role}
     </Paragraph>
     <Spacer size='sm' />

@@ -12,9 +12,7 @@ const CreateRoles = ({ setOpen }: { setOpen: Function }) => (
     </div>
     <Spacer size='lg' />
     <Container right='lg'>
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        EIN:
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>EIN:</Paragraph>
       <Input inputSize='sm' defaultValue='New secure role' borderColor='#d9d9d9' />
     </Container>
     <Spacer size='xl' />

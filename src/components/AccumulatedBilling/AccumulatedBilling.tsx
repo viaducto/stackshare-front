@@ -113,9 +113,7 @@ const AppsAccumulated = ({ app }: any) => {
           </Paragraph>
         </div>
         <div style={{ width: '35%' }}>
-          <Paragraph lineHeight='1.375rem' color='#262626'>
-            $400
-          </Paragraph>
+          <Paragraph lineHeight='1.375rem'>$400</Paragraph>
         </div>
       </div>
     </>

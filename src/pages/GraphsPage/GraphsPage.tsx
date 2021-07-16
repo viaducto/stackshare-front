@@ -65,7 +65,7 @@ const GraphsPage = () => {
             <Breadcrum label='Home' href='/' />
             <Breadcrum label='Graphs' active separator={false} />
           </Breadcrums>
-          <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
+          <Paragraph size='lg' weight='600' lineHeight='1.75rem'>
             Graphs
           </Paragraph>
         </Container>

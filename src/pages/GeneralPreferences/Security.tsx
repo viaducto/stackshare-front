@@ -12,11 +12,11 @@ import { Add } from 'react-ikonate';
 
 const Security = () => (
   <div style={{ height: '100%' }}>
-    <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+    <Title level='6' weight='600' lineHeight='1.5rem'>
       Organization Wide Security
     </Title>
     <Spacer size='sm' />
-    <Paragraph weight='600' lineHeight='1.375rem' color='#262626'>
+    <Paragraph weight='600' lineHeight='1.375rem'>
       Authentication Policy
     </Paragraph>
     <Spacer size='sm' />
@@ -28,9 +28,7 @@ const Security = () => (
         alignItems: 'flex-start',
       }}
     >
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        Enforce Multi Factor Authentication
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>Enforce Multi Factor Authentication</Paragraph>
       <Switch color='#1890FF' inputSize='md' defaultChecked />
     </div>
     <Spacer size='md' />
@@ -42,9 +40,7 @@ const Security = () => (
         alignItems: 'flex-start',
       }}
     >
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        Request confirm for dangerous actions
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>Request confirm for dangerous actions</Paragraph>
       <Switch color='#1890FF' inputSize='md' defaultChecked />
     </div>
     <Spacer size='md' />
@@ -56,19 +52,13 @@ const Security = () => (
         alignItems: 'flex-start',
       }}
     >
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        Limit Authentication to Specific IP Addresses
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>Limit Authentication to Specific IP Addresses</Paragraph>
       <Switch color='#1890FF' inputSize='md' defaultChecked />
     </div>
     <Spacer size='lg' />
     <Container vertical='sm' horizontal='md' style={{ backgroundColor: '#F3F3F3', width: 350 }}>
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        IP Ranges
-      </Paragraph>
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        EIN:
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>IP Ranges</Paragraph>
+      <Paragraph lineHeight='1.375rem'>EIN:</Paragraph>
       <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
       <Spacer size='lg' />
       <Button
@@ -83,7 +73,7 @@ const Security = () => (
       />
     </Container>
     <Spacer size='lg' />
-    <Paragraph lineHeight='1.375rem' color='#262626' weight='600'>
+    <Paragraph lineHeight='1.375rem' weight='600'>
       SAML and Single Sign On
     </Paragraph>
     <Spacer size='md' />
@@ -95,9 +85,7 @@ const Security = () => (
         alignItems: 'flex-start',
       }}
     >
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        SAML And SSO Security Off
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
       <Switch color='#1890FF' inputSize='md' defaultChecked />
     </div>
     <Spacer size='xxl' />
@@ -109,31 +97,23 @@ const Security = () => (
         alignItems: 'flex-start',
       }}
     >
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        SAML And SSO Security Off
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
       <Switch color='#1890FF' inputSize='md' defaultChecked />
     </div>
     <Spacer size='md' />
     <Container vertical='sm' horizontal='md' style={{ backgroundColor: '#F3F3F3', width: 350 }}>
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        Request Consulting Services:
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>Request Consulting Services:</Paragraph>
       <Spacer size='sm' />
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        Subject Line:
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>Subject Line:</Paragraph>
       <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
       <Spacer size='sm' />
-      <Paragraph lineHeight='1.375rem' color='#262626'>
-        Support Request:
-      </Paragraph>
+      <Paragraph lineHeight='1.375rem'>Support Request:</Paragraph>
       <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
       <Spacer size='lg' />
       <Button label='Request Assistance' size='large' lead leftSpacing='tiny' rightSpacing='tiny' />
     </Container>
     <Spacer size='xl' />
-    <Paragraph lineHeight='1.375rem' color='#262626' weight='600'>
+    <Paragraph lineHeight='1.375rem' weight='600'>
       Password Strength
     </Paragraph>
     <Spacer size='xxl' />
