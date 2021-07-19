@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { SidebarSection, MenuItem, Container } from '@jp-olvera/jp-viaducto-components';
+import { SidebarSection, MenuItem, Container, Switch } from '@jp-olvera/jp-viaducto-components';
 import { Suitcase, Grid, Activity } from 'react-ikonate';
-import { AppContext } from '../../../providers';
+import { AppContext, StackShareThemeContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
 import MenuTitle from '../../MenuTitle/MenuTitle';
 
@@ -23,7 +23,8 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
   left: 0;
   height: 100%;
   overflow-y: auto;
-  background-color: white;
+  background-color: ${(p) => p.theme.mainBackground};
+  color: ${(p) => p.theme.title};
   border-right: 0.063rem solid #d9d9d9;
   & > div {
     min-width: 0;
@@ -39,7 +40,7 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
 const StackMenu = () => {
   const { isMenuActive } = useContext(AppContext);
   const { pathname } = useLocation();
-
+  const { isDarkMode, setDarkMode } = useContext(StackShareThemeContext);
   return (
     <StyledStackMenu active={isMenuActive}>
       <Container vertical='md' expandHorizontal horizontal='sm'>
@@ -65,7 +66,7 @@ const StackMenu = () => {
         </Link>
       </Container>
       <hr />
-      <Container>
+      <Container bottom='sm'>
         <MenuTitle title='ORGANIZATIONS' />
         <SidebarSection title='Viaducto Technologies' isMenu>
           <Container bottom='md' className='border-bottom'>
@@ -102,6 +103,13 @@ const StackMenu = () => {
         </SidebarSection>
         <SidebarSection title='NFL' isMenu />
         <SidebarSection title='Televisa Deportes' isMenu />
+      </Container>
+      <hr />
+      <Container top='sm'>
+        <MenuTitle title='Dark mode' />
+        <Container left='sm'>
+          <Switch change={setDarkMode} defaultChecked={isDarkMode} inputSize='sm' />
+        </Container>
       </Container>
     </StyledStackMenu>
   );

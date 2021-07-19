@@ -64,7 +64,7 @@ const Buy = () => {
       {/* Body */}
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
         <BodyMain style={{ overflow: 'auto' }}>
-          <div style={{ backgroundColor: 'white' }}>
+          <div>
             <Container vertical='md' horizontal='lg' expandHorizontal>
               <div className='overflow'>
                 <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>

@@ -10,7 +10,7 @@ const StyledBody = styled.div<StyledBodyProps>`
   margin-left: ${(p) => (p.active ? '17.313rem' : '0')};
   float: left;
   overflow: hidden;
-  background-color: #f0f2f5;
+  background-color: ${(p) => p.theme.secondaryBackground};
   box-sizing: border-box;
   transition: width 235ms ease-out, margin 230ms ease-out;
 `;

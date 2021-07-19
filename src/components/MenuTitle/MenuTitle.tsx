@@ -1,5 +1,4 @@
 import { Paragraph, Spacer } from '@jp-olvera/jp-viaducto-components';
-import React from 'react';
 
 const MenuTitle = ({ title }: { title: string }) => {
   return (
@@ -7,7 +6,7 @@ const MenuTitle = ({ title }: { title: string }) => {
       <Spacer size='md' />
       <div className='flex'>
         <Spacer direction='horizontal' size='sm' />
-        <Paragraph color='gray' family='Roboto' spacing='1.1px' size='sm'>
+        <Paragraph color='muttedGray' family='Roboto' spacing='1.1px' size='sm'>
           {title}
         </Paragraph>
       </div>
