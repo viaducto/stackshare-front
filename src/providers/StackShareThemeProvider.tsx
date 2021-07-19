@@ -91,6 +91,7 @@ const StackShareThemeProvider = ({ children }: any) => {
         md: '53rem',
         lg: '64rem',
       },
+      defaultInputBorderColor: '#d9d9d9',
       text: {
         ...configuration.textColors,
         dark: currentTheme.title,

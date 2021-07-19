@@ -14,6 +14,7 @@ import PermissionManagement from './pages/PermissionManagement/PermissionManagem
 import Infrastructure from './pages/Infrastructure/Infrastructure';
 import LocationManagement from './pages/LocationManagement/LocationManagement';
 import Generic from './pages/Generic/Generic';
+import BillingSubscriptions from './pages/BillingSubscriptions/BillingSubscriptions';
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
               </Route>
               <Route path='/location-management' exact>
                 <LocationManagement />
+              </Route>
+              <Route path='/profile/billing' exact>
+                <BillingSubscriptions />
               </Route>
               <Route path='/sell' exact>
                 <BiddingTelco />
