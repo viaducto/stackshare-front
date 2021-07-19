@@ -20,6 +20,7 @@ import { Plus, Cup } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import Tag from '../../components/Tag/Tag';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
+import Kebab from '../../components/Kebab/Kebab';
 
 const UserManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -100,23 +101,29 @@ const UserManagement = () => {
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
+                            width: '100%',
                           }}
                         >
-                          <Button
-                            label='Install'
-                            variant='ghost'
-                            onClick={() => {
-                              handleAction(props.data[props.row.index]);
-                            }}
-                          />
-                          |
-                          <Button
-                            label='Edit'
-                            variant='ghost'
-                            onClick={() => {
-                              handleAction(props.data[props.row.index]);
-                            }}
-                          />
+                          <Kebab>
+                            <Button
+                              label='Install'
+                              variant='ghost'
+                              onClick={() => {
+                                handleAction(props.data[props.row.index]);
+                              }}
+                              radius='none'
+                              block
+                            />
+                            <Button
+                              label='Edit'
+                              variant='ghost'
+                              onClick={() => {
+                                handleAction(props.data[props.row.index]);
+                              }}
+                              radius='none'
+                              block
+                            />
+                          </Kebab>
                         </span>
                       );
                     },

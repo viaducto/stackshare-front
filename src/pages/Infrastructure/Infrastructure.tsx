@@ -7,9 +7,9 @@ import {
   Tab,
   WrapperTable,
 } from '@jp-olvera/jp-viaducto-components';
-import React from 'react';
 import { useState } from 'react';
 import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
+import Kebab from '../../components/Kebab/Kebab';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import Table from '../../components/Table/Table';
@@ -109,22 +109,23 @@ const Infrastructure = () => {
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '100%',
+                              width: '100%',
                             }}
                           >
-                            {deleteBtn && (
-                              <Button variant='ghost' label='Delete' shapeColor='danger' />
-                            )}
-                            <Spacer direction='horizontal' size='micro' />
-                            <div style={{ width: 1, height: '100%', backgroundColor: '#d9d9d9' }} />
-                            <Spacer direction='horizontal' size='micro' />
-                            <Button
-                              variant='ghost'
-                              label={action}
-                              onClick={() => {
-                                setType(cellType);
-                                setOpen(true);
-                              }}
-                            />
+                            <Kebab>
+                              {deleteBtn && (
+                                <Button variant='ghost' label='Delete' shapeColor='danger' block />
+                              )}
+                              <Button
+                                variant='ghost'
+                                label={action}
+                                onClick={() => {
+                                  setType(cellType);
+                                  setOpen(true);
+                                }}
+                                block
+                              />
+                            </Kebab>
                           </div>
                         );
                       },

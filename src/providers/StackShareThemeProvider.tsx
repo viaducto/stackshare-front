@@ -64,6 +64,13 @@ const StackShareThemeProvider = ({ children }: any) => {
           text: '#fff',
           shadow: 'rgba(24, 144, 255, 0.3)',
         },
+        secondary: {
+          default: '#D9D9D9',
+          hover: '#F5F5F5',
+          click: '#F5F5F5',
+          text: '#595959',
+          shadow: 'rgba(223, 231, 238, 0.3)',
+        },
         success: {
           default: '#52C41A',
           hover: '#73D13D',

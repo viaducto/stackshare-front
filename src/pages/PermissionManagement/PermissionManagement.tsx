@@ -18,6 +18,7 @@ import { permissionColumns, permissionData } from './PermissionData';
 import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
 import Roles from './Roles';
 import CreateRoles from './CreateRole';
+import Kebab from '../../components/Kebab/Kebab';
 
 const PermissionManagement = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -98,8 +99,6 @@ const PermissionManagement = () => {
                       accessor: 'action',
                       Filter: () => null,
                       width: 180,
-                      maxWidth: 250,
-                      minWidth: 150,
                       Cell: (props: any) => {
                         const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
                           props.data[props.row.index].action;
@@ -111,22 +110,23 @@ const PermissionManagement = () => {
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '100%',
+                              width: '100%',
                             }}
                           >
-                            {deleteBtn && (
-                              <Button variant='ghost' label='Delete' shapeColor='danger' />
-                            )}
-                            <Spacer direction='horizontal' size='micro' />
-                            <div style={{ width: 1, height: '100%', backgroundColor: '#d9d9d9' }} />
-                            <Spacer direction='horizontal' size='micro' />
-                            <Button
-                              variant='ghost'
-                              label={action}
-                              onClick={() => {
-                                setCreate(false);
-                                setOpen(true);
-                              }}
-                            />
+                            <Kebab>
+                              {deleteBtn && (
+                                <Button variant='ghost' label='Delete' shapeColor='danger' block />
+                              )}
+                              <Button
+                                variant='ghost'
+                                label={action}
+                                onClick={() => {
+                                  setCreate(false);
+                                  setOpen(true);
+                                }}
+                                block
+                              />
+                            </Kebab>
                           </div>
                         );
                       },

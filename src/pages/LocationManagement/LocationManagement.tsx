@@ -22,6 +22,7 @@ import Table from '../../components/Table/Table';
 import Tag from '../../components/Tag/Tag';
 import Graph from '../BiddingTelco/Graph';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
+import Kebab from '../../components/Kebab/Kebab';
 
 const LocationManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -70,26 +71,30 @@ const LocationManagement = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              width: '100%',
             }}
           >
-            <Button
-              label='see details'
-              variant='ghost'
-              onClick={() => {
-                setCurrentLocation(props.data[props.row.index]);
-                handleDrawerActive();
-              }}
-            />
-            |
-            <Button
-              label='Delete'
-              variant='ghost'
-              shapeColor='danger'
-              onClick={() => {
-                setCurrentLocation(props.data[props.row.index]);
-                handleDrawerActive();
-              }}
-            />
+            <Kebab>
+              <Button
+                label='See details'
+                variant='ghost'
+                onClick={() => {
+                  setCurrentLocation(props.data[props.row.index]);
+                  handleDrawerActive();
+                }}
+                block
+              />
+              <Button
+                label='Delete'
+                variant='ghost'
+                shapeColor='danger'
+                onClick={() => {
+                  setCurrentLocation(props.data[props.row.index]);
+                  handleDrawerActive();
+                }}
+                block
+              />
+            </Kebab>
           </span>
         );
       },

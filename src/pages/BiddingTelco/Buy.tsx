@@ -21,18 +21,7 @@ import { dummyData, buyColumns, DummyBadge } from './StoryData';
 import { Filter, EllypsisVertical, Plus, Grid as GridIcon } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
-const details = {
-    default: 'transparent',
-    hover: 'transparent',
-    click: 'transparent',
-    text: '#1890FF',
-  },
-  deleteColor = {
-    default: 'transparent',
-    hover: 'transparent',
-    click: 'transparent',
-    text: '#A8071A',
-  };
+import Kebab from '../../components/Kebab/Kebab';
 
 const Buy = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -121,7 +110,7 @@ const Buy = () => {
                           Header: 'Specification',
                           accessor: 'specification',
                           width: 230,
-                          maxWidth: 250,
+                          maxWidth: 200,
                           minWidth: 200,
                           Filter: () => null,
                           Cell: (props: any) => {
@@ -129,29 +118,37 @@ const Buy = () => {
                               <div
                                 style={{
                                   display: 'flex',
-                                  justifyContent: 'space-between',
+                                  justifyContent: 'center',
                                   height: '100%',
                                   alignItems: 'center',
+                                  width: '100%',
                                 }}
                               >
-                                <Button
-                                  label='See details'
-                                  colors={details}
-                                  onClick={() => {
-                                    setData(props.data[props.row.index]);
-                                    setNewBid(false);
-                                    setOpenTable(true);
-                                  }}
-                                />
-                                <Button
-                                  label='Delete'
-                                  colors={deleteColor}
-                                  onClick={() => {
-                                    setData(props.data[props.row.index]);
-                                    setNewBid(false);
-                                    setOpenTable(true);
-                                  }}
-                                />
+                                <Kebab>
+                                  <Button
+                                    label='See details'
+                                    onClick={() => {
+                                      setData(props.data[props.row.index]);
+                                      setNewBid(false);
+                                      setOpenTable(true);
+                                    }}
+                                    variant='ghost'
+                                    block
+                                    radius='none'
+                                  />
+                                  <Button
+                                    label='Delete'
+                                    variant='ghost'
+                                    shapeColor='danger'
+                                    onClick={() => {
+                                      setData(props.data[props.row.index]);
+                                      setNewBid(false);
+                                      setOpenTable(true);
+                                    }}
+                                    block
+                                    radius='none'
+                                  />
+                                </Kebab>
                               </div>
                             );
                           },
