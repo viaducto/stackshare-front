@@ -63,7 +63,7 @@ const UserManagement = () => {
         </GroupTab>
       </HeaderSell>
       <BodyMain>
-        <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
+        <Container style={{ height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
             <Button label='Create New User' icon={<Plus />} lead radius='sm' />
           </Container>
@@ -74,7 +74,6 @@ const UserManagement = () => {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              backgroundColor: 'white',
               minHeight: '72vh',
               flexWrap: 'wrap',
             }}
@@ -223,7 +222,6 @@ const UserManagement = () => {
                       onClick={handleDrawerActive}
                       style={{
                         border: 'none',
-                        backgroundColor: 'white',
                         fontSize: '22px',
                         padding: 0,
                         marginLeft: 'auto',

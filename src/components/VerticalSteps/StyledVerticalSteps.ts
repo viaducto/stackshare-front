@@ -37,7 +37,7 @@ export const Step = styled.div<any>`
     height: 1.5rem;
     border-radius: 1.25rem;
     border: 1px solid ${(p) => (p.finished || p.actual ? '#1890ff' : '#BFBFBF')};
-    background-color: ${(p) => (p.actual ? '#1890ff' : 'white')};
+    background-color: ${(p) => (p.actual ? '#1890ff' : 'inherit')};
     position: absolute;
   }
   & .step-title {

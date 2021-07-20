@@ -178,7 +178,7 @@ const Dashboard = () => (
           <Container vertical='md'>
             <NavLink
               className='link link-router'
-              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/permissions`}
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/user-management`}
             >
               User Management
             </NavLink>

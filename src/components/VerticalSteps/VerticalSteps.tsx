@@ -72,7 +72,7 @@ const VerticalSteps = ({
                   </span>
                   <div className='step-title'>
                     <Paragraph
-                      color={step.actual ? '#262626' : '#595959'}
+                      color={step.actual ? 'dark' : 'darkGray'}
                       weight={step.actual ? '600' : '400'}
                       lineHeight='1.375rem'
                     >

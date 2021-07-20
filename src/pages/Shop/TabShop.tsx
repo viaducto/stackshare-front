@@ -35,7 +35,7 @@ export const StoreTab = ({
   setOpenshop: Function;
 }) => {
   return (
-    <Container style={{ backgroundColor: 'white', height: '100%' }} horizontal='lg'>
+    <Container style={{ height: '100%' }} horizontal='lg'>
       <Container top='md' horizontal='sm' expandHorizontal style={{ overflow: 'auto' }}>
         <WrapperTable
           fontSize='md'
@@ -282,14 +282,13 @@ export const MyAppsOrganizationTab = ({
   ];
 
   return (
-    <Container style={{ backgroundColor: 'white', height: '50%' }} top='md'>
+    <Container style={{ height: '50%' }} top='md'>
       <Container
         top='none'
         horizontal='xl'
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          backgroundColor: 'white',
           minHeight: '72vh',
           flexWrap: 'wrap',
         }}
@@ -336,11 +335,7 @@ export const MyAppsOrganizationTab = ({
             />
           </WrapperTable>
         </div>
-        <Container
-          horizontal='lg'
-          vertical='xxl'
-          style={{ backgroundColor: 'white', height: '50vh' }}
-        >
+        <Container horizontal='lg' vertical='xxl' style={{ height: '50vh' }}>
           <AccumulatedBilling />
         </Container>
       </Container>
@@ -486,14 +481,8 @@ export const MyAppsOrganizationDrawer = ({
                 <Spacer size='xs' direction='vertical' />
                 <Container bottom='md'>
                   <Select
-                    inputSize='sm'
+                    inputSize='small'
                     radius='sm'
-                    border={{
-                      top: '0.063rem solid #d9d9d9',
-                      right: '0.063rem solid #d9d9d9',
-                      bottom: '0.063rem solid #d9d9d9',
-                      left: '0.063rem solid #d9d9d9',
-                    }}
                     onChange={(e: any) => {
                       setConfiguration(parseInt(e.target.value));
                     }}

@@ -47,11 +47,7 @@ const PermissionManagement = () => {
       </HeaderSell>
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
         <BodyMain horizontal='md' expandVertical className='overflow'>
-          <Container
-            vertical='md'
-            horizontal='md'
-            style={{ backgroundColor: 'white', height: '95%' }}
-          >
+          <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
               <Button
                 label='Create New Role'

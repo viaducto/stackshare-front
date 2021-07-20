@@ -142,7 +142,7 @@ export const GlobalStyle: any = createGlobalStyle`
     height: 100%;
     & > div {
       position: sticky;
-      top: 0;
+      top: 1rem;
     }
   }
 

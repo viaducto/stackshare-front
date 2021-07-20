@@ -17,13 +17,6 @@ import Logo from '../../components/Logo/Logo';
 import { Upload } from 'react-ikonate';
 import preview from './preview.png';
 
-const borders = {
-  top: '0.063rem solid #d9d9d9',
-  bottom: '0.063rem solid #d9d9d9',
-  left: '0.063rem solid #d9d9d9',
-  right: '0.063rem solid #d9d9d9',
-};
-
 const BrandLocalization = () => {
   return (
     <div style={{ height: '100%' }}>
@@ -227,7 +220,7 @@ const BrandLocalization = () => {
         <Paragraph lineHeight='1.375rem' color='dark'>
           Preferred Language
         </Paragraph>
-        <Select border={borders}>
+        <Select inputSize='small'>
           <option value='EN-US'>English - USA</option>
           <option value='ES-MX'>Español - Mexico</option>
         </Select>
@@ -241,7 +234,7 @@ const BrandLocalization = () => {
         <Paragraph lineHeight='1.375rem' color='dark'>
           Reporting Time
         </Paragraph>
-        <Select border={borders}>
+        <Select inputSize='small'>
           <option value='GTM8'>Pacific Time (Los Angeles, Seattle) GMT - 8</option>
         </Select>
       </div>

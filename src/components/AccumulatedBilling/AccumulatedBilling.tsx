@@ -10,11 +10,10 @@ const AccumulatedBilling = () => (
       borderRadius: 4,
       textAlign: 'center',
       overflow: 'auto',
-      backgroundColor: 'white',
       maxHeight: '100%',
     }}
   >
-    <div style={{ position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 1 }}>
+    <div style={{ position: 'sticky', top: 0, zIndex: 1 }}>
       <div
         style={{
           borderBottom: '0.063rem solid #d9d9d9',
@@ -73,7 +72,7 @@ const AccumulatedBilling = () => (
       style={{
         position: 'sticky',
         bottom: 0,
-        backgroundColor: 'white',
+        backgroundColor: 'inherit',
         zIndex: 1,
         display: 'flex',
         padding: '0.482rem 0',

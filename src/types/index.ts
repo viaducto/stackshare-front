@@ -11,4 +11,13 @@ export type StackshareThemeProps = {
   border: string;
   dividers: string;
   tableHeader: string;
+  neutral: string;
+  table: {
+    background: string;
+    footerColor: string;
+    headerColor: string;
+    selectedColor: string;
+    zebraColor: string;
+    hoverColor: string;
+  };
 };

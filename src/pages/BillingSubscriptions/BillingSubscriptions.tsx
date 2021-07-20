@@ -35,14 +35,14 @@ const BillingSubscriptions = () => {
           { label: 'User Management', href: '', active: false },
         ]}
       >
-        <GroupTab horizontalSpacing='none' fontSize='lg' spacing='sm'>
+        <GroupTab fontSize='lg'>
           <Tab text='Summary' />
           <Tab text='Subscription' />
           <Tab text='Payment History' />
           <Tab text='Payment Methods' />
         </GroupTab>
       </HeaderSell>
-      <BodyMain>
+      <BodyMain style={{ overflow: 'auto', height: '75vh' }}>
         <Spacer size='md' />
         <Grid expanded>
           <Row>
@@ -62,7 +62,7 @@ const BillingSubscriptions = () => {
                   </Paragraph>
                   <div style={{ alignItems: 'flex-end', display: 'flex' }}>
                     <div className='flex-column'>
-                      <Title level='3' lineHeight='2.375rem' color='#3E3F42'>
+                      <Title level='3' lineHeight='2.375rem'>
                         $1857.34
                       </Title>
                       <Paragraph color='muttedGray' size='sm'>
@@ -107,9 +107,7 @@ const BillingSubscriptions = () => {
                       style={{ justifyContent: 'flex-start' }}
                     >
                       <div style={{ flexDirection: 'column' }}>
-                        <Paragraph color='#3E3F42' lineHeight='100%'>
-                          XXXX-XXXX-XXXX-1345
-                        </Paragraph>
+                        <Paragraph lineHeight='100%'>XXXX-XXXX-XXXX-1345</Paragraph>
                         <Paragraph color='#838383' lineHeight='100%' size='sm'>
                           Master Card - Debit
                         </Paragraph>
@@ -136,7 +134,7 @@ const BillingSubscriptions = () => {
                     NEXT PAYMENT CYCLE
                   </Paragraph>
                   <div>
-                    <Title level='3' lineHeight='2.375rem' color='#3E3F42'>
+                    <Title level='3' lineHeight='2.375rem'>
                       DECEMBER 21, 2021
                     </Title>
                     <Paragraph size='sm' color='muttedGray'>
@@ -174,16 +172,10 @@ const BillingSubscriptions = () => {
             <Column xs={12} sm={8} md={3}>
               <div className='form-control'>
                 <Select
-                  inputSize='small'
+                  inputSize='default'
                   radius='sm'
                   name='Country'
                   id='Country'
-                  border={{
-                    top: '0.063rem solid #d9d9d9',
-                    right: '0.063rem solid #d9d9d9',
-                    bottom: '0.063rem solid #d9d9d9',
-                    left: '0.063rem solid #d9d9d9',
-                  }}
                   titleProps={{
                     label: 'Country',
                     position: 'outside',

@@ -16,6 +16,15 @@ export const defaultTheme: StackshareThemeProps = {
   border: '#D9D9D9',
   dividers: '#E8E8E8',
   tableHeader: '#FAFAFA',
+  neutral: '#F3F3F3',
+  table: {
+    background: '#fff',
+    footerColor: '#fff',
+    headerColor: '#FAFAFA',
+    selectedColor: '#d9d9d9',
+    zebraColor: '#F6F8FA',
+    hoverColor: '#D1D5DA',
+  },
 };
 
 export const darkTheme: StackshareThemeProps = {
@@ -31,6 +40,15 @@ export const darkTheme: StackshareThemeProps = {
   border: '#D9D9D9',
   dividers: '#E8E8E8',
   tableHeader: '#FAFAFA',
+  neutral: '#07070733',
+  table: {
+    background: '#262626',
+    footerColor: '#0e0c0c',
+    headerColor: '#151515',
+    selectedColor: '#d9d9d9',
+    zebraColor: '#07070733',
+    hoverColor: '#07070766',
+  },
 };
 
 export const StackShareThemeContext = createContext({
@@ -103,25 +121,23 @@ const StackShareThemeProvider = ({ children }: any) => {
         text: {
           ...configuration.colors.text,
           dark: currentTheme.title,
+          darkGray: `${currentTheme.title}55`,
           muttedGray: currentTheme.secondaryText,
           primary: '#1890FF',
         },
-        defaultInputBorderColor: '#d9d9d9',
-        table: {
-          background: '#fff',
-          footerColor: '#fff',
-          headerColor: '#FAFAFA',
-          selectedColor: '#d9d9d9',
-          zebraColor: '#F6F8FA',
-          hoverColor: '#D1D5DA',
+        neutral: {
+          light: currentTheme.neutral,
+          invert: '#000',
         },
+        defaultInputBorderColor: '#d9d9d9',
+        table: currentTheme.table,
       },
       drawerSizes: {
         sm: '28.563rem',
         md: '53rem',
         lg: '64rem',
       },
-
+      border: `0.063rem solid ${currentTheme.border}`,
       fontFamily: "'Source Sans Pro', sans-serif",
       titleFontFamily: "'Source Sans Pro', sans-serif",
     };

@@ -259,7 +259,7 @@ const LocationManagement = () => {
         </GroupTab>
       </HeaderSell>
       <BodyMain>
-        <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
+        <Container style={{ height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
             <Button label='Create New Location' icon={<Plus />} lead radius='sm' />
           </Container>
@@ -270,7 +270,7 @@ const LocationManagement = () => {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              backgroundColor: 'white',
+
               minHeight: '72vh',
               flexWrap: 'wrap',
             }}
@@ -304,7 +304,6 @@ const LocationManagement = () => {
                   style={{
                     cursor: 'pointer',
                     border: 'none',
-                    backgroundColor: 'white',
                   }}
                 >
                   <ArrowLeft />

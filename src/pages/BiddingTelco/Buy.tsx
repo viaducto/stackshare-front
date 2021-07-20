@@ -98,7 +98,6 @@ const Buy = () => {
                     fontSize='md'
                     verticalSpacing='md'
                     hover
-                    hoverColor='#D1D5DA'
                     border='horizontal'
                     borderColor='#E8E8E8'
                     horizontalSpacing='sm'
@@ -168,7 +167,7 @@ const Buy = () => {
         <Grid expanded>
           <Row>
             <Column>
-              <div style={{ backgroundColor: 'white', width: '100%' }}>
+              <div style={{ width: '100%' }}>
                 <Container
                   vertical='md'
                   style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -206,7 +205,7 @@ const Buy = () => {
                 {newBid ? (
                   <Container right='xxxl'>
                     <Select
-                      inputSize='sm'
+                      inputSize='small'
                       radius='sm'
                       border={{
                         top: '0.063rem solid #d9d9d9',

@@ -28,7 +28,7 @@ const BiddingB2B = () => {
       {/* Body */}
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
         <BodyMain className='overflow' style={{ width: '100%' }}>
-          <div style={{ backgroundColor: 'white', height: '100%' }}>
+          <div style={{ height: '100%' }}>
             <SellParameters
               handleOpen={handleOpen}
               setSimple={setSimple}

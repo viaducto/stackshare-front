@@ -56,7 +56,7 @@ const Graph = ({
           alignItems: 'center',
         }}
       >
-        <Paragraph size='lg' color='#3e3f42' lineHeight='1.5rem' weight='500'>
+        <Paragraph size='lg' lineHeight='1.5rem' weight='500'>
           {title}
         </Paragraph>
         {profit !== null && (
@@ -73,7 +73,7 @@ const Graph = ({
           alignItems: 'center',
         }}
       >
-        <Title level='3' lineHeight='2.75rem' color='#3E3F42'>
+        <Title level='3' lineHeight='2.75rem'>
           {data}
         </Title>
         <Paragraph color='success' lineHeight='1.375rem' weight='400'>
