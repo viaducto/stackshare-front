@@ -16,6 +16,9 @@ import {
 import { BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import { Grid as IconGrid } from 'react-ikonate';
+import BillingAlert from './BillingAlert';
+import BillingManager from './BillingManager';
+import SubscriptionsTable from './SubscriptionsTable';
 const BillingSubscriptions = () => {
   const [isReadonly, setIsReadonly] = useState(true);
   const handleEnable = () => {
@@ -205,6 +208,30 @@ const BillingSubscriptions = () => {
               </div>
             </Column>
             <Column />
+          </Row>
+          <Row>
+            <Column xs={12} lg={6}>
+              <Title level='3'>Billing Alerts</Title>
+            </Column>
+          </Row>
+          <Row>
+            <BillingAlert />
+          </Row>
+          <Row>
+            <Column xs={12} lg={6}>
+              <Title level='3'>Billing Manager</Title>
+            </Column>
+          </Row>
+          <Row>
+            <BillingManager />
+          </Row>
+          <Row>
+            <Column xs={12} lg={6}>
+              <Title level='3'>Subscriptions</Title>
+            </Column>
+          </Row>
+          <Row>
+            <SubscriptionsTable />
           </Row>
         </Grid>
       </BodyMain>
