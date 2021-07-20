@@ -75,7 +75,10 @@ export const GlobalStyle: any = createGlobalStyle`
     display: flex !important;
     align-items: center !important;
   }
-
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
   .notification > div{
     border-radius: 1rem !important;
     color: white !important;

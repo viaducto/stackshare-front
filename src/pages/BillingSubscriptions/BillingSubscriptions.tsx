@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  AvatarWithText,
   Button,
   Card,
   Column,
@@ -11,7 +12,6 @@ import {
   Tab,
   Title,
   Paragraph,
-  Container,
   Select,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyMain } from '../../components/layout';
@@ -19,6 +19,8 @@ import HeaderSell from '../../components/SellParameters/HeaderSell';
 import BillingAlert from './BillingAlert';
 import BillingManager from './BillingManager';
 import SubscriptionsTable from './SubscriptionsTable';
+import master from './mastercard.svg';
+
 const BillingSubscriptions = () => {
   const [isReadonly, setIsReadonly] = useState(true);
   const handleEnable = () => {
@@ -46,49 +48,102 @@ const BillingSubscriptions = () => {
           <Row>
             <Column xs={12} md={6} lg={4}>
               <Card elevation={0} elevationDirection='bottom'>
-                <Container vertical='md' horizontal='md'>
-                  <Paragraph color='muttedGray'>SUBSCRIPTION</Paragraph>
-                  <p style={{ fontSize: '24px' }}>$1857.34</p>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      justifyContent: 'space-between',
-                      alignItems: 'baseline',
-                    }}
-                  >
-                    <Paragraph color='muttedGray'>15 Seats - Yearly subscription</Paragraph>
-                    <Button label='Update' variant='ghost' leftSpacing='nano' rightSpacing='nano' />
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    padding: '20px 24px',
+                    minHeight: '116px',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Paragraph color='muttedGray' size='sm'>
+                    SUBSCRIPTION
+                  </Paragraph>
+                  <div style={{ alignItems: 'flex-end', display: 'flex' }}>
+                    <div className='flex-column'>
+                      <Title level='3' lineHeight='2.375rem' color='#3E3F42'>
+                        $1857.34
+                      </Title>
+                      <Paragraph color='muttedGray' size='sm'>
+                        15 Seats - Yearly subscription
+                      </Paragraph>
+                    </div>
+
+                    <Button
+                      label='Update'
+                      variant='ghost'
+                      leftSpacing='nano'
+                      rightSpacing='nano'
+                      style={{ marginLeft: 'auto' }}
+                    />
                   </div>
-                </Container>
+                </div>
               </Card>
             </Column>
             <Column xs={12} md={6} lg={4}>
               <Card elevation={0} elevationDirection='bottom'>
-                <Container vertical='md' horizontal='md'>
-                  <Paragraph color='muttedGray'>DEFAULT PAYMENT METHOD</Paragraph>
-                  <Paragraph size='lg'>XXXX-XXXX-XXXX-1345</Paragraph>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    padding: '20px 24px',
+                    minHeight: '116px',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Paragraph size='sm' color='muttedGray'>
+                    DEFAULT PAYMENT METHOD
+                  </Paragraph>
                   <div
                     style={{
                       display: 'flex',
-                      flexWrap: 'wrap',
                       justifyContent: 'space-between',
-                      alignItems: 'baseline',
+                      alignItems: 'flex-end',
                     }}
                   >
-                    <Paragraph color='muttedGray'>Master Card - Debit</Paragraph>
+                    <AvatarWithText
+                      avatar={{ src: master, width: '25', height: '25', alt: 'card' }}
+                      style={{ justifyContent: 'flex-start' }}
+                    >
+                      <div style={{ flexDirection: 'column' }}>
+                        <Paragraph color='#3E3F42' lineHeight='100%'>
+                          XXXX-XXXX-XXXX-1345
+                        </Paragraph>
+                        <Paragraph color='#838383' lineHeight='100%' size='sm'>
+                          Master Card - Debit
+                        </Paragraph>
+                      </div>
+                    </AvatarWithText>
+
                     <Button label='Update' variant='ghost' leftSpacing='nano' rightSpacing='nano' />
                   </div>
-                </Container>
+                </div>
               </Card>
             </Column>
             <Column xs={12} md={6} lg={4}>
               <Card elevation={0} elevationDirection='bottom'>
-                <Container vertical='md' horizontal='md'>
-                  <Paragraph color='muttedGray'>NEXT PAYMENT CYCLE</Paragraph>
-                  <p style={{ fontSize: '24px' }}>DECEMBER 21, 2021 </p>
-                  <Paragraph color='muttedGray'>Overdue</Paragraph>
-                </Container>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    padding: '20px 24px',
+                    minHeight: '116px',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Paragraph size='sm' color='muttedGray'>
+                    NEXT PAYMENT CYCLE
+                  </Paragraph>
+                  <div>
+                    <Title level='3' lineHeight='2.375rem' color='#3E3F42'>
+                      DECEMBER 21, 2021
+                    </Title>
+                    <Paragraph size='sm' color='muttedGray'>
+                      Overdue
+                    </Paragraph>
+                  </div>
+                </div>
               </Card>
             </Column>
           </Row>

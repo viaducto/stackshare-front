@@ -1,5 +1,4 @@
 import { Column, Container, Spacer, WrapperTable } from '@jp-olvera/jp-viaducto-components';
-import React from 'react';
 import Table from '../../components/Table/Table';
 import Kebab from '../../components/Kebab/Kebab';
 import { columns, data } from './DataBilling';
