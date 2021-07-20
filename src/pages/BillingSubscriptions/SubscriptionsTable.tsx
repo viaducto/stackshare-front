@@ -6,7 +6,7 @@ import { columns, data } from './DataBilling';
 
 const SubscriptionsTable = () => {
   return (
-    <Column>
+    <Column style={{ overflow: 'auto' }}>
       <WrapperTable align='center' zebra={false} border='horizontal'>
         <Table
           pagination={false}
