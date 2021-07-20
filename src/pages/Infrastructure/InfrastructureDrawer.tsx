@@ -115,15 +115,17 @@ const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Functi
       <Spacer size='md' />
       <Row>
         <Column>
-          <Paragraph lineHeight='1.375rem'>Series Number</Paragraph>
-          <Input inputSize='small' borderColor='#d9d9d9' defaultValue='Example Address, 123456' />
+          <div className='form-control'>
+            <Input inputSize='small' label='Series Number' defaultValue='Example Address, 123456' />
+          </div>
         </Column>
       </Row>
       <Spacer size='md' />
       <Row>
         <Column>
-          <Paragraph lineHeight='1.375rem'>Location</Paragraph>
-          <Input inputSize='small' borderColor='#d9d9d9' defaultValue='Example Address, 123456' />
+          <div className='form-control'>
+            <Input inputSize='small' label='Location' defaultValue='Example Address, 123456' />
+          </div>
         </Column>
       </Row>
     </Grid>

@@ -42,7 +42,6 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
         setValue(e.target.value);
         onChangeVal(e.target.value);
       }}
-      borderColor='#D9D9D9'
     />
   );
 };

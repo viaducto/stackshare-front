@@ -42,14 +42,7 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
                 $
               </Paragraph>
               <Spacer direction='horizontal' size='sm' />
-              <Input
-                type='number'
-                inputSize='small'
-                borderColor='#d9d9d9'
-                border='outside'
-                id='askMB'
-                min={0}
-              />
+              <Input type='number' inputSize='small' border='outside' id='askMB' min={0} />
             </div>
             <Spacer direction='vertical' size='md' />
             <Paragraph lineHeight='1.375rem' weight='600'>
@@ -75,7 +68,6 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               <Input
                 type='number'
                 inputSize='small'
-                borderColor='#d9d9d9'
                 border='outside'
                 id='bandwith'
                 max={95}

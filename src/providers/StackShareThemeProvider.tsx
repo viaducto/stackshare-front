@@ -19,8 +19,8 @@ export const defaultTheme: StackshareThemeProps = {
 };
 
 export const darkTheme: StackshareThemeProps = {
-  mainBackground: '#3e3e50',
-  secondaryBackground: '#adc4d4',
+  mainBackground: '#252529',
+  secondaryBackground: '#3e3e50',
   brandColor: '#1665D8',
   brandShadow: '#F6F9FD',
   mainColor: '#F6F9FD',
@@ -59,6 +59,13 @@ const StackShareThemeProvider = ({ children }: any) => {
         ...configuration.colors,
         background: currentTheme.mainBackground,
         primary: {
+          default: '#1890FF',
+          hover: '#40A9FF',
+          click: '#096DD9',
+          text: '#fff',
+          shadow: 'rgba(24, 144, 255, 0.3)',
+        },
+        tab: {
           default: '#1890FF',
           hover: '#40A9FF',
           click: '#096DD9',

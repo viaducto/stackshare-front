@@ -58,8 +58,9 @@ const Security = () => (
     <Spacer size='lg' />
     <Container vertical='sm' horizontal='md' style={{ backgroundColor: '#F3F3F3', width: 350 }}>
       <Paragraph lineHeight='1.375rem'>IP Ranges</Paragraph>
-      <Paragraph lineHeight='1.375rem'>EIN:</Paragraph>
-      <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
+      <div className='form-control'>
+        <Input label='EIN:' inputSize='small' defaultValue='123-23B3-123' />
+      </div>
       <Spacer size='lg' />
       <Button
         variant='ghost'
@@ -104,12 +105,13 @@ const Security = () => (
     <Container vertical='sm' horizontal='md' style={{ backgroundColor: '#F3F3F3', width: 350 }}>
       <Paragraph lineHeight='1.375rem'>Request Consulting Services:</Paragraph>
       <Spacer size='sm' />
-      <Paragraph lineHeight='1.375rem'>Subject Line:</Paragraph>
-      <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
-      <Spacer size='sm' />
-      <Paragraph lineHeight='1.375rem'>Support Request:</Paragraph>
-      <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
-      <Spacer size='lg' />
+      <div className='form-control'>
+        <Input label='Subject Line' inputSize='small' defaultValue='123-23B3-123' />
+      </div>
+      <div className='form-control'>
+        <Input label='Support Request:' inputSize='small' defaultValue='123-23B3-123' />
+      </div>
+
       <Button label='Request Assistance' size='large' lead leftSpacing='tiny' rightSpacing='tiny' />
     </Container>
     <Spacer size='xl' />

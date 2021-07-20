@@ -26,7 +26,6 @@ const SellAdvanced = () => {
         <Input
           type='number'
           inputSize='small'
-          borderColor='#d9d9d9'
           border='outside'
           id='askMB'
           min={0}
@@ -75,7 +74,6 @@ const SellAdvanced = () => {
           <Input
             type='number'
             inputSize='small'
-            borderColor='#d9d9d9'
             border='outside'
             max={95}
             min={0}

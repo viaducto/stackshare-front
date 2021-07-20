@@ -316,27 +316,12 @@ const UserManagement = () => {
                       </Title>
                       <Spacer size='sm' />
                       <div className='flex'>
-                        <Tag
-                          backgroundColor='#F5F5F5'
-                          borderColor='#D9D9D9'
-                          color='#595959'
-                          label='Teachers'
-                        />
+                        <Tag backgroundColor='#F5F5F5' color='#595959' label='Teachers' />
                         <Spacer size='sm' direction='horizontal' />
 
-                        <Tag
-                          backgroundColor='#F5F5F5'
-                          borderColor='#D9D9D9'
-                          color='#595959'
-                          label='Design'
-                        />
+                        <Tag backgroundColor='#F5F5F5' color='#595959' label='Design' />
                         <Spacer size='sm' direction='horizontal' />
-                        <Tag
-                          backgroundColor='#F5F5F5'
-                          borderColor='#D9D9D9'
-                          color='#595959'
-                          label='Blink 182'
-                        />
+                        <Tag backgroundColor='#F5F5F5' color='#595959' label='Blink 182' />
                       </div>
                     </>
                   ) : (

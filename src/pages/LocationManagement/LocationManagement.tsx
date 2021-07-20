@@ -404,12 +404,14 @@ const LocationManagement = () => {
           </Row>
           <Row>
             <Column xs={12} md={8}>
-              <Spacer size='lg' />
-              <Input label='Address' type='text' border='outside' borderColor='#D9D9D9' />
+              <div className='form-control'>
+                <Input inputSize='small' label='Address' type='text' border='outside' />
+              </div>
             </Column>
             <Column xs={12} md={8}>
-              <Spacer size='lg' />
-              <Input label='Address' type='text' border='outside' borderColor='#D9D9D9' />
+              <div className='form-control'>
+                <Input inputSize='small' label='Address' type='text' border='outside' />
+              </div>
             </Column>
           </Row>
           <Row>
@@ -417,13 +419,9 @@ const LocationManagement = () => {
               <Spacer size='lg' />
               <Paragraph weight='bold'>Contact Information</Paragraph>
               <Spacer size='md' />
-              <Input
-                type='text'
-                label='Phone Number'
-                border='outside'
-                value='+44 21 1358 41'
-                borderColor='#D9D9D9'
-              />
+              <div className='form-control'>
+                <Input type='text' label='Phone Number' border='outside' value='+44 21 1358 41' />
+              </div>
             </Column>
             <Column size={12}>
               <Spacer size='md' />

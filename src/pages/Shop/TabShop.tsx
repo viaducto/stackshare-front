@@ -101,7 +101,7 @@ export const StoreTabDrawer = ({
 }) => {
   return (
     <Drawer active={openshop} onClose={() => setOpenshop(false)}>
-      <Grid className='border-bottom'>
+      <Grid expanded className='border-bottom'>
         <Row>
           <Column>
             <Container
@@ -128,7 +128,7 @@ export const StoreTabDrawer = ({
           </Column>
         </Row>
       </Grid>
-      <Grid>
+      <Grid expanded>
         <Row>
           <Column>
             <Container
@@ -509,7 +509,7 @@ export const MyAppsOrganizationDrawer = ({
 
         {configuration === 0 && tabDrawer === 0 && (
           <>
-            <Grid>
+            <Grid expanded>
               <Row>
                 <Column>
                   <Container vertical='lg'>
@@ -539,10 +539,9 @@ export const MyAppsOrganizationDrawer = ({
                       <>
                         <Paragraph lineHeight='1.5rem'>Upload limit</Paragraph>
                         <Container right='sm' style={{ display: 'flex' }}>
-                          <div style={{ width: '70%' }}>
+                          <div>
                             <Input
                               type='number'
-                              borderColor='#d9d9d9'
                               disabled={dataUsage}
                               defaultValue={500}
                               inputSize='small'
@@ -569,10 +568,9 @@ export const MyAppsOrganizationDrawer = ({
                       <>
                         <Paragraph lineHeight='1.5rem'>Download limit</Paragraph>
                         <Container right='sm' style={{ display: 'flex' }}>
-                          <div style={{ width: '70%' }}>
+                          <div>
                             <Input
                               type='number'
-                              borderColor='#d9d9d9'
                               disabled={dataUsage}
                               defaultValue={500}
                               inputSize='small'
@@ -611,7 +609,6 @@ export const MyAppsOrganizationDrawer = ({
                       <div style={{ width: '50%' }}>
                         <Input
                           type='number'
-                          borderColor='#d9d9d9'
                           disabled={false}
                           defaultValue={500}
                           inputSize='small'
@@ -625,7 +622,7 @@ export const MyAppsOrganizationDrawer = ({
                     <Paragraph lineHeight='1.375rem' weight='600' color='dark'>
                       Warrated uptime
                     </Paragraph>
-                    <div style={{ width: '70%' }}>
+                    <div>
                       <Paragraph lineHeight='1.375rem' color='#595959'>
                         We can only warranty a percentage of uptime (99%) if you select lower
                         capabilities price might be impacted.
@@ -650,24 +647,31 @@ export const MyAppsOrganizationDrawer = ({
                         onChange={() => setUptime(false)}
                       />
                       <Spacer direction='vertical' size='xs' />
-                      <Container horizontal='lg' style={{ display: 'flex', width: '45%' }}>
-                        <Input
-                          type='number'
-                          borderColor='#d9d9d9'
-                          disabled={uptime}
-                          defaultValue={500}
-                          inputSize='small'
-                          border='outside'
-                        />
-                        <Spacer direction='horizontal' size='xs' />
-                        <Paragraph>%</Paragraph>
+                      <Container horizontal='none'>
+                        <Grid gutter={0} expanded>
+                          <Row>
+                            <Column xs={12} md={7}>
+                              <div className='flex'>
+                                <Input
+                                  type='number'
+                                  disabled={uptime}
+                                  defaultValue={500}
+                                  inputSize='small'
+                                  border='outside'
+                                />
+                                <Spacer direction='horizontal' size='xs' />
+                                <Paragraph>%</Paragraph>
+                              </div>
+                            </Column>
+                          </Row>
+                        </Grid>
                       </Container>
                     </>
                     <Spacer direction='vertical' size='xl' />
                     <Paragraph lineHeight='1.375rem' weight='600' color='dark'>
                       Time window
                     </Paragraph>
-                    <div style={{ width: '70%' }}>
+                    <div>
                       <Paragraph lineHeight='1.375rem' color='#595959'>
                         Define the times where the parameters need to be met.
                       </Paragraph>
@@ -735,7 +739,7 @@ export const MyAppsOrganizationDrawer = ({
 
         {configuration === 1 && tabDrawer === 0 && (
           <>
-            <Grid>
+            <Grid expanded>
               <Row>
                 <Column xs={12} md={7}>
                   <Container vertical='md' expandHorizontal>
@@ -746,7 +750,6 @@ export const MyAppsOrganizationDrawer = ({
                     <Input
                       icon={<Dolar />}
                       type='number'
-                      borderColor='#d9d9d9'
                       defaultValue='1000'
                       inputSize='small'
                       border='outside'

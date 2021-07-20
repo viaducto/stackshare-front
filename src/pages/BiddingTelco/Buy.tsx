@@ -231,13 +231,7 @@ const Buy = () => {
                 {newBid ? (
                   <Container right='xxxl'>
                     <div className='form-control'>
-                      <Input
-                        type='date'
-                        borderColor='#d9d9d9'
-                        inputSize='small'
-                        border='outside'
-                        label='Expires by'
-                      />
+                      <Input type='date' inputSize='small' border='outside' label='Expires by' />
                     </div>
                   </Container>
                 ) : (
@@ -257,7 +251,6 @@ const Buy = () => {
                         <Input
                           type='number'
                           defaultValue={500}
-                          borderColor='#d9d9d9'
                           inputSize='small'
                           border='outside'
                           label='Wanted bandwith'
@@ -300,13 +293,7 @@ const Buy = () => {
                     />
                     <Spacer direction='vertical' size='xs' />
                     <Container left='lg' right='xxxl'>
-                      <Input
-                        type='time'
-                        borderColor='#d9d9d9'
-                        disabled={disabled}
-                        inputSize='small'
-                        border='outside'
-                      />
+                      <Input type='time' disabled={disabled} inputSize='small' border='outside' />
                     </Container>
                   </>
                 ) : (
@@ -375,7 +362,6 @@ const Buy = () => {
                       <div style={{ width: '80%' }}>
                         <Input
                           type='number'
-                          borderColor='#d9d9d9'
                           disabled={disabledCap}
                           defaultValue={500}
                           inputSize='small'
@@ -434,7 +420,6 @@ const Buy = () => {
                         <Input
                           type='text'
                           icon={<GridIcon />}
-                          borderColor='#d9d9d9'
                           disabled={disabledType}
                           inputSize='small'
                           border='outside'
