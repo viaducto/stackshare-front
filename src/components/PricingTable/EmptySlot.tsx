@@ -9,7 +9,6 @@ import {
   Input,
   Paragraph,
   Row,
-  Spacer,
 } from '@jp-olvera/jp-viaducto-components';
 
 const StyledButton = styled.button`
@@ -52,14 +51,15 @@ const EmptySlot = () => {
         <Grid>
           <Row>
             <Column>
-              <Container vertical='lg'>
-                <Input
-                  type='text'
-                  inputSize='small'
-                  label='Name the time preset'
-                  border='outside'
-                />
-                <Spacer size='sm' />
+              <Container vertical='sm'>
+                <div className='form-control'>
+                  <Input
+                    type='text'
+                    inputSize='small'
+                    label='Name the time preset'
+                    border='outside'
+                  />
+                </div>
                 <Button label='Save' onClick={onCloseDrawer} />
               </Container>
             </Column>

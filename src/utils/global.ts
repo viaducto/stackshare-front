@@ -19,6 +19,10 @@ export const GlobalStyle: any = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  input > label {
+    font-weight: bold;
+  }
+
   .link {
     color: #1665D8 !important;
   }

@@ -31,19 +31,25 @@ const Overview = () => {
       <Grid>
         <Row>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem'>Legal Company Name</Paragraph>
-            <Input inputSize='sm' defaultValue='StackShare Tech Inc.' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input
+                inputSize='small'
+                defaultValue='StackShare Tech Inc.'
+                label='Legal Company Name'
+              />
+            </div>
           </Column>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem'>Doing Business As:</Paragraph>
-            <Input inputSize='sm' defaultValue='StackShare' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='StackShare' label='Doing Business As:' />
+            </div>
           </Column>
         </Row>
-        <Spacer size='sm' />
         <Row>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem'>EIN:</Paragraph>
-            <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='123-23B3-123' label='EIN:' />
+            </div>
           </Column>
         </Row>
       </Grid>
@@ -70,15 +76,17 @@ const Overview = () => {
         <Spacer size='sm' />
         <Row>
           <Column size={12}>
-            <Paragraph lineHeight='1.375rem'>Address</Paragraph>
-            <Input inputSize='sm' defaultValue='Example Address, 123456' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='Example Address, 123456' label='Address' />
+            </div>
           </Column>
         </Row>
         <Spacer size='sm' />
         <Row>
           <Column size={12}>
-            <Paragraph lineHeight='1.375rem'>Address</Paragraph>
-            <Input inputSize='sm' defaultValue='Example Address, 123456' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='Example Address, 123456' label='Address2' />
+            </div>
           </Column>
         </Row>
       </Grid>
@@ -87,7 +95,7 @@ const Overview = () => {
         Contact Information
       </Title>
       <Spacer size='sm' />
-      <Grid>
+      <Grid expanded>
         <Row>
           <Column size={3}>
             <Container
@@ -111,10 +119,10 @@ const Overview = () => {
               </div>
             </Container>
           </Column>
-          <Spacer size='md' />
           <Column size={12}>
-            <Paragraph lineHeight='1.375rem'>Phone Number</Paragraph>
-            <Input inputSize='sm' defaultValue='Example Phone, 123456' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' label='Phone Number' defaultValue='Example Phone, 123456' />
+            </div>
           </Column>
         </Row>
       </Grid>

@@ -30,6 +30,7 @@ const SellAdvanced = () => {
           border='outside'
           id='askMB'
           min={0}
+          defaultValue={0}
         />
       </div>
       <Spacer direction='vertical' size='md' />

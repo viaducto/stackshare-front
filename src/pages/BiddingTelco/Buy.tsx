@@ -227,31 +227,22 @@ const Buy = () => {
                     textColor={data.bidding_type?.textColor || 'red'}
                   />
                 )}
-                <Spacer direction='vertical' size='lg' />
-                <Paragraph
-                  lineHeight='1.375rem'
-                  weight={newBid ? '600' : '400'}
-                  color={newBid ? 'dark' : '#595959'}
-                >
-                  Expires by
-                </Paragraph>
-                <Spacer direction='vertical' size='xs' />
+                <Spacer direction='vertical' size='sm' />
                 {newBid ? (
                   <Container right='xxxl'>
-                    <Input type='date' borderColor='#d9d9d9' inputSize='small' border='outside' />
+                    <div className='form-control'>
+                      <Input
+                        type='date'
+                        borderColor='#d9d9d9'
+                        inputSize='small'
+                        border='outside'
+                        label='Expires by'
+                      />
+                    </div>
                   </Container>
                 ) : (
                   <Paragraph lineHeight='1.375rem'>{data.expires}</Paragraph>
                 )}
-                <Spacer direction='vertical' size='lg' />
-                <Paragraph
-                  lineHeight='1.375rem'
-                  weight={newBid ? '600' : '400'}
-                  color={newBid ? 'dark' : '#595959'}
-                >
-                  Wanted bandwith
-                </Paragraph>
-                <Spacer direction='vertical' size='xs' />
                 {newBid ? (
                   <div>
                     <Container
@@ -262,13 +253,16 @@ const Buy = () => {
                         alignItems: 'center',
                       }}
                     >
-                      <Input
-                        type='number'
-                        defaultValue={500}
-                        borderColor='#d9d9d9'
-                        inputSize='small'
-                        border='outside'
-                      />
+                      <div className='form-control'>
+                        <Input
+                          type='number'
+                          defaultValue={500}
+                          borderColor='#d9d9d9'
+                          inputSize='small'
+                          border='outside'
+                          label='Wanted bandwith'
+                        />
+                      </div>
                       <Spacer size='xs' direction='horizontal' />
                       <Paragraph>Mb/s</Paragraph>
                     </Container>
