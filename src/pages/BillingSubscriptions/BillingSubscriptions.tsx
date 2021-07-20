@@ -151,13 +151,16 @@ const BillingSubscriptions = () => {
         <Spacer size='lg' />
         <Grid expanded>
           <Row>
-            <Column xs={12} lg={6}>
+            <Column
+              xs={12}
+              sm={8}
+              md={9}
+              style={{ display: 'flex', justifyContent: 'space-between' }}
+            >
               <Title level='3'>Billing Information</Title>
-            </Column>
-            <Column xs={12} lg={2} style={{ display: 'flex', justifyContent: 'flex-end' }}>
               {isReadonly ? (
                 <Button
-                  label='Edit'
+                  label='Update'
                   variant='ghost'
                   onClick={handleEnable}
                   leftSpacing='nano'
