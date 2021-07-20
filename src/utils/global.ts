@@ -76,14 +76,6 @@ export const GlobalStyle: any = createGlobalStyle`
     align-items: center !important;
   }
 
-  table > thead > tr {
-    background-color: #fafafa !important;
-  }
-
-  .selected > td {
-    background-color: #d9d9d9 !important;
-  }
-
   .notification > div{
     border-radius: 1rem !important;
     color: white !important;

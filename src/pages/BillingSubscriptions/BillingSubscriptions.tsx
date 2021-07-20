@@ -201,8 +201,6 @@ const BillingSubscriptions = () => {
                   label='Registro federal de contribuyentes:'
                   readOnly={isReadonly}
                   border={isReadonly ? 'none' : 'outside'}
-                  icon={<IconGrid />}
-                  defaultValue='Default value'
                 />
               </div>
             </Column>
