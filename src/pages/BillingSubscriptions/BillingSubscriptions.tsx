@@ -12,10 +12,10 @@ import {
   Title,
   Paragraph,
   Container,
+  Select,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
-import { Grid as IconGrid } from 'react-ikonate';
 import BillingAlert from './BillingAlert';
 import BillingManager from './BillingManager';
 import SubscriptionsTable from './SubscriptionsTable';
@@ -108,45 +108,39 @@ const BillingSubscriptions = () => {
                   leftSpacing='nano'
                   rightSpacing='nano'
                 />
-              ) : (
-                <>
-                  <Button
-                    label='Update'
-                    variant='ghost'
-                    onClick={handleEnable}
-                    leftSpacing='nano'
-                    rightSpacing='nano'
-                  />
-                  <Spacer direction='horizontal' size='sm' />
-                  <Button
-                    label='Cancel'
-                    variant='ghost'
-                    onClick={handleEnable}
-                    leftSpacing='nano'
-                    rightSpacing='nano'
-                    shapeColor='danger'
-                  />
-                </>
-              )}
+              ) : null}
             </Column>
             <Column />
           </Row>
           <Row>
-            <Column xs={12} md={4}>
+            <Column xs={12} sm={8} md={3}>
               <div className='form-control'>
-                <Input
-                  id='Country:'
-                  label='Country:'
-                  readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
-                  icon={<IconGrid />}
-                />
+                <Select
+                  inputSize='small'
+                  radius='sm'
+                  name='Country'
+                  id='Country'
+                  border={{
+                    top: '0.063rem solid #d9d9d9',
+                    right: '0.063rem solid #d9d9d9',
+                    bottom: '0.063rem solid #d9d9d9',
+                    left: '0.063rem solid #d9d9d9',
+                  }}
+                  titleProps={{
+                    label: 'Country',
+                    position: 'outside',
+                  }}
+                  disabled={isReadonly}
+                >
+                  <option value='México'>México</option>
+                </Select>
               </div>
+            </Column>
+            <Column xs={12} sm={8} md={3}>
               <div className='form-control'>
                 <Input
                   id='Legal Entity Name:'
                   label='Legal Entity Name:'
-                  icon={<IconGrid />}
                   readOnly={isReadonly}
                   border={isReadonly ? 'none' : 'outside'}
                 />
@@ -155,7 +149,6 @@ const BillingSubscriptions = () => {
                 <Input
                   id='Street Name:'
                   label='Street Name:'
-                  icon={<IconGrid />}
                   readOnly={isReadonly}
                   border={isReadonly ? 'none' : 'outside'}
                 />
@@ -164,7 +157,6 @@ const BillingSubscriptions = () => {
                 <Input
                   id='Colonia:'
                   label='Colonia:'
-                  icon={<IconGrid />}
                   readOnly={isReadonly}
                   border={isReadonly ? 'none' : 'outside'}
                 />
@@ -173,18 +165,16 @@ const BillingSubscriptions = () => {
                 <Input
                   id='Estado:'
                   label='Estado:'
-                  icon={<IconGrid />}
                   readOnly={isReadonly}
                   border={isReadonly ? 'none' : 'outside'}
                 />
               </div>
             </Column>
-            <Column xs={12} md={4}>
+            <Column xs={12} sm={8} md={3}>
               <div className='form-control'>
                 <Input
                   id='RFC'
                   label='Registro federal de contribuyentes:'
-                  icon={<IconGrid />}
                   readOnly={isReadonly}
                   border={isReadonly ? 'none' : 'outside'}
                 />
@@ -193,7 +183,6 @@ const BillingSubscriptions = () => {
                 <Input
                   id='RFC2'
                   label='Registro federal de contribuyentes:'
-                  icon={<IconGrid />}
                   readOnly={isReadonly}
                   border={isReadonly ? 'none' : 'outside'}
                 />
@@ -209,6 +198,15 @@ const BillingSubscriptions = () => {
             </Column>
             <Column />
           </Row>
+          {isReadonly ? null : (
+            <Row>
+              <Column xs={12} sm={8} md={9} style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button radius='sm' label='Cancel' variant='ghost' onClick={handleEnable} />
+                <Spacer direction='horizontal' size='sm' />
+                <Button radius='sm' label='Update Changes' onClick={handleEnable} />
+              </Column>
+            </Row>
+          )}
           <Row>
             <Column xs={12} lg={6}>
               <Title level='3'>Billing Alerts</Title>
