@@ -26,7 +26,7 @@ const Kebab = ({ children, ...rest }: { children: React.ReactNode }) => {
       />
       <Popover
         target={ref}
-        content={<div style={{ maxWidth: '150px' }}>{children}</div>}
+        content={<div style={{ maxWidth: '130px' }}>{children}</div>}
         active={active}
         handleClose={handleClose}
         elevation={1}

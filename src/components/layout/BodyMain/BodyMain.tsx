@@ -3,7 +3,7 @@ import { Container } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  background-color: ${(p) => p.theme.secondaryBackground};
+  background-color: ${(p) => p.theme.secondaryBackground} !important;
 `;
 const Div = styled.div`
   background-color: ${(p) => p.theme.mainBackground};

@@ -19,6 +19,16 @@ export const GlobalStyle: any = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  .link {
+    color: #1665D8 !important;
+  }
+
+  .link-router{
+    appearance: none;
+    text-decoration: none;
+    color: inherit;
+  }
+
   hr {
     border-color: #d9d9d9;
     height: 1px;
@@ -30,11 +40,6 @@ export const GlobalStyle: any = createGlobalStyle`
     height: 100vh;
   }
 
-  .link-router{
-    appearance: none;
-    text-decoration: none;
-    color: inherit;
-  }
 
   .bare-button{
     border: none;
@@ -81,12 +86,6 @@ export const GlobalStyle: any = createGlobalStyle`
     padding: 0.63rem .5rem !important;
     border: 0.063rem solid white !important;
     box-sizing: border-box;
-  }
-
-  .input:valid, .input:focus{
-    &~.label{
-      left: -0.5rem !important;
-    }
   }
 
   .rv-discrete-color-legend{
@@ -150,5 +149,10 @@ export const GlobalStyle: any = createGlobalStyle`
 
   .border-bottom {
     border-bottom: 0.063rem solid #d9d9d9;
+  }
+
+  .form-control {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
   }
 `;

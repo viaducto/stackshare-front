@@ -73,7 +73,7 @@ const GraphsPage = () => {
 
       {/* Content */}
       <BodyMain>
-        <div style={{ backgroundColor: 'white', height: '80vh', overflow: 'auto' }}>
+        <div style={{ height: '80vh', overflow: 'auto' }}>
           {/* Numbers */}
           <Container
             vertical='md'

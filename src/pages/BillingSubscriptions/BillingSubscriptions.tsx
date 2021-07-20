@@ -15,7 +15,7 @@ import {
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
-
+import { Grid as IconGrid } from 'react-ikonate';
 const BillingSubscriptions = () => {
   const [isReadonly, setIsReadonly] = useState(true);
   const handleEnable = () => {
@@ -30,7 +30,7 @@ const BillingSubscriptions = () => {
           { label: 'User Management', href: '', active: false },
         ]}
       >
-        <GroupTab>
+        <GroupTab horizontalSpacing='none' fontSize='lg' spacing='sm'>
           <Tab text='Summary' />
           <Tab text='Subscription' />
           <Tab text='Payment History' />
@@ -97,61 +97,114 @@ const BillingSubscriptions = () => {
               <Title level='3'>Billing Information</Title>
             </Column>
             <Column xs={12} lg={2} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button
-                label='Update'
-                variant='ghost'
-                onClick={handleEnable}
-                leftSpacing='nano'
-                rightSpacing='nano'
-              />
+              {isReadonly ? (
+                <Button
+                  label='Edit'
+                  variant='ghost'
+                  onClick={handleEnable}
+                  leftSpacing='nano'
+                  rightSpacing='nano'
+                />
+              ) : (
+                <>
+                  <Button
+                    label='Update'
+                    variant='ghost'
+                    onClick={handleEnable}
+                    leftSpacing='nano'
+                    rightSpacing='nano'
+                  />
+                  <Spacer direction='horizontal' size='sm' />
+                  <Button
+                    label='Cancel'
+                    variant='ghost'
+                    onClick={handleEnable}
+                    leftSpacing='nano'
+                    rightSpacing='nano'
+                    shapeColor='danger'
+                  />
+                </>
+              )}
             </Column>
             <Column />
           </Row>
           <Row>
             <Column xs={12} md={4}>
-              <Spacer size='md' />
-              <Input id='Country:' label='Country:' readOnly={isReadonly} border='outside' />
-              <Spacer size='md' />
-              <Input
-                id='Legal Entity Name:'
-                label='Legal Entity Name:'
-                readOnly={isReadonly}
-                border='outside'
-              />
-              <Spacer size='md' />
-              <Input
-                id='Street Name:'
-                label='Street Name:'
-                readOnly={isReadonly}
-                border='outside'
-              />
-              <Spacer size='md' />
-              <Input id='Colonia:' label='Colonia:' readOnly={isReadonly} border='outside' />
-              <Spacer size='md' />
-              <Input id='Estado:' label='Estado:' readOnly={isReadonly} border='outside' />
+              <div className='form-control'>
+                <Input
+                  id='Country:'
+                  label='Country:'
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                  icon={<IconGrid />}
+                />
+              </div>
+              <div className='form-control'>
+                <Input
+                  id='Legal Entity Name:'
+                  label='Legal Entity Name:'
+                  icon={<IconGrid />}
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                />
+              </div>
+              <div className='form-control'>
+                <Input
+                  id='Street Name:'
+                  label='Street Name:'
+                  icon={<IconGrid />}
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                />
+              </div>
+              <div className='form-control'>
+                <Input
+                  id='Colonia:'
+                  label='Colonia:'
+                  icon={<IconGrid />}
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                />
+              </div>
+              <div className='form-control'>
+                <Input
+                  id='Estado:'
+                  label='Estado:'
+                  icon={<IconGrid />}
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                />
+              </div>
             </Column>
             <Column xs={12} md={4}>
-              <Spacer size='md' />
-              <Input
-                id='RFC'
-                label='Registro federal de contribuyentes:'
-                readOnly={isReadonly}
-                border='outside'
-              />
-              <Spacer size='md' />
-              <Input
-                id='RFC2'
-                label='Registro federal de contribuyentes:'
-                readOnly={isReadonly}
-                border='outside'
-              />
-              <Spacer size='md' />
-              <Input
-                id='RFC3'
-                label='Registro federal de contribuyentes:'
-                readOnly={isReadonly}
-                border='outside'
-              />
+              <div className='form-control'>
+                <Input
+                  id='RFC'
+                  label='Registro federal de contribuyentes:'
+                  icon={<IconGrid />}
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                />
+              </div>
+              <div className='form-control'>
+                <Input
+                  id='RFC2'
+                  label='Registro federal de contribuyentes:'
+                  icon={<IconGrid />}
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                />
+              </div>
+              <div className='form-control'>
+                <Input
+                  id='RFC3'
+                  label='Registro federal de contribuyentes:'
+                  readOnly={isReadonly}
+                  border={isReadonly ? 'none' : 'outside'}
+                  icon={<IconGrid />}
+                  defaultValue='Default value'
+                />
+              </div>
             </Column>
             <Column />
           </Row>

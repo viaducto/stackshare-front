@@ -1,6 +1,6 @@
 import React from 'react';
-import { Anchor, Column, Container, Grid, Row, Title } from '@jp-olvera/jp-viaducto-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Column, Container, Grid, Row, Title } from '@jp-olvera/jp-viaducto-components';
+import { NavLink, useLocation } from 'react-router-dom';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { VerticalSteps } from '../../components/VerticalSteps';
 
@@ -17,10 +17,7 @@ const Generic = ({ path }: { path?: string }) => {
     >
       <BodyMain>
         <div className='overflow'>
-          <Container
-            vertical='lg'
-            style={{ backgroundColor: 'white', height: '80vh', overflow: 'auto' }}
-          >
+          <Container vertical='lg' style={{ height: '80vh', overflow: 'auto' }}>
             <Container style={{ display: 'flex', justifyContent: 'center' }} expandHorizontal>
               <Title
                 style={{ cursor: 'pointer' }}
@@ -100,133 +97,115 @@ const Dashboard = () => (
         <Column>
           <Title level='3'>Authenticated user</Title>
           <Container vertical='md'>
-            <Link to='/new-org'>
-              <Anchor label='Create organization' color='primary' href='/new-org' />
-            </Link>
+            <NavLink className='link link-router' to='/new-org'>
+              Create organization
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to='/profile'>
-              <Anchor label='Profile' color='primary' href='/profile' />
-            </Link>
+            <NavLink className='link link-router' to='/profile'>
+              Profile
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to='/profile/billing'>
-              <Anchor
-                label='Personal Subscription & Billing'
-                color='primary'
-                href='/profile/billing'
-              />
-            </Link>
+            <NavLink className='link link-router' to='/profile/billing'>
+              Personal Subscription & Billing
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to='/profile/devices'>
-              <Anchor label='Personal Devices' color='primary' href='/profile/devices' />
-            </Link>
+            <NavLink className='link link-router' to='/profile/devices'>
+              Personal Devices
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to='/shop'>
-              <Anchor label='Stackshare Shop' color='primary' href='/shop' />
-            </Link>
+            <NavLink className='link link-router' to='/shop'>
+              Stackshare Shop
+            </NavLink>
           </Container>
         </Column>
         <Column>
           <Title level='3'>Organization User</Title>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/apps`}>
-              <Anchor
-                label='Organization apps'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/apps`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/apps`}
+            >
+              Organization apps
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/devices`}>
-              <Anchor
-                label='Organization devices'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/devices`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/devices`}
+            >
+              Organization devices
+            </NavLink>
           </Container>
         </Column>
         <Column>
           <Title level='3'>Organization Admin User</Title>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/devices`}>
-              <Anchor
-                label='Manage Org Devices'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/devices`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/devices`}
+            >
+              Manage Organization Devices
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/manage`}>
-              <Anchor
-                label='Manage Org'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/manage`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/manage`}
+            >
+              Manage Organization
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/billing`}>
-              <Anchor
-                label='Org Subscription & Billing'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/billing`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/billing`}
+            >
+              Organization Subscription & Billing
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/permissions`}>
-              <Anchor
-                label='Roles & User Groups'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/permissions`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/permissions`}
+            >
+              Roles & User Groups
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/permissions`}>
-              <Anchor
-                label='User Management'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/permissions`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/permissions`}
+            >
+              User Management
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link
+            <NavLink
+              className='link link-router'
               to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/infrastructure`}
             >
-              <Anchor
-                label='Manage Infrastructure'
-                color='primary'
-                href={`/organization/${
-                  Math.floor(Math.random() * (10 - 1 + 1)) + 1
-                }/infrastructure`}
-              />
-            </Link>
+              Manage Infrastructure
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/audit`}>
-              <Anchor
-                label='Organization Audit Logs'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/audit`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/audit`}
+            >
+              Organization Audit Logs
+            </NavLink>
           </Container>
           <Container vertical='md'>
-            <Link to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/metrics`}>
-              <Anchor
-                label='Organization Metrics'
-                color='primary'
-                href={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/metrics`}
-              />
-            </Link>
+            <NavLink
+              className='link link-router'
+              to={`/organization/${Math.floor(Math.random() * (10 - 1 + 1)) + 1}/metrics`}
+            >
+              Organization Metrics
+            </NavLink>
           </Container>
         </Column>
       </Row>
@@ -239,9 +218,9 @@ const NewOrg = ({ steps }: { steps: any }) => (
     <div>
       <VerticalSteps title='Create organization' steps={steps} />
       <Container vertical='md' expandHorizontal style={{ textAlign: 'center' }}>
-        <Link to='/'>
-          <Anchor label='Go to dashboard' color='primary' href='/' />
-        </Link>
+        <NavLink className='link link-router' to='/'>
+          Go to dashboard
+        </NavLink>
       </Container>
     </div>
   </Container>
@@ -257,23 +236,23 @@ const Profile = ({ path }: { path?: string }) => (
     <Title level='4'>This is the {path} page</Title>
     {path !== 'profile' && (
       <Container vertical='md'>
-        <Link to='/profile'>
-          <Anchor label='Profile' href='/profile' color='primary' />
-        </Link>
+        <NavLink className='link link-router' to='/profile'>
+          Profile
+        </NavLink>
       </Container>
     )}
     {path !== 'billing' && (
       <Container vertical='md'>
-        <Link to='/profile/billing'>
-          <Anchor label='Billing' href='/profile/billing' color='primary' />
-        </Link>
+        <NavLink className='link link-router' to='/profile/billing'>
+          Billing
+        </NavLink>
       </Container>
     )}
     {path !== 'devices' && (
       <Container vertical='md'>
-        <Link to='/profile/devices'>
-          <Anchor label='Devices' href='/profile/devices' color='primary' />
-        </Link>
+        <NavLink className='link link-router' to='/profile/devices'>
+          Devices
+        </NavLink>
       </Container>
     )}
   </Container>
@@ -281,8 +260,8 @@ const Profile = ({ path }: { path?: string }) => (
 
 const ShowPath = () => (
   <Container top='xl' expandHorizontal style={{ textAlign: 'center' }}>
-    <Link to='/'>
-      <Anchor label='Back to dashboard' color='primary' />
-    </Link>
+    <NavLink className='link link-router' to='/'>
+      Back to dashboard
+    </NavLink>
   </Container>
 );

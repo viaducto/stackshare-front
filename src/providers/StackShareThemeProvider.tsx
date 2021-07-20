@@ -57,6 +57,7 @@ const StackShareThemeProvider = ({ children }: any) => {
     const myConfig = {
       colors: {
         ...configuration.colors,
+        background: currentTheme.mainBackground,
         primary: {
           default: '#1890FF',
           hover: '#40A9FF',
@@ -92,19 +93,30 @@ const StackShareThemeProvider = ({ children }: any) => {
           text: '#fff',
           shadow: 'rgba(245, 34, 45, 0.3)',
         },
+        text: {
+          ...configuration.colors.text,
+          dark: currentTheme.title,
+          muttedGray: currentTheme.secondaryText,
+          primary: '#1890FF',
+        },
+        defaultInputBorderColor: '#d9d9d9',
+        table: {
+          background: '#fff',
+          footerColor: '#fff',
+          headerColor: '#FAFAFA',
+          selectedColor: '#d9d9d9',
+          zebraColor: '#F6F8FA',
+          hoverColor: '#D1D5DA',
+        },
       },
       drawerSizes: {
         sm: '28.563rem',
         md: '53rem',
         lg: '64rem',
       },
-      defaultInputBorderColor: '#d9d9d9',
-      text: {
-        ...configuration.textColors,
-        dark: currentTheme.title,
-        muttedGray: currentTheme.secondaryText,
-        primary: '#1890FF',
-      },
+
+      fontFamily: "'Source Sans Pro', sans-serif",
+      titleFontFamily: "'Source Sans Pro', sans-serif",
     };
     if (updateConfig !== undefined) {
       console.log('config components has been updated');
@@ -113,6 +125,11 @@ const StackShareThemeProvider = ({ children }: any) => {
       console.log(updateConfig);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    const html: HTMLHtmlElement | null = document.querySelector('html');
+    if (html !== null) {
+      html.style.backgroundColor = currentTheme.mainBackground;
+    }
+    // eslint-disable-next-line
   }, [currentTheme]);
 
   return (

@@ -62,7 +62,8 @@ const LocationManagement = () => {
       Header: 'Specification',
       accessor: 'specification',
       sortable: false,
-      minWidth: 180,
+      minWidth: 125,
+      maxWidth: 125,
       Filter: () => null,
       Cell: (props: any) => {
         return (
