@@ -181,10 +181,8 @@ const BillingSubscriptions = () => {
                   radius='sm'
                   name='Country'
                   id='Country'
-                  titleProps={{
-                    label: 'Country',
-                    position: 'outside',
-                  }}
+                  label='Country'
+                  labelPosition='outside'
                   disabled={isReadonly}
                 >
                   <option value='México'>México</option>

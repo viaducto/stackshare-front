@@ -538,16 +538,7 @@ export const MyAppsOrganizationDrawer = ({
                             />
                           </div>
                           <Spacer direction='horizontal' size='xs' />
-                          <Select
-                            radius='sm'
-                            border={{
-                              top: '0.063rem solid #d9d9d9',
-                              right: '0.063rem solid #d9d9d9',
-                              bottom: '0.063rem solid #d9d9d9',
-                              left: '0.063rem solid #d9d9d9',
-                            }}
-                            disabled={dataUsage}
-                          >
+                          <Select radius='sm' border='all' disabled={dataUsage}>
                             <option value='GB'>GB</option>
                             <option value='MB'>MB</option>
                           </Select>
@@ -567,16 +558,7 @@ export const MyAppsOrganizationDrawer = ({
                             />
                           </div>
                           <Spacer direction='horizontal' size='xs' />
-                          <Select
-                            radius='sm'
-                            border={{
-                              top: '0.063rem solid #d9d9d9',
-                              right: '0.063rem solid #d9d9d9',
-                              bottom: '0.063rem solid #d9d9d9',
-                              left: '0.063rem solid #d9d9d9',
-                            }}
-                            disabled={dataUsage}
-                          >
+                          <Select radius='sm' border='all' disabled={dataUsage}>
                             <option value='GB'>GB</option>
                             <option value='MB'>MB</option>
                           </Select>

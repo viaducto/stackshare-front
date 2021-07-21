@@ -204,16 +204,7 @@ const Buy = () => {
                 <Spacer direction='vertical' size='xs' />
                 {newBid ? (
                   <Container right='xxxl'>
-                    <Select
-                      inputSize='small'
-                      radius='sm'
-                      border={{
-                        top: '0.063rem solid #d9d9d9',
-                        right: '0.063rem solid #d9d9d9',
-                        bottom: '0.063rem solid #d9d9d9',
-                        left: '0.063rem solid #d9d9d9',
-                      }}
-                    >
+                    <Select inputSize='small' radius='sm'>
                       <option value='Bandwith'>Bandwith</option>
                       <option value='Secure Channel'>Secure Channel</option>
                       <option value='Data package'>Data package</option>
@@ -368,16 +359,7 @@ const Buy = () => {
                         />
                       </div>
                       <Spacer direction='horizontal' size='tiny' />
-                      <Select
-                        radius='sm'
-                        border={{
-                          top: '0.063rem solid #d9d9d9',
-                          right: '0.063rem solid #d9d9d9',
-                          bottom: '0.063rem solid #d9d9d9',
-                          left: '0.063rem solid #d9d9d9',
-                        }}
-                        disabled={disabledCap}
-                      >
+                      <Select radius='sm' disabled={disabledCap}>
                         <option value='GB'>GB</option>
                         <option value='MB'>MB</option>
                       </Select>

@@ -16,12 +16,6 @@ import {
 import { Add } from 'react-ikonate';
 
 const Overview = () => {
-  const borders = {
-    top: '0.063rem solid #d9d9d9',
-    bottom: '0.063rem solid #d9d9d9',
-    left: '0.063rem solid #d9d9d9',
-    right: '0.063rem solid #d9d9d9',
-  };
   return (
     <div style={{ height: '100%' }}>
       <Title level='6' weight='600' lineHeight='1.5rem'>
@@ -62,13 +56,13 @@ const Overview = () => {
         <Row>
           <Column size={5}>
             <Paragraph lineHeight='1.375rem'>Country</Paragraph>
-            <Select border={borders}>
+            <Select border='all'>
               <option value='USA'>USA</option>
             </Select>
           </Column>
           <Column size={5}>
             <Paragraph lineHeight='1.375rem'>State</Paragraph>
-            <Select border={borders}>
+            <Select border='all'>
               <option value='USA'>USA</option>
             </Select>
           </Column>
@@ -100,8 +94,8 @@ const Overview = () => {
           <Column size={3}>
             <Container
               horizontal='sm'
+              className='border-bottom'
               style={{
-                borderBottom: borders.bottom,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',

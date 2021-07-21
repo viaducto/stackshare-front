@@ -374,14 +374,7 @@ const LocationManagement = () => {
           </Row>
           <Row>
             <Column xs={12} md={4}>
-              <Select
-                border={{
-                  top: '1px solid #D9D9D9',
-                  left: '1px solid #D9D9D9',
-                  right: '1px solid #D9D9D9',
-                  bottom: '1px solid #D9D9D9',
-                }}
-              >
+              <Select border='all'>
                 <option value={currentLocation?.country}>{currentLocation?.country}</option>
               </Select>
               <Hideable visibleOn='md' after={false}>
@@ -389,14 +382,7 @@ const LocationManagement = () => {
               </Hideable>
             </Column>
             <Column xs={12} md={4}>
-              <Select
-                border={{
-                  top: '1px solid #D9D9D9',
-                  left: '1px solid #D9D9D9',
-                  right: '1px solid #D9D9D9',
-                  bottom: '1px solid #D9D9D9',
-                }}
-              >
+              <Select border='all'>
                 <option value={currentLocation?.state}>{currentLocation?.state}</option>
               </Select>
             </Column>

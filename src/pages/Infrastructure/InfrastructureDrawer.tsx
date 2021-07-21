@@ -17,13 +17,6 @@ import { ChevronLeft } from 'react-ikonate';
 import { DummyBadge } from '../BiddingTelco/StoryData';
 import Graph from '../BiddingTelco/Graph';
 
-const borders = {
-  top: '0.063rem solid #d9d9d9',
-  bottom: '0.063rem solid #d9d9d9',
-  left: '0.063rem solid #d9d9d9',
-  right: '0.063rem solid #d9d9d9',
-};
-
 const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Function }) => (
   <>
     <Container
@@ -101,13 +94,13 @@ const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Functi
       <Row>
         <Column size={5}>
           <Paragraph lineHeight='1.375rem'>Brand</Paragraph>
-          <Select border={borders}>
+          <Select border='all'>
             <option value='USA'>USA</option>
           </Select>
         </Column>
         <Column size={5}>
           <Paragraph lineHeight='1.375rem'>Inventory ID</Paragraph>
-          <Select border={borders}>
+          <Select border='all'>
             <option value='USA'>USA</option>
           </Select>
         </Column>
