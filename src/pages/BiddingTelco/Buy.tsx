@@ -48,7 +48,7 @@ const Buy = () => {
           { label: 'Bidding', href: '#', active: true },
         ]}
       >
-        <GroupTab horizontalSpacing='sm' fontSize='lg'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='Active Bids' active />
           <Tab text='Fullfilled' />
         </GroupTab>
@@ -104,6 +104,7 @@ const Buy = () => {
                     border='horizontal'
                     borderColor='#E8E8E8'
                     horizontalSpacing='sm'
+                    zebra={false}
                   >
                     <Table
                       cols={[

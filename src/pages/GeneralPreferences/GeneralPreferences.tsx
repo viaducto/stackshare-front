@@ -25,7 +25,7 @@ const GeneralPreferences = () => {
           { label: 'Organization', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='Overview' onFocus={() => setTab(0)} />
           <Tab text='Security' onFocus={() => setTab(1)} />
           <Tab text='Brand Localization' onFocus={() => setTab(2)} />

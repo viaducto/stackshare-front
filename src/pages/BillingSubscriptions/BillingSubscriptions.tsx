@@ -39,7 +39,7 @@ const BillingSubscriptions = () => {
           { label: 'User Management', href: '', active: false },
         ]}
       >
-        <GroupTab fontSize='lg'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='Summary' />
           <Tab text='Subscription' />
           <Tab text='Payment History' />

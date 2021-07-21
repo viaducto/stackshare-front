@@ -2,8 +2,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import {
   Container,
-  Breadcrum,
-  Breadcrums,
   Paragraph,
   Title,
   Spacer,
@@ -12,6 +10,8 @@ import {
   Select,
   WrapperTable,
   ConfigContext,
+  GroupTab,
+  Tab,
 } from '@jp-olvera/jp-viaducto-components';
 import { ArrowRight, ArrowRightTop, ArrowLeftBottom, Cup, Ellypsis, Person } from 'react-ikonate';
 import {
@@ -26,7 +26,7 @@ import {
   VerticalGridLines,
   LineMarkSeries,
 } from 'react-vis';
-import { BodyContent, BodyHeader, BodyMain } from '../../components/layout';
+import { BodyContent, BodyMain } from '../../components/layout';
 import Table from '../../components/Table/Table';
 import {
   socialColumns,
@@ -39,6 +39,7 @@ import {
   today,
 } from './DataTableGraph';
 import Graph from '../BiddingTelco/Graph';
+import HeaderSell from '../../components/SellParameters/HeaderSell';
 
 const GraphsPage = () => {
   const ref = useRef<any | null>(null);
@@ -62,18 +63,21 @@ const GraphsPage = () => {
       }}
     >
       {/* Header */}
-      <BodyHeader>
-        <Container vertical='sm'>
-          <Breadcrums>
-            <Breadcrum label='Home' href='/' />
-            <Breadcrum label='Graphs' active separator={false} />
-          </Breadcrums>
-          <Paragraph size='lg' weight='600' lineHeight='1.75rem'>
-            Graphs
-          </Paragraph>
-        </Container>
-        <Spacer size='sm ' />
-      </BodyHeader>
+      <HeaderSell
+        title='Graphs'
+        breadcrums={[
+          { label: 'Home', href: '', active: false },
+          { label: 'Graphs', href: '', active: true },
+        ]}
+      >
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+          <Tab text='short' />
+          <Tab text='Large' />
+          <Tab text='Store tab organization' />
+          <Tab text='Very large tab with text long and still works' />
+          <Tab text='a' />
+        </GroupTab>
+      </HeaderSell>
 
       {/* Content */}
       <BodyMain>
@@ -831,7 +835,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' weight='600'>
                     Most Visited Pages
                   </Paragraph>
-                  <WrapperTable border='horizontal' horizontalSpacing='sm'>
+                  <WrapperTable border='horizontal' horizontalSpacing='sm' zebra={false}>
                     <Table
                       cols={visitedColumns}
                       dataTable={visitedPages}
@@ -844,7 +848,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' weight='600'>
                     Social Media Traffic
                   </Paragraph>
-                  <WrapperTable border='horizontal' horizontalSpacing='sm'>
+                  <WrapperTable border='horizontal' horizontalSpacing='sm' zebra={false}>
                     <Table
                       cols={socialColumns}
                       dataTable={socialMedia}

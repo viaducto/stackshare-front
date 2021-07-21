@@ -58,35 +58,29 @@ describe('Sell parameters', () => {
     });
 
     describe('Calendar', () => {
+      const init = cy
+        .contains(/Advanced/g)
+        .click()
+        .then(() => {
+          cy.contains(/Uptime/g)
+            .eq(0)
+            .click();
+        });
       it('should open popover', () => {
-        cy.contains(/Advanced/g)
-          .click()
-          .then(() => {
-            cy.contains(/Uptime/g)
-              .eq(0)
-              .click()
-              .then(() => {
-                cy.contains(/Expires by/g).should('be.visible');
-              });
-          });
+        init.then(() => {
+          cy.contains(/Expires by/g).should('be.visible');
+        });
       });
 
       it('should open drawer', () => {
-        cy.contains(/Advanced/g)
-          .click()
-          .then(() => {
-            cy.contains(/Uptime/g)
-              .eq(0)
-              .click()
-              .then(() => {
-                cy.get('button')
-                  .eq(3)
-                  .click()
-                  .then(() => {
-                    cy.contains(/Time preset/g).should('be.visible');
-                  });
-              });
-          });
+        init.then(() => {
+          cy.get('button')
+            .eq(3)
+            .click()
+            .then(() => {
+              cy.contains(/Time preset/g).should('be.visible');
+            });
+        });
       });
     });
   });

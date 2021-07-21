@@ -116,7 +116,7 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
               </Paragraph>
             </Container>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <GroupTab fontSize='lg'>
+              <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
                 <Tab text='Bandwidth' />
                 <Tab text='Packages' />
                 <Tab text='Secure channels' />

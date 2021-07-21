@@ -2,6 +2,10 @@
 
 This is the front-end Stackshare project made with React
 
+### Codacy Code Quality
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/416a3942a19840668ba421fe409de157)](https://www.codacy.com/gh/viaducto/stackshare-front/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=viaducto/stackshare-front&amp;utm_campaign=Badge_Grade)
+
 ## Instalation
 
 ```js

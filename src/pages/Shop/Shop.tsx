@@ -45,7 +45,7 @@ const Shop = () => {
           { label: 'Invoices', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab onFocus={() => setTab(0)} text='Store' id='store' active={tab === 0} />
           <Tab onFocus={() => setTab(1)} text='My apps' id='apps' active={tab === 1} />
           <Tab

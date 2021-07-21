@@ -42,7 +42,7 @@ const PermissionManagement = () => {
           { label: 'User Management', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='Roles' active />
           <Tab text='Default Roles' />
           <Tab text='Custom Roles' />
@@ -88,7 +88,7 @@ const PermissionManagement = () => {
               </div>
             </div>
             <Container className='overflow'>
-              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA'>
+              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA' zebra={false}>
                 <Table
                   filter={false}
                   cols={[

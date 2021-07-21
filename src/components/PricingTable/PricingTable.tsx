@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PricingColumn from './PricingColumn';
 import TimeBlock from './TimeBlock';
-import { Button, Paragraph, Spacer, Title } from '@jp-olvera/jp-viaducto-components';
+import { Button, Spacer, Title } from '@jp-olvera/jp-viaducto-components';
 import { getWeek } from '../../utils/getWeek';
 import Day from './Day';
 

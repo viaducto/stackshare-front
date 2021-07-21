@@ -38,7 +38,7 @@ const Infrastructure = () => {
           { label: 'Invoices', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='All Items' active />
           <Tab text='Backbone' />
           <Tab text='Points of Presence' />
@@ -85,7 +85,7 @@ const Infrastructure = () => {
               </div>
             </div>
             <Container className='overflow'>
-              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA'>
+              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA' zebra={false}>
                 <Table
                   filter={false}
                   cols={[

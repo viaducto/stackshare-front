@@ -249,7 +249,7 @@ const LocationManagement = () => {
           { label: 'User Management', href: '', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='All Locations' />
           <Tab text='Country' />
           <Tab text='Region' />
@@ -275,7 +275,7 @@ const LocationManagement = () => {
               flexWrap: 'wrap',
             }}
           >
-            <WrapperTable border='horizontal'>
+            <WrapperTable border='horizontal' zebra={false}>
               <Table cols={columns} dataTable={data} />
             </WrapperTable>
           </Container>
@@ -438,7 +438,7 @@ const LocationManagement = () => {
           <Row>
             <Column size={12}>
               <Container className='overflow'>
-                <WrapperTable>
+                <WrapperTable zebra={false}>
                   <Table cols={infrastructureColumns} dataTable={infrastructureData} />
                 </WrapperTable>
               </Container>

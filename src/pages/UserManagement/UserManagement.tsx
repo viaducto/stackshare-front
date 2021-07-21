@@ -59,7 +59,7 @@ const UserManagement = () => {
           { label: 'User Management', href: '', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='All users' />
           <Tab text='Active Users' />
           <Tab text='Inactive Users' />
@@ -81,7 +81,7 @@ const UserManagement = () => {
               flexWrap: 'wrap',
             }}
           >
-            <WrapperTable>
+            <WrapperTable zebra={false}>
               <Table
                 cols={[
                   { Header: 'Name', accessor: 'name', Filter: () => null },
@@ -292,7 +292,7 @@ const UserManagement = () => {
                 <hr />
                 <Container bottom='lg' top='sm'>
                   <div className='flex'>
-                    <GroupTab>
+                    <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
                       <Tab
                         text='Overview'
                         active={showApps}
@@ -326,7 +326,7 @@ const UserManagement = () => {
                       </div>
                     </>
                   ) : (
-                    <WrapperTable hover={false}>
+                    <WrapperTable hover={false} zebra={false}>
                       <table>
                         <thead>
                           <tr>
