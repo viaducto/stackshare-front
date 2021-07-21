@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { BodyMain } from '../../components/layout';
 import {
@@ -15,6 +16,7 @@ import {
   Title,
   Switch,
   WrapperTable,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { Plus, Cup } from 'react-ikonate';
 import Table from '../../components/Table/Table';
@@ -25,7 +27,8 @@ import Kebab from '../../components/Kebab/Kebab';
 const UserManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
   const [selectedUser, setselectedUser] = useState<null | any>(null);
-
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   const handleAction = (userProps: any) => {
     setselectedUser(userProps);
     console.log(userProps);
@@ -277,7 +280,7 @@ const UserManagement = () => {
                       <div
                         style={{ display: 'flex', alignItems: 'center', alignContent: 'center' }}
                       >
-                        <Cup />
+                        <Cup color={dark} />
                         <Spacer size='sm' direction='horizontal' />
                         <Paragraph size='md' color='gray'>
                           $127 USD mo.

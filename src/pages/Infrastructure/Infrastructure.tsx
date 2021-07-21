@@ -1,5 +1,6 @@
 import {
   Button,
+  ConfigContext,
   Container,
   Drawer,
   GroupTab,
@@ -7,7 +8,7 @@ import {
   Tab,
   WrapperTable,
 } from '@jp-olvera/jp-viaducto-components';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
 import Kebab from '../../components/Kebab/Kebab';
 import { BodyContent, BodyMain } from '../../components/layout';
@@ -19,6 +20,8 @@ import InfrastructureDrawer from './InfrastructureDrawer';
 const Infrastructure = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [type, setType] = useState<string>('Type');
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   return (
     <BodyContent
       style={{
@@ -60,7 +63,7 @@ const Infrastructure = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<Filter color='#595959' fontSize='1rem' />}
+                  icon={<Filter color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'
@@ -72,7 +75,7 @@ const Infrastructure = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                  icon={<EllypsisVertical color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'

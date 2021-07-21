@@ -1,7 +1,13 @@
 import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { SidebarSection, MenuItem, Container, Switch } from '@jp-olvera/jp-viaducto-components';
+import {
+  SidebarSection,
+  MenuItem,
+  Container,
+  Switch,
+  ConfigContext,
+} from '@jp-olvera/jp-viaducto-components';
 import { Suitcase, Grid, Activity } from 'react-ikonate';
 import { AppContext, StackShareThemeContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
@@ -41,13 +47,16 @@ const StackMenu = () => {
   const { isMenuActive } = useContext(AppContext);
   const { pathname } = useLocation();
   const { isDarkMode, setDarkMode } = useContext(StackShareThemeContext);
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
+
   return (
     <StyledStackMenu active={isMenuActive}>
       <Container vertical='md' expandHorizontal horizontal='sm'>
         <Logo />
       </Container>
       <Container vertical='md' style={{ position: 'relative' }}>
-        <SidebarSection title='Auctions' isDropdown icon={<Suitcase />}>
+        <SidebarSection title='Auctions' isDropdown icon={<Suitcase color={dark} />}>
           <Link to='/buy' className='link-router'>
             <MenuItem label='Buy parameters' nested active={pathname === '/buy'} />
           </Link>
@@ -59,10 +68,20 @@ const StackMenu = () => {
           </Link>
         </SidebarSection>
         <Link to='/shop' className='link-router'>
-          <MenuItem label='Bytebroker shop' lead icon={<Grid />} active={pathname === '/shop'} />
+          <MenuItem
+            label='Bytebroker shop'
+            lead
+            icon={<Grid color={dark} />}
+            active={pathname === '/shop'}
+          />
         </Link>
         <Link to='/graphs' className='link-router'>
-          <MenuItem label='Graphs' lead icon={<Activity />} active={pathname === '/graphs'} />
+          <MenuItem
+            label='Graphs'
+            lead
+            icon={<Activity color={dark} />}
+            active={pathname === '/graphs'}
+          />
         </Link>
       </Container>
       <hr />

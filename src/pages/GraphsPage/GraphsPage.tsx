@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import {
   Container,
   Breadcrum,
@@ -11,6 +11,7 @@ import {
   Popover,
   Select,
   WrapperTable,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { ArrowRight, ArrowRightTop, ArrowLeftBottom, Cup, Ellypsis, Person } from 'react-ikonate';
 import {
@@ -49,6 +50,8 @@ const GraphsPage = () => {
   const showInfo = () => {
     setActivePopover(true);
   };
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
 
   return (
     <BodyContent
@@ -117,7 +120,7 @@ const GraphsPage = () => {
                     </Paragraph>
                   </Container>
                 </div>
-                <Paragraph color='#9EA0A5' size='sm' lineHeight='1.125rem'>
+                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
                   Total Invoiced
                 </Paragraph>
               </Container>
@@ -149,7 +152,7 @@ const GraphsPage = () => {
                     </Paragraph>
                   </Container>
                 </div>
-                <Paragraph color='#9EA0A5' size='sm' lineHeight='1.125rem'>
+                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
                   Unpaid Invoices
                 </Paragraph>
               </Container>
@@ -181,7 +184,7 @@ const GraphsPage = () => {
                     </Paragraph>
                   </Container>
                 </div>
-                <Paragraph color='#9EA0A5' size='sm' lineHeight='1.125rem'>
+                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
                   Total Expenses
                 </Paragraph>
               </Container>
@@ -193,11 +196,11 @@ const GraphsPage = () => {
                 <div
                   style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                 >
-                  <Title level='3' lineHeight='2.375rem' color='#9EA0A5'>
+                  <Title level='3' lineHeight='2.375rem' color={dark}>
                     £0
                   </Title>
                 </div>
-                <Paragraph color='#9EA0A5' size='sm' lineHeight='1.125rem'>
+                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
                   Unpaid Expenses
                 </Paragraph>
               </Container>
@@ -238,8 +241,8 @@ const GraphsPage = () => {
                   </Paragraph>
                   <Anchor
                     label='See more'
-                    icon={<ArrowRight color='#9EA0A5' fontSize='1rem' />}
-                    color='#9EA0A5'
+                    icon={<ArrowRight color={dark} fontSize='1rem' />}
+                    color={dark}
                   />
                 </div>
                 <Spacer size='xl' />
@@ -271,7 +274,7 @@ const GraphsPage = () => {
                           strokeDasharray: '2 2',
                           fill: 'none',
                         }}
-                        color='#9EA0A5'
+                        color={dark}
                         data={[
                           { x: 1, y: 3 },
                           { x: 2, y: 4 },
@@ -288,7 +291,7 @@ const GraphsPage = () => {
                     <Title level='D2' color='success' lineHeight='5rem'>
                       32%
                     </Title>
-                    <Paragraph color='#9EA0A5' size='sm' lineHeight='1.125rem' weight='500'>
+                    <Paragraph color={dark} size='sm' lineHeight='1.125rem' weight='500'>
                       6 Months Increase
                     </Paragraph>
                   </div>
@@ -329,7 +332,7 @@ const GraphsPage = () => {
                           strokeDasharray: '2 2',
                           fill: 'none',
                         }}
-                        color='#9EA0A5'
+                        color={dark}
                         data={[
                           { x: 1, y: 1.5 },
                           { x: 2, y: 5 },
@@ -352,7 +355,7 @@ const GraphsPage = () => {
                     <Title level='D2' color='success' lineHeight='5rem'>
                       9%
                     </Title>
-                    <Paragraph color='#9EA0A5' size='sm' lineHeight='1.125rem' weight='500'>
+                    <Paragraph color={dark} size='sm' lineHeight='1.125rem' weight='500'>
                       Yearly Increase
                     </Paragraph>
                   </div>
@@ -374,8 +377,8 @@ const GraphsPage = () => {
                   </Paragraph>
                   <Anchor
                     label='See more'
-                    icon={<ArrowRight color='#9EA0A5' fontSize='1rem' />}
-                    color='#9EA0A5'
+                    icon={<ArrowRight color={dark} fontSize='1rem' />}
+                    color={dark}
                   />
                 </div>
                 <Spacer size='xl' />
@@ -418,7 +421,7 @@ const GraphsPage = () => {
                     <Title level='D4' lineHeight='3.75rem' align='right'>
                       £12,595
                     </Title>
-                    <Paragraph align='right' size='sm' color='#9EA0A5' lineHeight='1.125rem'>
+                    <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
                       {'Invoiced this month'.toUpperCase()}
                     </Paragraph>
                     <Spacer size='sm' />
@@ -523,7 +526,7 @@ const GraphsPage = () => {
                   <Paragraph
                     weight='bold'
                     size='sm'
-                    color='#9EA0A5'
+                    color={dark}
                     lineHeight='1.125rem'
                     align='center'
                   >
@@ -595,7 +598,7 @@ const GraphsPage = () => {
                   <Paragraph
                     weight='bold'
                     size='sm'
-                    color='#9EA0A5'
+                    color={dark}
                     lineHeight='1.125rem'
                     align='center'
                   >
@@ -667,7 +670,7 @@ const GraphsPage = () => {
                   <Paragraph
                     weight='bold'
                     size='sm'
-                    color='#9EA0A5'
+                    color={dark}
                     lineHeight='1.125rem'
                     align='center'
                   >
@@ -738,7 +741,7 @@ const GraphsPage = () => {
                   <Paragraph
                     weight='bold'
                     size='sm'
-                    color='#9EA0A5'
+                    color={dark}
                     lineHeight='1.125rem'
                     align='center'
                   >
@@ -962,7 +965,7 @@ const GraphsPage = () => {
                       </div>
                     </div>
                     <div>
-                      <Ellypsis fontSize={22} color='#9EA0A5' />
+                      <Ellypsis fontSize={22} color={dark} />
                     </div>
                   </Container>
                 </div>
@@ -1016,7 +1019,7 @@ const GraphsPage = () => {
                         <Title level='3' lineHeight='3.75rem' align='right'>
                           $2,595
                         </Title>
-                        <Paragraph align='right' size='sm' color='#9EA0A5' lineHeight='1.125rem'>
+                        <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
                           {'Invoiced'.toUpperCase()}
                         </Paragraph>
                         <Spacer size='sm' />
@@ -1025,7 +1028,7 @@ const GraphsPage = () => {
                         <Title level='3' lineHeight='2rem' align='right'>
                           23
                         </Title>
-                        <Paragraph align='right' size='sm' color='#9EA0A5' lineHeight='1.125rem'>
+                        <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
                           {'Invoices'.toUpperCase()}
                         </Paragraph>
                       </div>
@@ -1077,7 +1080,7 @@ const GraphsPage = () => {
                       </div>
                     </div>
                     <div>
-                      <Ellypsis fontSize={22} color='#9EA0A5' />
+                      <Ellypsis fontSize={22} color={dark} />
                     </div>
                   </Container>
                 </div>
@@ -1131,7 +1134,7 @@ const GraphsPage = () => {
                         <Title level='3' lineHeight='3.75rem' align='right'>
                           2,452
                         </Title>
-                        <Paragraph align='right' size='sm' color='#9EA0A5' lineHeight='1.125rem'>
+                        <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
                           {'Onboarded'.toUpperCase()}
                         </Paragraph>
                         <Spacer direction='vertical' size='md' />
@@ -1186,7 +1189,7 @@ const GraphsPage = () => {
                   <Paragraph size='lg' weight='600'>
                     Daily Active Clients
                   </Paragraph>
-                  <Ellypsis fontSize={22} color='#9EA0A5' />
+                  <Ellypsis fontSize={22} color={dark} />
                 </Container>
                 <Container top='xl' bottom='md' horizontal='md'>
                   <XYPlot width={670} height={200} margin={{ left: 10, right: 10, bottom: 20 }}>
@@ -1229,7 +1232,7 @@ const GraphsPage = () => {
         content={
           <Container expandVertical expandHorizontal vertical='lg' horizontal='lg'>
             <Container>
-              <Paragraph weight='bold' size='sm' color='#9EA0A5' lineHeight='1.125rem'>
+              <Paragraph weight='bold' size='sm' color={dark} lineHeight='1.125rem'>
                 {today.toUpperCase()}
               </Paragraph>
               <Spacer size='sm' />

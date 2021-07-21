@@ -1,5 +1,12 @@
-import React, { useMemo, useEffect, forwardRef, useRef, useState } from 'react';
-import { Button, Paragraph, Input, Container, Spacer } from '@jp-olvera/jp-viaducto-components';
+import React, { useMemo, useEffect, forwardRef, useRef, useState, useContext } from 'react';
+import {
+  Button,
+  Paragraph,
+  Input,
+  Container,
+  Spacer,
+  ConfigContext,
+} from '@jp-olvera/jp-viaducto-components';
 import {
   useTable,
   useRowSelect,
@@ -26,6 +33,9 @@ import {
 } from 'react-ikonate';
 
 const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
+
   const [value, setValue] = useState(globalFilter);
   const onChangeVal = useAsyncDebounce((value) => {
     setGlobalFilter(value || undefined);
@@ -34,7 +44,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   return (
     <Input
       label='Search'
-      icon={<Search />}
+      icon={<Search color={dark} />}
       inputSize='small'
       border='outside'
       defaultValue={value || ''}
@@ -57,6 +67,9 @@ const Table = ({
   filter?: boolean;
   pagination?: boolean;
 }) => {
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
+
   const defaultColumn = useMemo(() => ({}), []);
   const renderRowSubComponent = React.useCallback(({ row }) => row.original.expandible, []);
   const {
@@ -214,7 +227,7 @@ const Table = ({
               leftSpacing='sm'
               iconSpacing='none'
               rightSpacing='sm'
-              icon={<Filter color='#595959' fontSize='1rem' />}
+              icon={<Filter color={dark} fontSize='1rem' />}
               type='button'
               onClick={() => {}}
               variant='outline'
@@ -332,7 +345,7 @@ const Table = ({
                     leftSpacing='sm'
                     iconSpacing='none'
                     rightSpacing='sm'
-                    icon={<ChevronsLeft />}
+                    icon={<ChevronsLeft color={dark} />}
                     onClick={() => gotoPage(0)}
                     type='button'
                     disabled={!canPreviousPage}
@@ -343,7 +356,7 @@ const Table = ({
                     leftSpacing='sm'
                     iconSpacing='none'
                     rightSpacing='sm'
-                    icon={<ChevronLeft />}
+                    icon={<ChevronLeft color={dark} />}
                     type='button'
                     onClick={() => previousPage()}
                     disabled={!canPreviousPage}
@@ -359,13 +372,13 @@ const Table = ({
                     disabled={!canNextPage}
                     variant='outline'
                     height='2.063rem'
-                    icon={<ChevronRight />}
+                    icon={<ChevronRight color={dark} />}
                   />
                   <Button
                     leftSpacing='sm'
                     iconSpacing='none'
                     rightSpacing='sm'
-                    icon={<ChevronsRight />}
+                    icon={<ChevronsRight color={dark} />}
                     type='button'
                     onClick={() => gotoPage(pageCount - 1)}
                     disabled={!canNextPage}

@@ -83,7 +83,6 @@ export const GlobalStyle: any = createGlobalStyle`
     border-radius: 1rem !important;
     color: white !important;
     padding: 0.63rem .5rem !important;
-    border: 0.063rem solid white !important;
     box-sizing: border-box;
   }
 

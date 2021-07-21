@@ -1,7 +1,8 @@
 import React, { useRef, useCallback } from 'react';
-import { Button, Popover } from '@jp-olvera/jp-viaducto-components';
+import { Button, ConfigContext, Popover } from '@jp-olvera/jp-viaducto-components';
 import { EllypsisVertical } from 'react-ikonate';
 import { useState } from 'react';
+import { useContext } from 'react';
 
 const Kebab = ({ children, ...rest }: { children: React.ReactNode }) => {
   const ref = useRef<any>(null);
@@ -9,11 +10,13 @@ const Kebab = ({ children, ...rest }: { children: React.ReactNode }) => {
   const handleClose = useCallback(() => {
     setActive((d) => !d);
   }, []);
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   return (
     <>
       <Button
         radius='sm'
-        icon={<EllypsisVertical />}
+        icon={<EllypsisVertical color={dark} />}
         ref={ref}
         onClick={handleClose}
         {...rest}

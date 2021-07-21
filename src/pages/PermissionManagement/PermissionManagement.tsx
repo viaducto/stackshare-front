@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Button,
   Container,
@@ -10,6 +10,7 @@ import {
   Row,
   Column,
   GroupTab,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -23,6 +24,8 @@ import Kebab from '../../components/Kebab/Kebab';
 const PermissionManagement = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [create, setCreate] = useState<boolean>(false);
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   return (
     <BodyContent
       style={{
@@ -63,7 +66,7 @@ const PermissionManagement = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<Filter color='#595959' fontSize='1rem' />}
+                  icon={<Filter color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'
@@ -75,7 +78,7 @@ const PermissionManagement = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                  icon={<EllypsisVertical color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'

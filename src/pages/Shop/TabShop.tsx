@@ -19,12 +19,11 @@ import {
   GroupTab,
   ButtonDatalist,
 } from '@jp-olvera/jp-viaducto-components';
-import { Film, ListAlt, Info, Dolar } from 'react-ikonate';
+import { Film, ListAlt, Info, Dolar, Search } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import { appsData } from './AppsData';
 import { colsTabOne, colsTabZero } from './Columns';
 import AccumulatedBilling from '../../components/AccumulatedBilling/AccumulatedBilling';
-import { Search } from 'react-ikonate';
 import { useState } from 'react';
 
 export const StoreTab = ({
@@ -538,7 +537,7 @@ export const MyAppsOrganizationDrawer = ({
                             />
                           </div>
                           <Spacer direction='horizontal' size='xs' />
-                          <Select radius='sm' border='all' disabled={dataUsage}>
+                          <Select radius='sm' border='all' inputSize='small' disabled={dataUsage}>
                             <option value='GB'>GB</option>
                             <option value='MB'>MB</option>
                           </Select>
@@ -558,7 +557,7 @@ export const MyAppsOrganizationDrawer = ({
                             />
                           </div>
                           <Spacer direction='horizontal' size='xs' />
-                          <Select radius='sm' border='all' disabled={dataUsage}>
+                          <Select radius='sm' border='all' inputSize='small' disabled={dataUsage}>
                             <option value='GB'>GB</option>
                             <option value='MB'>MB</option>
                           </Select>
@@ -701,7 +700,7 @@ export const MyAppsOrganizationDrawer = ({
                   width: '95%',
                 }}
               >
-                <Paragraph color='#000000'>Monthly price calculated at market value</Paragraph>
+                <Paragraph>Monthly price calculated at market value</Paragraph>
                 <Button label='Add app' onClick={() => setOpenTable(false)} />
               </div>
             </Container>

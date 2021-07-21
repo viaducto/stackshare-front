@@ -6,6 +6,7 @@ import {
   Grid,
   Row,
   Column,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 import { Hamburger, Help, ChevronDown } from 'react-ikonate';
@@ -36,6 +37,8 @@ const StyledNavbar = styled.nav`
 /** Bar navigation, this goes in the Body Component */
 const Navbar = () => {
   const { showMenu } = useContext(AppContext);
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
 
   return (
     <StyledNavbar className='border-bottom'>
@@ -45,10 +48,10 @@ const Navbar = () => {
             <Column>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <button className='bare-button' onClick={showMenu}>
-                  <Hamburger fontSize='1.5rem' color='#595959' />
+                  <Hamburger fontSize='1.5rem' color={dark} />
                 </button>
                 <div className='user-navbar'>
-                  <Help fontSize='1.5rem' color='#595959' />
+                  <Help fontSize='1.5rem' color={dark} />
                   <Notification number={12} />
                   <AvatarWithText
                     avatar={{
@@ -61,7 +64,7 @@ const Navbar = () => {
                   >
                     <div className='user-data'>
                       <Paragraph>Ted Russell</Paragraph>
-                      <ChevronDown fontSize='0.9rem' color='#595959' />
+                      <ChevronDown fontSize='0.9rem' color={dark} />
                     </div>
                   </AvatarWithText>
                 </div>

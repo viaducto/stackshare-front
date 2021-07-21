@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Button,
   Column,
@@ -15,6 +15,7 @@ import {
   Tab,
   WrapperTable,
   GroupTab,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { dummyData, buyColumns, DummyBadge } from './StoryData';
@@ -30,6 +31,8 @@ const Buy = () => {
   const [disabledCap, setDisabledCap] = useState(true);
   const [disabledType, setDisabledType] = useState(true);
   const [data, setData] = useState<any>({});
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   return (
     <BodyContent
       style={{
@@ -72,7 +75,7 @@ const Buy = () => {
                       leftSpacing='sm'
                       iconSpacing='none'
                       rightSpacing='sm'
-                      icon={<Filter color='#595959' fontSize='1rem' />}
+                      icon={<Filter color={dark} fontSize='1rem' />}
                       type='button'
                       onClick={() => {}}
                       variant='outline'
@@ -84,7 +87,7 @@ const Buy = () => {
                       leftSpacing='sm'
                       iconSpacing='none'
                       rightSpacing='sm'
-                      icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                      icon={<EllypsisVertical color={dark} fontSize='1rem' />}
                       type='button'
                       onClick={() => {}}
                       variant='outline'
@@ -400,7 +403,7 @@ const Buy = () => {
                       <div style={{ width: '80%' }}>
                         <Input
                           type='text'
-                          icon={<GridIcon />}
+                          icon={<GridIcon color={dark} />}
                           disabled={disabledType}
                           inputSize='small'
                           border='outside'
