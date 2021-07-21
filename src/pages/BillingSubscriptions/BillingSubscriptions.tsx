@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   AvatarWithText,
   Button,
@@ -13,6 +13,7 @@ import {
   Title,
   Paragraph,
   Select,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -23,6 +24,9 @@ import master from './mastercard.svg';
 
 const BillingSubscriptions = () => {
   const [isReadonly, setIsReadonly] = useState(true);
+  const { configuration } = useContext(ConfigContext);
+  const { defaultInputBorderColor: borderColor } = configuration.colors;
+
   const handleEnable = () => {
     setIsReadonly(!isReadonly);
   };
@@ -195,7 +199,7 @@ const BillingSubscriptions = () => {
                   id='Legal Entity Name:'
                   label='Legal Entity Name:'
                   readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
+                  borderColor={isReadonly ? 'transparent' : borderColor}
                 />
               </div>
               <div className='form-control'>
@@ -203,7 +207,7 @@ const BillingSubscriptions = () => {
                   id='Street Name:'
                   label='Street Name:'
                   readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
+                  borderColor={isReadonly ? 'transparent' : borderColor}
                 />
               </div>
               <div className='form-control'>
@@ -211,7 +215,7 @@ const BillingSubscriptions = () => {
                   id='Colonia:'
                   label='Colonia:'
                   readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
+                  borderColor={isReadonly ? 'transparent' : borderColor}
                 />
               </div>
               <div className='form-control'>
@@ -219,7 +223,7 @@ const BillingSubscriptions = () => {
                   id='Estado:'
                   label='Estado:'
                   readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
+                  borderColor={isReadonly ? 'transparent' : borderColor}
                 />
               </div>
             </Column>
@@ -229,7 +233,7 @@ const BillingSubscriptions = () => {
                   id='RFC'
                   label='Registro federal de contribuyentes:'
                   readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
+                  borderColor={isReadonly ? 'transparent' : borderColor}
                 />
               </div>
               <div className='form-control'>
@@ -237,7 +241,7 @@ const BillingSubscriptions = () => {
                   id='RFC2'
                   label='Registro federal de contribuyentes:'
                   readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
+                  borderColor={isReadonly ? 'transparent' : borderColor}
                 />
               </div>
               <div className='form-control'>
@@ -245,7 +249,7 @@ const BillingSubscriptions = () => {
                   id='RFC3'
                   label='Registro federal de contribuyentes:'
                   readOnly={isReadonly}
-                  border={isReadonly ? 'none' : 'outside'}
+                  borderColor={isReadonly ? 'transparent' : borderColor}
                 />
               </div>
             </Column>
