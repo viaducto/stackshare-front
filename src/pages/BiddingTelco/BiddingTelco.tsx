@@ -43,7 +43,9 @@ const BiddingTelco = () => {
           { label: 'Auctions', href: '#', active: false },
           { label: 'Bidding', href: '#', active: true },
         ]}
-      />
+      >
+        <Spacer size='sm' />
+      </HeaderSell>
 
       {/* Body */}
       <div style={{ height: '77vh', width: '100%' }}>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Spacer } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import SellParameters from '../../components/SellParameters/SellParameters';
@@ -24,7 +25,9 @@ const BiddingB2B = () => {
           { label: 'Auctions', href: '#', active: false },
           { label: 'Bidding', href: '#', active: true },
         ]}
-      />
+      >
+        <Spacer size='sm' />
+      </HeaderSell>
       {/* Body */}
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
         <BodyMain className='overflow' style={{ width: '100%' }}>

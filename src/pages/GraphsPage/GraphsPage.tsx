@@ -72,6 +72,7 @@ const GraphsPage = () => {
             Graphs
           </Paragraph>
         </Container>
+        <Spacer size='sm ' />
       </BodyHeader>
 
       {/* Content */}
