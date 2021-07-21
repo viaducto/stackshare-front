@@ -20,4 +20,7 @@ export type StackshareThemeProps = {
     zebraColor: string;
     hoverColor: string;
   };
+  pricingTableBackground: string;
+  pricingTableBorder: string;
+  pricingTableBackground2: string;
 };

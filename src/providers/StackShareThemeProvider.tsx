@@ -25,6 +25,9 @@ export const defaultTheme: StackshareThemeProps = {
     zebraColor: '#F6F8FA',
     hoverColor: '#D1D5DA',
   },
+  pricingTableBackground: 'white',
+  pricingTableBorder: '#ebebeb',
+  pricingTableBackground2: '#ebebeb',
 };
 
 export const darkTheme: StackshareThemeProps = {
@@ -49,6 +52,9 @@ export const darkTheme: StackshareThemeProps = {
     zebraColor: '#07070733',
     hoverColor: '#07070766',
   },
+  pricingTableBackground: '#07070766',
+  pricingTableBorder: '#756c6c66',
+  pricingTableBackground2: '#25222299',
 };
 
 export const StackShareThemeContext = createContext({
@@ -68,7 +74,6 @@ const StackShareThemeProvider = ({ children }: any) => {
       setCurrentTheme(darkTheme);
     }
     setIsDark((e) => !e);
-    console.log(isDark);
   };
 
   useEffect(() => {
@@ -131,6 +136,10 @@ const StackShareThemeProvider = ({ children }: any) => {
         },
         defaultInputBorderColor: '#d9d9d9',
         table: currentTheme.table,
+        navigation: {
+          background: '#177cef1f',
+          color: '#177def',
+        },
       },
       drawerSizes: {
         sm: '28.563rem',
@@ -142,10 +151,7 @@ const StackShareThemeProvider = ({ children }: any) => {
       titleFontFamily: "'Source Sans Pro', sans-serif",
     };
     if (updateConfig !== undefined) {
-      console.log('config components has been updated');
       updateConfig(myConfig);
-    } else {
-      console.log(updateConfig);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const html: HTMLHtmlElement | null = document.querySelector('html');

@@ -1,5 +1,15 @@
+import styled from 'styled-components';
 import EmptySlot from './EmptySlot';
 import Slot from './Slot';
+
+const StyledPricingColumn = styled.div<any>`
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: ${(p) =>
+    p.isCurrentMonth ? p.theme.pricingTableBackground : p.theme.pricingTableBackground2};
+`;
 interface BiddingTimeProps {
   price: number;
   start_time: string;
@@ -63,17 +73,7 @@ const PricingColumn = ({
   };
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        boxSizing: 'border-box',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: isCurrentMonth ? 'white' : '#ebebeb',
-      }}
-      className={className}
-      {...rest}
-    >
+    <StyledPricingColumn className={className} {...rest} isCurrentMonth={isCurrentMonth}>
       {getEmptySlots()}
       {bidding.map((e, i) => (
         <Slot
@@ -84,7 +84,7 @@ const PricingColumn = ({
           height={getHeight(e.start_time, e.end_time)}
         />
       ))}
-    </div>
+    </StyledPricingColumn>
   );
 };
 

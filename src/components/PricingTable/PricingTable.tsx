@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PricingColumn from './PricingColumn';
 import TimeBlock from './TimeBlock';
-import { Button, Spacer } from '@jp-olvera/jp-viaducto-components';
+import { Button, Paragraph, Spacer, Title } from '@jp-olvera/jp-viaducto-components';
 import { getWeek } from '../../utils/getWeek';
 import Day from './Day';
 
@@ -130,9 +130,7 @@ const PricingTable = ({
           paddingRight: '2px',
         }}
       >
-        <span>
-          <b>{months[month]}</b>
-        </span>
+        <Title level='3'>{months[month]}</Title>
         <div style={{ marginLeft: 'auto' }}>
           <Button
             label='<'
