@@ -14,7 +14,6 @@ const GeneralPreferences = () => {
     <BodyContent
       style={{
         boxSizing: 'border-box',
-        height: '100%',
         overflowY: 'auto',
       }}
     >
@@ -26,39 +25,30 @@ const GeneralPreferences = () => {
           { label: 'Organization', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='Overview' onFocus={() => setTab(0)} />
           <Tab text='Security' onFocus={() => setTab(1)} />
           <Tab text='Brand Localization' onFocus={() => setTab(2)} />
         </GroupTab>
       </HeaderSell>
-      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
-        <BodyMain horizontal='md' style={{ flexBasis: '100%' }} expandVertical>
-          <Container
-            vertical='md'
-            horizontal='md'
-            style={{ backgroundColor: 'white', height: '95%', overflow: 'auto' }}
-          >
+      <div style={{ display: 'flex', height: '75vh', overflow: 'hidden' }}>
+        <BodyMain horizontal='md' style={{ flexBasis: '100%', overflow: 'auto' }} expandVertical>
+          <Container vertical='md' horizontal='md' style={{ overflow: 'hidden' }}>
             {tab === 0 && <Overview />}
             {tab === 1 && <Security />}
             {tab === 2 && <BrandLocalization />}
           </Container>
         </BodyMain>
-        <BodyMain horizontal='xl' expandVertical style={{ flexBasis: 600 }}>
+        <Container horizontal='xl' expandVertical style={{ flexBasis: 600 }}>
           <Spacer size='xxl' />
           <div className='flotant'>
             <Card style={{ height: '68%' }} elevation={1}>
-              <Container
-                vertical='md'
-                horizontal='md'
-                expandVertical
-                style={{ backgroundColor: 'white' }}
-              >
+              <Container vertical='md' horizontal='md' expandVertical>
                 <VerticalSteps title='Setup your organization.' />
               </Container>
             </Card>
           </div>
-        </BodyMain>
+        </Container>
       </div>
     </BodyContent>
   );

@@ -9,7 +9,6 @@ import {
   Input,
   Paragraph,
   Row,
-  Spacer,
 } from '@jp-olvera/jp-viaducto-components';
 
 const StyledButton = styled.button`
@@ -18,9 +17,10 @@ const StyledButton = styled.button`
   box-sizing: border-box;
   height: 28px;
   border: none;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid ${(p) => p.theme.pricingTableBorder};
   background-color: inherit;
   cursor: pointer;
+  background-color: transparent;
   &:hover {
     box-shadow: inset 0px 0px 0px 3px rgb(24, 144, 255);
   }
@@ -52,14 +52,15 @@ const EmptySlot = () => {
         <Grid>
           <Row>
             <Column>
-              <Container vertical='lg'>
-                <Input
-                  type='text'
-                  inputSize='small'
-                  label='Name the time preset'
-                  border='outside'
-                />
-                <Spacer size='sm' />
+              <Container vertical='sm'>
+                <div className='form-control'>
+                  <Input
+                    type='text'
+                    inputSize='small'
+                    label='Name the time preset'
+                    border='outside'
+                  />
+                </div>
                 <Button label='Save' onClick={onCloseDrawer} />
               </Container>
             </Column>

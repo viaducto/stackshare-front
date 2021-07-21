@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Button,
   Column,
@@ -15,24 +15,14 @@ import {
   Tab,
   WrapperTable,
   GroupTab,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { dummyData, buyColumns, DummyBadge } from './StoryData';
 import { Filter, EllypsisVertical, Plus, Grid as GridIcon } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
-const details = {
-    default: 'transparent',
-    hover: 'transparent',
-    click: 'transparent',
-    text: '#1890FF',
-  },
-  deleteColor = {
-    default: 'transparent',
-    hover: 'transparent',
-    click: 'transparent',
-    text: '#A8071A',
-  };
+import Kebab from '../../components/Kebab/Kebab';
 
 const Buy = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -41,6 +31,8 @@ const Buy = () => {
   const [disabledCap, setDisabledCap] = useState(true);
   const [disabledType, setDisabledType] = useState(true);
   const [data, setData] = useState<any>({});
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   return (
     <BodyContent
       style={{
@@ -56,7 +48,7 @@ const Buy = () => {
           { label: 'Bidding', href: '#', active: true },
         ]}
       >
-        <GroupTab horizontalSpacing='sm' fontSize='lg'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='Active Bids' active />
           <Tab text='Fullfilled' />
         </GroupTab>
@@ -64,7 +56,7 @@ const Buy = () => {
       {/* Body */}
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
         <BodyMain style={{ overflow: 'auto' }}>
-          <div style={{ backgroundColor: 'white' }}>
+          <div>
             <Container vertical='md' horizontal='lg' expandHorizontal>
               <div className='overflow'>
                 <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
@@ -83,7 +75,7 @@ const Buy = () => {
                       leftSpacing='sm'
                       iconSpacing='none'
                       rightSpacing='sm'
-                      icon={<Filter color='#595959' fontSize='1rem' />}
+                      icon={<Filter color={dark} fontSize='1rem' />}
                       type='button'
                       onClick={() => {}}
                       variant='outline'
@@ -95,7 +87,7 @@ const Buy = () => {
                       leftSpacing='sm'
                       iconSpacing='none'
                       rightSpacing='sm'
-                      icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                      icon={<EllypsisVertical color={dark} fontSize='1rem' />}
                       type='button'
                       onClick={() => {}}
                       variant='outline'
@@ -109,10 +101,10 @@ const Buy = () => {
                     fontSize='md'
                     verticalSpacing='md'
                     hover
-                    hoverColor='#D1D5DA'
                     border='horizontal'
                     borderColor='#E8E8E8'
                     horizontalSpacing='sm'
+                    zebra={false}
                   >
                     <Table
                       cols={[
@@ -121,7 +113,7 @@ const Buy = () => {
                           Header: 'Specification',
                           accessor: 'specification',
                           width: 230,
-                          maxWidth: 250,
+                          maxWidth: 200,
                           minWidth: 200,
                           Filter: () => null,
                           Cell: (props: any) => {
@@ -129,29 +121,37 @@ const Buy = () => {
                               <div
                                 style={{
                                   display: 'flex',
-                                  justifyContent: 'space-between',
+                                  justifyContent: 'center',
                                   height: '100%',
                                   alignItems: 'center',
+                                  width: '100%',
                                 }}
                               >
-                                <Button
-                                  label='See details'
-                                  colors={details}
-                                  onClick={() => {
-                                    setData(props.data[props.row.index]);
-                                    setNewBid(false);
-                                    setOpenTable(true);
-                                  }}
-                                />
-                                <Button
-                                  label='Delete'
-                                  colors={deleteColor}
-                                  onClick={() => {
-                                    setData(props.data[props.row.index]);
-                                    setNewBid(false);
-                                    setOpenTable(true);
-                                  }}
-                                />
+                                <Kebab>
+                                  <Button
+                                    label='See details'
+                                    onClick={() => {
+                                      setData(props.data[props.row.index]);
+                                      setNewBid(false);
+                                      setOpenTable(true);
+                                    }}
+                                    variant='ghost'
+                                    block
+                                    radius='none'
+                                  />
+                                  <Button
+                                    label='Delete'
+                                    variant='ghost'
+                                    shapeColor='danger'
+                                    onClick={() => {
+                                      setData(props.data[props.row.index]);
+                                      setNewBid(false);
+                                      setOpenTable(true);
+                                    }}
+                                    block
+                                    radius='none'
+                                  />
+                                </Kebab>
                               </div>
                             );
                           },
@@ -171,7 +171,7 @@ const Buy = () => {
         <Grid expanded>
           <Row>
             <Column>
-              <div style={{ backgroundColor: 'white', width: '100%' }}>
+              <div style={{ width: '100%' }}>
                 <Container
                   vertical='md'
                   style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -208,16 +208,7 @@ const Buy = () => {
                 <Spacer direction='vertical' size='xs' />
                 {newBid ? (
                   <Container right='xxxl'>
-                    <Select
-                      inputSize='sm'
-                      radius='sm'
-                      border={{
-                        top: '0.063rem solid #d9d9d9',
-                        right: '0.063rem solid #d9d9d9',
-                        bottom: '0.063rem solid #d9d9d9',
-                        left: '0.063rem solid #d9d9d9',
-                      }}
-                    >
+                    <Select inputSize='small' radius='sm'>
                       <option value='Bandwith'>Bandwith</option>
                       <option value='Secure Channel'>Secure Channel</option>
                       <option value='Data package'>Data package</option>
@@ -230,31 +221,16 @@ const Buy = () => {
                     textColor={data.bidding_type?.textColor || 'red'}
                   />
                 )}
-                <Spacer direction='vertical' size='lg' />
-                <Paragraph
-                  lineHeight='1.375rem'
-                  weight={newBid ? '600' : '400'}
-                  color={newBid ? 'dark' : '#595959'}
-                >
-                  Expires by
-                </Paragraph>
-                <Spacer direction='vertical' size='xs' />
+                <Spacer direction='vertical' size='sm' />
                 {newBid ? (
                   <Container right='xxxl'>
-                    <Input type='date' borderColor='#d9d9d9' inputSize='small' border='outside' />
+                    <div className='form-control'>
+                      <Input type='date' inputSize='small' border='outside' label='Expires by' />
+                    </div>
                   </Container>
                 ) : (
                   <Paragraph lineHeight='1.375rem'>{data.expires}</Paragraph>
                 )}
-                <Spacer direction='vertical' size='lg' />
-                <Paragraph
-                  lineHeight='1.375rem'
-                  weight={newBid ? '600' : '400'}
-                  color={newBid ? 'dark' : '#595959'}
-                >
-                  Wanted bandwith
-                </Paragraph>
-                <Spacer direction='vertical' size='xs' />
                 {newBid ? (
                   <div>
                     <Container
@@ -265,13 +241,15 @@ const Buy = () => {
                         alignItems: 'center',
                       }}
                     >
-                      <Input
-                        type='number'
-                        defaultValue={500}
-                        borderColor='#d9d9d9'
-                        inputSize='small'
-                        border='outside'
-                      />
+                      <div className='form-control'>
+                        <Input
+                          type='number'
+                          defaultValue={500}
+                          inputSize='small'
+                          border='outside'
+                          label='Wanted bandwith'
+                        />
+                      </div>
                       <Spacer size='xs' direction='horizontal' />
                       <Paragraph>Mb/s</Paragraph>
                     </Container>
@@ -309,13 +287,7 @@ const Buy = () => {
                     />
                     <Spacer direction='vertical' size='xs' />
                     <Container left='lg' right='xxxl'>
-                      <Input
-                        type='time'
-                        borderColor='#d9d9d9'
-                        disabled={disabled}
-                        inputSize='small'
-                        border='outside'
-                      />
+                      <Input type='time' disabled={disabled} inputSize='small' border='outside' />
                     </Container>
                   </>
                 ) : (
@@ -384,7 +356,6 @@ const Buy = () => {
                       <div style={{ width: '80%' }}>
                         <Input
                           type='number'
-                          borderColor='#d9d9d9'
                           disabled={disabledCap}
                           defaultValue={500}
                           inputSize='small'
@@ -392,16 +363,7 @@ const Buy = () => {
                         />
                       </div>
                       <Spacer direction='horizontal' size='tiny' />
-                      <Select
-                        radius='sm'
-                        border={{
-                          top: '0.063rem solid #d9d9d9',
-                          right: '0.063rem solid #d9d9d9',
-                          bottom: '0.063rem solid #d9d9d9',
-                          left: '0.063rem solid #d9d9d9',
-                        }}
-                        disabled={disabledCap}
-                      >
+                      <Select radius='sm' disabled={disabledCap}>
                         <option value='GB'>GB</option>
                         <option value='MB'>MB</option>
                       </Select>
@@ -442,8 +404,7 @@ const Buy = () => {
                       <div style={{ width: '80%' }}>
                         <Input
                           type='text'
-                          icon={<GridIcon />}
-                          borderColor='#d9d9d9'
+                          icon={<GridIcon color={dark} />}
                           disabled={disabledType}
                           inputSize='small'
                           border='outside'

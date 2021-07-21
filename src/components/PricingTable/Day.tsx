@@ -1,3 +1,4 @@
+import { Paragraph } from '@jp-olvera/jp-viaducto-components';
 import React, { useState, useEffect } from 'react';
 interface DayProps {
   name: string;
@@ -19,9 +20,10 @@ const Day = ({ name, number, month }: DayProps) => {
         width: '11rem',
         float: 'left',
       }}
-      className={todayDay === number && todayMonth === month ? 'is-today ' : ''}
     >
-      {name} {number}
+      <Paragraph color={todayDay === number && todayMonth === month ? '#7cb305' : 'dark'}>
+        {name} {number}
+      </Paragraph>
     </div>
   );
 };

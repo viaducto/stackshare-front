@@ -26,10 +26,10 @@ const SellAdvanced = () => {
         <Input
           type='number'
           inputSize='small'
-          borderColor='#d9d9d9'
           border='outside'
           id='askMB'
           min={0}
+          defaultValue={0}
         />
       </div>
       <Spacer direction='vertical' size='md' />
@@ -74,7 +74,6 @@ const SellAdvanced = () => {
           <Input
             type='number'
             inputSize='small'
-            borderColor='#d9d9d9'
             border='outside'
             max={95}
             min={0}

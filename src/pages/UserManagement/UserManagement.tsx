@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { BodyMain } from '../../components/layout';
 import {
@@ -15,16 +16,19 @@ import {
   Title,
   Switch,
   WrapperTable,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { Plus, Cup } from 'react-ikonate';
 import Table from '../../components/Table/Table';
 import Tag from '../../components/Tag/Tag';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
+import Kebab from '../../components/Kebab/Kebab';
 
 const UserManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
   const [selectedUser, setselectedUser] = useState<null | any>(null);
-
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   const handleAction = (userProps: any) => {
     setselectedUser(userProps);
     console.log(userProps);
@@ -55,14 +59,14 @@ const UserManagement = () => {
           { label: 'User Management', href: '', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='All users' />
           <Tab text='Active Users' />
           <Tab text='Inactive Users' />
         </GroupTab>
       </HeaderSell>
       <BodyMain>
-        <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
+        <Container style={{ height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
             <Button label='Create New User' icon={<Plus />} lead radius='sm' />
           </Container>
@@ -73,12 +77,11 @@ const UserManagement = () => {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              backgroundColor: 'white',
               minHeight: '72vh',
               flexWrap: 'wrap',
             }}
           >
-            <WrapperTable>
+            <WrapperTable zebra={false}>
               <Table
                 cols={[
                   { Header: 'Name', accessor: 'name', Filter: () => null },
@@ -100,23 +103,29 @@ const UserManagement = () => {
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
+                            width: '100%',
                           }}
                         >
-                          <Button
-                            label='Install'
-                            variant='ghost'
-                            onClick={() => {
-                              handleAction(props.data[props.row.index]);
-                            }}
-                          />
-                          |
-                          <Button
-                            label='Edit'
-                            variant='ghost'
-                            onClick={() => {
-                              handleAction(props.data[props.row.index]);
-                            }}
-                          />
+                          <Kebab>
+                            <Button
+                              label='Install'
+                              variant='ghost'
+                              onClick={() => {
+                                handleAction(props.data[props.row.index]);
+                              }}
+                              radius='none'
+                              block
+                            />
+                            <Button
+                              label='Edit'
+                              variant='ghost'
+                              onClick={() => {
+                                handleAction(props.data[props.row.index]);
+                              }}
+                              radius='none'
+                              block
+                            />
+                          </Kebab>
                         </span>
                       );
                     },
@@ -216,7 +225,6 @@ const UserManagement = () => {
                       onClick={handleDrawerActive}
                       style={{
                         border: 'none',
-                        backgroundColor: 'white',
                         fontSize: '22px',
                         padding: 0,
                         marginLeft: 'auto',
@@ -272,7 +280,7 @@ const UserManagement = () => {
                       <div
                         style={{ display: 'flex', alignItems: 'center', alignContent: 'center' }}
                       >
-                        <Cup />
+                        <Cup color={dark} />
                         <Spacer size='sm' direction='horizontal' />
                         <Paragraph size='md' color='gray'>
                           $127 USD mo.
@@ -284,7 +292,7 @@ const UserManagement = () => {
                 <hr />
                 <Container bottom='lg' top='sm'>
                   <div className='flex'>
-                    <GroupTab>
+                    <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
                       <Tab
                         text='Overview'
                         active={showApps}
@@ -309,31 +317,16 @@ const UserManagement = () => {
                       </Title>
                       <Spacer size='sm' />
                       <div className='flex'>
-                        <Tag
-                          backgroundColor='#F5F5F5'
-                          borderColor='#D9D9D9'
-                          color='#595959'
-                          label='Teachers'
-                        />
+                        <Tag backgroundColor='#F5F5F5' color='#595959' label='Teachers' />
                         <Spacer size='sm' direction='horizontal' />
 
-                        <Tag
-                          backgroundColor='#F5F5F5'
-                          borderColor='#D9D9D9'
-                          color='#595959'
-                          label='Design'
-                        />
+                        <Tag backgroundColor='#F5F5F5' color='#595959' label='Design' />
                         <Spacer size='sm' direction='horizontal' />
-                        <Tag
-                          backgroundColor='#F5F5F5'
-                          borderColor='#D9D9D9'
-                          color='#595959'
-                          label='Blink 182'
-                        />
+                        <Tag backgroundColor='#F5F5F5' color='#595959' label='Blink 182' />
                       </div>
                     </>
                   ) : (
-                    <WrapperTable hover={false}>
+                    <WrapperTable hover={false} zebra={false}>
                       <table>
                         <thead>
                           <tr>

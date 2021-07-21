@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Bell } from 'react-ikonate';
-import { Badge } from '@jp-olvera/jp-viaducto-components';
+import { Badge, ConfigContext } from '@jp-olvera/jp-viaducto-components';
 
 const Notification = ({ number }: { number: number }) => {
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
+
   return (
     <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-      <Bell fontSize='1.5rem' color='#595959' />
+      <Bell fontSize='1.5rem' color={dark} />
       <div style={{ position: 'absolute', top: -8, left: 7, zIndex: 1 }} className='notification'>
         <Badge
           clipPath='square'

@@ -1,5 +1,6 @@
 import {
   Button,
+  ConfigContext,
   Container,
   Drawer,
   GroupTab,
@@ -7,9 +8,9 @@ import {
   Tab,
   WrapperTable,
 } from '@jp-olvera/jp-viaducto-components';
-import React from 'react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
+import Kebab from '../../components/Kebab/Kebab';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import Table from '../../components/Table/Table';
@@ -19,6 +20,8 @@ import InfrastructureDrawer from './InfrastructureDrawer';
 const Infrastructure = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [type, setType] = useState<string>('Type');
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   return (
     <BodyContent
       style={{
@@ -35,7 +38,7 @@ const Infrastructure = () => {
           { label: 'Invoices', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='All Items' active />
           <Tab text='Backbone' />
           <Tab text='Points of Presence' />
@@ -45,11 +48,7 @@ const Infrastructure = () => {
       </HeaderSell>
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
         <BodyMain horizontal='md' expandVertical className='overflow'>
-          <Container
-            vertical='md'
-            horizontal='md'
-            style={{ backgroundColor: 'white', height: '95%' }}
-          >
+          <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
               <Button
                 label='Create New Device'
@@ -64,7 +63,7 @@ const Infrastructure = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<Filter color='#595959' fontSize='1rem' />}
+                  icon={<Filter color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'
@@ -76,7 +75,7 @@ const Infrastructure = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                  icon={<EllypsisVertical color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'
@@ -86,7 +85,7 @@ const Infrastructure = () => {
               </div>
             </div>
             <Container className='overflow'>
-              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA'>
+              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA' zebra={false}>
                 <Table
                   filter={false}
                   cols={[
@@ -109,22 +108,23 @@ const Infrastructure = () => {
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '100%',
+                              width: '100%',
                             }}
                           >
-                            {deleteBtn && (
-                              <Button variant='ghost' label='Delete' shapeColor='danger' />
-                            )}
-                            <Spacer direction='horizontal' size='micro' />
-                            <div style={{ width: 1, height: '100%', backgroundColor: '#d9d9d9' }} />
-                            <Spacer direction='horizontal' size='micro' />
-                            <Button
-                              variant='ghost'
-                              label={action}
-                              onClick={() => {
-                                setType(cellType);
-                                setOpen(true);
-                              }}
-                            />
+                            <Kebab>
+                              {deleteBtn && (
+                                <Button variant='ghost' label='Delete' shapeColor='danger' block />
+                              )}
+                              <Button
+                                variant='ghost'
+                                label={action}
+                                onClick={() => {
+                                  setType(cellType);
+                                  setOpen(true);
+                                }}
+                                block
+                              />
+                            </Kebab>
                           </div>
                         );
                       },

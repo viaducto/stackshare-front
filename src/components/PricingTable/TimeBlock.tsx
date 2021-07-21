@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   box-sizing: border-box;
   height: 56px;
-  border-right: 1px solid #ebebeb;
+  border-right: 1px solid ${(p) => p.theme.pricingTableBorder};
   position: relative;
   &:before {
     content: '';
@@ -12,14 +12,14 @@ const StyledDiv = styled.div`
     bottom: 0px;
     height: 1px;
     width: 1.125rem;
-    background-color: #ebebeb;
+    background-color: ${(p) => p.theme.pricingTableBorder};
   }
 
   span {
     position: absolute;
     bottom: -8px;
     right: 1.13rem;
-    z-index: 1;
+    color: ${(p) => p.theme.primaryText};
   }
 `;
 

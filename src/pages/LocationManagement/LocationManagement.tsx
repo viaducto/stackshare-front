@@ -22,6 +22,7 @@ import Table from '../../components/Table/Table';
 import Tag from '../../components/Tag/Tag';
 import Graph from '../BiddingTelco/Graph';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
+import Kebab from '../../components/Kebab/Kebab';
 
 const LocationManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -61,7 +62,8 @@ const LocationManagement = () => {
       Header: 'Specification',
       accessor: 'specification',
       sortable: false,
-      minWidth: 180,
+      minWidth: 125,
+      maxWidth: 125,
       Filter: () => null,
       Cell: (props: any) => {
         return (
@@ -70,26 +72,30 @@ const LocationManagement = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              width: '100%',
             }}
           >
-            <Button
-              label='see details'
-              variant='ghost'
-              onClick={() => {
-                setCurrentLocation(props.data[props.row.index]);
-                handleDrawerActive();
-              }}
-            />
-            |
-            <Button
-              label='Delete'
-              variant='ghost'
-              shapeColor='danger'
-              onClick={() => {
-                setCurrentLocation(props.data[props.row.index]);
-                handleDrawerActive();
-              }}
-            />
+            <Kebab>
+              <Button
+                label='See details'
+                variant='ghost'
+                onClick={() => {
+                  setCurrentLocation(props.data[props.row.index]);
+                  handleDrawerActive();
+                }}
+                block
+              />
+              <Button
+                label='Delete'
+                variant='ghost'
+                shapeColor='danger'
+                onClick={() => {
+                  setCurrentLocation(props.data[props.row.index]);
+                  handleDrawerActive();
+                }}
+                block
+              />
+            </Kebab>
           </span>
         );
       },
@@ -243,7 +249,7 @@ const LocationManagement = () => {
           { label: 'User Management', href: '', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='All Locations' />
           <Tab text='Country' />
           <Tab text='Region' />
@@ -253,7 +259,7 @@ const LocationManagement = () => {
         </GroupTab>
       </HeaderSell>
       <BodyMain>
-        <Container style={{ backgroundColor: 'white', height: '50%', overflow: 'auto' }} top='md'>
+        <Container style={{ height: '50%', overflow: 'auto' }} top='md'>
           <Container horizontal='xl'>
             <Button label='Create New Location' icon={<Plus />} lead radius='sm' />
           </Container>
@@ -264,12 +270,12 @@ const LocationManagement = () => {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              backgroundColor: 'white',
+
               minHeight: '72vh',
               flexWrap: 'wrap',
             }}
           >
-            <WrapperTable border='horizontal'>
+            <WrapperTable border='horizontal' zebra={false}>
               <Table cols={columns} dataTable={data} />
             </WrapperTable>
           </Container>
@@ -298,7 +304,6 @@ const LocationManagement = () => {
                   style={{
                     cursor: 'pointer',
                     border: 'none',
-                    backgroundColor: 'white',
                   }}
                 >
                   <ArrowLeft />
@@ -369,14 +374,7 @@ const LocationManagement = () => {
           </Row>
           <Row>
             <Column xs={12} md={4}>
-              <Select
-                border={{
-                  top: '1px solid #D9D9D9',
-                  left: '1px solid #D9D9D9',
-                  right: '1px solid #D9D9D9',
-                  bottom: '1px solid #D9D9D9',
-                }}
-              >
+              <Select border='all'>
                 <option value={currentLocation?.country}>{currentLocation?.country}</option>
               </Select>
               <Hideable visibleOn='md' after={false}>
@@ -384,26 +382,21 @@ const LocationManagement = () => {
               </Hideable>
             </Column>
             <Column xs={12} md={4}>
-              <Select
-                border={{
-                  top: '1px solid #D9D9D9',
-                  left: '1px solid #D9D9D9',
-                  right: '1px solid #D9D9D9',
-                  bottom: '1px solid #D9D9D9',
-                }}
-              >
+              <Select border='all'>
                 <option value={currentLocation?.state}>{currentLocation?.state}</option>
               </Select>
             </Column>
           </Row>
           <Row>
             <Column xs={12} md={8}>
-              <Spacer size='lg' />
-              <Input label='Address' type='text' border='outside' borderColor='#D9D9D9' />
+              <div className='form-control'>
+                <Input inputSize='small' label='Address' type='text' border='outside' />
+              </div>
             </Column>
             <Column xs={12} md={8}>
-              <Spacer size='lg' />
-              <Input label='Address' type='text' border='outside' borderColor='#D9D9D9' />
+              <div className='form-control'>
+                <Input inputSize='small' label='Address' type='text' border='outside' />
+              </div>
             </Column>
           </Row>
           <Row>
@@ -411,13 +404,9 @@ const LocationManagement = () => {
               <Spacer size='lg' />
               <Paragraph weight='bold'>Contact Information</Paragraph>
               <Spacer size='md' />
-              <Input
-                type='text'
-                label='Phone Number'
-                border='outside'
-                value='+44 21 1358 41'
-                borderColor='#D9D9D9'
-              />
+              <div className='form-control'>
+                <Input type='text' label='Phone Number' border='outside' value='+44 21 1358 41' />
+              </div>
             </Column>
             <Column size={12}>
               <Spacer size='md' />
@@ -449,7 +438,7 @@ const LocationManagement = () => {
           <Row>
             <Column size={12}>
               <Container className='overflow'>
-                <WrapperTable>
+                <WrapperTable zebra={false}>
                   <Table cols={infrastructureColumns} dataTable={infrastructureData} />
                 </WrapperTable>
               </Container>

@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle: any = createGlobalStyle`
 
   html{
-    background-color: #F0F2F5;
+    /* background-color: #F0F2F5; */
     font-size: 87.5% !important;
   }
   
@@ -19,6 +19,20 @@ export const GlobalStyle: any = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  input > label {
+    font-weight: bold;
+  }
+
+  .link {
+    color: #1665D8 !important;
+  }
+
+  .link-router{
+    appearance: none;
+    text-decoration: none;
+    color: inherit;
+  }
+
   hr {
     border-color: #d9d9d9;
     height: 1px;
@@ -30,11 +44,6 @@ export const GlobalStyle: any = createGlobalStyle`
     height: 100vh;
   }
 
-  .link-router{
-    appearance: none;
-    text-decoration: none;
-    color: inherit;
-  }
 
   .bare-button{
     border: none;
@@ -66,27 +75,15 @@ export const GlobalStyle: any = createGlobalStyle`
     display: flex !important;
     align-items: center !important;
   }
-
-  table > thead > tr {
-    background-color: #fafafa !important;
+  .flex-column {
+    display: flex;
+    flex-direction: column;
   }
-
-  .selected > td {
-    background-color: #d9d9d9 !important;
-  }
-
   .notification > div{
     border-radius: 1rem !important;
     color: white !important;
     padding: 0.63rem .5rem !important;
-    border: 0.063rem solid white !important;
     box-sizing: border-box;
-  }
-
-  .input:valid, .input:focus{
-    &~.label{
-      left: -0.5rem !important;
-    }
   }
 
   .rv-discrete-color-legend{
@@ -117,7 +114,7 @@ export const GlobalStyle: any = createGlobalStyle`
     position: relative;
     &:after {
       border-color: transparent;
-      background: linear-gradient(270deg,rgba(23, 135, 239, 0.3) 0%,rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(270deg,rgba(217, 217, 217, 1) 0%,rgba(255, 255, 255, 0) 100%);
       background-clip: border-box;
       border: inherit;
       content: '';
@@ -125,7 +122,7 @@ export const GlobalStyle: any = createGlobalStyle`
       height: 100%;
       right: 0;
       top: 0;
-      width: 3px;
+      width: 10px;
     }
   }
 
@@ -144,11 +141,16 @@ export const GlobalStyle: any = createGlobalStyle`
     height: 100%;
     & > div {
       position: sticky;
-      top: 0;
+      top: 1rem;
     }
   }
 
   .border-bottom {
     border-bottom: 0.063rem solid #d9d9d9;
+  }
+
+  .form-control {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
   }
 `;

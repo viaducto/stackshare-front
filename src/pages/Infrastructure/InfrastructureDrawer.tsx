@@ -17,13 +17,6 @@ import { ChevronLeft } from 'react-ikonate';
 import { DummyBadge } from '../BiddingTelco/StoryData';
 import Graph from '../BiddingTelco/Graph';
 
-const borders = {
-  top: '0.063rem solid #d9d9d9',
-  bottom: '0.063rem solid #d9d9d9',
-  left: '0.063rem solid #d9d9d9',
-  right: '0.063rem solid #d9d9d9',
-};
-
 const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Function }) => (
   <>
     <Container
@@ -89,29 +82,25 @@ const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Functi
         />
       </div>
       <Spacer size='lg' />
-      <Title level='6' color='#262626' lineHeight='1.5rem' weight='600'>
+      <Title level='6' lineHeight='1.5rem' weight='600'>
         General Information
       </Title>
       <Spacer size='sm' />
-      <Paragraph color='#262626' lineHeight='1.375rem' weight='600'>
+      <Paragraph lineHeight='1.375rem' weight='600'>
         Device Information
       </Paragraph>
     </Container>
     <Grid expanded>
       <Row>
         <Column size={5}>
-          <Paragraph color='#262626' lineHeight='1.375rem'>
-            Brand
-          </Paragraph>
-          <Select border={borders}>
+          <Paragraph lineHeight='1.375rem'>Brand</Paragraph>
+          <Select border='all'>
             <option value='USA'>USA</option>
           </Select>
         </Column>
         <Column size={5}>
-          <Paragraph color='#262626' lineHeight='1.375rem'>
-            Inventory ID
-          </Paragraph>
-          <Select border={borders}>
+          <Paragraph lineHeight='1.375rem'>Inventory ID</Paragraph>
+          <Select border='all'>
             <option value='USA'>USA</option>
           </Select>
         </Column>
@@ -119,19 +108,17 @@ const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Functi
       <Spacer size='md' />
       <Row>
         <Column>
-          <Paragraph color='#262626' lineHeight='1.375rem'>
-            Series Number
-          </Paragraph>
-          <Input inputSize='small' borderColor='#d9d9d9' defaultValue='Example Address, 123456' />
+          <div className='form-control'>
+            <Input inputSize='small' label='Series Number' defaultValue='Example Address, 123456' />
+          </div>
         </Column>
       </Row>
       <Spacer size='md' />
       <Row>
         <Column>
-          <Paragraph color='#262626' lineHeight='1.375rem'>
-            Location
-          </Paragraph>
-          <Input inputSize='small' borderColor='#d9d9d9' defaultValue='Example Address, 123456' />
+          <div className='form-control'>
+            <Input inputSize='small' label='Location' defaultValue='Example Address, 123456' />
+          </div>
         </Column>
       </Row>
     </Grid>

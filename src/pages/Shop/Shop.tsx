@@ -45,7 +45,7 @@ const Shop = () => {
           { label: 'Invoices', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab onFocus={() => setTab(0)} text='Store' id='store' active={tab === 0} />
           <Tab onFocus={() => setTab(1)} text='My apps' id='apps' active={tab === 1} />
           <Tab
@@ -88,8 +88,8 @@ const Shop = () => {
         }}
         size='md'
       >
-        <div style={{ backgroundColor: 'white', width: '100%' }}>
-          <div style={{ borderBottom: '0.063rem solid #d9d9d9', width: '100%' }}>
+        <div style={{ width: '100%' }}>
+          <div className='border-bottom' style={{ width: '100%' }}>
             <Container
               vertical='md'
               left='md'

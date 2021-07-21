@@ -13,7 +13,7 @@ const HeaderSell = ({
   children?: any;
 }) => (
   <BodyHeader>
-    <Container vertical='sm'>
+    <Container top='sm'>
       <Breadcrums fontSize='md'>
         {breadcrums.map(
           (option: { label: string; href: string; active: boolean }, index: number) => {
@@ -29,7 +29,7 @@ const HeaderSell = ({
           }
         )}
       </Breadcrums>
-      <Paragraph size='lg' color='#262626' weight='600' lineHeight='1.75rem'>
+      <Paragraph size='lg' weight='600' lineHeight='1.75rem'>
         {title}
       </Paragraph>
       {children}

@@ -43,16 +43,14 @@ const BiddingTelco = () => {
           { label: 'Auctions', href: '#', active: false },
           { label: 'Bidding', href: '#', active: true },
         ]}
-      />
+      >
+        <Spacer size='sm' />
+      </HeaderSell>
 
       {/* Body */}
-      <div style={{ height: '77vh', overflow: 'hidden', width: '100%' }}>
+      <div style={{ height: '77vh', width: '100%' }}>
         <BodyMain className='overflow'>
-          <Container
-            expandHorizontal
-            style={{ backgroundColor: 'white', height: '100%' }}
-            className='overflow'
-          >
+          <Container expandHorizontal style={{ height: '100%' }} className='overflow'>
             <SellParameters
               handleOpen={handleOpen}
               setSimple={setSimple}

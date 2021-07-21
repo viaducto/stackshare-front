@@ -36,20 +36,15 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                margin: 0,
+                gap: '.2rem',
               }}
             >
               <Paragraph color='#595959' weight='600'>
                 $
               </Paragraph>
               <Spacer direction='horizontal' size='sm' />
-              <Input
-                type='number'
-                inputSize='small'
-                borderColor='#d9d9d9'
-                border='outside'
-                id='askMB'
-                min={0}
-              />
+              <Input type='number' inputSize='small' border='outside' id='askMB' min={0} />
             </div>
             <Spacer direction='vertical' size='md' />
             <Paragraph lineHeight='1.375rem' weight='600'>
@@ -75,7 +70,6 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               <Input
                 type='number'
                 inputSize='small'
-                borderColor='#d9d9d9'
                 border='outside'
                 id='bandwith'
                 max={95}
@@ -99,18 +93,7 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
                 </Paragraph>
                 <Spacer direction='vertical' size='xs' />
                 <WrapperSelect>
-                  <Select
-                    inputSize='sm'
-                    radius='sm'
-                    name='a'
-                    id='a'
-                    border={{
-                      top: '0.063rem solid #d9d9d9',
-                      right: '0.063rem solid #d9d9d9',
-                      bottom: '0.063rem solid #d9d9d9',
-                      left: '0.063rem solid #d9d9d9',
-                    }}
-                  >
+                  <Select inputSize='small' radius='sm' name='a' id='a'>
                     <option value='Bussiness Hours'>Bussiness Hours</option>
                     <option value='Option'>Option</option>
                     <option value='Another option'>Another option</option>

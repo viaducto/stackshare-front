@@ -17,17 +17,10 @@ import Logo from '../../components/Logo/Logo';
 import { Upload } from 'react-ikonate';
 import preview from './preview.png';
 
-const borders = {
-  top: '0.063rem solid #d9d9d9',
-  bottom: '0.063rem solid #d9d9d9',
-  left: '0.063rem solid #d9d9d9',
-  right: '0.063rem solid #d9d9d9',
-};
-
 const BrandLocalization = () => {
   return (
     <div style={{ height: '100%' }}>
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem'>
         Logotype
       </Title>
       <Spacer size='md' />
@@ -95,7 +88,7 @@ const BrandLocalization = () => {
         </Row>
       </Grid>
       <Spacer size='md' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem' color='dark'>
         Favicon
       </Title>
       <Spacer size='md' />
@@ -163,7 +156,7 @@ const BrandLocalization = () => {
         </Row>
       </Grid>
       <Spacer size='md' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem' color='dark'>
         Color Palette
       </Title>
       <Spacer size='md' />
@@ -215,7 +208,7 @@ const BrandLocalization = () => {
         <Radio color='#1890FF' name='colorPalette' radioSize='sm' />
       </div>
       <Spacer size='md' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem' color='dark'>
         Location
       </Title>
       <Spacer size='md' />
@@ -224,10 +217,10 @@ const BrandLocalization = () => {
           width: 320,
         }}
       >
-        <Paragraph lineHeight='1.375rem' color='#262626'>
+        <Paragraph lineHeight='1.375rem' color='dark'>
           Preferred Language
         </Paragraph>
-        <Select border={borders}>
+        <Select inputSize='small'>
           <option value='EN-US'>English - USA</option>
           <option value='ES-MX'>Español - Mexico</option>
         </Select>
@@ -238,10 +231,10 @@ const BrandLocalization = () => {
           width: 320,
         }}
       >
-        <Paragraph lineHeight='1.375rem' color='#262626'>
+        <Paragraph lineHeight='1.375rem' color='dark'>
           Reporting Time
         </Paragraph>
-        <Select border={borders}>
+        <Select inputSize='small'>
           <option value='GTM8'>Pacific Time (Los Angeles, Seattle) GMT - 8</option>
         </Select>
       </div>

@@ -24,7 +24,7 @@ const StyledSlot = styled.button<any>`
   padding: 0 0.68rem;
   position: absolute;
   width: 100%;
-  z-index: 1;
+  /* z-index: 1; */
 
   &::before {
     background-color: #7cb305;
@@ -116,7 +116,7 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
               </Paragraph>
             </Container>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <GroupTab fontSize='lg'>
+              <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
                 <Tab text='Bandwidth' />
                 <Tab text='Packages' />
                 <Tab text='Secure channels' />

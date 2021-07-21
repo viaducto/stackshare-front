@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Button,
   Container,
@@ -10,6 +10,7 @@ import {
   Row,
   Column,
   GroupTab,
+  ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -18,10 +19,13 @@ import { permissionColumns, permissionData } from './PermissionData';
 import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
 import Roles from './Roles';
 import CreateRoles from './CreateRole';
+import Kebab from '../../components/Kebab/Kebab';
 
 const PermissionManagement = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [create, setCreate] = useState<boolean>(false);
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
   return (
     <BodyContent
       style={{
@@ -38,7 +42,7 @@ const PermissionManagement = () => {
           { label: 'User Management', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' tabType='tab' verticalSpacing='sm'>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
           <Tab text='Roles' active />
           <Tab text='Default Roles' />
           <Tab text='Custom Roles' />
@@ -46,11 +50,7 @@ const PermissionManagement = () => {
       </HeaderSell>
       <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
         <BodyMain horizontal='md' expandVertical className='overflow'>
-          <Container
-            vertical='md'
-            horizontal='md'
-            style={{ backgroundColor: 'white', height: '95%' }}
-          >
+          <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
               <Button
                 label='Create New Role'
@@ -66,7 +66,7 @@ const PermissionManagement = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<Filter color='#595959' fontSize='1rem' />}
+                  icon={<Filter color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'
@@ -78,7 +78,7 @@ const PermissionManagement = () => {
                   leftSpacing='sm'
                   iconSpacing='none'
                   rightSpacing='sm'
-                  icon={<EllypsisVertical color='#595959' fontSize='1rem' />}
+                  icon={<EllypsisVertical color={dark} fontSize='1rem' />}
                   type='button'
                   onClick={() => {}}
                   variant='outline'
@@ -88,7 +88,7 @@ const PermissionManagement = () => {
               </div>
             </div>
             <Container className='overflow'>
-              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA'>
+              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA' zebra={false}>
                 <Table
                   filter={false}
                   cols={[
@@ -98,8 +98,6 @@ const PermissionManagement = () => {
                       accessor: 'action',
                       Filter: () => null,
                       width: 180,
-                      maxWidth: 250,
-                      minWidth: 150,
                       Cell: (props: any) => {
                         const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
                           props.data[props.row.index].action;
@@ -111,22 +109,23 @@ const PermissionManagement = () => {
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: '100%',
+                              width: '100%',
                             }}
                           >
-                            {deleteBtn && (
-                              <Button variant='ghost' label='Delete' shapeColor='danger' />
-                            )}
-                            <Spacer direction='horizontal' size='micro' />
-                            <div style={{ width: 1, height: '100%', backgroundColor: '#d9d9d9' }} />
-                            <Spacer direction='horizontal' size='micro' />
-                            <Button
-                              variant='ghost'
-                              label={action}
-                              onClick={() => {
-                                setCreate(false);
-                                setOpen(true);
-                              }}
-                            />
+                            <Kebab>
+                              {deleteBtn && (
+                                <Button variant='ghost' label='Delete' shapeColor='danger' block />
+                              )}
+                              <Button
+                                variant='ghost'
+                                label={action}
+                                onClick={() => {
+                                  setCreate(false);
+                                  setOpen(true);
+                                }}
+                                block
+                              />
+                            </Kebab>
                           </div>
                         );
                       },

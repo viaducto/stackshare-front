@@ -16,63 +16,53 @@ import {
 import { Add } from 'react-ikonate';
 
 const Overview = () => {
-  const borders = {
-    top: '0.063rem solid #d9d9d9',
-    bottom: '0.063rem solid #d9d9d9',
-    left: '0.063rem solid #d9d9d9',
-    right: '0.063rem solid #d9d9d9',
-  };
   return (
     <div style={{ height: '100%' }}>
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem'>
         Company Details
       </Title>
       <Spacer size='md' />
       <Grid>
         <Row>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              Legal Company Name
-            </Paragraph>
-            <Input inputSize='sm' defaultValue='StackShare Tech Inc.' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input
+                inputSize='small'
+                defaultValue='StackShare Tech Inc.'
+                label='Legal Company Name'
+              />
+            </div>
           </Column>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              Doing Business As:
-            </Paragraph>
-            <Input inputSize='sm' defaultValue='StackShare' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='StackShare' label='Doing Business As:' />
+            </div>
           </Column>
         </Row>
-        <Spacer size='sm' />
         <Row>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              EIN:
-            </Paragraph>
-            <Input inputSize='sm' defaultValue='123-23B3-123' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='123-23B3-123' label='EIN:' />
+            </div>
           </Column>
         </Row>
       </Grid>
       <Spacer size='lg' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem'>
         Legal Company Address
       </Title>
       <Spacer size='sm' />
       <Grid>
         <Row>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              Country
-            </Paragraph>
-            <Select border={borders}>
+            <Paragraph lineHeight='1.375rem'>Country</Paragraph>
+            <Select border='all'>
               <option value='USA'>USA</option>
             </Select>
           </Column>
           <Column size={5}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              State
-            </Paragraph>
-            <Select border={borders}>
+            <Paragraph lineHeight='1.375rem'>State</Paragraph>
+            <Select border='all'>
               <option value='USA'>USA</option>
             </Select>
           </Column>
@@ -80,34 +70,32 @@ const Overview = () => {
         <Spacer size='sm' />
         <Row>
           <Column size={12}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              Address
-            </Paragraph>
-            <Input inputSize='sm' defaultValue='Example Address, 123456' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='Example Address, 123456' label='Address' />
+            </div>
           </Column>
         </Row>
         <Spacer size='sm' />
         <Row>
           <Column size={12}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              Address
-            </Paragraph>
-            <Input inputSize='sm' defaultValue='Example Address, 123456' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' defaultValue='Example Address, 123456' label='Address2' />
+            </div>
           </Column>
         </Row>
       </Grid>
       <Spacer size='lg' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem'>
         Contact Information
       </Title>
       <Spacer size='sm' />
-      <Grid>
+      <Grid expanded>
         <Row>
           <Column size={3}>
             <Container
               horizontal='sm'
+              className='border-bottom'
               style={{
-                borderBottom: borders.bottom,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -125,17 +113,15 @@ const Overview = () => {
               </div>
             </Container>
           </Column>
-          <Spacer size='md' />
           <Column size={12}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              Phone Number
-            </Paragraph>
-            <Input inputSize='sm' defaultValue='Example Phone, 123456' borderColor='#d9d9d9' />
+            <div className='form-control'>
+              <Input inputSize='small' label='Phone Number' defaultValue='Example Phone, 123456' />
+            </div>
           </Column>
         </Row>
       </Grid>
       <Spacer size='lg' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='#262626'>
+      <Title level='6' weight='600' lineHeight='1.5rem'>
         Organization Owner
       </Title>
       <Spacer size='md' />
@@ -144,17 +130,11 @@ const Overview = () => {
           avatar={{ src: 'https://i.pravatar.cc/32', alt: 'overview', width: '32', height: '32' }}
         >
           <div style={{ display: 'flex' }}>
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              Ted Russell
-            </Paragraph>
+            <Paragraph lineHeight='1.375rem'>Ted Russell</Paragraph>
             <Spacer direction='horizontal' size='sm' />
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              ted.russell@stackshare.io
-            </Paragraph>
+            <Paragraph lineHeight='1.375rem'>ted.russell@stackshare.io</Paragraph>
             <Spacer direction='horizontal' size='sm' />
-            <Paragraph lineHeight='1.375rem' color='#262626'>
-              +1 745 989 89898
-            </Paragraph>
+            <Paragraph lineHeight='1.375rem'>+1 745 989 89898</Paragraph>
           </div>
         </AvatarWithText>
       </div>
