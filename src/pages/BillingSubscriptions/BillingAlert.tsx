@@ -11,7 +11,7 @@ import {
 const BillingAlert = () => {
   return (
     <Grid expanded innerGutter={4}>
-      <Row style={{ justifyContent: 'center' }}>
+      <Row>
         <Column xs={12} sm={8} md={9} style={{ display: 'flex', flexDirection: 'column' }}>
           <div
             style={{
@@ -28,7 +28,6 @@ const BillingAlert = () => {
         <hr />
       </Row>
       <Row>
-        <Column></Column>
         <Column xs={12} md={9}>
           <Container vertical='md'>
             <Paragraph size='lg' color='dark'>
@@ -88,7 +87,6 @@ const BillingAlert = () => {
             </div>
           </Container>
         </Column>
-        <Column></Column>
       </Row>
     </Grid>
   );
