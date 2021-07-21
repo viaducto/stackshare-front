@@ -147,28 +147,33 @@ const BillingSubscriptions = () => {
           </Row>
         </Grid>
         <Spacer size='lg' />
-        <Grid expanded>
-          <Row>
-            <Column
-              xs={12}
-              sm={8}
-              md={9}
-              style={{ display: 'flex', justifyContent: 'space-between' }}
-            >
-              <Title level='3'>Billing Information</Title>
-              {isReadonly ? (
-                <Button
-                  label='Update'
-                  variant='ghost'
-                  onClick={handleEnable}
-                  leftSpacing='nano'
-                  rightSpacing='nano'
-                />
-              ) : null}
+        <Grid expanded innerGutter={4}>
+          <Row style={{ justifyContent: 'center' }}>
+            <Column xs={12} sm={8} md={9} style={{ display: 'flex', flexDirection: 'column' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  height: '72px',
+                  alignItems: 'center',
+                }}
+              >
+                <Title level='3'>Billing Information</Title>
+                {isReadonly ? (
+                  <Button
+                    label='Update'
+                    variant='ghost'
+                    onClick={handleEnable}
+                    leftSpacing='nano'
+                    rightSpacing='nano'
+                  />
+                ) : null}
+              </div>
+              <hr />
+              <Spacer size='lg' />
             </Column>
-            <Column />
           </Row>
-          <Row>
+          <Row style={{ justifyContent: 'center' }}>
             <Column xs={12} sm={8} md={3}>
               <div className='form-control'>
                 <Select
@@ -246,25 +251,17 @@ const BillingSubscriptions = () => {
                 />
               </div>
             </Column>
-            <Column />
-          </Row>
-          {isReadonly ? null : (
-            <Row>
+            {isReadonly ? null : (
               <Column xs={12} sm={8} md={9} style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Button radius='sm' label='Cancel' variant='ghost' onClick={handleEnable} />
                 <Spacer direction='horizontal' size='sm' />
                 <Button radius='sm' label='Update Changes' onClick={handleEnable} />
               </Column>
-            </Row>
-          )}
-          <Row>
-            <Column xs={12} lg={6}>
-              <Title level='3'>Billing Alerts</Title>
-            </Column>
+            )}
           </Row>
-          <Row>
-            <BillingAlert />
-          </Row>
+        </Grid>
+        <BillingAlert />
+        <Grid expanded>
           <Row>
             <Column xs={12} lg={6}>
               <Title level='3'>Billing Manager</Title>
