@@ -44,7 +44,7 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
     }
   }
   box-shadow: 0.125rem 0 0.313rem -0.125rem rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 2;
 `;
 
 /** The sidebar Menu */
