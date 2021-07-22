@@ -60,15 +60,20 @@ export const GlobalStyle: any = createGlobalStyle`
   }
 
   .resizer{
-    width: .6rem !important;
-    top: 25% !important;
-    background-color: #d9d9d9 !important;
-    height: 50% !important;
+    width: .5rem !important;
+    top: 0% !important;
+    height: 100%;
+    background-color: transparent;
     position: absolute;
     right: 0;
+    z-index: 1;
     &:focus, &:active{
       background-color: #595959 !important;
     }
+  }
+  .resizer:hover{
+    background-color: #d9d9d9 !important;
+    filter: drop-shadow(4px 1px 3px black);
   }
 
   .flex{
@@ -153,4 +158,18 @@ export const GlobalStyle: any = createGlobalStyle`
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
   }
+
+  .dropzone {
+    box-sizing: border-box;
+  }
+  .dragging{
+    opacity: 0.5;
+    box-shadow: inset 0px -2px 0px #d9d9d9 !important;
+    
+  }
+  .drag-enter{
+    box-sizing: border-box;
+    box-shadow: inset 0px -2px 0px #1665D8;
+  }
+
 `;
