@@ -11,7 +11,7 @@ import {
   Button,
 } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
-import { Hamburger, Help, ChevronDown } from 'react-ikonate';
+import { Hamburger, Help, ChevronDown, Search, User, Cart } from 'react-ikonate';
 import { AppContext } from '../../../providers';
 import Notification from './Notification';
 const StyledNavbar = styled.nav`
@@ -84,43 +84,10 @@ const Navbar = () => {
                       </div>
                     </AvatarWithText>
                   </div>
-                  <Popover
-                    active={dropActive}
-                    handleClose={handleDropActive}
-                    target={dropRef}
-                    content={
-                      <div style={{ width: '200px' }}>
-                        <Button
-                          label=' Mi perfil'
-                          shapeColor='secondary'
-                          variant='ghost'
-                          radius='none'
-                          block
-                        />
-                        <Button
-                          label='Configuración'
-                          shapeColor='secondary'
-                          variant='ghost'
-                          radius='none'
-                          block
-                        />
-                        <Button
-                          label='Eliminar mi cuenta'
-                          shapeColor='secondary'
-                          variant='ghost'
-                          radius='none'
-                          block
-                        />
-                        <hr />
-                        <Button
-                          label='Log out'
-                          variant='ghost'
-                          radius='none'
-                          shapeColor='danger'
-                          block
-                        />
-                      </div>
-                    }
+                  <PopOver
+                    dropActive={dropActive}
+                    dropRef={dropRef}
+                    handleDropActive={handleDropActive}
                   />
                 </div>
               </div>
@@ -147,14 +114,83 @@ export const MobileNavbar = () => {
   const { showMenu } = useContext(AppContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
+  const dropRef = useRef(null);
+  const [dropActive, setDropActive] = useState(false);
+  const handleDropActive = () => {
+    console.log('dri');
+    setDropActive((d) => !d);
+  };
 
   return (
     <StyledMobileNavbar>
       <button className='bare-button' onClick={showMenu}>
-        <Hamburger fontSize='1.5rem' color={dark} />
+        <Hamburger fontSize='1.5rem' color={dark} style={{ transform: 'rotate(90deg)' }} />
       </button>
+      <button className='bare-button'>
+        <Search fontSize='1.5rem' color={dark} />
+      </button>
+      <button className='bare-button' ref={dropRef} onClick={handleDropActive}>
+        <User fontSize='1.5rem' color={dark} />
+      </button>
+      <button className='bare-button'>
+        <Cart fontSize='1.5rem' color={dark} />
+      </button>
+      <PopOver dropActive={dropActive} handleDropActive={handleDropActive} dropRef={dropRef} />
     </StyledMobileNavbar>
   );
 };
 
 export default Navbar;
+
+export const PopOver = ({
+  dropActive,
+  handleDropActive,
+  dropRef,
+}: {
+  dropActive: boolean;
+  handleDropActive: () => void;
+  dropRef: any;
+}) => (
+  <Popover
+    active={dropActive}
+    handleClose={handleDropActive}
+    target={dropRef}
+    content={
+      <div style={{ width: '200px' }}>
+        <Button
+          label=' Mi perfil'
+          onClick={handleDropActive}
+          shapeColor='secondary'
+          variant='ghost'
+          radius='none'
+          block
+        />
+        <Button
+          label='Configuración'
+          onClick={handleDropActive}
+          shapeColor='secondary'
+          variant='ghost'
+          radius='none'
+          block
+        />
+        <Button
+          label='Eliminar mi cuenta'
+          onClick={handleDropActive}
+          shapeColor='secondary'
+          variant='ghost'
+          radius='none'
+          block
+        />
+        <hr />
+        <Button
+          label='Log out'
+          onClick={handleDropActive}
+          variant='ghost'
+          radius='none'
+          shapeColor='danger'
+          block
+        />
+      </div>
+    }
+  />
+);
