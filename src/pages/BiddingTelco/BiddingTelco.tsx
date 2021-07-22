@@ -29,13 +29,7 @@ const BiddingTelco = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       {/* Header */}
       <HeaderSell
         title='Sell parameters'
@@ -48,7 +42,7 @@ const BiddingTelco = () => {
       </HeaderSell>
 
       {/* Body */}
-      <div style={{ height: '77vh', width: '100%' }}>
+      <div style={{ width: '100%' }}>
         <BodyMain className='overflow'>
           <Container expandHorizontal style={{ height: '100%' }} className='overflow'>
             <SellParameters

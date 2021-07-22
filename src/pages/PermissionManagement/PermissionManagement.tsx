@@ -27,13 +27,7 @@ const PermissionManagement = () => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       <HeaderSell
         title='Permission Management'
         breadcrums={[
@@ -48,7 +42,7 @@ const PermissionManagement = () => {
           <Tab text='Custom Roles' />
         </GroupTab>
       </HeaderSell>
-      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
+      <div style={{ display: 'flex', overflow: 'hidden' }}>
         <BodyMain horizontal='md' expandVertical className='overflow'>
           <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>

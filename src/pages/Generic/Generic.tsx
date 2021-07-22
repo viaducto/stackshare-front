@@ -8,13 +8,7 @@ const Generic = ({ path }: { path?: string }) => {
   const location = useLocation().pathname;
   const uri = path || location;
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       <BodyMain>
         <div className='overflow'>
           <Container vertical='lg' style={{ height: '80vh', overflow: 'auto' }}>

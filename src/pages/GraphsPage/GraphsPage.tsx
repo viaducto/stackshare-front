@@ -55,13 +55,7 @@ const GraphsPage = () => {
   const { dark } = configuration.colors.text;
 
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       {/* Header */}
       <HeaderSell
         title='Graphs'

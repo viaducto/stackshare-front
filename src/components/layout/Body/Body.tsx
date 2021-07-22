@@ -13,6 +13,9 @@ const StyledBody = styled.div<StyledBodyProps>`
   background-color: ${(p) => p.theme.secondaryBackground};
   box-sizing: border-box;
   transition: width 235ms ease-out, margin 230ms ease-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 /** Body component */

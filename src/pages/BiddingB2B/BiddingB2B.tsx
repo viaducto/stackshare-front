@@ -11,13 +11,7 @@ const BiddingB2B = () => {
     setOpen(!open);
   };
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       {/* Header */}
       <HeaderSell
         title='Sell parameters'
@@ -29,7 +23,7 @@ const BiddingB2B = () => {
         <Spacer size='sm' />
       </HeaderSell>
       {/* Body */}
-      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+      <div style={{ display: 'flex', overflow: 'hidden', width: '100%' }}>
         <BodyMain className='overflow' style={{ width: '100%' }}>
           <div style={{ height: '100%' }}>
             <SellParameters

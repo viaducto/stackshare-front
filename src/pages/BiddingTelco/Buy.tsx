@@ -34,12 +34,7 @@ const Buy = () => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       {/* Header */}
       <HeaderSell
         title='Buy parameters'
@@ -54,7 +49,7 @@ const Buy = () => {
         </GroupTab>
       </HeaderSell>
       {/* Body */}
-      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+      <div style={{ display: 'flex', overflow: 'hidden', width: '100%' }}>
         <BodyMain style={{ overflow: 'auto' }}>
           <div>
             <Container vertical='md' horizontal='lg' expandHorizontal>

@@ -19,6 +19,7 @@ const StyledNavbar = styled.nav`
   top: 0;
   width: 100%;
   background-color: ${(p) => p.theme.mainBackground};
+  height: 64px;
   align-items: center;
   .user-navbar {
     display: flex;
@@ -128,6 +129,31 @@ const Navbar = () => {
         </Grid>
       </Container>
     </StyledNavbar>
+  );
+};
+
+const StyledMobileNavbar = styled.div`
+  height: 50px;
+  z-index: 1;
+  border-top: 0.063rem solid #d9d9d9;
+  box-sizing: border-box;
+  display: flex;
+  padding: 14px 28px;
+  background-color: ${(p) => p.theme.mainBackground};
+  justify-content: space-between;
+`;
+
+export const MobileNavbar = () => {
+  const { showMenu } = useContext(AppContext);
+  const { configuration } = useContext(ConfigContext);
+  const { dark } = configuration.colors.text;
+
+  return (
+    <StyledMobileNavbar>
+      <button className='bare-button' onClick={showMenu}>
+        <Hamburger fontSize='1.5rem' color={dark} />
+      </button>
+    </StyledMobileNavbar>
   );
 };
 

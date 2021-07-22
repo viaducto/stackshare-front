@@ -24,7 +24,7 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
   width: 17.313rem;
   transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 230ms ease-out;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;

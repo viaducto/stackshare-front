@@ -29,13 +29,7 @@ const Shop = () => {
   const [activeTooltip, setActiveTooltip] = useState(false);
   const [appName, setAppName] = useState('App name');
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       {/* Header */}
       <HeaderSell
         title='Bytebroker shop'
