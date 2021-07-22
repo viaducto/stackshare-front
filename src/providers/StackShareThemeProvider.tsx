@@ -1,61 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import { StackshareThemeProps } from '../types';
 import { ConfigContext } from '@jp-olvera/jp-viaducto-components';
 import { ThemeProvider } from 'styled-components';
-
-export const defaultTheme: StackshareThemeProps = {
-  mainBackground: 'white',
-  secondaryBackground: '#f0f2f5',
-  brandColor: '#1665D8',
-  brandShadow: '#F6F9FD',
-  mainColor: 'black',
-  title: '#262626',
-  primaryText: '#595959',
-  secondaryText: '#8C8C8C',
-  disable: '#BFBFBF',
-  border: '#D9D9D9',
-  dividers: '#E8E8E8',
-  tableHeader: '#FAFAFA',
-  neutral: '#F3F3F3',
-  table: {
-    background: '#fff',
-    footerColor: '#fff',
-    headerColor: '#FAFAFA',
-    selectedColor: '#d9d9d9',
-    zebraColor: '#F6F8FA',
-    hoverColor: '#D1D5DA',
-  },
-  pricingTableBackground: 'white',
-  pricingTableBorder: '#ebebeb',
-  pricingTableBackground2: '#ebebeb',
-};
-
-export const darkTheme: StackshareThemeProps = {
-  mainBackground: '#252529',
-  secondaryBackground: '#3e3e50',
-  brandColor: '#1665D8',
-  brandShadow: '#F6F9FD',
-  mainColor: '#F6F9FD',
-  title: '#d3d5f3',
-  primaryText: '#f1ecec',
-  secondaryText: '#faeaea',
-  disable: '#BFBFBF',
-  border: '#D9D9D9',
-  dividers: '#E8E8E8',
-  tableHeader: '#FAFAFA',
-  neutral: '#07070733',
-  table: {
-    background: '#262626',
-    footerColor: '#0e0c0c',
-    headerColor: '#151515',
-    selectedColor: '#d9d9d9',
-    zebraColor: '#07070733',
-    hoverColor: '#07070766',
-  },
-  pricingTableBackground: '#07070766',
-  pricingTableBorder: '#756c6c66',
-  pricingTableBackground2: '#25222299',
-};
+import { defaultTheme, darkTheme } from './themes';
 
 export const StackShareThemeContext = createContext({
   setDarkMode: () => {},
@@ -70,11 +16,20 @@ const StackShareThemeProvider = ({ children }: any) => {
   const handleTheme = () => {
     if (isDark) {
       setCurrentTheme(defaultTheme);
+      localStorage.setItem('dark-mode', 'on');
     } else {
       setCurrentTheme(darkTheme);
+      localStorage.setItem('dark-mode', 'off');
     }
     setIsDark((e) => !e);
   };
+
+  useEffect(() => {
+    const darkMode = localStorage.getItem('dark-mode');
+    if (darkMode === 'off') {
+      setCurrentTheme(darkTheme);
+    }
+  }, []);
 
   useEffect(() => {
     const myConfig = {

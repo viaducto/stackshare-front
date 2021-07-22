@@ -13,6 +13,7 @@ import { Suitcase, Grid, Activity } from 'react-ikonate';
 import { AppContext, StackShareThemeContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
 import MenuTitle from '../../MenuTitle/MenuTitle';
+import { SecondaryBackground } from '../../Backgrounds';
 
 interface StyledStackMenuProps {
   active: boolean;
@@ -98,32 +99,34 @@ const StackMenu = () => {
             <MenuItem label='Applications' />
             <MenuItem label='Devices' />
           </Container>
-          <Container style={{ backgroundColor: 'rgba(246,249,253,0.15)' }}>
-            <MenuTitle title='SUBSCRIPTIONS AND BILLING' />
-            <MenuItem label='Stackshop' />
-            <MenuItem label='Billing Management' />
-            <Container horizontal='sm' top='sm'>
-              <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
+          <SecondaryBackground>
+            <Container>
+              <MenuTitle title='SUBSCRIPTIONS AND BILLING' />
+              <MenuItem label='Stackshop' />
+              <MenuItem label='Billing Management' />
+              <Container horizontal='sm' top='sm'>
+                <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
+              </Container>
+              <MenuTitle title='HARDWARE MANAGEMENT' />
+              <MenuItem label='End User Devices' />
+              <MenuItem label='Infrastructure Devices' />
+              <Container horizontal='sm' top='sm'>
+                <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
+              </Container>
+              <MenuTitle title='BYTEBROKER' />
+              <MenuItem label='Metrics' />
+              <MenuItem label='Sell Parameters' />
+              <MenuItem label='Buy Parameters' />
+              <Container horizontal='sm' top='sm'>
+                <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
+              </Container>
+              <MenuTitle title='ORGANIZATION MANAGEMENT' />
+              <MenuItem label='Users' />
+              <MenuItem label='Access Groups' />
+              <MenuItem label='Roles and Permissions' />
+              <MenuItem label='Audit Logs' />
             </Container>
-            <MenuTitle title='HARDWARE MANAGEMENT' />
-            <MenuItem label='End User Devices' />
-            <MenuItem label='Infrastructure Devices' />
-            <Container horizontal='sm' top='sm'>
-              <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
-            </Container>
-            <MenuTitle title='BYTEBROKER' />
-            <MenuItem label='Metrics' />
-            <MenuItem label='Sell Parameters' />
-            <MenuItem label='Buy Parameters' />
-            <Container horizontal='sm' top='sm'>
-              <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
-            </Container>
-            <MenuTitle title='ORGANIZATION MANAGEMENT' />
-            <MenuItem label='Users' />
-            <MenuItem label='Access Groups' />
-            <MenuItem label='Roles and Permissions' />
-            <MenuItem label='Audit Logs' />
-          </Container>
+          </SecondaryBackground>
         </SidebarSection>
         <SidebarSection title='NFL' isMenu />
         <SidebarSection title='Televisa Deportes' isMenu />
