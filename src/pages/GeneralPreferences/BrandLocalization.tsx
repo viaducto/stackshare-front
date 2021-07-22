@@ -5,6 +5,7 @@ import {
   Column,
   Container,
   Grid,
+  Hideable,
   Paragraph,
   Radio,
   Row,
@@ -19,14 +20,21 @@ import preview from './preview.png';
 
 const BrandLocalization = () => {
   return (
-    <div style={{ height: '100%' }}>
-      <Title level='6' weight='600' lineHeight='1.5rem'>
-        Logotype
-      </Title>
+    <div>
+      <Grid>
+        <Row>
+          <Column>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Logotype
+            </Title>
+          </Column>
+        </Row>
+      </Grid>
+
       <Spacer size='md' />
       <Grid>
         <Row>
-          <Column size={4}>
+          <Column lg={5} md={12} xs={12}>
             <Container
               style={{
                 border: '0.063rem solid #000',
@@ -62,10 +70,12 @@ const BrandLocalization = () => {
             </Paragraph>
           </Column>
           <Column>
+            <Hideable visibleOn='lg' after={false}>
+              <Spacer size='md' />
+            </Hideable>
             <div
               style={{
                 background: `url(${preview})`,
-                width: 467,
                 height: 200,
                 backgroundSize: 'cover',
                 display: 'flex',
@@ -87,21 +97,29 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-      <Spacer size='md' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='dark'>
-        Favicon
-      </Title>
+
       <Spacer size='md' />
       <Grid>
         <Row>
-          <Column size={4}>
+          <Grid>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Favicon
+            </Title>
+          </Grid>
+        </Row>
+      </Grid>
+
+      <Spacer size='md' />
+      <Grid>
+        <Row>
+          <Column lg={5} md={12} xs={12}>
             <Container
               style={{
                 border: '0.063rem solid #000',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: 40,
+                width: 45,
               }}
               vertical='md'
               horizontal='sm'
@@ -133,7 +151,6 @@ const BrandLocalization = () => {
             <div
               style={{
                 background: `url(${preview})`,
-                width: 467,
                 height: 200,
                 backgroundSize: 'cover',
                 display: 'flex',
@@ -155,89 +172,116 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
+
       <Spacer size='md' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='dark'>
-        Color Palette
-      </Title>
+      <Grid>
+        <Row>
+          <Column>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Color Palette
+            </Title>
+          </Column>
+        </Row>
+      </Grid>
+
       <Spacer size='md' />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: '100%',
-          maxWidth: '95%',
-        }}
-      >
-        <div style={{ flexBasis: '100%', height: 45, display: 'flex' }}>
-          <Palette main='#F79F1A' secondary='#34AA44' terciary='#73D13D' />
-        </div>
-        <Spacer direction='horizontal' size='md' />
-        <Radio color='#1890FF' name='colorPalette' radioSize='sm' defaultChecked />
-      </div>
+      <Grid>
+        <Row>
+          <Column>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <div style={{ flexBasis: '100%', height: 45, display: 'flex' }}>
+                <Palette main='#F79F1A' secondary='#34AA44' terciary='#73D13D' />
+              </div>
+              <Spacer direction='horizontal' size='md' />
+              <Radio color='#1890FF' name='colorPalette' radioSize='sm' defaultChecked />
+            </div>
+          </Column>
+        </Row>
+        <Spacer size='md' />
+        <Row>
+          <Column>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <div style={{ flexBasis: '100%', height: 45, display: 'flex' }}>
+                <Palette main='#6758F3' secondary='#139AD6' terciary='#FF5F01' />
+              </div>
+              <Spacer direction='horizontal' size='md' />
+              <Radio color='#1890FF' name='colorPalette' radioSize='sm' />
+            </div>
+          </Column>
+        </Row>
+        <Spacer size='md' />
+        <Row>
+          <Column>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <div style={{ flexBasis: '100%', height: 45, display: 'flex' }}>
+                <Palette main='#FF4D4F' secondary='#FACF55' terciary='#FF7875' />
+              </div>
+              <Spacer direction='horizontal' size='md' />
+              <Radio color='#1890FF' name='colorPalette' radioSize='sm' />
+            </div>
+          </Column>
+        </Row>
+      </Grid>
+
       <Spacer size='md' />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: '100%',
-          maxWidth: '95%',
-        }}
-      >
-        <div style={{ flexBasis: '100%', height: 45, display: 'flex' }}>
-          <Palette main='#6758F3' secondary='#139AD6' terciary='#FF5F01' />
-        </div>
-        <Spacer direction='horizontal' size='md' />
-        <Radio color='#1890FF' name='colorPalette' radioSize='sm' />
-      </div>
+      <Grid>
+        <Row>
+          <Column>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Location
+            </Title>
+          </Column>
+        </Row>
+      </Grid>
+
       <Spacer size='md' />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: '100%',
-          maxWidth: '95%',
-        }}
-      >
-        <div style={{ flexBasis: '100%', height: 45, display: 'flex' }}>
-          <Palette main='#FF4D4F' secondary='#FACF55' terciary='#FF7875' />
-        </div>
-        <Spacer direction='horizontal' size='md' />
-        <Radio color='#1890FF' name='colorPalette' radioSize='sm' />
-      </div>
+      <Grid>
+        <Row>
+          <Column size={12}>
+            <Paragraph lineHeight='1.375rem'>Preferred Language</Paragraph>
+          </Column>
+          <Column lg={8}>
+            <Select inputSize='small'>
+              <option value='EN-US'>English - USA</option>
+              <option value='ES-MX'>Español - Mexico</option>
+            </Select>
+          </Column>
+        </Row>
+      </Grid>
+
       <Spacer size='md' />
-      <Title level='6' weight='600' lineHeight='1.5rem' color='dark'>
-        Location
-      </Title>
-      <Spacer size='md' />
-      <div
-        style={{
-          width: 320,
-        }}
-      >
-        <Paragraph lineHeight='1.375rem' color='dark'>
-          Preferred Language
-        </Paragraph>
-        <Select inputSize='small'>
-          <option value='EN-US'>English - USA</option>
-          <option value='ES-MX'>Español - Mexico</option>
-        </Select>
-      </div>
-      <Spacer size='md' />
-      <div
-        style={{
-          width: 320,
-        }}
-      >
-        <Paragraph lineHeight='1.375rem' color='dark'>
-          Reporting Time
-        </Paragraph>
-        <Select inputSize='small'>
-          <option value='GTM8'>Pacific Time (Los Angeles, Seattle) GMT - 8</option>
-        </Select>
-      </div>
+      <Grid>
+        <Row>
+          <Column size={12}>
+            <Paragraph lineHeight='1.375rem'>Reporting Time</Paragraph>
+          </Column>
+          <Column lg={8}>
+            <Select inputSize='small'>
+              <option value='GTM8'>Pacific Time (Los Angeles, Seattle) GMT - 8</option>
+              <option value='GTM8'>Pacific Time (Los Angeles, Seattle) GMT - 8</option>
+            </Select>
+          </Column>
+        </Row>
+      </Grid>
+
       <Spacer size='xxl' />
       <Spacer size='xxl' />
     </div>

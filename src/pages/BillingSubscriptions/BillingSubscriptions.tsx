@@ -187,7 +187,9 @@ const BillingSubscriptions = () => {
                   id='Country'
                   label='Country'
                   labelPosition='outside'
+                  readonly={isReadonly}
                   disabled={isReadonly}
+                  border={isReadonly ? 'none' : 'all'}
                 >
                   <option value='México'>México</option>
                 </Select>

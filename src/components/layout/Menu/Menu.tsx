@@ -7,6 +7,7 @@ import {
   Container,
   Switch,
   ConfigContext,
+  ConfigProps,
 } from '@jp-olvera/jp-viaducto-components';
 import { Suitcase, Grid, Activity } from 'react-ikonate';
 import { AppContext, StackShareThemeContext } from '../../../providers';
@@ -15,13 +16,17 @@ import MenuTitle from '../../MenuTitle/MenuTitle';
 
 interface StyledStackMenuProps {
   active: boolean;
+  configuration: ConfigProps;
 }
 
 const StyledStackMenu = styled.div<StyledStackMenuProps>`
   * {
     font-family: inherit !important;
   }
-  width: 17.313rem;
+  width: 100%;
+  @media (min-width: ${(p) => p.configuration.breakpoints.sm}) {
+    width: 17.313rem;
+  }
   transform: ${(p) => (p.active ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 230ms ease-out;
   position: absolute;
@@ -51,7 +56,7 @@ const StackMenu = () => {
   const { dark } = configuration.colors.text;
 
   return (
-    <StyledStackMenu active={isMenuActive}>
+    <StyledStackMenu active={isMenuActive} configuration={configuration}>
       <Container vertical='md' expandHorizontal horizontal='sm'>
         <Logo />
       </Container>

@@ -51,7 +51,7 @@ const Shop = () => {
         </GroupTab>
       </HeaderSell>
       {/* Body */}
-      <BodyMain style={{ width: '100%', height: '75vh', overflow: 'auto' }}>
+      <BodyMain>
         {tab === 0 && <StoreTab setAppName={setAppName} setOpenshop={setOpenshop} />}
         {(tab === 1 || tab === 2) && (
           <MyAppsOrganizationTab setAppName={setAppName} setOpenTable={setOpenTable} tab={tab} />

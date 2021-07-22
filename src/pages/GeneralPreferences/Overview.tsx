@@ -6,6 +6,7 @@ import {
   Column,
   Container,
   Grid,
+  Hideable,
   Input,
   Paragraph,
   Row,
@@ -18,13 +19,19 @@ import { Add } from 'react-ikonate';
 const Overview = () => {
   return (
     <div style={{ height: '100%' }}>
-      <Title level='6' weight='600' lineHeight='1.5rem'>
-        Company Details
-      </Title>
+      <Grid>
+        <Row>
+          <Column>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Company Details
+            </Title>
+          </Column>
+        </Row>
+      </Grid>
       <Spacer size='md' />
       <Grid>
         <Row>
-          <Column size={5}>
+          <Column>
             <div className='form-control'>
               <Input
                 inputSize='small'
@@ -33,14 +40,14 @@ const Overview = () => {
               />
             </div>
           </Column>
-          <Column size={5}>
+          <Column>
             <div className='form-control'>
               <Input inputSize='small' defaultValue='StackShare' label='Doing Business As:' />
             </div>
           </Column>
         </Row>
         <Row>
-          <Column size={5}>
+          <Column>
             <div className='form-control'>
               <Input inputSize='small' defaultValue='123-23B3-123' label='EIN:' />
             </div>
@@ -48,19 +55,25 @@ const Overview = () => {
         </Row>
       </Grid>
       <Spacer size='lg' />
-      <Title level='6' weight='600' lineHeight='1.5rem'>
-        Legal Company Address
-      </Title>
+      <Grid>
+        <Row>
+          <Column>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Legal Company Address
+            </Title>
+          </Column>
+        </Row>
+      </Grid>
       <Spacer size='sm' />
       <Grid>
         <Row>
-          <Column size={5}>
+          <Column>
             <Paragraph lineHeight='1.375rem'>Country</Paragraph>
             <Select border='all'>
               <option value='USA'>USA</option>
             </Select>
           </Column>
-          <Column size={5}>
+          <Column>
             <Paragraph lineHeight='1.375rem'>State</Paragraph>
             <Select border='all'>
               <option value='USA'>USA</option>
@@ -85,13 +98,20 @@ const Overview = () => {
         </Row>
       </Grid>
       <Spacer size='lg' />
-      <Title level='6' weight='600' lineHeight='1.5rem'>
-        Contact Information
-      </Title>
+      <Grid>
+        <Row>
+          <Column>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Contact Information
+            </Title>
+          </Column>
+        </Row>
+      </Grid>
       <Spacer size='sm' />
       <Grid expanded>
         <Row>
-          <Column size={3}>
+          <Column xl={3} md={6} sm={12}>
+            <Spacer size='md' />
             <Container
               horizontal='sm'
               className='border-bottom'
@@ -106,7 +126,7 @@ const Overview = () => {
                   label='Same as Legal Address'
                   checkSize='md'
                   spacing='sm'
-                  checked
+                  defaultChecked
                   color='#096DD9'
                 />
                 <Spacer size='sm' />
@@ -114,6 +134,7 @@ const Overview = () => {
             </Container>
           </Column>
           <Column size={12}>
+            <Spacer size='md' />
             <div className='form-control'>
               <Input inputSize='small' label='Phone Number' defaultValue='Example Phone, 123456' />
             </div>
@@ -121,39 +142,56 @@ const Overview = () => {
         </Row>
       </Grid>
       <Spacer size='lg' />
-      <Title level='6' weight='600' lineHeight='1.5rem'>
-        Organization Owner
-      </Title>
-      <Spacer size='md' />
-      <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-        <AvatarWithText
-          avatar={{ src: 'https://i.pravatar.cc/32', alt: 'overview', width: '32', height: '32' }}
-        >
-          <div style={{ display: 'flex' }}>
-            <Paragraph lineHeight='1.375rem'>Ted Russell</Paragraph>
-            <Spacer direction='horizontal' size='sm' />
-            <Paragraph lineHeight='1.375rem'>ted.russell@stackshare.io</Paragraph>
-            <Spacer direction='horizontal' size='sm' />
-            <Paragraph lineHeight='1.375rem'>+1 745 989 89898</Paragraph>
-          </div>
-        </AvatarWithText>
-      </div>
-      <Spacer size='lg' />
-      <Button
-        variant='ghost'
-        label='Add new Organization Owner'
-        size='large'
-        lead
-        iconSpacing='xs'
-        icon={<Add />}
-        leftSpacing='tiny'
-        rightSpacing='tiny'
-      />
-      <Spacer size='xs' />
-      <Spacer size='xxxl' />
-      <Button label='Update Company Details' size='large' leftSpacing='md' rightSpacing='md' />
+      <Grid>
+        <Row>
+          <Column>
+            <Title level='6' weight='600' lineHeight='1.5rem'>
+              Organization Owner
+            </Title>
+            <Spacer size='md' />
+            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+              <AvatarWithText
+                avatar={{
+                  src: 'https://i.pravatar.cc/32',
+                  alt: 'overview',
+                  width: '32',
+                  height: '32',
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <Paragraph lineHeight='1.375rem'>Ted Russell</Paragraph>
+                  <Hideable visibleOn='sm'>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                      <Paragraph lineHeight='1.375rem'>ted.russell@stackshare.io</Paragraph>
+                      <Spacer direction='horizontal' size='sm' />
+                      <Paragraph lineHeight='1.375rem'>+1 745 989 89898</Paragraph>
+                    </div>
+                  </Hideable>
+                </div>
+              </AvatarWithText>
+            </div>
+            <Spacer size='lg' />
+            <Button
+              variant='ghost'
+              label='Add new Organization Owner'
+              size='large'
+              lead
+              iconSpacing='xs'
+              icon={<Add />}
+              leftSpacing='tiny'
+              rightSpacing='tiny'
+            />
+            <Spacer size='xxxl' />
+            <Button
+              label='Update Company Details'
+              size='large'
+              leftSpacing='md'
+              rightSpacing='md'
+            />
+          </Column>
+        </Row>
+      </Grid>
       <Spacer size='xxl' />
-      <Spacer size='xxxl' />
     </div>
   );
 };
