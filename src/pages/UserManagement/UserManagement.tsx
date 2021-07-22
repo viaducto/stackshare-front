@@ -374,7 +374,7 @@ const UserManagement = () => {
                     }}
                   >
                     <Paragraph size='lg'>System Administrator</Paragraph>
-                    <Switch inputSize='sm' defaultChecked color='#1890FF' />
+                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
                   </div>
                   <div
                     style={{
@@ -385,7 +385,7 @@ const UserManagement = () => {
                     }}
                   >
                     <Paragraph size='lg'>Billing Manager</Paragraph>
-                    <Switch inputSize='sm' defaultChecked color='#1890FF' />
+                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
                   </div>
                   <div
                     style={{
@@ -396,7 +396,7 @@ const UserManagement = () => {
                     }}
                   >
                     <Paragraph size='lg'>Location Owner</Paragraph>
-                    <Switch inputSize='sm' defaultChecked color='#1890FF' />
+                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
                   </div>
                   <div
                     style={{
@@ -407,7 +407,7 @@ const UserManagement = () => {
                     }}
                   >
                     <Paragraph size='lg'>Siper admin</Paragraph>
-                    <Switch inputSize='sm' defaultChecked color='#1890FF' />
+                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
                   </div>
                 </Container>
               </Column>

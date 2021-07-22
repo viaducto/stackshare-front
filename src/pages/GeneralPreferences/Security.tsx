@@ -34,7 +34,7 @@ const Security = () => {
         }}
       >
         <Paragraph lineHeight='1.375rem'>Enforce Multi Factor Authentication</Paragraph>
-        <Switch color='#1890FF' inputSize='md' defaultChecked />
+        <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
       </div>
       <Spacer size='md' />
       <div
@@ -46,7 +46,7 @@ const Security = () => {
         }}
       >
         <Paragraph lineHeight='1.375rem'>Request confirm for dangerous actions</Paragraph>
-        <Switch color='#1890FF' inputSize='md' defaultChecked />
+        <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
       </div>
       <Spacer size='md' />
       <div
@@ -58,7 +58,7 @@ const Security = () => {
         }}
       >
         <Paragraph lineHeight='1.375rem'>Limit Authentication to Specific IP Addresses</Paragraph>
-        <Switch color='#1890FF' inputSize='md' defaultChecked />
+        <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
       </div>
       <Spacer size='lg' />
       <Container
@@ -96,7 +96,7 @@ const Security = () => {
         }}
       >
         <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
-        <Switch color='#1890FF' inputSize='md' defaultChecked />
+        <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
       </div>
       <Spacer size='xxl' />
       <div
@@ -108,7 +108,7 @@ const Security = () => {
         }}
       >
         <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
-        <Switch color='#1890FF' inputSize='md' defaultChecked />
+        <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
       </div>
       <Spacer size='md' />
       <Container

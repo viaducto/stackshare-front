@@ -44,7 +44,7 @@ const BillingAlert = () => {
               <Paragraph color='gray' size='lg'>
                 Failed transaction
               </Paragraph>
-              <Switch inputSize='sm' defaultChecked color='#1890FF' />
+              <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
             </div>
             <div
               style={{
@@ -57,7 +57,7 @@ const BillingAlert = () => {
               <Paragraph color='gray' size='lg'>
                 Failed transaction
               </Paragraph>
-              <Switch inputSize='sm' defaultChecked color='#1890FF' />
+              <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
             </div>
             <div
               style={{
@@ -70,7 +70,7 @@ const BillingAlert = () => {
               <Paragraph color='gray' size='lg'>
                 Failed transaction
               </Paragraph>
-              <Switch inputSize='sm' defaultChecked color='#1890FF' />
+              <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
             </div>
             <div
               style={{
@@ -83,7 +83,7 @@ const BillingAlert = () => {
               <Paragraph color='gray' size='lg'>
                 Failed transaction
               </Paragraph>
-              <Switch inputSize='sm' defaultChecked color='#1890FF' />
+              <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
             </div>
           </Container>
         </Column>

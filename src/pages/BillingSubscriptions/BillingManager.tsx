@@ -48,7 +48,7 @@ const BillingManager = () => {
           <Paragraph color='gray' size='lg'>
             Upgrade plan
           </Paragraph>
-          <Switch inputSize='sm' defaultChecked color='#1890FF' />
+          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
         </div>
         <div
           style={{
@@ -61,7 +61,7 @@ const BillingManager = () => {
           <Paragraph color='gray' size='lg'>
             Downgrade plan
           </Paragraph>
-          <Switch inputSize='sm' defaultChecked color='#1890FF' />
+          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
         </div>
         <div
           style={{
@@ -74,7 +74,7 @@ const BillingManager = () => {
           <Paragraph color='gray' size='lg'>
             Change Billing Information
           </Paragraph>
-          <Switch inputSize='sm' defaultChecked color='#1890FF' />
+          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
         </div>
         <div
           style={{
@@ -87,7 +87,7 @@ const BillingManager = () => {
           <Paragraph color='gray' size='lg'>
             Download Invoices
           </Paragraph>
-          <Switch inputSize='sm' defaultChecked color='#1890FF' />
+          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
         </div>
         <div
           style={{
@@ -100,7 +100,7 @@ const BillingManager = () => {
           <Paragraph color='gray' size='lg'>
             Permissions
           </Paragraph>
-          <Switch inputSize='sm' defaultChecked color='#1890FF' />
+          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
         </div>
       </Column>
     </>

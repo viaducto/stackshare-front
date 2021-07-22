@@ -127,7 +127,7 @@ const StackMenu = () => {
       <Container top='sm'>
         <MenuTitle title='Dark mode' />
         <Container left='sm'>
-          <Switch change={setDarkMode} defaultChecked={isDarkMode} inputSize='sm' />
+          <Switch change={setDarkMode} defaultChecked={isDarkMode} inputSize='xsmall' />
         </Container>
       </Container>
     </StyledStackMenu>
