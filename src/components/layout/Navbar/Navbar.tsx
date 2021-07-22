@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef, useState } from 'react';
 import {
   Paragraph,
   Container,
@@ -7,6 +7,8 @@ import {
   Row,
   Column,
   ConfigContext,
+  Popover,
+  Button,
 } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 import { Hamburger, Help, ChevronDown } from 'react-ikonate';
@@ -40,6 +42,12 @@ const Navbar = () => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
 
+  const dropRef = useRef(null);
+  const [dropActive, setDropActive] = useState(false);
+  const handleDropActive = () => {
+    console.log('dri');
+    setDropActive((d) => !d);
+  };
   return (
     <StyledNavbar className='border-bottom'>
       <Container vertical='md'>
@@ -53,20 +61,66 @@ const Navbar = () => {
                 <div className='user-navbar'>
                   <Help fontSize='1.5rem' color={dark} />
                   <Notification number={12} />
-                  <AvatarWithText
-                    avatar={{
-                      src: 'https://i.pravatar.cc/32',
-                      alt: 'avatar',
-                      width: '32',
-                      height: '32',
+                  <div
+                    onClick={handleDropActive}
+                    ref={dropRef}
+                    style={{
+                      cursor: 'pointer',
                     }}
-                    spacing='xs'
                   >
-                    <div className='user-data'>
-                      <Paragraph>Ted Russell</Paragraph>
-                      <ChevronDown fontSize='0.9rem' color={dark} />
-                    </div>
-                  </AvatarWithText>
+                    <AvatarWithText
+                      avatar={{
+                        src: 'https://i.pravatar.cc/32',
+                        alt: 'avatar',
+                        width: '32',
+                        height: '32',
+                      }}
+                      spacing='xs'
+                    >
+                      <div className='user-data'>
+                        <Paragraph>Ted Russell</Paragraph>
+                        <ChevronDown fontSize='0.9rem' color={dark} />
+                      </div>
+                    </AvatarWithText>
+                  </div>
+                  <Popover
+                    active={dropActive}
+                    handleClose={handleDropActive}
+                    target={dropRef}
+                    content={
+                      <div style={{ width: '200px' }}>
+                        <Button
+                          label=' Mi perfil'
+                          shapeColor='secondary'
+                          variant='ghost'
+                          radius='none'
+                          block
+                        />
+                        <Button
+                          label='Configuración'
+                          shapeColor='secondary'
+                          variant='ghost'
+                          radius='none'
+                          block
+                        />
+                        <Button
+                          label='Eliminar mi cuenta'
+                          shapeColor='secondary'
+                          variant='ghost'
+                          radius='none'
+                          block
+                        />
+                        <hr />
+                        <Button
+                          label='Log out'
+                          variant='ghost'
+                          radius='none'
+                          shapeColor='danger'
+                          block
+                        />
+                      </div>
+                    }
+                  />
                 </div>
               </div>
             </Column>
