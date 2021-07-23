@@ -113,7 +113,6 @@ const Overview = () => {
           <Column xl={3} md={6} sm={12}>
             <Spacer size='md' />
             <Container
-              horizontal='sm'
               className='border-bottom'
               style={{
                 display: 'flex',

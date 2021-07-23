@@ -32,7 +32,6 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
             <Spacer direction='vertical' size='xs' />
             <div
               style={{
-                width: '6.625rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',

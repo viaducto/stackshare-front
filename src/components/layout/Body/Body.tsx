@@ -11,7 +11,7 @@ const StyledBody = styled.div<StyledBodyProps>`
   width: ${(p) => (p.active ? '0' : '100%')};
   @media (min-width: ${(p) => p.configuration.breakpoints.sm}) {
     width: ${(p) => (p.active ? 'calc(100% - 17.313rem)' : '100%')};
-    transition: width 235ms linear, margin 235ms linear;
+    transition: 240ms linear;
   }
   margin-left: ${(p) => (p.active ? '17.313rem' : '0')};
   float: left;

@@ -46,7 +46,6 @@ const Navbar = () => {
   const dropRef = useRef(null);
   const [dropActive, setDropActive] = useState(false);
   const handleDropActive = () => {
-    console.log('dri');
     setDropActive((d) => !d);
   };
   return (

@@ -11,7 +11,7 @@ export const StackShareThemeContext = createContext({
 const StackShareThemeProvider = ({ children }: any) => {
   const [currentTheme, setCurrentTheme] = useState(defaultTheme);
   const { updateConfig, configuration } = useContext(ConfigContext);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(localStorage.getItem('dark-mode') === 'off' || false);
 
   const handleTheme = () => {
     if (isDark) {

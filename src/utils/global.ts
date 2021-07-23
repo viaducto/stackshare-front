@@ -53,6 +53,10 @@ export const GlobalStyle: any = createGlobalStyle`
     color:inherit;
     cursor: pointer;
   }
+
+  .input{
+    overflow: hidden !important;
+  }
   
   .is-today{
     font-weight: bold;
