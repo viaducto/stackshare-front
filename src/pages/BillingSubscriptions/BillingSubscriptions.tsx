@@ -113,7 +113,7 @@ const BillingSubscriptions = () => {
                           src: master,
                           alt: 'card',
                           size: 'small',
-                          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%);',
+                          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
                         }}
                         style={{ justifyContent: 'flex-start' }}
                       >

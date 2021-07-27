@@ -8,6 +8,7 @@ const avatar: AvatarProps = {
   alt: 'app',
   width: '32',
   height: '32',
+  clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)',
 };
 
 export const colsTabZero = [
