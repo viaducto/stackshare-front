@@ -72,6 +72,8 @@ const Buy = () => {
                             setNewBid(true);
                             setOpenTable(true);
                           }}
+                          leftSpacing='sm'
+                          rightSpacing='md'
                         />
                         <div>
                           <Button

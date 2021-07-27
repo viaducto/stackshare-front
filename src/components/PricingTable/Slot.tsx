@@ -108,6 +108,7 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
         active={activePopover}
         position='left'
         elevation={1}
+        zIndex={9999}
         content={
           <Container expandVertical expandHorizontal vertical='lg' horizontal='lg'>
             <Container>
