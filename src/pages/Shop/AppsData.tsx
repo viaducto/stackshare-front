@@ -18,7 +18,7 @@ export const appsData = [
     type: 'Productivity',
     installed_by: 'Sysadmin',
     user_group: 'Everyone',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -28,7 +28,7 @@ export const appsData = [
     type: 'Social',
     installed_by: 'Sysadmin',
     user_group: 'Marketing',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -38,7 +38,7 @@ export const appsData = [
     type: 'Social',
     installed_by: 'Sysadmin',
     user_group: 'Marketing',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -48,7 +48,7 @@ export const appsData = [
     type: 'Productivity',
     installed_by: 'Sysadmin',
     user_group: 'Everyone',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -58,7 +58,7 @@ export const appsData = [
     type: 'Social',
     installed_by: 'Sysadmin',
     user_group: 'Marketing',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -68,7 +68,7 @@ export const appsData = [
     type: 'Storage',
     installed_by: 'Sysadmin',
     user_group: 'Everyone',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -78,7 +78,7 @@ export const appsData = [
     type: 'Storage',
     installed_by: 'Sysadmin',
     user_group: 'Everyone',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -88,7 +88,7 @@ export const appsData = [
     type: 'Storage',
     installed_by: 'Sysadmin',
     user_group: 'Desing',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
   {
     expandible: null,
@@ -98,6 +98,6 @@ export const appsData = [
     type: 'Real state',
     installed_by: 'Sysadmin',
     user_group: 'Sales',
-    expense_period: parseFloat('499.00'),
+    expense_period: '$499.00',
   },
 ];

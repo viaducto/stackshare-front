@@ -49,7 +49,14 @@ const UserList = () => {
             overflowY: 'auto',
           }}
         >
-          <WrapperTable horizontalSpacing='sm' zebra={false}>
+          <WrapperTable
+            fontSize='md'
+            zebra={false}
+            verticalSpacing='md'
+            border='horizontal'
+            borderColor='#E8E8E8'
+            horizontalSpacing='sm'
+          >
             <table {...getTableProps()}>
               <thead>
                 {

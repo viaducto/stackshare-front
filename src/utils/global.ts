@@ -175,5 +175,10 @@ export const GlobalStyle: any = createGlobalStyle`
     box-sizing: border-box;
     box-shadow: inset 0px -2px 0px #1665D8;
   }
+  .avatar-text{
+    img{
+      object-fit: contain !important;
+    }
+  }
 
 `;

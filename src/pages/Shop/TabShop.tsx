@@ -25,6 +25,7 @@ import { appsData } from './AppsData';
 import { colsTabOne, colsTabZero } from './Columns';
 import AccumulatedBilling from '../../components/AccumulatedBilling/AccumulatedBilling';
 import { useState } from 'react';
+import { Center } from '../../components/Center';
 
 export const StoreTab = ({
   setAppName,
@@ -34,8 +35,8 @@ export const StoreTab = ({
   setOpenshop: Function;
 }) => {
   return (
-    <Container style={{ height: '100%' }} horizontal='lg'>
-      <Container top='md' horizontal='sm' expandHorizontal style={{ overflow: 'auto' }}>
+    <Container style={{ height: '100%' }} horizontal='md'>
+      <Container top='lg' horizontal='none' expandHorizontal style={{ overflow: 'auto' }}>
         <WrapperTable
           fontSize='md'
           zebra={false}
@@ -59,7 +60,7 @@ export const StoreTab = ({
                 Cell: (props: any) => {
                   const installed = [1, 3, 5];
                   return (
-                    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                    <Center>
                       {!installed.includes(props.row.index) ? (
                         <Button
                           label='Install'
@@ -77,7 +78,7 @@ export const StoreTab = ({
                           style={{ border: 'none' }}
                         />
                       )}
-                    </div>
+                    </Center>
                   );
                 },
               },
@@ -117,12 +118,7 @@ export const StoreTabDrawer = ({
                   {appName}
                 </Paragraph>
               </div>
-              <Pill
-                label=''
-                background='transparent'
-                color='#000'
-                handleAction={() => setOpenshop(false)}
-              />
+              <Pill label='' background='transparent' handleAction={() => setOpenshop(false)} />
             </Container>
           </Column>
         </Row>
@@ -162,13 +158,7 @@ export const StoreTabDrawer = ({
                   <ListAlt color='#1665D8' fontSize='3rem' />
                 </div>
                 <Spacer direction='vertical' size='md' />
-                <Paragraph
-                  align='center'
-                  size='lg'
-                  color='#3E3F42'
-                  lineHeight='1.75rem'
-                  weight='500'
-                >
+                <Paragraph align='center' size='lg' lineHeight='1.75rem' weight='500'>
                   Personal Usage
                 </Paragraph>
                 <Spacer direction='vertical' size='sm' />
@@ -208,13 +198,7 @@ export const StoreTabDrawer = ({
                   <Film color='#1665D8' fontSize='3rem' />
                 </div>
                 <Spacer direction='vertical' size='md' />
-                <Paragraph
-                  align='center'
-                  size='lg'
-                  color='#3E3F42'
-                  lineHeight='1.75rem'
-                  weight='500'
-                >
+                <Paragraph align='center' size='lg' lineHeight='1.75rem' weight='500'>
                   Group Usage
                 </Paragraph>
                 <Spacer direction='vertical' size='sm' />
@@ -244,7 +228,7 @@ export const StoreTabDrawer = ({
             justifyContent: 'space-between',
           }}
         >
-          <Paragraph color='#000000'>Monthly price calculated at market value</Paragraph>
+          <Paragraph>Monthly price calculated at market value</Paragraph>
           <Button label='Add app' onClick={() => setOpenshop(false)} />
         </Container>
       </Container>
@@ -270,6 +254,11 @@ export const MyAppsOrganizationTab = ({
           width: 150,
           minWidth: 120,
           maxWidth: 300,
+          Cell: (row: any) => (
+            <Center>
+              <Paragraph>{row.value}</Paragraph>
+            </Center>
+          ),
         }
       : {
           Header: '',
@@ -284,7 +273,7 @@ export const MyAppsOrganizationTab = ({
     <Container style={{ height: '50%' }} top='md'>
       <Container
         top='none'
-        horizontal='xl'
+        horizontal='md'
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -295,10 +284,8 @@ export const MyAppsOrganizationTab = ({
         <div className='overflow'>
           <WrapperTable
             fontSize='md'
-            verticalSpacing='md'
-            hover
             zebra={false}
-            hoverColor='#D1D5DA'
+            verticalSpacing='md'
             border='horizontal'
             borderColor='#E8E8E8'
             horizontalSpacing='sm'
@@ -317,7 +304,7 @@ export const MyAppsOrganizationTab = ({
                   Filter: () => null,
                   Cell: (props: any) => {
                     return (
-                      <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                      <Center>
                         <Button
                           label='Edit'
                           variant='ghost'
@@ -326,7 +313,7 @@ export const MyAppsOrganizationTab = ({
                             setOpenTable(true);
                           }}
                         />
-                      </div>
+                      </Center>
                     );
                   },
                 },

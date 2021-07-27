@@ -10,6 +10,7 @@ import {
 } from '@jp-olvera/jp-viaducto-components';
 import { useContext, useState } from 'react';
 import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
+import { Center } from '../../components/Center';
 import Kebab from '../../components/Kebab/Kebab';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -79,7 +80,14 @@ const Infrastructure = () => {
               </div>
             </div>
             <Container className='overflow'>
-              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA' zebra={false}>
+              <WrapperTable
+                fontSize='md'
+                zebra={false}
+                verticalSpacing='md'
+                border='horizontal'
+                borderColor='#E8E8E8'
+                horizontalSpacing='sm'
+              >
                 <Table
                   filter={false}
                   cols={[
@@ -96,15 +104,7 @@ const Infrastructure = () => {
                           props.data[props.row.index].action;
                         const cellType = props.data[props.row.index].type;
                         return (
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'center',
-                              alignItems: 'center',
-                              height: '100%',
-                              width: '100%',
-                            }}
-                          >
+                          <Center>
                             <Kebab>
                               {deleteBtn && (
                                 <Button variant='ghost' label='Delete' shapeColor='danger' block />
@@ -119,7 +119,7 @@ const Infrastructure = () => {
                                 block
                               />
                             </Kebab>
-                          </div>
+                          </Center>
                         );
                       },
                     },

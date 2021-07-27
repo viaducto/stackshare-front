@@ -275,7 +275,14 @@ const LocationManagement = () => {
               flexWrap: 'wrap',
             }}
           >
-            <WrapperTable border='horizontal' zebra={false}>
+            <WrapperTable
+              fontSize='md'
+              zebra={false}
+              verticalSpacing='md'
+              border='horizontal'
+              borderColor='#E8E8E8'
+              horizontalSpacing='sm'
+            >
               <Table cols={columns} dataTable={data} />
             </WrapperTable>
           </Container>
@@ -438,7 +445,14 @@ const LocationManagement = () => {
           <Row>
             <Column size={12}>
               <Container className='overflow'>
-                <WrapperTable zebra={false}>
+                <WrapperTable
+                  fontSize='md'
+                  zebra={false}
+                  verticalSpacing='md'
+                  border='horizontal'
+                  borderColor='#E8E8E8'
+                  horizontalSpacing='sm'
+                >
                   <Table cols={infrastructureColumns} dataTable={infrastructureData} />
                 </WrapperTable>
               </Container>

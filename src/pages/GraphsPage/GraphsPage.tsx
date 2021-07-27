@@ -10,8 +10,6 @@ import {
   Select,
   WrapperTable,
   ConfigContext,
-  GroupTab,
-  Tab,
 } from '@jp-olvera/jp-viaducto-components';
 import { ArrowRight, ArrowRightTop, ArrowLeftBottom, Cup, Ellypsis, Person } from 'react-ikonate';
 import {
@@ -64,13 +62,7 @@ const GraphsPage = () => {
           { label: 'Graphs', href: '', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
-          <Tab text='short' />
-          <Tab text='Large' />
-          <Tab text='Store tab organization' />
-          <Tab text='Very large tab with text long and still works' />
-          <Tab text='a' />
-        </GroupTab>
+        <Spacer size='md' />
       </HeaderSell>
 
       {/* Content */}
@@ -79,7 +71,7 @@ const GraphsPage = () => {
           {/* Numbers */}
           <Container
             vertical='md'
-            horizontal='lg'
+            horizontal='md'
             expandHorizontal
             style={{ boxSizing: 'border-box' }}
           >
@@ -209,7 +201,7 @@ const GraphsPage = () => {
           {/* Top graph */}
           <Container
             vertical='md'
-            horizontal='lg'
+            horizontal='md'
             expandHorizontal
             style={{ boxSizing: 'border-box' }}
           >
@@ -441,7 +433,7 @@ const GraphsPage = () => {
           {/* Graph */}
           <Container
             vertical='md'
-            horizontal='lg'
+            horizontal='md'
             expandHorizontal
             style={{ boxSizing: 'border-box' }}
           >
@@ -511,7 +503,7 @@ const GraphsPage = () => {
               >
                 <Container
                   vertical='lg'
-                  horizontal='lg'
+                  horizontal='md'
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -583,7 +575,7 @@ const GraphsPage = () => {
 
                 <Container
                   vertical='lg'
-                  horizontal='lg'
+                  horizontal='md'
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -655,7 +647,7 @@ const GraphsPage = () => {
 
                 <Container
                   vertical='lg'
-                  horizontal='lg'
+                  horizontal='md'
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -726,7 +718,7 @@ const GraphsPage = () => {
 
                 <Container
                   vertical='lg'
-                  horizontal='lg'
+                  horizontal='md'
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -802,7 +794,7 @@ const GraphsPage = () => {
           {/* Most Visited */}
           <Container
             vertical='md'
-            horizontal='lg'
+            horizontal='md'
             expandHorizontal
             style={{ boxSizing: 'border-box' }}
           >
@@ -829,7 +821,14 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' weight='600'>
                     Most Visited Pages
                   </Paragraph>
-                  <WrapperTable border='horizontal' horizontalSpacing='sm' zebra={false}>
+                  <WrapperTable
+                    fontSize='md'
+                    zebra={false}
+                    verticalSpacing='md'
+                    border='horizontal'
+                    borderColor='#E8E8E8'
+                    horizontalSpacing='sm'
+                  >
                     <Table
                       cols={visitedColumns}
                       dataTable={visitedPages}
@@ -842,7 +841,14 @@ const GraphsPage = () => {
                   <Paragraph size='lg' lineHeight='1.75rem' weight='600'>
                     Social Media Traffic
                   </Paragraph>
-                  <WrapperTable border='horizontal' horizontalSpacing='sm' zebra={false}>
+                  <WrapperTable
+                    fontSize='md'
+                    zebra={false}
+                    verticalSpacing='md'
+                    border='horizontal'
+                    borderColor='#E8E8E8'
+                    horizontalSpacing='sm'
+                  >
                     <Table
                       cols={socialColumns}
                       dataTable={socialMedia}
@@ -858,7 +864,7 @@ const GraphsPage = () => {
           {/* Progress Card */}
           <Container
             vertical='md'
-            horizontal='lg'
+            horizontal='md'
             expandHorizontal
             style={{ boxSizing: 'border-box' }}
           >
@@ -904,7 +910,7 @@ const GraphsPage = () => {
           {/* Widget */}
           <Container
             vertical='md'
-            horizontal='lg'
+            horizontal='md'
             expandHorizontal
             style={{ boxSizing: 'border-box' }}
           >
@@ -1149,7 +1155,7 @@ const GraphsPage = () => {
           {/* Graph */}
           <Container
             vertical='md'
-            horizontal='lg'
+            horizontal='md'
             expandHorizontal
             style={{ boxSizing: 'border-box' }}
           >
@@ -1229,7 +1235,7 @@ const GraphsPage = () => {
         position='top'
         elevation={1}
         content={
-          <Container expandVertical expandHorizontal vertical='lg' horizontal='lg'>
+          <Container expandVertical expandHorizontal vertical='lg' horizontal='md'>
             <Container>
               <Paragraph weight='bold' size='sm' color={dark} lineHeight='1.125rem'>
                 {today.toUpperCase()}

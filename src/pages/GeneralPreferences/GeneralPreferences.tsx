@@ -39,7 +39,7 @@ const GeneralPreferences = () => {
         <Grid expanded style={{ background: 'transparent' }}>
           <Row>
             <Column lg={tab === 1 ? 6 : 8} md={12} sm={12} xs={12}>
-              <BodyMain horizontal='md' style={{ overflow: 'auto' }} expandVertical>
+              <BodyMain horizontal='none' style={{ overflow: 'auto' }} expandVertical>
                 <Container vertical='md' style={{ overflow: 'hidden' }}>
                   {tab === 0 && <Overview />}
                   {tab === 1 && <Security />}

@@ -13,7 +13,6 @@ import { Suitcase, Grid, Activity } from 'react-ikonate';
 import { AppContext, StackShareThemeContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
 import MenuTitle from '../../MenuTitle/MenuTitle';
-import { SecondaryBackground } from '../../Backgrounds';
 
 interface StyledStackMenuProps {
   active: boolean;
@@ -67,7 +66,7 @@ const StackMenu = () => {
             <MenuItem label='Buy parameters' nested active={pathname === '/buy'} />
           </Link>
           <Link to='/sell' className='link-router'>
-            <MenuItem label='Sell parameters' nested active={pathname === '/'} />
+            <MenuItem label='Sell parameters' nested active={pathname === '/sell'} />
           </Link>
           <Link to='/b2b' className='link-router'>
             <MenuItem label='B2B' nested active={pathname === '/b2b'} />
@@ -99,7 +98,7 @@ const StackMenu = () => {
             <MenuItem label='Applications' />
             <MenuItem label='Devices' />
           </Container>
-          <SecondaryBackground>
+          <div>
             <Container>
               <MenuTitle title='SUBSCRIPTIONS AND BILLING' />
               <MenuItem label='Stackshop' />
@@ -126,7 +125,7 @@ const StackMenu = () => {
               <MenuItem label='Roles and Permissions' />
               <MenuItem label='Audit Logs' />
             </Container>
-          </SecondaryBackground>
+          </div>
         </SidebarSection>
         <SidebarSection title='NFL' isMenu />
         <SidebarSection title='Televisa Deportes' isMenu />

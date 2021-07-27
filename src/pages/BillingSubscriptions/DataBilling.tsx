@@ -1,21 +1,22 @@
 import { AvatarWithText, Container, Paragraph } from '@jp-olvera/jp-viaducto-components';
 import React from 'react';
+import { Center } from '../../components/Center';
 import Tag from '../../components/Tag/Tag';
 import master from './mastercard.svg';
 
-export const Center = ({ children, ...rest }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
-    {children}
-  </div>
-);
-
 export const Payment = () => (
   <Container vertical='sm' horizontal='xs'>
-    <AvatarWithText avatar={{ src: master, width: '25', height: '25', alt: 'card' }}>
+    <AvatarWithText
+      className='avatar-text'
+      avatar={{
+        src: master,
+        alt: 'card',
+        size: 'small',
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%);',
+      }}
+    >
       <div style={{ flexDirection: 'column' }}>
-        <Paragraph color='#3E3F42' lineHeight='100%'>
-          XXXX-XXXX-XXXX-1345
-        </Paragraph>
+        <Paragraph lineHeight='100%'>XXXX-XXXX-XXXX-1345</Paragraph>
         <Paragraph color='#838383' lineHeight='100%' size='sm'>
           Master Card - Debit
         </Paragraph>
@@ -31,7 +32,11 @@ export const columns = [
     minWidth: 150,
     width: 150,
     maxWidth: 180,
-    Cell: (props: any) => <Center>{props.data[props.row.index].invoice_id}</Center>,
+    Cell: (props: any) => (
+      <Center>
+        <Paragraph>{props.data[props.row.index].invoice_id}</Paragraph>
+      </Center>
+    ),
   },
   {
     accessor: 'date',
@@ -39,7 +44,11 @@ export const columns = [
     minWidth: 200,
     width: 200,
     maxWidth: 250,
-    Cell: (props: any) => <Center>{props.data[props.row.index].date}</Center>,
+    Cell: (props: any) => (
+      <Center>
+        <Paragraph>{props.data[props.row.index].date}</Paragraph>
+      </Center>
+    ),
   },
   {
     accessor: 'pay',
@@ -47,7 +56,11 @@ export const columns = [
     minWidth: 250,
     width: 250,
     maxWidth: 300,
-    Cell: (props: any) => <Center>{props.data[props.row.index].pay}</Center>,
+    Cell: (props: any) => (
+      <Center>
+        <Paragraph>{props.data[props.row.index].pay}</Paragraph>
+      </Center>
+    ),
   },
   {
     accessor: 'amount',
@@ -55,7 +68,11 @@ export const columns = [
     minWidth: 180,
     width: 180,
     maxWidth: 230,
-    Cell: (props: any) => <Center>{props.data[props.row.index].amount}</Center>,
+    Cell: (props: any) => (
+      <Center>
+        <Paragraph>{props.data[props.row.index].amount}</Paragraph>
+      </Center>
+    ),
   },
   {
     accessor: 'status',

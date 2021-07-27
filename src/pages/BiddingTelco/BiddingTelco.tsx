@@ -70,10 +70,12 @@ const BiddingTelco = () => {
         </Grid>
         <Grid className='border-bottom' expanded>
           <Row>
-            <Column size={12}>
+            <Column>
               <Container vertical='md'>
                 <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
-                <Spacer size='md' />
+                <Spacer size='xs' />
+                <Spacer size='xs' />
+                <Spacer size='xs' />
                 <div style={{ width: '16rem' }}>
                   <Input label='Medium input' inputSize='small' border='outside' />
                 </div>

@@ -1,3 +1,6 @@
+import { Paragraph } from '@jp-olvera/jp-viaducto-components';
+import { Center } from '../../components/Center';
+
 export const permissionColumns = [
   {
     Header: 'Role',
@@ -6,6 +9,11 @@ export const permissionColumns = [
     width: 188,
     maxWidth: 250,
     minWidth: 100,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
   {
     Header: 'Role type',
@@ -14,6 +22,11 @@ export const permissionColumns = [
     width: 188,
     maxWidth: 250,
     minWidth: 100,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
   {
     Header: 'Number of Users',
@@ -22,7 +35,11 @@ export const permissionColumns = [
     width: 188,
     maxWidth: 250,
     minWidth: 100,
-    prefix: '$',
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
   {
     Header: 'Number of Users',
@@ -31,6 +48,11 @@ export const permissionColumns = [
     width: 188,
     maxWidth: 250,
     minWidth: 100,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
 ];
 

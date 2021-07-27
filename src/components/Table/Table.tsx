@@ -43,7 +43,8 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   return (
     <Input
       label='Search'
-      icon={<Search color={dark} />}
+      icon={<Search />}
+      iconColor={dark}
       inputSize='small'
       border='outside'
       defaultValue={value || ''}

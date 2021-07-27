@@ -43,7 +43,7 @@ const PermissionManagement = () => {
         </GroupTab>
       </HeaderSell>
       <div style={{ display: 'flex', overflow: 'hidden' }}>
-        <BodyMain horizontal='md' expandVertical className='overflow'>
+        <BodyMain horizontal='sm' expandVertical className='overflow'>
           <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
               <Button
@@ -82,7 +82,14 @@ const PermissionManagement = () => {
               </div>
             </div>
             <Container className='overflow'>
-              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA' zebra={false}>
+              <WrapperTable
+                fontSize='md'
+                zebra={false}
+                verticalSpacing='md'
+                border='horizontal'
+                borderColor='#E8E8E8'
+                horizontalSpacing='sm'
+              >
                 <Table
                   filter={false}
                   cols={[

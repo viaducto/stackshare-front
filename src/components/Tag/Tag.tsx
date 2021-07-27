@@ -1,4 +1,14 @@
-const Tag = ({ label, color, backgroundColor, borderColor }: any) => (
+const Tag = ({
+  label,
+  color,
+  backgroundColor,
+  borderColor,
+}: {
+  label: string;
+  color: string;
+  backgroundColor: string;
+  borderColor: string;
+}) => (
   <div
     style={{
       display: 'flex',
