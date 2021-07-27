@@ -54,10 +54,6 @@ export const GlobalStyle: any = createGlobalStyle`
     cursor: pointer;
   }
 
-  .input{
-    overflow: hidden !important;
-  }
-  
   .is-today{
     font-weight: bold;
     color: #7cb305;
