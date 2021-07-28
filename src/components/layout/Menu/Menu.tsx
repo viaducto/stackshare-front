@@ -55,14 +55,18 @@ const StackMenu = () => {
   const { isDarkMode, setDarkMode } = useContext(StackShareThemeContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-
   return (
     <StyledStackMenu active={isMenuActive} configuration={configuration}>
       <Container vertical='md' expandHorizontal horizontal='sm'>
         <Logo />
       </Container>
       <Container vertical='md' style={{ position: 'relative' }}>
-        <SidebarSection title='Auctions' isDropdown icon={<Suitcase color={dark} />}>
+        <SidebarSection
+          active={['/buy', '/sell', '/b2b'].includes(pathname)}
+          title='Auctions'
+          isDropdown
+          icon={<Suitcase color={dark} />}
+        >
           <Link to='/buy' className='link-router'>
             <MenuItem label='Buy parameters' nested active={pathname === '/buy'} />
           </Link>

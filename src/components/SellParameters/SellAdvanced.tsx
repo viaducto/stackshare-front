@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import {
   Paragraph,
   Spacer,
@@ -11,12 +11,10 @@ import {
 } from '@jp-olvera/jp-viaducto-components';
 import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
 import { PricingTable } from '../PricingTable';
-import Overflow from '../Overflow/Overflow';
 import { Dolar } from 'react-ikonate';
 import { useContext } from 'react';
 
 const SellAdvanced = () => {
-  const ref = useRef<HTMLDivElement>(null);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
   const [value, setValue] = useState(95);
@@ -65,18 +63,16 @@ const SellAdvanced = () => {
       <Row>
         <Column>
           <Container right='sm'>
-            <Overflow target={ref}>
-              <div className='overflow' ref={ref}>
-                <PricingTable
-                  sun={TUESDAY}
-                  mon={MONDAY}
-                  tues={TUESDAY}
-                  wed={MONDAY}
-                  thu={TUESDAY}
-                  sat={TUESDAY}
-                />
-              </div>
-            </Overflow>
+            <div className='overflow'>
+              <PricingTable
+                sun={TUESDAY}
+                mon={MONDAY}
+                tues={TUESDAY}
+                wed={MONDAY}
+                thu={TUESDAY}
+                sat={TUESDAY}
+              />
+            </div>
           </Container>
         </Column>
       </Row>

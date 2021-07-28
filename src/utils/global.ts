@@ -17,8 +17,30 @@ export const GlobalStyle: any = createGlobalStyle`
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
+    scrollbar-width: thin; // firefox required
+    scrollbar-color: #b4b7bb #F1f1f1; // firefox required
+
   }
 
+    /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #F1F1F1; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #b4b7bb; 
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A8A8A8; 
+  }
   input > label {
     font-weight: bold;
   }
