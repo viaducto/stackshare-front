@@ -13,6 +13,7 @@ import { Suitcase, Grid, Activity } from 'react-ikonate';
 import { AppContext, StackShareThemeContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
 import MenuTitle from '../../MenuTitle/MenuTitle';
+import { SecondaryBackground } from '../../Backgrounds';
 
 interface StyledStackMenuProps {
   active: boolean;
@@ -98,7 +99,7 @@ const StackMenu = () => {
             <MenuItem label='Applications' />
             <MenuItem label='Devices' />
           </Container>
-          <div>
+          <SecondaryBackground>
             <Container>
               <MenuTitle title='SUBSCRIPTIONS AND BILLING' />
               <MenuItem label='Stackshop' />
@@ -125,7 +126,7 @@ const StackMenu = () => {
               <MenuItem label='Roles and Permissions' />
               <MenuItem label='Audit Logs' />
             </Container>
-          </div>
+          </SecondaryBackground>
         </SidebarSection>
         <SidebarSection title='NFL' isMenu />
         <SidebarSection title='Televisa Deportes' isMenu />
