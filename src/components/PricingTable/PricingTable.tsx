@@ -137,6 +137,7 @@ const PricingTable = ({
           <Title level='3'>{months[month]}</Title>
         </div>
         <div style={{ marginLeft: 'auto', position: 'sticky', right: md }}>
+          <Spacer size='nano' direction='horizontal' />
           <Button
             label='<'
             variant='outline'

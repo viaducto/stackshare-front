@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState } from 'react';
 import {
   Button,
   Column,
@@ -17,7 +17,6 @@ import { PricingTable } from '../../components/PricingTable';
 
 import SellParameters from '../../components/SellParameters/SellParameters';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
-import Overflow from '../../components/Overflow/Overflow';
 
 const BiddingTelco = () => {
   const [open, setOpen] = useState(false);
@@ -25,8 +24,6 @@ const BiddingTelco = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
-
-  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <BodyContent>
@@ -82,18 +79,16 @@ const BiddingTelco = () => {
                 <Spacer size='md' />
                 <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
                 <Spacer size='md' />
-                <Overflow target={ref}>
-                  <div ref={ref} style={{ width: '100%', overflow: 'auto' }}>
-                    <PricingTable
-                      sun={TUESDAY}
-                      mon={MONDAY}
-                      tues={TUESDAY}
-                      wed={MONDAY}
-                      thu={TUESDAY}
-                      sat={TUESDAY}
-                    />
-                  </div>
-                </Overflow>
+                <div style={{ width: '100%', overflow: 'auto' }}>
+                  <PricingTable
+                    sun={TUESDAY}
+                    mon={MONDAY}
+                    tues={TUESDAY}
+                    wed={MONDAY}
+                    thu={TUESDAY}
+                    sat={TUESDAY}
+                  />
+                </div>
               </Container>
             </Column>
           </Row>
