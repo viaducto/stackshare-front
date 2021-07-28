@@ -11,9 +11,10 @@ import {
   Button,
 } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
-import { Hamburger, Help, ChevronDown, Search, User, Cart } from 'react-ikonate';
+import { Help, ChevronDown, Search, User, Cart } from 'react-ikonate';
 import { AppContext } from '../../../providers';
 import Notification from './Notification';
+import { Icon } from '../../Icon';
 const StyledNavbar = styled.nav`
   position: sticky;
   top: 0;
@@ -50,13 +51,28 @@ const Navbar = () => {
   };
   return (
     <StyledNavbar className='border-bottom'>
-      <Container vertical='md'>
+      <Container vertical='md' expandVertical>
         <Grid expanded>
           <Row>
             <Column>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <button className='bare-button' onClick={showMenu}>
-                  <Hamburger fontSize='1.5rem' color={dark} />
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  height: '100%',
+                }}
+              >
+                <button
+                  className='bare-button'
+                  onClick={showMenu}
+                  type='button'
+                  title='Toggle Sidebar'
+                  style={{ width: '1.5rem', height: '100%' }}
+                >
+                  <Container bottom='sm' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Icon />
+                  </Container>
                 </button>
                 <div className='user-navbar'>
                   <Help fontSize='1.5rem' color={dark} />
@@ -122,8 +138,21 @@ export const MobileNavbar = () => {
 
   return (
     <StyledMobileNavbar>
-      <button className='bare-button' onClick={showMenu}>
-        <Hamburger fontSize='1.5rem' color={dark} style={{ transform: 'rotate(90deg)' }} />
+      <button
+        className='bare-button'
+        onClick={showMenu}
+        type='button'
+        title='Toggle Sidebar'
+        style={{ width: '1.5rem', height: '100%' }}
+      >
+        <Container
+          expandVertical
+          expandHorizontal
+          vertical='micro'
+          style={{ display: 'flex', justifyContent: 'center' }}
+        >
+          <Icon />
+        </Container>
       </button>
       <button className='bare-button'>
         <Search fontSize='1.5rem' color={dark} />
