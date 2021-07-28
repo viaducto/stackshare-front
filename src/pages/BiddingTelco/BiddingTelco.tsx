@@ -14,7 +14,6 @@ import {
 import { BodyContent, BodyMain } from '../../components/layout';
 import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
 import { PricingTable } from '../../components/PricingTable';
-
 import SellParameters from '../../components/SellParameters/SellParameters';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 

@@ -11,10 +11,19 @@ import {
   ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
 import { Button } from '@jp-olvera/jp-viaducto-components';
-import { Controls, Dolar, Plus } from 'react-ikonate';
+import { Activity, Dolar, Plus } from 'react-ikonate';
+import Skeleton from 'react-loading-skeleton';
 import Graph from '../../pages/BiddingTelco/Graph';
 
-const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: boolean }) => {
+const SellSimple = ({
+  handleOpen,
+  b2b = false,
+  load,
+}: {
+  handleOpen: Function;
+  b2b: boolean;
+  load?: boolean;
+}) => {
   const [value, setValue] = useState('95%');
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
@@ -26,9 +35,13 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
           <Grid gutter={0}>
             <Row>
               <Column>
-                <Paragraph lineHeight='1.375rem' weight='600'>
-                  {!b2b ? 'Default Mb price' : 'Minimum ask per Mb/s'}
-                </Paragraph>
+                {load ? (
+                  <Skeleton width='35%' />
+                ) : (
+                  <Paragraph lineHeight='1.375rem' weight='600'>
+                    {!b2b ? 'Default Mb price' : 'Minimum ask per Mb/s'}
+                  </Paragraph>
+                )}
               </Column>
             </Row>
           </Grid>
@@ -36,15 +49,19 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
           <Grid gutter={0}>
             <Row>
               <Column md={11} sm={8} xs={12}>
-                <Input
-                  type='number'
-                  inputSize='small'
-                  border='outside'
-                  id='askMB'
-                  min={0}
-                  iconColor={dark}
-                  icon={<Dolar />}
-                />
+                {load ? (
+                  <Skeleton />
+                ) : (
+                  <Input
+                    type='number'
+                    inputSize='small'
+                    border='outside'
+                    id='askMB'
+                    min={0}
+                    iconColor={dark}
+                    icon={<Dolar />}
+                  />
+                )}
               </Column>
             </Row>
           </Grid>
@@ -54,9 +71,13 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
           <Grid gutter={0}>
             <Row>
               <Column>
-                <Paragraph lineHeight='70%' weight='600'>
-                  Infractrusture bandwith cap
-                </Paragraph>
+                {load ? (
+                  <Skeleton width='35%' />
+                ) : (
+                  <Paragraph lineHeight='70%' weight='600'>
+                    Infractrusture bandwith cap
+                  </Paragraph>
+                )}
               </Column>
             </Row>
           </Grid>
@@ -64,11 +85,21 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
           <Grid gutter={0}>
             <Row>
               <Column xl={7} md={8}>
-                <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
-                  This percentage will define the stop line, in which Stackshare will stop
-                  allocating bids inside your infrastructure.{' '}
-                  <b>Can’t be setted at more than 95%</b>
-                </Paragraph>
+                {load ? (
+                  <>
+                    <Skeleton width='100%' />
+                    <Spacer size='tiny' />
+                    <Skeleton width='100%' />
+                    <Spacer size='tiny' />
+                    <Skeleton width='100%' />
+                  </>
+                ) : (
+                  <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
+                    This percentage will define the stop line, in which Stackshare will stop
+                    allocating bids inside your infrastructure.{' '}
+                    <b>Can’t be setted at more than 95%</b>
+                  </Paragraph>
+                )}
               </Column>
             </Row>
           </Grid>
@@ -76,21 +107,25 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
           <Grid gutter={0}>
             <Row>
               <Column md={11} sm={8} xs={12}>
-                <Input
-                  inputSize='small'
-                  border='outside'
-                  id='bandwith'
-                  icon={<Controls />}
-                  iconColor={dark}
-                  value={value}
-                  onChange={(e) => {
-                    const val: number = parseFloat(e.target.value);
+                {load ? (
+                  <Skeleton />
+                ) : (
+                  <Input
+                    inputSize='small'
+                    border='outside'
+                    id='bandwith'
+                    icon={<Activity />}
+                    iconColor={dark}
+                    value={value}
+                    onChange={(e) => {
+                      const val: number = parseFloat(e.target.value);
 
-                    if (val >= 0 && val <= 95) {
-                      setValue(val.toString() + '%');
-                    }
-                  }}
-                />
+                      if (val >= 0 && val <= 95) {
+                        setValue(val.toString() + '%');
+                      }
+                    }}
+                  />
+                )}
               </Column>
             </Row>
           </Grid>
@@ -101,37 +136,49 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
             <Grid gutter={0}>
               <Row>
                 <Column>
-                  <Paragraph lineHeight='1.375rem' weight='600'>
-                    Time Presets
-                  </Paragraph>
+                  {load ? (
+                    <Skeleton width='35%' />
+                  ) : (
+                    <Paragraph lineHeight='1.375rem' weight='600'>
+                      Time Presets
+                    </Paragraph>
+                  )}
                 </Column>
               </Row>
               <Spacer size='xs' />
               <Row>
                 <Column md={11} sm={8} xs={12}>
-                  <Select inputSize='small' radius='sm' name='a' id='a'>
-                    <option value='Bussiness Hours'>Bussiness Hours</option>
-                    <option value='Option'>Option</option>
-                    <option value='Another option'>Another option</option>
-                  </Select>
+                  {load ? (
+                    <Skeleton />
+                  ) : (
+                    <Select inputSize='small' radius='sm' name='a' id='a'>
+                      <option value='Bussiness Hours'>Bussiness Hours</option>
+                      <option value='Option'>Option</option>
+                      <option value='Another option'>Another option</option>
+                    </Select>
+                  )}
                 </Column>
               </Row>
               <Spacer size='md' />
               <Row>
                 <Column>
-                  <Button
-                    label='Add New Time Preset'
-                    lead
-                    iconSpacing='none'
-                    leftSpacing='tiny'
-                    rightSpacing='sm'
-                    variant='ghost'
-                    onClick={(ev) => {
-                      handleOpen(ev);
-                    }}
-                    icon={<Plus />}
-                    data-testid='hrefDrawer'
-                  />
+                  {load ? (
+                    <Skeleton width='20%' />
+                  ) : (
+                    <Button
+                      label='Add New Time Preset'
+                      lead
+                      iconSpacing='none'
+                      leftSpacing='tiny'
+                      rightSpacing='sm'
+                      variant='ghost'
+                      onClick={(ev) => {
+                        handleOpen(ev);
+                      }}
+                      icon={<Plus />}
+                      data-testid='hrefDrawer'
+                    />
+                  )}
                 </Column>
               </Row>
             </Grid>
@@ -146,14 +193,22 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               <Grid gutter={0}>
                 <Row>
                   <Column>
-                    <Paragraph lineHeight='1.375rem' weight='600'>
-                      Potential earnings with current config
-                    </Paragraph>
+                    {load ? (
+                      <Skeleton width='40%' />
+                    ) : (
+                      <Paragraph lineHeight='1.375rem' weight='600'>
+                        Potential earnings with current config
+                      </Paragraph>
+                    )}
                     <Spacer size='xs' />
-                    <Paragraph lineHeight='1.375rem' color='#595959'>
-                      These are stimated by the prices and maximum bandwith usage and the uptime
-                      selected.
-                    </Paragraph>
+                    {load ? (
+                      <Skeleton width='80%' />
+                    ) : (
+                      <Paragraph lineHeight='1.375rem' color='#595959'>
+                        These are stimated by the prices and maximum bandwith usage and the uptime
+                        selected.
+                      </Paragraph>
+                    )}
                     <Spacer size='xs' />
                   </Column>
                 </Row>
@@ -163,11 +218,24 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               <Grid gutter={0}>
                 <Row>
                   <Column>
-                    <Graph title='Earnings' percent='+11.3%' data='$13,893' profit='Total Profit' />
+                    {load ? (
+                      <Skeleton width='90%' height='214px' />
+                    ) : (
+                      <Graph
+                        title='Earnings'
+                        percent='+11.3%'
+                        data='$13,893'
+                        profit='Total Profit'
+                      />
+                    )}
                     <Spacer size='sm' />
                   </Column>
                   <Column>
-                    <Graph title='Broadband Usage' percent='+11.3%' data='659Gb' />
+                    {load ? (
+                      <Skeleton width='90%' height='214px' />
+                    ) : (
+                      <Graph title='Broadband Usage' percent='+11.3%' data='659Gb' />
+                    )}
                   </Column>
                 </Row>
               </Grid>

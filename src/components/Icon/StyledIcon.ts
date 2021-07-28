@@ -10,7 +10,7 @@ export const StyledIcon = styled.div<any>`
     transform: scale(0.7);
     & span:nth-child(1) {
       width: 80%;
-      transform: rotate(145deg);
+      transform: rotate(139deg);
     }
     & span:nth-child(2) {
       left: 0.063rem;
@@ -18,7 +18,7 @@ export const StyledIcon = styled.div<any>`
     }
     & span:nth-child(3) {
       width: 80%;
-      transform: rotate(35deg);
+      transform: rotate(40deg);
     }
   }
   & span {
@@ -26,7 +26,7 @@ export const StyledIcon = styled.div<any>`
     position: absolute;
     border-radius: 0.126rem;
     transition: all 0.2s ease;
-    height: 0.188rem;
+    height: 2px;
     width: 100%;
     left: 0;
     display: block;
@@ -37,7 +37,7 @@ export const StyledIcon = styled.div<any>`
       top: 0.4rem;
     }
     &:nth-child(3) {
-      top: 0.8rem;
+      top: 0.85rem;
     }
   }
 `;

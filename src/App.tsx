@@ -15,9 +15,12 @@ import Infrastructure from './pages/Infrastructure/Infrastructure';
 import LocationManagement from './pages/LocationManagement/LocationManagement';
 import Generic from './pages/Generic/Generic';
 import BillingSubscriptions from './pages/BillingSubscriptions/BillingSubscriptions';
-import { Hideable } from '@jp-olvera/jp-viaducto-components';
+import { ConfigContext, Hideable } from '@jp-olvera/jp-viaducto-components';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import React from 'react';
 
 function App() {
+  const { configuration } = React.useContext(ConfigContext);
   return (
     <HelmetProvider>
       <AppProvider>
@@ -30,76 +33,81 @@ function App() {
             rel='stylesheet'
           />
         </Helmet>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-            height: '100vh',
-          }}
+        <SkeletonTheme
+          highlightColor={configuration.colors.navigation.background}
+          color={configuration.colors.navigation.background}
         >
           <div
             style={{
+              display: 'flex',
+              flexDirection: 'column',
               width: '100%',
-              height: 'calc(100% - 50px)',
-              position: 'relative',
-              flexGrow: 1,
-              flexBasis: 'calc(100% - 50px)',
+              height: '100vh',
             }}
           >
-            <Menu />
+            <div
+              style={{
+                width: '100%',
+                height: 'calc(100% - 50px)',
+                position: 'relative',
+                flexGrow: 1,
+                flexBasis: 'calc(100% - 50px)',
+              }}
+            >
+              <Menu />
 
-            <Body>
-              <Hideable visibleOn='sm' after={true}>
-                <Navbar />
-              </Hideable>
-              <Switch>
-                <Route path='/b2b' exact>
-                  <BiddingB2B />
-                </Route>
-                <Route path='/buy' exact>
-                  <Buy />
-                </Route>
-                <Route path='/shop' exact>
-                  <Shop />
-                </Route>
-                <Route path='/graphs' exact>
-                  <GraphsPage />
-                </Route>
-                <Route path='/user-list' exact>
-                  <UserList />
-                </Route>
-                <Route path='/organization/:id/manage' exact>
-                  <GeneralPreferences />
-                </Route>
-                <Route path='/organization/:id/permissions' exact>
-                  <PermissionManagement />
-                </Route>
-                <Route path='/organization/:id/infrastructure' exact>
-                  <Infrastructure />
-                </Route>
-                <Route path='/organization/:id/user-management' exact>
-                  <UserManagement />
-                </Route>
-                <Route path='/location-management' exact>
-                  <LocationManagement />
-                </Route>
-                <Route path='/profile/billing' exact>
-                  <BillingSubscriptions />
-                </Route>
-                <Route path='/sell' exact>
-                  <BiddingTelco />
-                </Route>
-                <Route path='/'>
-                  <Generic />
-                </Route>
-              </Switch>
-            </Body>
+              <Body>
+                <Hideable visibleOn='sm' after={true}>
+                  <Navbar />
+                </Hideable>
+                <Switch>
+                  <Route path='/b2b' exact>
+                    <BiddingB2B />
+                  </Route>
+                  <Route path='/buy' exact>
+                    <Buy />
+                  </Route>
+                  <Route path='/shop' exact>
+                    <Shop />
+                  </Route>
+                  <Route path='/graphs' exact>
+                    <GraphsPage />
+                  </Route>
+                  <Route path='/user-list' exact>
+                    <UserList />
+                  </Route>
+                  <Route path='/organization/:id/manage' exact>
+                    <GeneralPreferences />
+                  </Route>
+                  <Route path='/organization/:id/permissions' exact>
+                    <PermissionManagement />
+                  </Route>
+                  <Route path='/organization/:id/infrastructure' exact>
+                    <Infrastructure />
+                  </Route>
+                  <Route path='/organization/:id/user-management' exact>
+                    <UserManagement />
+                  </Route>
+                  <Route path='/location-management' exact>
+                    <LocationManagement />
+                  </Route>
+                  <Route path='/profile/billing' exact>
+                    <BillingSubscriptions />
+                  </Route>
+                  <Route path='/sell' exact>
+                    <BiddingTelco />
+                  </Route>
+                  <Route path='/'>
+                    <Generic />
+                  </Route>
+                </Switch>
+              </Body>
+            </div>
+            <Hideable visibleOn='sm' after={false}>
+              <MobileNavbar />
+            </Hideable>
           </div>
-          <Hideable visibleOn='sm' after={false}>
-            <MobileNavbar />
-          </Hideable>
-        </div>
+        </SkeletonTheme>
       </AppProvider>
     </HelmetProvider>
   );
