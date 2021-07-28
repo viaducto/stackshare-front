@@ -43,7 +43,7 @@ const Navbar = () => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
 
-  const dropRef = useRef(null);
+  const avatarRef = useRef(null);
   const [dropActive, setDropActive] = useState(false);
   const handleDropActive = () => {
     setDropActive((d) => !d);
@@ -63,7 +63,7 @@ const Navbar = () => {
                   <Notification number={12} />
                   <div
                     onClick={handleDropActive}
-                    ref={dropRef}
+                    ref={avatarRef}
                     style={{
                       cursor: 'pointer',
                     }}
@@ -83,10 +83,10 @@ const Navbar = () => {
                       </div>
                     </AvatarWithText>
                   </div>
-                  <PopOver
-                    dropActive={dropActive}
-                    dropRef={dropRef}
-                    handleDropActive={handleDropActive}
+                  <ProfileDropDown
+                    active={dropActive}
+                    target={avatarRef}
+                    handleClose={handleDropActive}
                   />
                 </div>
               </div>
@@ -113,11 +113,11 @@ export const MobileNavbar = () => {
   const { showMenu } = useContext(AppContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-  const dropRef = useRef(null);
+  const userButton = useRef<any>(null);
   const [dropActive, setDropActive] = useState(false);
   const handleDropActive = () => {
     console.log('dri');
-    setDropActive((d) => !d);
+    setDropActive(!dropActive);
   };
 
   return (
@@ -128,37 +128,37 @@ export const MobileNavbar = () => {
       <button className='bare-button'>
         <Search fontSize='1.5rem' color={dark} />
       </button>
-      <button className='bare-button' ref={dropRef} onClick={handleDropActive}>
+      <button className='bare-button' ref={userButton} onClick={handleDropActive}>
         <User fontSize='1.5rem' color={dark} />
       </button>
       <button className='bare-button'>
         <Cart fontSize='1.5rem' color={dark} />
       </button>
-      <PopOver dropActive={dropActive} handleDropActive={handleDropActive} dropRef={dropRef} />
+      <ProfileDropDown active={dropActive} handleClose={handleDropActive} target={userButton} />
     </StyledMobileNavbar>
   );
 };
 
 export default Navbar;
 
-export const PopOver = ({
-  dropActive,
-  handleDropActive,
-  dropRef,
+export const ProfileDropDown = ({
+  active,
+  handleClose,
+  target,
 }: {
-  dropActive: boolean;
-  handleDropActive: () => void;
-  dropRef: any;
+  active: boolean;
+  handleClose: () => void;
+  target: any;
 }) => (
   <Popover
-    active={dropActive}
-    handleClose={handleDropActive}
-    target={dropRef}
+    active={active}
+    handleClose={handleClose}
+    target={target}
     content={
       <div style={{ width: '200px' }}>
         <Button
           label=' Mi perfil'
-          onClick={handleDropActive}
+          onClick={handleClose}
           shapeColor='secondary'
           variant='ghost'
           radius='none'
@@ -166,7 +166,7 @@ export const PopOver = ({
         />
         <Button
           label='Configuración'
-          onClick={handleDropActive}
+          onClick={handleClose}
           shapeColor='secondary'
           variant='ghost'
           radius='none'
@@ -174,7 +174,7 @@ export const PopOver = ({
         />
         <Button
           label='Eliminar mi cuenta'
-          onClick={handleDropActive}
+          onClick={handleClose}
           shapeColor='secondary'
           variant='ghost'
           radius='none'
@@ -183,7 +183,7 @@ export const PopOver = ({
         <hr />
         <Button
           label='Log out'
-          onClick={handleDropActive}
+          onClick={handleClose}
           variant='ghost'
           radius='none'
           shapeColor='danger'
