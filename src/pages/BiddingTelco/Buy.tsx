@@ -59,10 +59,7 @@ const Buy = () => {
                 <Grid gutter={0} expanded>
                   <Row>
                     <Column>
-                      <div
-                        className='flex'
-                        style={{ justifyContent: 'space-between', maxWidth: 752 }}
-                      >
+                      <div className='flex' style={{ justifyContent: 'space-between' }}>
                         <Button
                           label='New bid'
                           icon={<Plus />}
@@ -120,9 +117,7 @@ const Buy = () => {
                               {
                                 Header: 'Specification',
                                 accessor: 'specification',
-                                width: 120,
-                                minWidth: 120,
-                                maxWidth: 200,
+                                width: Math.round(window.innerWidth / 8),
                                 Filter: () => null,
                                 Cell: (props: any) => {
                                   return (

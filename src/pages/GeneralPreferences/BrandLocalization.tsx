@@ -30,7 +30,6 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
       <Spacer size='md' />
       <Grid>
         <Row>
@@ -50,7 +49,7 @@ const BrandLocalization = () => {
             </Container>
             <Spacer size='md' />
             <Button
-              size='large'
+              size='default'
               variant='outline'
               colors={{
                 default: '#595959',
@@ -89,6 +88,7 @@ const BrandLocalization = () => {
                   <Badge
                     content='Preview'
                     background='#FFEFEF'
+                    color='#262626'
                     size={{ width: '4.313rem', height: '1.688rem' }}
                   />
                 </Container>
@@ -97,8 +97,7 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
-      <Spacer size='md' />
+      <Spacer size='lg' />
       <Grid>
         <Row>
           <Grid>
@@ -108,7 +107,6 @@ const BrandLocalization = () => {
           </Grid>
         </Row>
       </Grid>
-
       <Spacer size='md' />
       <Grid>
         <Row>
@@ -128,7 +126,7 @@ const BrandLocalization = () => {
             </Container>
             <Spacer size='md' />
             <Button
-              size='large'
+              size='default'
               variant='outline'
               colors={{
                 default: '#595959',
@@ -164,6 +162,7 @@ const BrandLocalization = () => {
                   <Badge
                     content='Preview'
                     background='#FFEFEF'
+                    color='#262626'
                     size={{ width: '4.313rem', height: '1.688rem' }}
                   />
                 </Container>
@@ -172,8 +171,7 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
-      <Spacer size='md' />
+      <Spacer size='lg' />
       <Grid>
         <Row>
           <Column>
@@ -183,7 +181,6 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
       <Spacer size='md' />
       <Grid>
         <Row>
@@ -203,7 +200,7 @@ const BrandLocalization = () => {
             </div>
           </Column>
         </Row>
-        <Spacer size='md' />
+        <Spacer size='sm' />
         <Row>
           <Column>
             <div
@@ -221,7 +218,7 @@ const BrandLocalization = () => {
             </div>
           </Column>
         </Row>
-        <Spacer size='md' />
+        <Spacer size='sm' />
         <Row>
           <Column>
             <div
@@ -240,8 +237,7 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
-      <Spacer size='md' />
+      <Spacer size='lg' />
       <Grid>
         <Row>
           <Column>
@@ -251,7 +247,6 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
       <Spacer size='md' />
       <Grid>
         <Row>
@@ -266,8 +261,7 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
-      <Spacer size='md' />
+      <Spacer size='sm' />
       <Grid>
         <Row>
           <Column size={12}>
@@ -281,9 +275,6 @@ const BrandLocalization = () => {
           </Column>
         </Row>
       </Grid>
-
-      <Spacer size='xxl' />
-      <Spacer size='xxl' />
     </div>
   );
 };

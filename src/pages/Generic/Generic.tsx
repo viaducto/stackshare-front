@@ -12,7 +12,11 @@ const Generic = ({ path }: { path?: string }) => {
       <BodyMain>
         <div className='overflow'>
           <Container vertical='lg' style={{ height: '80vh', overflow: 'auto' }}>
-            <Container style={{ display: 'flex', justifyContent: 'center' }} expandHorizontal>
+            <Container
+              vertical='sm'
+              style={{ display: 'flex', justifyContent: 'center' }}
+              expandHorizontal
+            >
               <Title
                 style={{ cursor: 'pointer' }}
                 align='center'

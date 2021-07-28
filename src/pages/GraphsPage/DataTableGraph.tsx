@@ -2,6 +2,7 @@ import React from 'react';
 import { Paragraph, Progress } from '@jp-olvera/jp-viaducto-components';
 import { Share } from 'react-ikonate';
 import { LineSeries, XYPlot } from 'react-vis';
+import { Center } from '../../components/Center';
 
 let dataRandom = () => Math.random() * (10 - 1) + 1;
 
@@ -140,14 +141,70 @@ export const socialMedia = [
   },
 ];
 export const visitedColumns = [
-  { Header: 'Page Name', accessor: 'page', Filter: () => null, width: 180 },
-  { Header: 'Visitors', accessor: 'visitors', Filter: () => null, width: 100 },
-  { Header: 'Unique Page Visits', accessor: 'visits', Filter: () => null, width: 150 },
-  { Header: 'Bounce Rate', accessor: 'bounce', Filter: () => null, width: 150 },
+  {
+    Header: 'Page Name',
+    accessor: 'page',
+    Filter: () => null,
+    width: 180,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
+  },
+  {
+    Header: 'Visitors',
+    accessor: 'visitors',
+    Filter: () => null,
+    width: 100,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
+  },
+  {
+    Header: 'Unique Page Visits',
+    accessor: 'visits',
+    Filter: () => null,
+    width: 150,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
+  },
+  {
+    Header: 'Bounce Rate',
+    accessor: 'bounce',
+    Filter: () => null,
+    width: 150,
+    Cell: (row: any) => <Center>{row.value}</Center>,
+  },
 ];
 export const socialColumns = [
-  { Header: 'Network', accessor: 'network', Filter: () => null, width: 90 },
-  { Header: 'Visitors', accessor: 'traffic', Filter: () => null, width: 200 },
+  {
+    Header: 'Network',
+    accessor: 'network',
+    Filter: () => null,
+    width: 90,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
+  },
+  {
+    Header: 'Visitors',
+    accessor: 'traffic',
+    Filter: () => null,
+    width: 200,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
+  },
 ];
 
 export const ITEMS = [

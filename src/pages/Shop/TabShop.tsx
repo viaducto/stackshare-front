@@ -35,8 +35,8 @@ export const StoreTab = ({
   setOpenshop: Function;
 }) => {
   return (
-    <Container style={{ height: '100%' }} horizontal='md'>
-      <Container top='lg' horizontal='none' expandHorizontal style={{ overflow: 'auto' }}>
+    <Container style={{ height: '100%' }} horizontal='md' vertical='md'>
+      <div style={{ overflow: 'auto' }}>
         <WrapperTable
           fontSize='md'
           zebra={false}
@@ -52,11 +52,7 @@ export const StoreTab = ({
               {
                 Header: 'Action',
                 accessor: 'action',
-                width: 200,
-                minWidth: 100,
-                maxWidth: 300,
-                sortable: true,
-                Filter: () => null,
+                width: Math.round(window.innerWidth / 5),
                 Cell: (props: any) => {
                   const installed = [1, 3, 5];
                   return (
@@ -85,7 +81,7 @@ export const StoreTab = ({
             ]}
           />
         </WrapperTable>
-      </Container>
+      </div>
     </Container>
   );
 };
@@ -270,61 +266,63 @@ export const MyAppsOrganizationTab = ({
   ];
 
   return (
-    <Container style={{ height: '50%' }} top='md'>
-      <Container
-        top='none'
-        horizontal='md'
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          minHeight: '72vh',
-          flexWrap: 'wrap',
-        }}
-      >
-        <div className='overflow'>
-          <WrapperTable
-            fontSize='md'
-            zebra={false}
-            verticalSpacing='md'
-            border='horizontal'
-            borderColor='#E8E8E8'
-            horizontalSpacing='sm'
-          >
-            <Table
-              dataTable={appsData}
-              cols={[
-                ...colsTabOne,
-                ...addColumn,
-                {
-                  Header: 'Action',
-                  accessor: 'action',
-                  width: 150,
-                  minWidth: 120,
-                  maxWidth: 300,
-                  Filter: () => null,
-                  Cell: (props: any) => {
-                    return (
-                      <Center>
-                        <Button
-                          label='Edit'
-                          variant='ghost'
-                          onClick={() => {
-                            setAppName(props.data[props.row.index].app_name);
-                            setOpenTable(true);
-                          }}
-                        />
-                      </Center>
-                    );
-                  },
-                },
-              ]}
-            />
-          </WrapperTable>
-        </div>
-        <Container horizontal='lg' vertical='xxl' style={{ height: '50vh' }}>
-          <AccumulatedBilling />
-        </Container>
-      </Container>
+    <Container style={{ height: '50%' }} top='md' horizontal='md'>
+      <Grid gutter={0} expanded>
+        <Row>
+          <Column xl={7} lg={7} sm={12} xs={12}>
+            <div className='overflow'>
+              <WrapperTable
+                fontSize='md'
+                zebra={false}
+                verticalSpacing='md'
+                border='horizontal'
+                borderColor='#E8E8E8'
+                horizontalSpacing='sm'
+              >
+                <Table
+                  dataTable={appsData}
+                  cols={[
+                    ...addColumn,
+                    ...colsTabOne,
+                    {
+                      Header: 'Action',
+                      accessor: 'action',
+                      width: 150,
+                      minWidth: 120,
+                      maxWidth: 300,
+                      Filter: () => null,
+                      Cell: (props: any) => {
+                        return (
+                          <Center>
+                            <Button
+                              label='Edit'
+                              variant='ghost'
+                              onClick={() => {
+                                setAppName(props.data[props.row.index].app_name);
+                                setOpenTable(true);
+                              }}
+                            />
+                          </Center>
+                        );
+                      },
+                    },
+                  ]}
+                />
+              </WrapperTable>
+            </div>
+          </Column>
+          <Column>
+            <Container
+              left='lg'
+              top='xxxl'
+              style={{ height: '50vh', position: 'sticky', top: '5rem' }}
+            >
+              <AccumulatedBilling />
+            </Container>
+          </Column>
+        </Row>
+      </Grid>
+      <Spacer size='lg' />
     </Container>
   );
 };

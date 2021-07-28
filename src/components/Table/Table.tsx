@@ -216,7 +216,6 @@ const Table = ({
               type='button'
               onClick={() => {}}
               variant='outline'
-              height='2.063rem'
               size='small'
               colors={{
                 text: '#595959',

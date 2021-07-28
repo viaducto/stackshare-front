@@ -1,3 +1,5 @@
+import { Paragraph } from '@jp-olvera/jp-viaducto-components';
+
 const Tag = ({
   label,
   color,
@@ -17,7 +19,6 @@ const Tag = ({
       height: '1.375rem',
       backgroundColor: backgroundColor,
       border: `0.063rem solid ${borderColor}`,
-      color: color,
       borderRadius: 2,
       width: 'fit-content',
       padding: '0.1rem 0.5rem',
@@ -26,7 +27,7 @@ const Tag = ({
       fontSize: '12px',
     }}
   >
-    {label}
+    <Paragraph color={color}>{label}</Paragraph>
   </div>
 );
 

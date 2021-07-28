@@ -6,9 +6,7 @@ export const permissionColumns = [
     Header: 'Role',
     accessor: 'role',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
+    width: Math.round(window.innerWidth / 4),
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -19,9 +17,7 @@ export const permissionColumns = [
     Header: 'Role type',
     accessor: 'type',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
+    width: Math.round(window.innerWidth / 5),
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -32,9 +28,7 @@ export const permissionColumns = [
     Header: 'Number of Users',
     accessor: 'money',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
+    width: Math.round(window.innerWidth / 6),
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -45,9 +39,7 @@ export const permissionColumns = [
     Header: 'Number of Users',
     accessor: 'users',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
+    width: Math.round(window.innerWidth / 6),
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>

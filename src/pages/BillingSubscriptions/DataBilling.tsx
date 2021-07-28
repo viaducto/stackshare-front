@@ -77,8 +77,8 @@ export const columns = [
   {
     accessor: 'status',
     Header: 'Status',
-    minWidth: 150,
-    width: 150,
+    minWidth: 145,
+    width: 145,
     maxWidth: 180,
     Cell: (props: any) => <Center>{props.data[props.row.index].status}</Center>,
   },

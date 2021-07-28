@@ -7,6 +7,7 @@ import {
   Grid,
   Column,
   Row,
+  Container,
 } from '@jp-olvera/jp-viaducto-components';
 import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
 import { PricingTable } from '../PricingTable';
@@ -26,10 +27,11 @@ const SellAdvanced = () => {
           <Paragraph lineHeight='1.375rem' weight='600'>
             Default Mb price
           </Paragraph>
+          <Spacer size='sm' />
         </Column>
       </Row>
       <Row>
-        <Column md={2} sm={4} xs={12}>
+        <Column md={5} sm={12} xs={12}>
           <Input
             type='number'
             inputSize='small'
@@ -42,7 +44,7 @@ const SellAdvanced = () => {
         </Column>
       </Row>
 
-      <Spacer size='md' />
+      <Spacer size='lg' />
       <Row>
         <Column>
           <Paragraph lineHeight='1.375rem' weight='600'>
@@ -57,30 +59,34 @@ const SellAdvanced = () => {
           <Paragraph lineHeight='1.375rem' color='#8C8C8C'>
             Blank spaces will be assigned to the default Mb price
           </Paragraph>
+          <Spacer size='xs' />
         </Column>
       </Row>
       <Row>
         <Column>
-          <Overflow target={ref}>
-            <div className='overflow' ref={ref}>
-              <PricingTable
-                sun={TUESDAY}
-                mon={MONDAY}
-                tues={TUESDAY}
-                wed={MONDAY}
-                thu={TUESDAY}
-                sat={TUESDAY}
-              />
-            </div>
-          </Overflow>
+          <Container right='sm'>
+            <Overflow target={ref}>
+              <div className='overflow' ref={ref}>
+                <PricingTable
+                  sun={TUESDAY}
+                  mon={MONDAY}
+                  tues={TUESDAY}
+                  wed={MONDAY}
+                  thu={TUESDAY}
+                  sat={TUESDAY}
+                />
+              </div>
+            </Overflow>
+          </Container>
         </Column>
       </Row>
-      <Spacer size='xl' />
+      <Spacer size='lg' />
       <Row>
         <Column>
           <Paragraph lineHeight='1.375rem' weight='600'>
             Infractrusture bandwith cap
           </Paragraph>
+          <Spacer size='xs' />
         </Column>
       </Row>
       <Row>
@@ -89,10 +95,11 @@ const SellAdvanced = () => {
             This percentage will define the stop line, in which Stackshare will stop allocating bids
             inside your infrastructure. <b>Can’t be setted at more than 95%</b>
           </Paragraph>
+          <Spacer size='sm' />
         </Column>
       </Row>
       <Row>
-        <Column md={2} sm={4} xs={12}>
+        <Column md={5} sm={12} xs={12}>
           <Input
             type='number'
             inputSize='small'

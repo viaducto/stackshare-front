@@ -6,9 +6,8 @@ import { Left } from '../../components/Left';
 const avatar: AvatarProps = {
   src: 'https://i.pravatar.cc/32',
   alt: 'app',
-  width: '32',
-  height: '32',
-  clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)',
+  width: '45',
+  height: '45',
 };
 
 export const colsTabZero = [
@@ -16,13 +15,11 @@ export const colsTabZero = [
     Header: 'App name',
     accessor: 'app_name_display',
     Filter: () => null,
-    maxWidth: 600,
-    width: 250,
-    minWidth: 250,
+    width: Math.round(window.innerWidth / 4),
     Cell: (row: any) => (
       <Left>
         <Container left='xl'>
-          <AvatarWithText avatar={avatar}>
+          <AvatarWithText avatar={avatar} spacing='md'>
             <Paragraph>{row.value}</Paragraph>
           </AvatarWithText>
         </Container>
@@ -33,9 +30,7 @@ export const colsTabZero = [
     Header: 'Type',
     accessor: 'type',
     Filter: () => null,
-    maxWidth: 400,
-    width: 150,
-    minWidth: 150,
+    width: Math.round(window.innerWidth / 3),
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -49,7 +44,7 @@ export const colsTabOne = [
     Header: 'App name',
     accessor: 'app_name_display',
     Filter: () => null,
-    width: 200,
+    width: 180,
     minWidth: 120,
     maxWidth: 300,
     Cell: (row: any) => (

@@ -44,7 +44,7 @@ const Infrastructure = () => {
       <div style={{ display: 'flex', overflow: 'hidden' }}>
         <BodyMain horizontal='md' expandVertical className='overflow'>
           <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Button
                 label='Create New Device'
                 icon={<Plus />}

@@ -4,6 +4,8 @@ import {
   Paragraph,
   Container,
   Switch,
+  Grid,
+  Row,
 } from '@jp-olvera/jp-viaducto-components';
 
 const BillingManager = () => {
@@ -33,75 +35,58 @@ const BillingManager = () => {
           </div>
         </Container>
       </Column>
-      <Column xs={12} md={4}>
-        <Paragraph size='lg' color='dark'>
-          Permissions
-        </Paragraph>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-          }}
-        >
-          <Paragraph color='gray' size='lg'>
-            Upgrade plan
-          </Paragraph>
-          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
-        </div>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-          }}
-        >
-          <Paragraph color='gray' size='lg'>
-            Downgrade plan
-          </Paragraph>
-          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
-        </div>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-          }}
-        >
-          <Paragraph color='gray' size='lg'>
-            Change Billing Information
-          </Paragraph>
-          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
-        </div>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-          }}
-        >
-          <Paragraph color='gray' size='lg'>
-            Download Invoices
-          </Paragraph>
-          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
-        </div>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-          }}
-        >
-          <Paragraph color='gray' size='lg'>
-            Permissions
-          </Paragraph>
-          <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
-        </div>
+      <Column>
+        <Container vertical='md'>
+          <Grid gutter={0} expanded>
+            <Row>
+              <Column>
+                <Paragraph size='lg' color='dark'>
+                  Permissions
+                </Paragraph>
+              </Column>
+            </Row>
+            <Row>
+              <Column>
+                <Paragraph color='gray'>Upgrade plan</Paragraph>
+              </Column>
+              <Column>
+                <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+              </Column>
+            </Row>
+            <Row>
+              <Column>
+                <Paragraph color='gray'>Downgrade plan</Paragraph>
+              </Column>
+              <Column>
+                <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+              </Column>
+            </Row>
+            <Row>
+              <Column>
+                <Paragraph color='gray'>Change Billing Information</Paragraph>
+              </Column>
+              <Column>
+                <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+              </Column>
+            </Row>
+            <Row>
+              <Column>
+                <Paragraph color='gray'>Download Invoices</Paragraph>
+              </Column>
+              <Column>
+                <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+              </Column>
+            </Row>
+            <Row>
+              <Column>
+                <Paragraph color='gray'>Permissions</Paragraph>
+              </Column>
+              <Column>
+                <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+              </Column>
+            </Row>
+          </Grid>
+        </Container>
       </Column>
     </>
   );

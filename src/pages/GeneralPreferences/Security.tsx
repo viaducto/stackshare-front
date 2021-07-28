@@ -56,6 +56,7 @@ const Security = () => {
           </Hideable>
         </Column>
       </Row>
+
       <Spacer size='md' />
 
       <Row>
@@ -91,6 +92,7 @@ const Security = () => {
       </Row>
 
       <Spacer size='lg' />
+
       <Row>
         <Column xl={7}>
           <Container vertical='sm' horizontal='md' style={{ backgroundColor: neutral.light }}>
@@ -102,7 +104,7 @@ const Security = () => {
             <Button
               variant='ghost'
               label='Add new IP Range'
-              size='large'
+              size='default'
               lead
               iconSpacing='xs'
               icon={<Add />}
@@ -171,7 +173,7 @@ const Security = () => {
             <Spacer size='sm' />
             <Button
               label='Request Assistance'
-              size='large'
+              size='default'
               lead
               leftSpacing='tiny'
               rightSpacing='tiny'
@@ -179,16 +181,6 @@ const Security = () => {
           </Container>
         </Column>
       </Row>
-      <Spacer size='xl' />
-      <Row>
-        <Column>
-          <Paragraph lineHeight='1.375rem' weight='600'>
-            Password Strength
-          </Paragraph>
-        </Column>
-      </Row>
-      <Spacer size='xxl' />
-      <Spacer size='xxl' />
     </Grid>
   );
 };

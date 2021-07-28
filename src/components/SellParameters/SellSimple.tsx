@@ -10,14 +10,13 @@ import {
   Hideable,
   ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
-import Graph from '../../pages/BiddingTelco/Graph';
 import { Button } from '@jp-olvera/jp-viaducto-components';
-import { Dolar, Plus } from 'react-ikonate';
+import { Controls, Dolar, Plus } from 'react-ikonate';
+import Graph from '../../pages/BiddingTelco/Graph';
 
 const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: boolean }) => {
-  const [value, setValue] = useState(95);
+  const [value, setValue] = useState('95%');
   const { configuration } = useContext(ConfigContext);
-
   const { dark } = configuration.colors.text;
 
   return (
@@ -33,33 +32,35 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               </Column>
             </Row>
           </Grid>
-          <Spacer size='xs' />
+          <Spacer size='sm' />
           <Grid gutter={0}>
             <Row>
-              <Column md={5} sm={8} xs={12}>
+              <Column md={11} sm={8} xs={12}>
                 <Input
                   type='number'
                   inputSize='small'
                   border='outside'
                   id='askMB'
                   min={0}
-                  icon={<Dolar color={dark} />}
+                  iconColor={dark}
+                  icon={<Dolar />}
                 />
               </Column>
             </Row>
           </Grid>
 
-          <Spacer size='md' />
+          <Spacer size='lg' />
+
           <Grid gutter={0}>
             <Row>
               <Column>
-                <Paragraph lineHeight='1.375rem' weight='600'>
+                <Paragraph lineHeight='70%' weight='600'>
                   Infractrusture bandwith cap
                 </Paragraph>
               </Column>
             </Row>
           </Grid>
-          <Spacer size='xs' />
+          <Spacer size='sm' />
           <Grid gutter={0}>
             <Row>
               <Column xl={7} md={8}>
@@ -71,36 +72,31 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               </Column>
             </Row>
           </Grid>
-          <Spacer size='xs' />
+          <Spacer size='sm' />
           <Grid gutter={0}>
             <Row>
-              <Column md={5} sm={8} xs={12}>
+              <Column md={11} sm={8} xs={12}>
                 <Input
-                  type='number'
                   inputSize='small'
                   border='outside'
                   id='bandwith'
-                  max={95}
-                  min={0}
-                  icon='%'
+                  icon={<Controls />}
+                  iconColor={dark}
                   value={value}
                   onChange={(e) => {
                     const val: number = parseFloat(e.target.value);
 
                     if (val >= 0 && val <= 95) {
-                      setValue(val);
+                      setValue(val.toString() + '%');
                     }
                   }}
                 />
               </Column>
             </Row>
           </Grid>
-          <Spacer size='md' />
-          {b2b && (
-            <Paragraph lineHeight='1.375rem' weight='600'>
-              Market price
-            </Paragraph>
-          )}
+
+          <Spacer size='lg' />
+
           {!b2b && (
             <Grid gutter={0}>
               <Row>
@@ -112,7 +108,7 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
               </Row>
               <Spacer size='xs' />
               <Row>
-                <Column md={5} sm={8} xs={12}>
+                <Column md={11} sm={8} xs={12}>
                   <Select inputSize='small' radius='sm' name='a' id='a'>
                     <option value='Bussiness Hours'>Bussiness Hours</option>
                     <option value='Option'>Option</option>
@@ -158,6 +154,7 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
                       These are stimated by the prices and maximum bandwith usage and the uptime
                       selected.
                     </Paragraph>
+                    <Spacer size='xs' />
                   </Column>
                 </Row>
               </Grid>
@@ -167,12 +164,14 @@ const SellSimple = ({ handleOpen, b2b = false }: { handleOpen: Function; b2b: bo
                 <Row>
                   <Column>
                     <Graph title='Earnings' percent='+11.3%' data='$13,893' profit='Total Profit' />
+                    <Spacer size='sm' />
                   </Column>
                   <Column>
                     <Graph title='Broadband Usage' percent='+11.3%' data='659Gb' />
                   </Column>
                 </Row>
               </Grid>
+              <Spacer size='lg' />
             </div>
           )}
         </Column>

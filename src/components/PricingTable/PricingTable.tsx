@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PricingColumn from './PricingColumn';
 import TimeBlock from './TimeBlock';
-import { Button, Spacer, Title } from '@jp-olvera/jp-viaducto-components';
+import { Button, ConfigContext, Spacer, Title } from '@jp-olvera/jp-viaducto-components';
 import { getWeek } from '../../utils/getWeek';
 import Day from './Day';
+import { useContext } from 'react';
 
 // TODO: OPACIDAD PARA LOS DÍAS QUE NO PERTENECEN A UN MES
 // TODO: INDICADOR PAR UN DÍA DEL MES ANTERIOR JULY/31
@@ -75,6 +76,8 @@ const PricingTable = ({
   sat = [],
 }: PricingTableProps) => {
   const [month, setMonth] = useState<number>(1);
+  const { configuration } = useContext(ConfigContext);
+  const { md } = configuration.spacing;
   const [weekDates, setWeekDates] = useState<{ [key: string]: { day: number; month: number } }>({
     sun: { day: 1, month: 0 },
     mon: { day: 1, month: 0 },
@@ -130,8 +133,10 @@ const PricingTable = ({
           paddingRight: '2px',
         }}
       >
-        <Title level='3'>{months[month]}</Title>
-        <div style={{ marginLeft: 'auto' }}>
+        <div style={{ position: 'sticky', left: 0 }}>
+          <Title level='3'>{months[month]}</Title>
+        </div>
+        <div style={{ marginLeft: 'auto', position: 'sticky', right: md }}>
           <Button
             label='<'
             variant='outline'

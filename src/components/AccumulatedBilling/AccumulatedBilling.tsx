@@ -17,7 +17,7 @@ const AccumulatedBilling = () => {
         maxHeight: '100%',
       }}
     >
-      <div style={{ position: 'sticky', top: 0, zIndex: 1, backgroundColor: background }}>
+      <div style={{ position: 'sticky', top: 0, backgroundColor: background }}>
         <div
           style={{
             borderBottom: '0.063rem solid #d9d9d9',
@@ -33,26 +33,16 @@ const AccumulatedBilling = () => {
           </Paragraph>
           <Spacer direction='vertical' size='micro' />
         </div>
-        <Spacer direction='vertical' size='micro' />
-        <div
-          style={{
-            borderBottom: '0.063rem solid #d9d9d9',
-            overflow: 'auto',
-          }}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-            <div style={{ padding: '0 0 0 0.5rem' }}>
-              <Paragraph lineHeight='1.25rem' color='#595959' size='sm'>
-                App
-              </Paragraph>
-            </div>
-            <div style={{}}>
-              <Paragraph lineHeight='1.25rem' color='#595959' size='sm'>
-                Expense
-              </Paragraph>
-            </div>
-          </div>
-        </div>
+
+        <Container vertical='tiny' style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Paragraph lineHeight='1.25rem' color='gray' size='sm'>
+            App
+          </Paragraph>
+
+          <Paragraph lineHeight='1.25rem' color='gray' size='sm'>
+            Expense
+          </Paragraph>
+        </Container>
       </div>
       <Spacer direction='vertical' size='micro' />
       <AppsAccumulated app='Atlassian' />
@@ -77,16 +67,14 @@ const AccumulatedBilling = () => {
       <AppsAccumulated app='RainforestQA' />
       <AppsAccumulated app='Shopify' />
       <AppsAccumulated app='Gorgias' />
-      <div
+      <Container
+        vertical='sm'
         style={{
           position: 'sticky',
           bottom: 0,
           backgroundColor: background,
-          zIndex: 1,
           display: 'flex',
-          padding: '0.482rem 0',
           justifyContent: 'space-between',
-          height: '2.438rem',
         }}
       >
         <Paragraph lineHeight='1.5rem' size='lg' weight='400'>
@@ -95,7 +83,7 @@ const AccumulatedBilling = () => {
         <Paragraph lineHeight='1.5rem' size='lg' weight='600'>
           $16,000.00
         </Paragraph>
-      </div>
+      </Container>
     </Container>
   );
 };
@@ -117,9 +105,7 @@ const AppsAccumulated = ({ app }: any) => {
           }}
         >
           <img src='https://i.pravatar.cc/32' alt='avatar' style={{ borderRadius: '50%' }} />
-          <Paragraph lineHeight='1.375rem' color='#595959'>
-            {app}
-          </Paragraph>
+          <Paragraph lineHeight='1.375rem'>{app}</Paragraph>
         </div>
         <div style={{ width: '35%' }}>
           <Paragraph lineHeight='1.375rem'>$400</Paragraph>

@@ -13,7 +13,7 @@ const HeaderSell = ({
   children?: any;
 }) => (
   <BodyHeader>
-    <Container top='sm'>
+    <Container {...(children && { top: 'sm' })} vertical={children ? 'none' : 'sm'}>
       <Breadcrums fontSize='md'>
         {breadcrums.map(
           (option: { label: string; href: string; active: boolean }, index: number) => {

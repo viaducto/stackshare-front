@@ -281,25 +281,33 @@ const BillingSubscriptions = () => {
               )}
             </Row>
           </Grid>
+          <Spacer size='lg' />
           <BillingAlert />
-          <Grid expanded>
-            <Row>
-              <Column xs={12} lg={6}>
-                <Title level='3'>Billing Manager</Title>
-              </Column>
-            </Row>
-            <Row>
-              <BillingManager />
-            </Row>
-            <Row>
-              <Column xs={12} lg={6}>
-                <Title level='3'>Subscriptions</Title>
-              </Column>
-            </Row>
-            <Row>
-              <SubscriptionsTable />
-            </Row>
-          </Grid>
+          <Spacer size='lg' />
+          <Container horizontal='sm'>
+            <Grid expanded gutter={0}>
+              <Row>
+                <Column xs={12} lg={9}>
+                  <Title level='3'>Billing Manager</Title>
+                  <Spacer size='sm' />
+                  <hr />
+                </Column>
+              </Row>
+              <Row>
+                <BillingManager />
+              </Row>
+              <Row>
+                <Column xs={12} lg={11}>
+                  <Title level='3'>Subscriptions</Title>
+                  <Spacer size='sm' />
+                  <hr />
+                </Column>
+              </Row>
+              <Row>
+                <SubscriptionsTable />
+              </Row>
+            </Grid>
+          </Container>
         </Container>
       </BodyMain>
     </>

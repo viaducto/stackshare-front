@@ -100,21 +100,20 @@ const UserManagement = () => {
                     {
                       Header: 'Name',
                       accessor: 'name',
-                      width: 200,
-                      maxWidth: 400,
-                      minWidth: 200,
+                      width: Math.round(window.innerWidth / 3),
                       Cell: (props: any) => {
                         const { name, email } = props.data[props.row.index];
                         return (
                           <Left>
-                            <Container left='xl'>
+                            <Container left='xxl'>
                               <AvatarWithText
                                 avatar={{
-                                  src: 'https://i.pravatar.cc/32',
+                                  src: 'https://i.pravatar.cc/50',
                                   alt: 'app',
-                                  width: '32',
-                                  height: '32',
+                                  width: '50',
+                                  height: '50',
                                 }}
+                                spacing='md'
                               >
                                 <div>
                                   <Paragraph>{name}</Paragraph>
@@ -129,6 +128,7 @@ const UserManagement = () => {
                     {
                       Header: 'Location',
                       accessor: 'location',
+                      width: Math.round(window.innerWidth / 5),
                       Cell: (row: any) => (
                         <Center>
                           <Paragraph>{row.value}</Paragraph>
@@ -138,20 +138,19 @@ const UserManagement = () => {
                     {
                       Header: 'Role',
                       accessor: 'role',
+                      width: Math.round(window.innerWidth / 8),
                       Cell: (row: any) => (
                         <Right>
-                          <Paragraph>{row.value}</Paragraph>
+                          <Container right='md'>
+                            <Paragraph>{row.value}</Paragraph>
+                          </Container>
                         </Right>
                       ),
                     },
                     {
                       Header: 'Action',
                       accessor: 'action',
-                      width: 200,
-                      minWidth: 100,
-                      maxWidth: 300,
-                      sortable: true,
-                      Filter: () => null,
+                      width: Math.round(window.innerWidth / 10),
                       Cell: (props: any) => {
                         return (
                           <Center>

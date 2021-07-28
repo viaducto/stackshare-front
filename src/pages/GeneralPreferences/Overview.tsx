@@ -28,7 +28,7 @@ const Overview = () => {
           </Column>
         </Row>
       </Grid>
-      <Spacer size='md' />
+      <Spacer size='sm' />
       <Grid>
         <Row>
           <Column>
@@ -107,16 +107,13 @@ const Overview = () => {
           </Column>
         </Row>
       </Grid>
-      <Spacer size='sm' />
       <Grid expanded>
         <Row>
           <Column xl={3} md={6} sm={12}>
             <Spacer size='md' />
             <Container
-              className='border-bottom'
               style={{
                 display: 'flex',
-                justifyContent: 'center',
                 alignItems: 'center',
               }}
             >
@@ -147,7 +144,7 @@ const Overview = () => {
             <Title level='6' weight='600' lineHeight='1.5rem'>
               Organization Owner
             </Title>
-            <Spacer size='md' />
+            <Spacer size='sm' />
             <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <AvatarWithText
                 avatar={{
@@ -180,7 +177,7 @@ const Overview = () => {
               leftSpacing='tiny'
               rightSpacing='tiny'
             />
-            <Spacer size='xxxl' />
+            <Spacer size='lg' />
             <Button
               label='Update Company Details'
               size='large'

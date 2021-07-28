@@ -388,7 +388,7 @@ const GraphsPage = () => {
                       data={{
                         title: '',
                         size: 0,
-                        color: 'white',
+                        color: 'transparent',
                         children: [
                           {
                             title: '',
@@ -405,7 +405,7 @@ const GraphsPage = () => {
                       height={230}
                       margin={{ left: -10 }}
                       width={230}
-                      style={{ stroke: '#fff' }}
+                      style={{ stroke: 'transparent' }}
                     />
                   </div>
                   <div>
@@ -476,7 +476,7 @@ const GraphsPage = () => {
                 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 ref={ref}
               >
-                <XYPlot margin={{ left: 0, right: 20 }} width={500} height={250} xType='ordinal'>
+                <XYPlot margin={{ left: 0, right: 20 }} width={550} height={250} xType='ordinal'>
                   <VerticalGridLines />
                   <HorizontalGridLines />
                   <XAxis />

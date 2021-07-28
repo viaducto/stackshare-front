@@ -45,7 +45,7 @@ const PermissionManagement = () => {
       <div style={{ display: 'flex', overflow: 'hidden' }}>
         <BodyMain horizontal='sm' expandVertical className='overflow'>
           <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Button
                 label='Create New Role'
                 icon={<Plus />}
@@ -98,7 +98,7 @@ const PermissionManagement = () => {
                       Header: 'Action',
                       accessor: 'action',
                       Filter: () => null,
-                      width: 180,
+                      width: 178,
                       Cell: (props: any) => {
                         const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
                           props.data[props.row.index].action;

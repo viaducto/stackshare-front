@@ -8,7 +8,7 @@ import Tag from '../../components/Tag/Tag';
 export const dummyData = [
   {
     expandible: null,
-    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
+    bidding_type: 'Bandwith',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$1',
     total: '$500',
@@ -22,7 +22,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
+    bidding_type: 'Bandwith',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$3',
     total: '$500',
@@ -36,7 +36,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' },
+    bidding_type: 'Data package',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$4',
     total: '$500',
@@ -50,7 +50,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Secure Channel', color: '#F0F5FF', textColor: '#2F54EB' },
+    bidding_type: 'Secure Channel',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$1',
     total: '$500',
@@ -64,7 +64,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
+    bidding_type: 'Bandwith',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$133',
     total: '$500',
@@ -78,7 +78,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
+    bidding_type: 'Bandwith',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$348',
     total: '$500',
@@ -92,7 +92,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' },
+    bidding_type: 'Data package',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$0',
     total: '$500',
@@ -106,7 +106,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Bandwith', color: '#F0F5FF', textColor: '#2F54EB' },
+    bidding_type: 'Bandwith',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$949',
     total: '$500',
@@ -120,7 +120,7 @@ export const dummyData = [
   },
   {
     expandible: null,
-    bidding_type: { label: 'Data package', color: '#F9F0FF', textColor: '#722ED1' },
+    bidding_type: 'Data package',
     expires: 'March 4, 2021. 4:00 am',
     rate: '$0',
     total: '$500',
@@ -139,14 +139,17 @@ export const buyColumns = [
     Header: 'Bidding Type',
     accessor: 'bidding_type',
     Filter: () => null,
-    maxWidth: 250,
-    width: 140,
-    minWidth: 140,
+    width: Math.round(window.innerWidth / 5),
     Cell: (props: any) => {
-      const { label, color, textColor } = props.data[props.row.index].bidding_type;
+      const label = props.data[props.row.index].bidding_type;
       return (
         <Center>
-          <Tag label={label} backgroundColor={color} color={textColor} borderColor={textColor} />
+          <Tag
+            label={label}
+            backgroundColor={label === 'Data package' ? '#F9F0FF' : '#F0F5FF'}
+            color={label === 'Data package' ? '#722ED1' : '#2F54EB'}
+            borderColor={label === 'Data package' ? '#722ED1' : '#2F54EB'}
+          />
         </Center>
       );
     },
@@ -155,9 +158,7 @@ export const buyColumns = [
     Header: 'Expires by',
     accessor: 'expires',
     Filter: () => null,
-    maxWidth: 250,
-    width: 180,
-    minWidth: 180,
+    width: Math.round(window.innerWidth / 5),
     Cell: (props: any) => {
       const data = props.data[props.row.index].expires;
       return (
@@ -171,9 +172,7 @@ export const buyColumns = [
     Header: 'Rate per Mb/sec',
     accessor: 'rate',
     Filter: () => null,
-    width: 140,
-    minWidth: 140,
-    maxWidth: 200,
+    width: Math.round(window.innerWidth / 5),
     Cell: (props: any) => {
       const data = props.data[props.row.index].rate;
       return (
@@ -187,9 +186,7 @@ export const buyColumns = [
     Header: 'Total',
     accessor: 'total',
     Filter: () => null,
-    width: 140,
-    minWidth: 140,
-    maxWidth: 200,
+    width: Math.round(window.innerWidth / 5),
     Cell: (props: any) => {
       const data = props.data[props.row.index].total;
       return (
