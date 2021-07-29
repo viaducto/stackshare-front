@@ -22,12 +22,19 @@ import BillingAlert from './BillingAlert';
 import BillingManager from './BillingManager';
 import SubscriptionsTable from './SubscriptionsTable';
 import master from './mastercard.svg';
+import { useEffect } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 const BillingSubscriptions = () => {
   const [isReadonly, setIsReadonly] = useState(true);
   const { configuration } = useContext(ConfigContext);
   const { defaultInputBorderColor: borderColor } = configuration.colors;
-
+  const [load, setLoad] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  });
   const handleEnable = () => {
     setIsReadonly(!isReadonly);
   };
@@ -68,21 +75,32 @@ const BillingSubscriptions = () => {
                     </Paragraph>
                     <div style={{ display: 'flex' }}>
                       <div className='flex-column'>
-                        <Title level='3' lineHeight='2.375rem'>
-                          $1857.34
-                        </Title>
-                        <Paragraph color='muttedGray' size='sm'>
-                          15 Seats - Yearly subscription
-                        </Paragraph>
+                        {load ? (
+                          <Skeleton width='7rem' height='2rem' />
+                        ) : (
+                          <Title level='3' lineHeight='2.375rem'>
+                            $1857.34
+                          </Title>
+                        )}
+                        {load && <Spacer size='xs' />}
+                        {load ? (
+                          <Skeleton width='10rem' />
+                        ) : (
+                          <Paragraph color='muttedGray' size='sm'>
+                            15 Seats - Yearly subscription
+                          </Paragraph>
+                        )}
                       </div>
 
-                      <Button
-                        label='Update'
-                        variant='ghost'
-                        leftSpacing='nano'
-                        rightSpacing='nano'
-                        style={{ marginLeft: 'auto' }}
-                      />
+                      {!load && (
+                        <Button
+                          label='Update'
+                          variant='ghost'
+                          leftSpacing='nano'
+                          rightSpacing='nano'
+                          style={{ marginLeft: 'auto' }}
+                        />
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -107,30 +125,36 @@ const BillingSubscriptions = () => {
                         justifyContent: 'space-between',
                       }}
                     >
-                      <AvatarWithText
-                        className='avatar-text'
-                        avatar={{
-                          src: master,
-                          alt: 'card',
-                          size: 'small',
-                          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-                        }}
-                        style={{ justifyContent: 'flex-start' }}
-                      >
-                        <div style={{ flexDirection: 'column' }}>
-                          <Paragraph lineHeight='100%'>XXXX-XXXX-XXXX-1345</Paragraph>
-                          <Paragraph color='#838383' lineHeight='100%' size='sm'>
-                            Master Card - Debit
-                          </Paragraph>
-                        </div>
-                      </AvatarWithText>
+                      {load ? (
+                        <Skeleton width='15rem' count={2} />
+                      ) : (
+                        <AvatarWithText
+                          className='avatar-text'
+                          avatar={{
+                            src: master,
+                            alt: 'card',
+                            size: 'small',
+                            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+                          }}
+                          style={{ justifyContent: 'flex-start' }}
+                        >
+                          <div style={{ flexDirection: 'column' }}>
+                            <Paragraph lineHeight='100%'>XXXX-XXXX-XXXX-1345</Paragraph>
+                            <Paragraph color='#838383' lineHeight='100%' size='sm'>
+                              Master Card - Debit
+                            </Paragraph>
+                          </div>
+                        </AvatarWithText>
+                      )}
 
-                      <Button
-                        label='Update'
-                        variant='ghost'
-                        leftSpacing='nano'
-                        rightSpacing='nano'
-                      />
+                      {!load && (
+                        <Button
+                          label='Update'
+                          variant='ghost'
+                          leftSpacing='nano'
+                          rightSpacing='nano'
+                        />
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -150,12 +174,21 @@ const BillingSubscriptions = () => {
                       NEXT PAYMENT CYCLE
                     </Paragraph>
                     <div>
-                      <Title level='3' lineHeight='2.375rem'>
-                        DECEMBER 21, 2021
-                      </Title>
-                      <Paragraph size='sm' color='muttedGray'>
-                        Overdue
-                      </Paragraph>
+                      {load ? (
+                        <Skeleton width='10rem' />
+                      ) : (
+                        <Title level='3' lineHeight='2.375rem'>
+                          DECEMBER 21, 2021
+                        </Title>
+                      )}
+                      {load && <Spacer size='xs' />}
+                      {load ? (
+                        <Skeleton width='15rem' />
+                      ) : (
+                        <Paragraph size='sm' color='muttedGray'>
+                          Overdue
+                        </Paragraph>
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -175,7 +208,7 @@ const BillingSubscriptions = () => {
                   }}
                 >
                   <Title level='3'>Billing Information</Title>
-                  {isReadonly ? (
+                  {isReadonly && !load ? (
                     <Button
                       label='Update'
                       variant='ghost'
@@ -191,98 +224,106 @@ const BillingSubscriptions = () => {
             </Row>
             <Row style={{ justifyContent: 'center' }}>
               <Column xs={12} sm={8} md={3}>
-                <div className='form-control'>
-                  <Select
-                    inputSize='default'
-                    radius='sm'
-                    name='Country'
-                    id='Country'
-                    label='Country'
-                    labelPosition='outside'
-                    readonly={isReadonly}
-                    disabled={isReadonly}
-                    border={isReadonly ? 'none' : 'all'}
-                  >
-                    <option value='México'>México</option>
-                  </Select>
-                </div>
+                {load ? (
+                  <Skeleton />
+                ) : (
+                  <div className='form-control'>
+                    <Select
+                      inputSize='default'
+                      radius='sm'
+                      name='Country'
+                      id='Country'
+                      label='Country'
+                      labelPosition='outside'
+                      readonly={isReadonly}
+                      disabled={isReadonly}
+                      border={isReadonly ? 'none' : 'all'}
+                    >
+                      <option value='México'>México</option>
+                    </Select>
+                  </div>
+                )}
               </Column>
-              <Column xs={12} sm={8} md={3}>
-                <div className='form-control'>
-                  <Input
-                    id='Legal Entity Name:'
-                    label='Legal Entity Name:'
-                    readOnly={isReadonly}
-                    borderColor={isReadonly ? 'transparent' : borderColor}
-                  />
-                </div>
-                <div className='form-control'>
-                  <Input
-                    id='Street Name:'
-                    label='Street Name:'
-                    readOnly={isReadonly}
-                    borderColor={isReadonly ? 'transparent' : borderColor}
-                  />
-                </div>
-                <div className='form-control'>
-                  <Input
-                    id='Colonia:'
-                    label='Colonia:'
-                    readOnly={isReadonly}
-                    borderColor={isReadonly ? 'transparent' : borderColor}
-                  />
-                </div>
-                <div className='form-control'>
-                  <Input
-                    id='Estado:'
-                    label='Estado:'
-                    readOnly={isReadonly}
-                    borderColor={isReadonly ? 'transparent' : borderColor}
-                  />
-                </div>
-              </Column>
-              <Column xs={12} sm={8} md={3}>
-                <div className='form-control'>
-                  <Input
-                    id='RFC'
-                    label='Registro federal de contribuyentes:'
-                    readOnly={isReadonly}
-                    borderColor={isReadonly ? 'transparent' : borderColor}
-                  />
-                </div>
-                <div className='form-control'>
-                  <Input
-                    id='RFC2'
-                    label='Registro federal de contribuyentes:'
-                    readOnly={isReadonly}
-                    borderColor={isReadonly ? 'transparent' : borderColor}
-                  />
-                </div>
-                <div className='form-control'>
-                  <Input
-                    id='RFC3'
-                    label='Registro federal de contribuyentes:'
-                    readOnly={isReadonly}
-                    borderColor={isReadonly ? 'transparent' : borderColor}
-                  />
-                </div>
-              </Column>
-              {isReadonly ? null : (
-                <Column
-                  xs={12}
-                  sm={8}
-                  md={9}
-                  style={{ display: 'flex', justifyContent: 'flex-end' }}
-                >
-                  <Button radius='sm' label='Cancel' variant='ghost' onClick={handleEnable} />
-                  <Spacer direction='horizontal' size='sm' />
-                  <Button radius='sm' label='Update Changes' onClick={handleEnable} />
-                </Column>
+              {!load && (
+                <>
+                  <Column xs={12} sm={8} md={3}>
+                    <div className='form-control'>
+                      <Input
+                        id='Legal Entity Name:'
+                        label='Legal Entity Name:'
+                        readOnly={isReadonly}
+                        borderColor={isReadonly ? 'transparent' : borderColor}
+                      />
+                    </div>
+                    <div className='form-control'>
+                      <Input
+                        id='Street Name:'
+                        label='Street Name:'
+                        readOnly={isReadonly}
+                        borderColor={isReadonly ? 'transparent' : borderColor}
+                      />
+                    </div>
+                    <div className='form-control'>
+                      <Input
+                        id='Colonia:'
+                        label='Colonia:'
+                        readOnly={isReadonly}
+                        borderColor={isReadonly ? 'transparent' : borderColor}
+                      />
+                    </div>
+                    <div className='form-control'>
+                      <Input
+                        id='Estado:'
+                        label='Estado:'
+                        readOnly={isReadonly}
+                        borderColor={isReadonly ? 'transparent' : borderColor}
+                      />
+                    </div>
+                  </Column>
+                  <Column xs={12} sm={8} md={3}>
+                    <div className='form-control'>
+                      <Input
+                        id='RFC'
+                        label='Registro federal de contribuyentes:'
+                        readOnly={isReadonly}
+                        borderColor={isReadonly ? 'transparent' : borderColor}
+                      />
+                    </div>
+                    <div className='form-control'>
+                      <Input
+                        id='RFC2'
+                        label='Registro federal de contribuyentes:'
+                        readOnly={isReadonly}
+                        borderColor={isReadonly ? 'transparent' : borderColor}
+                      />
+                    </div>
+                    <div className='form-control'>
+                      <Input
+                        id='RFC3'
+                        label='Registro federal de contribuyentes:'
+                        readOnly={isReadonly}
+                        borderColor={isReadonly ? 'transparent' : borderColor}
+                      />
+                    </div>
+                  </Column>
+                  {isReadonly ? null : (
+                    <Column
+                      xs={12}
+                      sm={8}
+                      md={9}
+                      style={{ display: 'flex', justifyContent: 'flex-end' }}
+                    >
+                      <Button radius='sm' label='Cancel' variant='ghost' onClick={handleEnable} />
+                      <Spacer direction='horizontal' size='sm' />
+                      <Button radius='sm' label='Update Changes' onClick={handleEnable} />
+                    </Column>
+                  )}
+                </>
               )}
             </Row>
           </Grid>
           <Spacer size='lg' />
-          <BillingAlert />
+          <BillingAlert load={load} />
           <Spacer size='lg' />
           <Container horizontal='sm'>
             <Grid expanded gutter={0}>
@@ -294,7 +335,7 @@ const BillingSubscriptions = () => {
                 </Column>
               </Row>
               <Row>
-                <BillingManager />
+                <BillingManager load={load} />
               </Row>
               <Row>
                 <Column xs={12} lg={11}>
@@ -304,7 +345,7 @@ const BillingSubscriptions = () => {
                 </Column>
               </Row>
               <Row>
-                <SubscriptionsTable />
+                <SubscriptionsTable load={load} />
               </Row>
             </Grid>
           </Container>

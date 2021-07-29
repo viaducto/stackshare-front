@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Button,
   Column,
@@ -25,6 +25,8 @@ import HeaderSell from '../../components/SellParameters/HeaderSell';
 import Kebab from '../../components/Kebab/Kebab';
 import Tag from '../../components/Tag/Tag';
 import { Center } from '../../components/Center';
+import Skeleton from 'react-loading-skeleton';
+import { SkeletonTable } from './TableContent';
 
 const Buy = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -35,6 +37,14 @@ const Buy = () => {
   const [data, setData] = useState<any>({});
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  }, []);
+
   return (
     <BodyContent>
       {/* Header */}
@@ -45,10 +55,16 @@ const Buy = () => {
           { label: 'Bidding', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
-          <Tab text='Active Bids' active />
-          <Tab text='Fullfilled' />
-        </GroupTab>
+        {load ? (
+          <Container vertical='sm'>
+            <Skeleton width='15rem' />
+          </Container>
+        ) : (
+          <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+            <Tab text='Active Bids' active />
+            <Tab text='Fullfilled' />
+          </GroupTab>
+        )}
       </HeaderSell>
       {/* Body */}
       <div style={{ display: 'flex', overflow: 'hidden', width: '100%' }}>
@@ -60,42 +76,54 @@ const Buy = () => {
                   <Row>
                     <Column>
                       <div className='flex' style={{ justifyContent: 'space-between' }}>
-                        <Button
-                          label='New bid'
-                          icon={<Plus />}
-                          lead
-                          onClick={() => {
-                            setData({});
-                            setNewBid(true);
-                            setOpenTable(true);
-                          }}
-                          leftSpacing='sm'
-                          rightSpacing='md'
-                        />
+                        {load ? (
+                          <Skeleton width='5.4rem' height='2rem' />
+                        ) : (
+                          <Button
+                            label='New bid'
+                            icon={<Plus />}
+                            lead
+                            onClick={() => {
+                              setData({});
+                              setNewBid(true);
+                              setOpenTable(true);
+                            }}
+                            leftSpacing='sm'
+                            rightSpacing='md'
+                          />
+                        )}
                         <div>
-                          <Button
-                            leftSpacing='sm'
-                            iconSpacing='none'
-                            rightSpacing='sm'
-                            icon={<Filter color={dark} fontSize='1rem' />}
-                            type='button'
-                            onClick={() => {}}
-                            variant='outline'
-                            height='2.063rem'
-                            size='small'
-                          />
+                          {load ? (
+                            <Skeleton width='2.2rem' height='2rem' />
+                          ) : (
+                            <Button
+                              leftSpacing='sm'
+                              iconSpacing='none'
+                              rightSpacing='sm'
+                              icon={<Filter color={dark} fontSize='1rem' />}
+                              type='button'
+                              onClick={() => {}}
+                              variant='outline'
+                              height='2.063rem'
+                              size='small'
+                            />
+                          )}
                           <Spacer direction='horizontal' size='sm' />
-                          <Button
-                            leftSpacing='sm'
-                            iconSpacing='none'
-                            rightSpacing='sm'
-                            icon={<EllypsisVertical color={dark} fontSize='1rem' />}
-                            type='button'
-                            onClick={() => {}}
-                            variant='outline'
-                            height='2.063rem'
-                            size='small'
-                          />
+                          {load ? (
+                            <Skeleton width='2.2rem' height='2rem' />
+                          ) : (
+                            <Button
+                              leftSpacing='sm'
+                              iconSpacing='none'
+                              rightSpacing='sm'
+                              icon={<EllypsisVertical color={dark} fontSize='1rem' />}
+                              type='button'
+                              onClick={() => {}}
+                              variant='outline'
+                              height='2.063rem'
+                              size='small'
+                            />
+                          )}
                         </div>
                       </div>
                     </Column>
@@ -103,67 +131,75 @@ const Buy = () => {
                   <Row>
                     <Column>
                       <Container expandHorizontal className='overflow'>
-                        <WrapperTable
-                          fontSize='md'
-                          zebra={false}
-                          verticalSpacing='md'
-                          border='horizontal'
-                          borderColor='#E8E8E8'
-                          horizontalSpacing='sm'
-                        >
-                          <Table
-                            cols={[
-                              ...buyColumns,
-                              {
-                                Header: 'Specification',
-                                accessor: 'specification',
-                                width: Math.round(window.innerWidth / 8),
-                                Filter: () => null,
-                                Cell: (props: any) => {
-                                  return (
-                                    <Center
-                                      style={{
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        height: '100%',
-                                        alignItems: 'center',
-                                        width: '100%',
-                                      }}
-                                    >
-                                      <Kebab>
-                                        <Button
-                                          label='See details'
-                                          onClick={() => {
-                                            setData(props.data[props.row.index]);
-                                            setNewBid(false);
-                                            setOpenTable(true);
-                                          }}
-                                          variant='ghost'
-                                          block
-                                          radius='none'
-                                        />
-                                        <Button
-                                          label='Delete'
-                                          variant='ghost'
-                                          shapeColor='danger'
-                                          onClick={() => {
-                                            setData(props.data[props.row.index]);
-                                            setNewBid(false);
-                                            setOpenTable(true);
-                                          }}
-                                          block
-                                          radius='none'
-                                        />
-                                      </Kebab>
-                                    </Center>
-                                  );
+                        {load ? (
+                          <Container top='md'>
+                            <Skeleton height='3.188rem' />
+                            <Spacer size='sm' />
+                            <SkeletonTable />
+                          </Container>
+                        ) : (
+                          <WrapperTable
+                            fontSize='md'
+                            zebra={false}
+                            verticalSpacing='md'
+                            border='horizontal'
+                            borderColor='#E8E8E8'
+                            horizontalSpacing='sm'
+                          >
+                            <Table
+                              cols={[
+                                ...buyColumns,
+                                {
+                                  Header: 'Specification',
+                                  accessor: 'specification',
+                                  width: Math.round(window.innerWidth / 8),
+                                  Filter: () => null,
+                                  Cell: (props: any) => {
+                                    return (
+                                      <Center
+                                        style={{
+                                          display: 'flex',
+                                          justifyContent: 'center',
+                                          height: '100%',
+                                          alignItems: 'center',
+                                          width: '100%',
+                                        }}
+                                      >
+                                        <Kebab>
+                                          <Button
+                                            label='See details'
+                                            onClick={() => {
+                                              setData(props.data[props.row.index]);
+                                              setNewBid(false);
+                                              setOpenTable(true);
+                                            }}
+                                            variant='ghost'
+                                            block
+                                            radius='none'
+                                          />
+                                          <Button
+                                            label='Delete'
+                                            variant='ghost'
+                                            shapeColor='danger'
+                                            onClick={() => {
+                                              setData(props.data[props.row.index]);
+                                              setNewBid(false);
+                                              setOpenTable(true);
+                                            }}
+                                            block
+                                            radius='none'
+                                          />
+                                        </Kebab>
+                                      </Center>
+                                    );
+                                  },
                                 },
-                              },
-                            ]}
-                            dataTable={dummyData}
-                            filter={false}
-                          />
-                        </WrapperTable>
+                              ]}
+                              dataTable={dummyData}
+                              filter={false}
+                            />
+                          </WrapperTable>
+                        )}{' '}
                         <Spacer size='md' />
                       </Container>
                     </Column>

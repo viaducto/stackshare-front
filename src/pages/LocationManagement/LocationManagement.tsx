@@ -244,7 +244,7 @@ const LocationManagement = () => {
       <HeaderSell
         title='Location Management'
         breadcrums={[
-          { label: 'Home', href: '', active: false },
+          { label: 'Home', href: '/', active: false },
           { label: 'Organization Settings', href: '', active: false },
           { label: 'User Management', href: '', active: true },
         ]}

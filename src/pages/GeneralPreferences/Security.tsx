@@ -16,8 +16,9 @@ import {
 } from '@jp-olvera/jp-viaducto-components';
 import { Add } from 'react-ikonate';
 import { useContext } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
-const Security = () => {
+const Security = ({ load }: { load: boolean }) => {
   const { configuration } = useContext(ConfigContext);
   const { neutral } = configuration.colors;
   return (
@@ -44,13 +45,21 @@ const Security = () => {
 
       <Row>
         <Column xl={6} md={10} sm={9} xs={12}>
-          <Paragraph lineHeight='1.375rem'>Enforce Multi Factor Authentication</Paragraph>
+          {load ? (
+            <Skeleton width='80%' />
+          ) : (
+            <Paragraph lineHeight='1.375rem'>Enforce Multi Factor Authentication</Paragraph>
+          )}
         </Column>
         <Column>
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='sm' />
           </Hideable>
-          <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          {load ? (
+            <Skeleton width='2rem' />
+          ) : (
+            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
           </Hideable>
@@ -61,13 +70,21 @@ const Security = () => {
 
       <Row>
         <Column xl={6} md={10} sm={9} xs={12}>
-          <Paragraph lineHeight='1.375rem'>Request confirm for dangerous actions</Paragraph>
+          {load ? (
+            <Skeleton width='80%' />
+          ) : (
+            <Paragraph lineHeight='1.375rem'>Request confirm for dangerous actions</Paragraph>
+          )}
         </Column>
         <Column>
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='sm' />
           </Hideable>
-          <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          {load ? (
+            <Skeleton width='2rem' />
+          ) : (
+            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
           </Hideable>
@@ -78,13 +95,23 @@ const Security = () => {
 
       <Row>
         <Column xl={6} md={10} sm={9} xs={12}>
-          <Paragraph lineHeight='1.375rem'>Limit Authentication to Specific IP Addresses</Paragraph>
+          {load ? (
+            <Skeleton width='80%' />
+          ) : (
+            <Paragraph lineHeight='1.375rem'>
+              Limit Authentication to Specific IP Addresses
+            </Paragraph>
+          )}
         </Column>
         <Column>
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='sm' />
           </Hideable>
-          <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          {load ? (
+            <Skeleton width='2rem' />
+          ) : (
+            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
           </Hideable>
@@ -98,19 +125,25 @@ const Security = () => {
           <Container vertical='sm' horizontal='md' style={{ backgroundColor: neutral.light }}>
             <Paragraph lineHeight='1.375rem'>IP Ranges</Paragraph>
             <div className='form-control'>
-              <Input label='EIN:' inputSize='small' defaultValue='123-23B3-123' />
+              {load ? (
+                <Skeleton />
+              ) : (
+                <Input label='EIN:' inputSize='small' defaultValue='123-23B3-123' />
+              )}
             </div>
 
-            <Button
-              variant='ghost'
-              label='Add new IP Range'
-              size='default'
-              lead
-              iconSpacing='xs'
-              icon={<Add />}
-              leftSpacing='tiny'
-              rightSpacing='tiny'
-            />
+            {!load && (
+              <Button
+                variant='ghost'
+                label='Add new IP Range'
+                size='default'
+                lead
+                iconSpacing='xs'
+                icon={<Add />}
+                leftSpacing='tiny'
+                rightSpacing='tiny'
+              />
+            )}
           </Container>
         </Column>
       </Row>
@@ -127,13 +160,21 @@ const Security = () => {
 
       <Row>
         <Column xl={6} md={10} sm={9} xs={12}>
-          <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
+          {load ? (
+            <Skeleton width='80%' />
+          ) : (
+            <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
+          )}
         </Column>
         <Column>
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='sm' />
           </Hideable>
-          <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          {load ? (
+            <Skeleton width='2rem' />
+          ) : (
+            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
           </Hideable>
@@ -144,13 +185,21 @@ const Security = () => {
 
       <Row>
         <Column xl={6} md={10} sm={9} xs={12}>
-          <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
+          {load ? (
+            <Skeleton width='80%' />
+          ) : (
+            <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
+          )}
         </Column>
         <Column>
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='sm' />
           </Hideable>
-          <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          {load ? (
+            <Skeleton width='2rem' />
+          ) : (
+            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+          )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
           </Hideable>
@@ -165,19 +214,29 @@ const Security = () => {
             <Paragraph lineHeight='1.375rem'>Request Consulting Services:</Paragraph>
             <Spacer size='sm' />
             <div className='form-control'>
-              <Input label='Subject Line' inputSize='small' defaultValue='123-23B3-123' />
+              {load ? (
+                <Skeleton />
+              ) : (
+                <Input label='Subject Line' inputSize='small' defaultValue='123-23B3-123' />
+              )}
             </div>
             <div className='form-control'>
-              <Input label='Support Request:' inputSize='small' defaultValue='123-23B3-123' />
+              {load ? (
+                <Skeleton />
+              ) : (
+                <Input label='Support Request:' inputSize='small' defaultValue='123-23B3-123' />
+              )}
             </div>
             <Spacer size='sm' />
-            <Button
-              label='Request Assistance'
-              size='default'
-              lead
-              leftSpacing='tiny'
-              rightSpacing='tiny'
-            />
+            {!load && (
+              <Button
+                label='Request Assistance'
+                size='default'
+                lead
+                leftSpacing='tiny'
+                rightSpacing='tiny'
+              />
+            )}
           </Container>
         </Column>
       </Row>

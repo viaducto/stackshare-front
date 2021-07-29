@@ -4,42 +4,56 @@ import Kebab from '../../components/Kebab/Kebab';
 import { columns, data } from './DataBilling';
 import { Center } from '../../components/Center';
 
-const SubscriptionsTable = () => {
+import Skeleton from 'react-loading-skeleton';
+import { SkeletonTable } from '../BiddingTelco/TableContent';
+
+const SubscriptionsTable = ({ load }: { load: boolean }) => {
   return (
     <Column style={{ overflow: 'auto' }}>
-      <WrapperTable
-        fontSize='md'
-        zebra={false}
-        verticalSpacing='md'
-        border='horizontal'
-        borderColor='#E8E8E8'
-        horizontalSpacing='sm'
-      >
-        <Table
-          pagination={false}
-          filter={false}
-          cols={[
-            ...columns,
-            {
-              accessor: 'action',
-              Header: 'Action',
-              minWidth: 100,
-              width: 100,
-              maxWidth: 230,
-              Cell: () => (
-                <Center>
-                  <Kebab>
-                    <Container vertical='md' horizontal='md'>
-                      Table action
-                    </Container>
-                  </Kebab>
-                </Center>
-              ),
-            },
-          ]}
-          dataTable={data}
-        />
-      </WrapperTable>
+      {load ? (
+        <>
+          <Spacer size='sm' />
+          <Container horizontal='sm'>
+            <Skeleton height='2rem' />
+            <Spacer size='md' />
+          </Container>
+          <SkeletonTable />
+        </>
+      ) : (
+        <WrapperTable
+          fontSize='md'
+          zebra={false}
+          verticalSpacing='md'
+          border='horizontal'
+          borderColor='#E8E8E8'
+          horizontalSpacing='sm'
+        >
+          <Table
+            pagination={false}
+            filter={false}
+            cols={[
+              ...columns,
+              {
+                accessor: 'action',
+                Header: 'Action',
+                minWidth: 100,
+                width: 100,
+                maxWidth: 230,
+                Cell: () => (
+                  <Center>
+                    <Kebab>
+                      <Container vertical='md' horizontal='md'>
+                        Table action
+                      </Container>
+                    </Kebab>
+                  </Center>
+                ),
+              },
+            ]}
+            dataTable={data}
+          />
+        </WrapperTable>
+      )}
       <Spacer size='xl' />
     </Column>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Paragraph,
   Spacer,
@@ -19,6 +19,9 @@ import {
   StoreTabDrawer,
   MyAppsOrganizationDrawer,
 } from './TabShop';
+import Skeleton from 'react-loading-skeleton';
+import { SkeletonTable } from '../BiddingTelco/TableContent';
+import TableContentSkeleton, { TableContentSkeletonBidding } from './TableContentSkeleton';
 const Shop = () => {
   const [openTable, setOpenTable] = useState(false);
   const [openshop, setOpenshop] = useState(false);
@@ -28,22 +31,58 @@ const Shop = () => {
   const [configuration, setConfiguration] = useState(0);
   const [activeTooltip, setActiveTooltip] = useState(false);
   const [appName, setAppName] = useState('App name');
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  }, []);
+
   return (
     <BodyContent>
       {/* Header */}
       <HeaderSell
         title='Bytebroker shop'
         breadcrums={[
-          { label: 'Home', href: '#', active: false },
+          { label: 'Home', href: '/', active: false },
           { label: 'Documents', href: '#', active: false },
           { label: 'Invoices', href: '#', active: true },
         ]}
       >
         <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
-          <Tab onFocus={() => setTab(0)} text='Store' id='store' active={tab === 0} />
-          <Tab onFocus={() => setTab(1)} text='My apps' id='apps' active={tab === 1} />
           <Tab
-            onFocus={() => setTab(2)}
+            onFocus={() => {
+              setLoad(true);
+              setTab(0);
+              setTimeout(() => {
+                setLoad(false);
+              }, 1500);
+            }}
+            text='Store'
+            id='store'
+            active={tab === 0}
+          />
+          <Tab
+            onFocus={() => {
+              setLoad(true);
+              setTab(1);
+              setTimeout(() => {
+                setLoad(false);
+              }, 1500);
+            }}
+            text='My apps'
+            id='apps'
+            active={tab === 1}
+          />
+          <Tab
+            onFocus={() => {
+              setLoad(true);
+              setTab(2);
+              setTimeout(() => {
+                setLoad(false);
+              }, 1500);
+            }}
             text='Organization Apps'
             id='org_apps'
             active={tab === 2}
@@ -52,9 +91,52 @@ const Shop = () => {
       </HeaderSell>
       {/* Body */}
       <BodyMain>
-        {tab === 0 && <StoreTab setAppName={setAppName} setOpenshop={setOpenshop} />}
-        {(tab === 1 || tab === 2) && (
-          <MyAppsOrganizationTab setAppName={setAppName} setOpenTable={setOpenTable} tab={tab} />
+        {load && tab === 0 ? (
+          <Container style={{ height: '100%' }} horizontal='md' vertical='md' expandVertical>
+            <Skeleton width='12rem' />
+            <Spacer size='sm' direction='horizontal' />
+            <Skeleton width='2rem' />
+            <Spacer size='lg' />
+            <Skeleton height='3.188rem' />
+            <Spacer size='sm' />
+            <SkeletonTable columns3 withCircular />
+          </Container>
+        ) : (
+          tab === 0 && <StoreTab setAppName={setAppName} setOpenshop={setOpenshop} />
+        )}
+        {load && tab !== 0 ? (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Container style={{ width: '70%' }} horizontal='md' vertical='md'>
+              <Skeleton width='12rem' />
+              <Spacer size='sm' direction='horizontal' />
+              <Skeleton width='2rem' />
+              <Spacer size='lg' />
+              <Skeleton height='3.188rem' width='100%' />
+              <Spacer size='sm' />
+              <TableContentSkeleton />
+            </Container>
+            <Container style={{ flexGrow: 1 }} horizontal='md' vertical='md'>
+              <Spacer size='lg' />
+              <Spacer size='xs' />
+              <Spacer size='sm' />
+              <Skeleton height='2.5rem' width='80%' />
+              <Spacer size='sm' />
+              <Container style={{ width: '80%' }}>
+                <TableContentSkeletonBidding />
+              </Container>
+            </Container>
+          </div>
+        ) : (
+          (tab === 1 || tab === 2) && (
+            <MyAppsOrganizationTab setAppName={setAppName} setOpenTable={setOpenTable} tab={tab} />
+          )
         )}
       </BodyMain>
 

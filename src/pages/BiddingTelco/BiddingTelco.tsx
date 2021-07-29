@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Button,
   Column,
@@ -23,7 +23,20 @@ const BiddingTelco = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
+  const handleSimple = () => {
+    setSimple(!simple);
+    setLoad(true);
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  };
+  const [load, setLoad] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  }, []);
   return (
     <BodyContent>
       {/* Header */}
@@ -43,9 +56,10 @@ const BiddingTelco = () => {
           <Container expandHorizontal style={{ height: '100%' }} className='overflow'>
             <SellParameters
               handleOpen={handleOpen}
-              setSimple={setSimple}
+              setSimple={handleSimple}
               simple={simple}
               b2b={false}
+              load={load}
             />
           </Container>
         </BodyMain>

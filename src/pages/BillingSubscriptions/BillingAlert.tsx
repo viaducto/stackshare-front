@@ -8,8 +8,9 @@ import {
   Title,
   Spacer,
 } from '@jp-olvera/jp-viaducto-components';
+import Skeleton from 'react-loading-skeleton';
 
-const BillingAlert = () => {
+const BillingAlert = ({ load }: { load: boolean }) => {
   return (
     <Container horizontal='sm'>
       <Grid expanded innerGutter={4} gutter={0}>
@@ -26,44 +27,39 @@ const BillingAlert = () => {
               <Paragraph size='lg' color='dark'>
                 Email Notifications
               </Paragraph>
-
               <Grid gutter={0}>
                 <Row>
                   <Column>
-                    <Paragraph color='gray'>Failed transaction</Paragraph>
+                    {load ? (
+                      <Skeleton width='7rem' />
+                    ) : (
+                      <Paragraph color='gray'>Failed transaction</Paragraph>
+                    )}
                   </Column>
                   <Column>
-                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                    {load ? (
+                      <Skeleton width='2rem' />
+                    ) : (
+                      <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                    )}
                   </Column>
                 </Row>
               </Grid>
               <Grid gutter={0}>
                 <Row>
                   <Column>
-                    <Paragraph color='gray'>Failed transaction</Paragraph>
+                    {load ? (
+                      <Skeleton width='7rem' />
+                    ) : (
+                      <Paragraph color='gray'>Failed transaction</Paragraph>
+                    )}
                   </Column>
                   <Column>
-                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
-                  </Column>
-                </Row>
-              </Grid>
-              <Grid gutter={0}>
-                <Row>
-                  <Column>
-                    <Paragraph color='gray'>Failed transaction</Paragraph>
-                  </Column>
-                  <Column>
-                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
-                  </Column>
-                </Row>
-              </Grid>
-              <Grid gutter={0}>
-                <Row>
-                  <Column>
-                    <Paragraph color='gray'>Failed transaction</Paragraph>
-                  </Column>
-                  <Column>
-                    <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                    {load ? (
+                      <Skeleton width='2rem' />
+                    ) : (
+                      <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                    )}
                   </Column>
                 </Row>
               </Grid>

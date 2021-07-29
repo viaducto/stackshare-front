@@ -58,7 +58,7 @@ const GraphsPage = () => {
       <HeaderSell
         title='Graphs'
         breadcrums={[
-          { label: 'Home', href: '', active: false },
+          { label: 'Home', href: '/', active: false },
           { label: 'Graphs', href: '', active: true },
         ]}
       >

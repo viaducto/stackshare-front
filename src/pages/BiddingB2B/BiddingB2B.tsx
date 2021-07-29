@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Spacer } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
@@ -10,6 +10,20 @@ const BiddingB2B = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
+  const handleSimple = () => {
+    setSimple(!simple);
+    setLoad(true);
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  };
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  }, []);
   return (
     <BodyContent>
       {/* Header */}
@@ -28,9 +42,10 @@ const BiddingB2B = () => {
           <div style={{ height: '100%' }}>
             <SellParameters
               handleOpen={handleOpen}
-              setSimple={setSimple}
+              setSimple={handleSimple}
               simple={simple}
               b2b={true}
+              load={load}
             />
           </div>
         </BodyMain>

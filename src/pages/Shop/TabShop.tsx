@@ -35,7 +35,7 @@ export const StoreTab = ({
   setOpenshop: Function;
 }) => {
   return (
-    <Container style={{ height: '100%' }} horizontal='md' vertical='md'>
+    <Container expandVertical horizontal='md' vertical='md'>
       <div style={{ overflow: 'auto' }}>
         <WrapperTable
           fontSize='md'

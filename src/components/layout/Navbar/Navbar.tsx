@@ -183,6 +183,7 @@ export const ProfileDropDown = ({
     active={active}
     handleClose={handleClose}
     target={target}
+    zIndex={5}
     content={
       <div style={{ width: '200px' }}>
         <Button
