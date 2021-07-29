@@ -22,6 +22,16 @@ export const GlobalStyle: any = createGlobalStyle`
 
   }
 
+  .sticky-top{
+    position: sticky;
+    top: 0;
+  }
+
+  .sticky-bottom{
+    position: sticky;
+    bottom: 0;
+  }
+
     /* width */
   ::-webkit-scrollbar {
     width: 8px;
