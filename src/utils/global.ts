@@ -4,11 +4,11 @@ export const GlobalStyle: any = createGlobalStyle`
 
   html{
     /* background-color: #F0F2F5; */
-    font-size: 87.5% !important;
+    /* font-size: 87.5% !important; */
   }
   
   body {
-    font-size: 1rem !important;
+    /* font-size: 1rem !important; */
   }
 
   * {
