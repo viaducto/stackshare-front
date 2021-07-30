@@ -50,7 +50,7 @@ const Shop = () => {
           { label: 'Invoices', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
           <Tab
             onFocus={() => {
               setLoad(true);

@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { useWindowResize } from '../hooks/useWindowSize';
 
 interface AppContextProps {
   isMenuActive: boolean;
@@ -11,7 +12,8 @@ export const AppContext = createContext<AppContextProps>({
 });
 
 export const AppProvider = ({ children }: any) => {
-  const [isMenuActive, setisMenuActive] = useState(true);
+  const { offset } = useWindowResize({});
+  const [isMenuActive, setisMenuActive] = useState(offset);
 
   const handleShow = () => {
     setisMenuActive(!isMenuActive);

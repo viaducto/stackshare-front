@@ -9,6 +9,7 @@ export const GlobalStyle: any = createGlobalStyle`
   
   body {
     /* font-size: 1rem !important; */
+    overflow: hidden;
   }
 
   * {

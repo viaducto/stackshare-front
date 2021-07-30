@@ -405,7 +405,7 @@ export const MyAppsOrganizationDrawer = ({
 
         {tab === 2 && (
           <Container horizontal='md' vertical='sm'>
-            <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+            <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
               <Tab
                 onFocus={() => setTabDrawer(0)}
                 text='Preferences'

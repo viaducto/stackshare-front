@@ -249,7 +249,7 @@ const LocationManagement = () => {
           { label: 'User Management', href: '', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
           <Tab text='All Locations' />
           <Tab text='Country' />
           <Tab text='Region' />

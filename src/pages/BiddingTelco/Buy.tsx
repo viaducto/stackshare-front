@@ -60,7 +60,7 @@ const Buy = () => {
             <Skeleton width='15rem' />
           </Container>
         ) : (
-          <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+          <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
             <Tab text='Active Bids' active />
             <Tab text='Fullfilled' />
           </GroupTab>

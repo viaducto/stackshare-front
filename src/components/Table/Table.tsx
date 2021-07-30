@@ -132,7 +132,7 @@ const Table = ({
   const handleDragEnter = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.target.classList);
+    // console.log(e.target.classList);
     if (e.target.classList.contains('dropzone')) {
       e.target.parentNode.classList.add('drag-enter');
     }
@@ -147,7 +147,7 @@ const Table = ({
   const handleDragOver = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('drag over');
+    // console.log('drag over');
   };
   const handleDrop = (e: any, id: string) => {
     e.preventDefault();

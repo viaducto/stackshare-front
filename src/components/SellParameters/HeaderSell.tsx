@@ -14,7 +14,7 @@ const HeaderSell = ({
 }) => (
   <BodyHeader>
     <Container {...(children && { top: 'sm' })} vertical={children ? 'none' : 'sm'}>
-      <Breadcrums fontSize='md'>
+      <Breadcrums fontSize='sm'>
         {breadcrums.map(
           (option: { label: string; href: string; active: boolean }, index: number) => {
             return (
@@ -32,7 +32,7 @@ const HeaderSell = ({
       <Paragraph size='lg' weight='600' lineHeight='1.75rem'>
         {title}
       </Paragraph>
-      {children}
+      <div className='overflow'>{children}</div>
     </Container>
   </BodyHeader>
 );

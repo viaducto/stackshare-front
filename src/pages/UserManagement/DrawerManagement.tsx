@@ -159,7 +159,7 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
               </Container>
               <Container bottom='lg' top='sm'>
                 <div className='flex'>
-                  <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+                  <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
                     <Tab
                       text='Overview'
                       active={showApps}

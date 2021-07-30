@@ -51,7 +51,7 @@ const Navbar = () => {
   };
   return (
     <StyledNavbar className='border-bottom'>
-      <Container vertical='md' expandVertical>
+      <Container vertical='sm' expandVertical>
         <Grid expanded>
           <Row>
             <Column>
@@ -123,6 +123,8 @@ const StyledMobileNavbar = styled.div`
   padding: 14px 28px;
   background-color: ${(p) => p.theme.mainBackground};
   justify-content: space-between;
+  position: sticky;
+  bottom: 0;
 `;
 
 export const MobileNavbar = () => {
@@ -132,7 +134,7 @@ export const MobileNavbar = () => {
   const userButton = useRef<any>(null);
   const [dropActive, setDropActive] = useState(false);
   const handleDropActive = () => {
-    console.log('dri');
+    // console.log('dri');
     setDropActive(!dropActive);
   };
 

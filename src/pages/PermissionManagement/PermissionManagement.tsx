@@ -44,7 +44,7 @@ const PermissionManagement = () => {
           { label: 'User Management', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
           <Tab text='Roles' active />
           <Tab text='Default Roles' />
           <Tab text='Custom Roles' />

@@ -38,12 +38,32 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
   background-color: ${(p) => p.theme.mainBackground};
   color: ${(p) => p.theme.title};
   border-right: 0.063rem solid #d9d9d9;
+  & .logo > div {
+    @media screen and (max-width: ${(p) => p.configuration.breakpoints.sm}) {
+      display: 'flex';
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  @media screen and (max-width: ${(p) => p.configuration.breakpoints.sm}) {
+    & .dropdown > div > span,
+    .link-router > li,
+    .toggleMenu > div > span {
+      font-size: 1.2rem !important;
+    }
+    & .dark-mode > div > div.flex {
+      & > p {
+        font-size: 1rem !important;
+      }
+    }
+  }
   & > div {
     min-width: 0;
     & > div {
       min-width: 0;
     }
   }
+
   box-shadow: 0.125rem 0 0.313rem -0.125rem rgba(0, 0, 0, 0.2);
   z-index: 2;
 `;
@@ -57,7 +77,7 @@ const StackMenu = () => {
   const { dark } = configuration.colors.text;
   return (
     <StyledStackMenu active={isMenuActive} configuration={configuration}>
-      <Container vertical='md' expandHorizontal horizontal='sm'>
+      <Container vertical='md' expandHorizontal horizontal='sm' className='logo'>
         <Logo />
       </Container>
       <Container vertical='md' style={{ position: 'relative' }}>
@@ -137,9 +157,11 @@ const StackMenu = () => {
       </Container>
       <hr />
       <Container top='sm'>
-        <MenuTitle title='Dark mode' />
+        <div className='dark-mode'>
+          <MenuTitle title='Dark mode' />
+        </div>
         <Container left='sm'>
-          <Switch change={setDarkMode} defaultChecked={isDarkMode} inputSize='xsmall' />
+          <Switch change={setDarkMode} defaultChecked={isDarkMode} inputSize={'xsmall'} />
         </Container>
       </Container>
     </StyledStackMenu>
