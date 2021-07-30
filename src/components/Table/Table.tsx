@@ -6,6 +6,7 @@ import {
   Container,
   Spacer,
   ConfigContext,
+  Title,
 } from '@jp-olvera/jp-viaducto-components';
 import {
   useTable,
@@ -30,6 +31,7 @@ import {
   Filter,
   Search,
 } from 'react-ikonate';
+import Kebab from '../Kebab/Kebab';
 
 const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   const { configuration } = useContext(ConfigContext);
@@ -56,6 +58,19 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   );
 };
 
+const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }: any, ref: any) => {
+  const defaultRef = useRef<HTMLInputElement>(null);
+  const resolvedRef = ref || defaultRef;
+
+  useEffect(() => {
+    if (resolvedRef.current) {
+      resolvedRef.current.indeterminate = indeterminate;
+    }
+  }, [resolvedRef, indeterminate]);
+
+  return <input type='checkbox' ref={resolvedRef} {...rest} />;
+});
+
 const Table = ({
   cols,
   dataTable,
@@ -69,7 +84,6 @@ const Table = ({
 }) => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-
   const defaultColumn = useMemo(() => ({}), []);
   const renderRowSubComponent = React.useCallback(({ row }) => row.original.expandible, []);
   const {
@@ -113,13 +127,13 @@ const Table = ({
           width: 'max-content',
           Header: ({ getToggleAllRowsSelectedProps }: any) => (
             <div style={{ userSelect: 'none' }}>
-              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} size='sm' />
+              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
             </div>
           ),
           Cell: ({ row }: any) => {
             return (
               <div style={{ width: '100%' }}>
-                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} size='sm' />
+                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
               </div>
             );
           },
@@ -187,24 +201,16 @@ const Table = ({
       e.target.parentNode.classList.remove('dragging');
     }
   };
-  const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }: any, ref: any) => {
-    const defaultRef = useRef();
-    const resolvedRef = ref || defaultRef;
-
-    useEffect(() => {
-      if (resolvedRef.current) {
-        resolvedRef.current.indeterminate = indeterminate;
-      }
-    }, [resolvedRef, indeterminate]);
-
-    return <input type='checkbox' ref={resolvedRef} {...rest} />;
-  });
 
   return (
     <>
-      <Container bottom='md' style={{ display: 'flex', justifyContent: 'flex-start' }}>
+      <Container
+        vertical='md'
+        style={{ display: 'flex', justifyContent: 'flex-start' }}
+        expandHorizontal
+      >
         {filter && (
-          <>
+          <div style={{ display: 'flex', position: 'sticky', left: 0 }}>
             <Container right='sm'>
               <GlobalFilter globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
             </Container>
@@ -224,7 +230,22 @@ const Table = ({
                 click: '#D9D9D9',
               }}
             />
-          </>
+          </div>
+        )}
+        {Object.keys(state.selectedRowIds).length > 0 && (
+          <Container
+            horizontal='md'
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+          >
+            <Title level='5'>{Object.keys(state.selectedRowIds).length} Items selected</Title>
+            <Spacer direction='horizontal' size='sm' />
+            <Kebab>
+              <Container vertical='md' horizontal='md'>
+                <Button shapeColor='primary' label='Edit' variant='ghost' block />
+                <Button shapeColor='danger' label='Delete' variant='ghost' block />
+              </Container>
+            </Kebab>
+          </Container>
         )}
       </Container>
       <table {...getTableProps()}>

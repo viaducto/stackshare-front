@@ -9,7 +9,7 @@ interface LogoI {
 
 const Logo = ({ title = true }: LogoI) => {
   const { configuration } = useContext(ConfigContext);
-  const { offset } = useWindowResize({});
+  const { offset } = useWindowResize();
   return (
     <StyledLogo configuration={configuration} onClick={() => (window.location.href = '/')}>
       <div className='figure'>

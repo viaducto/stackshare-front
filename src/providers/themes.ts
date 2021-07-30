@@ -45,7 +45,7 @@ export const darkTheme: StackshareThemeProps = {
     background: '#262626',
     footerColor: '#0e0c0c',
     headerColor: '#151515',
-    selectedColor: '#d9d9d9',
+    selectedColor: '#1665D850',
     zebraColor: '#07070733',
     hoverColor: '#07070766',
   },

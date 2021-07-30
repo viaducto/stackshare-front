@@ -140,6 +140,7 @@ export const socialMedia = [
     traffic: LoaderTable({ visitors: '62', completed: 2, current: 2 }),
   },
 ];
+
 export const visitedColumns = [
   {
     Header: 'Page Name',
@@ -148,7 +149,7 @@ export const visitedColumns = [
     width: 180,
     Cell: (row: any) => (
       <Center>
-        <Paragraph>{row.value}</Paragraph>
+        <div>{row.value}</div>
       </Center>
     ),
   },
@@ -190,7 +191,7 @@ export const socialColumns = [
     width: 90,
     Cell: (row: any) => (
       <Center>
-        <Paragraph>{row.value}</Paragraph>
+        <div>{row.value}</div>
       </Center>
     ),
   },
@@ -201,7 +202,7 @@ export const socialColumns = [
     width: 200,
     Cell: (row: any) => (
       <Center>
-        <Paragraph>{row.value}</Paragraph>
+        <div>{row.value}</div>
       </Center>
     ),
   },

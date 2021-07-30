@@ -12,8 +12,8 @@ export const AppContext = createContext<AppContextProps>({
 });
 
 export const AppProvider = ({ children }: any) => {
-  const { offset } = useWindowResize({});
-  const [isMenuActive, setisMenuActive] = useState(offset);
+  const { offset } = useWindowResize();
+  const [isMenuActive, setisMenuActive] = useState(!offset);
 
   const handleShow = () => {
     setisMenuActive(!isMenuActive);

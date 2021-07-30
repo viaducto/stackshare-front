@@ -1,28 +1,20 @@
 import { useState, useEffect } from 'react';
 
-const useWindowResize = ({ size = 576, offset = false }: { size?: number; offset?: boolean }) => {
-  const [off, setOffset] = useState(offset);
+export const useWindowResize = (size: number = 576, offset?: boolean) => {
+  const [off, setOffset] = useState(offset || !(window.innerWidth > size));
   useEffect(() => {
-    window.addEventListener('resize', (el: UIEvent) => {
+    const resize = (el: UIEvent) => {
       const element = el.target as Window;
       if (element.innerWidth <= size) {
         setOffset(true);
       } else {
         setOffset(false);
       }
-    });
+    };
+    window.addEventListener('resize', resize);
     return function cleanup() {
-      window.removeEventListener('resize', (el: UIEvent) => {
-        const element = el.target as Window;
-        if (element.innerWidth <= size) {
-          setOffset(true);
-        } else {
-          setOffset(false);
-        }
-      });
+      window.removeEventListener('resize', resize);
     };
   }, [off, size, setOffset]);
   return { offset: off, setOffset };
 };
-
-export { useWindowResize };
