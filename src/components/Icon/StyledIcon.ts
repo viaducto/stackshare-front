@@ -9,16 +9,16 @@ export const StyledIcon = styled.div<any>`
   &.open {
     transform: scale(0.7);
     & span:nth-child(1) {
-      width: 80%;
-      transform: rotate(139deg);
+      width: 86%;
+      transform: rotate(145deg);
     }
     & span:nth-child(2) {
       left: 0.063rem;
       width: 150%;
     }
     & span:nth-child(3) {
-      width: 80%;
-      transform: rotate(40deg);
+      width: 86%;
+      transform: rotate(35deg);
     }
   }
   & span {
@@ -31,13 +31,13 @@ export const StyledIcon = styled.div<any>`
     left: 0;
     display: block;
     &:nth-child(1) {
-      top: 0;
+      top: 0.063rem;
     }
     &:nth-child(2) {
-      top: 0.4rem;
+      top: 0.45rem;
     }
     &:nth-child(3) {
-      top: 0.85rem;
+      top: 0.8rem;
     }
   }
 `;

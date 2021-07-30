@@ -8,9 +8,9 @@ interface OFI {
 
 export const Offset = styled.div<OFI>`
   .hide {
-    transition: 0.4s ease;
+    transition: 200ms ease;
     opacity: ${(p) => (p.off ? 0 : 1)};
-    ${(p) => p.off && 'height: 0;'};
+    max-height: ${(p) => (p.off ? '0' : '400px')};
   }
   .center {
     * {
@@ -21,13 +21,9 @@ export const Offset = styled.div<OFI>`
       & > img {
         transform: scale(0.8);
       }
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
     position: sticky;
-    top: 0;
+    top: 0rem;
     z-index: 1;
   }
   .no-center {
