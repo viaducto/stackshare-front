@@ -74,6 +74,7 @@ export const columnsInfrastructure = [
     accessor: 'device',
     Filter: () => null,
     width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -85,6 +86,7 @@ export const columnsInfrastructure = [
     accessor: 'type',
     Filter: () => null,
     width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>

@@ -53,6 +53,7 @@ export const StoreTab = ({
                 Header: 'Action',
                 accessor: 'action',
                 width: Math.round(window.innerWidth / 5),
+                minWidth: 200,
                 Cell: (props: any) => {
                   const installed = [1, 3, 5];
                   return (

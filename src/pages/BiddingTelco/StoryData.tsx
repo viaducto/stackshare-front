@@ -140,6 +140,7 @@ export const buyColumns = [
     accessor: 'bidding_type',
     Filter: () => null,
     width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
     Cell: (props: any) => {
       const label = props.data[props.row.index].bidding_type;
       return (
@@ -159,6 +160,7 @@ export const buyColumns = [
     accessor: 'expires',
     Filter: () => null,
     width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
     Cell: (props: any) => {
       const data = props.data[props.row.index].expires;
       return (
@@ -173,6 +175,7 @@ export const buyColumns = [
     accessor: 'rate',
     Filter: () => null,
     width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
     Cell: (props: any) => {
       const data = props.data[props.row.index].rate;
       return (
@@ -187,6 +190,7 @@ export const buyColumns = [
     accessor: 'total',
     Filter: () => null,
     width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
     Cell: (props: any) => {
       const data = props.data[props.row.index].total;
       return (

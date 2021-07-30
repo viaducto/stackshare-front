@@ -16,6 +16,7 @@ export const colsTabZero = [
     accessor: 'app_name_display',
     Filter: () => null,
     width: Math.round(window.innerWidth / 4),
+    minWidth: 200,
     Cell: (row: any) => (
       <Left>
         <Container left='xl'>
@@ -31,6 +32,7 @@ export const colsTabZero = [
     accessor: 'type',
     Filter: () => null,
     width: Math.round(window.innerWidth / 3),
+    minWidth: 200,
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>

@@ -114,6 +114,7 @@ const UserManagement = () => {
                           Header: 'Name',
                           accessor: 'name',
                           width: Math.round(window.innerWidth / 3),
+                          minWidth: 200,
                           Cell: (props: any) => {
                             const { name, email } = props.data[props.row.index];
                             return (
@@ -142,6 +143,7 @@ const UserManagement = () => {
                           Header: 'Location',
                           accessor: 'location',
                           width: Math.round(window.innerWidth / 5),
+                          minWidth: 200,
                           Cell: (row: any) => (
                             <Center>
                               <Paragraph>{row.value}</Paragraph>
@@ -152,6 +154,7 @@ const UserManagement = () => {
                           Header: 'Role',
                           accessor: 'role',
                           width: Math.round(window.innerWidth / 8),
+                          minWidth: 200,
                           Cell: (row: any) => (
                             <Right>
                               <Container right='md'>
@@ -164,6 +167,7 @@ const UserManagement = () => {
                           Header: 'Action',
                           accessor: 'action',
                           width: Math.round(window.innerWidth / 10),
+                          minWidth: 200,
                           Cell: (props: any) => {
                             return (
                               <Center>

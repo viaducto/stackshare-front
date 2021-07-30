@@ -153,6 +153,7 @@ const Buy = () => {
                                   Header: 'Specification',
                                   accessor: 'specification',
                                   width: Math.round(window.innerWidth / 8),
+                                  minWidth: 200,
                                   Filter: () => null,
                                   Cell: (props: any) => {
                                     return (

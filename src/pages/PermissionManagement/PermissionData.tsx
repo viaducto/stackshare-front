@@ -7,6 +7,7 @@ export const permissionColumns = [
     accessor: 'role',
     Filter: () => null,
     width: Math.round(window.innerWidth / 4),
+    minWidth: 200,
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -18,6 +19,7 @@ export const permissionColumns = [
     accessor: 'type',
     Filter: () => null,
     width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -29,6 +31,7 @@ export const permissionColumns = [
     accessor: 'money',
     Filter: () => null,
     width: Math.round(window.innerWidth / 6),
+    minWidth: 200,
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
@@ -40,6 +43,7 @@ export const permissionColumns = [
     accessor: 'users',
     Filter: () => null,
     width: Math.round(window.innerWidth / 6),
+    minWidth: 200,
     Cell: (row: any) => (
       <Center>
         <Paragraph>{row.value}</Paragraph>
