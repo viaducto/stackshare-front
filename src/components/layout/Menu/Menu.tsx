@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import {
@@ -70,11 +70,19 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
 
 /** The sidebar Menu */
 const StackMenu = () => {
-  const { isMenuActive } = useContext(AppContext);
+  const { isMenuActive, showMenu } = useContext(AppContext);
   const { pathname } = useLocation();
   const { isDarkMode, setDarkMode } = useContext(StackShareThemeContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
+  useEffect(() => {
+    if (window.innerWidth <= 576) {
+      showMenu();
+      console.log('hey');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
   return (
     <StyledStackMenu active={isMenuActive} configuration={configuration}>
       <Container vertical='md' expandHorizontal horizontal='sm' className='logo'>
