@@ -172,7 +172,7 @@ const PermissionManagement = () => {
       </div>
 
       <Drawer onClose={() => setOpen(!open)} active={open} size='sm'>
-        <Grid expanded>
+        <Grid expanded style={{ height: '100%', overflow: 'auto' }}>
           <Row>
             <Column>
               <Container expandHorizontal vertical='md'>

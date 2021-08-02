@@ -17,6 +17,7 @@ import { PricingTable } from '../../components/PricingTable';
 import SellParameters from '../../components/SellParameters/SellParameters';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import { useLoading } from '../../hooks/useLoading';
+import CloseButton from '../../components/CloseButton/CloseButton';
 
 const BiddingTelco = () => {
   const [open, setOpen] = useState(false);
@@ -62,59 +63,64 @@ const BiddingTelco = () => {
       </div>
 
       <Drawer active={open} onClose={handleOpen} size='lg'>
-        <Grid className='border-bottom' expanded>
-          <Row>
-            <Column>
-              <Container vertical='md' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                  Time preset
-                </Paragraph>
-                <Pill background='transparent' color='dark' handleAction={handleOpen} label='' />
-              </Container>
-            </Column>
-          </Row>
-        </Grid>
-        <Grid className='border-bottom' expanded>
-          <Row>
-            <Column>
-              <Container vertical='md'>
-                <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
-                <Spacer size='xs' />
-                <Spacer size='xs' />
-                <Spacer size='xs' />
-                <div style={{ width: '16rem' }}>
-                  <Input label='Medium input' inputSize='small' border='outside' />
-                </div>
-                <Spacer size='md' />
-                <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
-                <Spacer size='md' />
-                <div style={{ width: '100%', overflow: 'auto' }}>
-                  <PricingTable
-                    sun={TUESDAY}
-                    mon={MONDAY}
-                    tues={TUESDAY}
-                    wed={MONDAY}
-                    thu={TUESDAY}
-                    sat={TUESDAY}
-                  />
-                </div>
-              </Container>
-            </Column>
-          </Row>
-        </Grid>
-        <Grid>
-          <Row>
-            <Column>
-              <Container
-                horizontal='md'
-                vertical='md'
-                style={{ display: 'flex', justifyContent: 'flex-end' }}
-              >
-                <Button label='Save' onClick={handleOpen} />
-              </Container>
-            </Column>
-          </Row>
-        </Grid>
+        <div style={{ height: '100%', overflow: 'auto' }}>
+          <Grid className='border-bottom' expanded>
+            <Row>
+              <Column>
+                <Container
+                  vertical='md'
+                  style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                  <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
+                    Time preset
+                  </Paragraph>
+                  <CloseButton onClick={handleOpen} />
+                </Container>
+              </Column>
+            </Row>
+          </Grid>
+          <Grid className='border-bottom' expanded>
+            <Row>
+              <Column>
+                <Container vertical='md'>
+                  <Paragraph lineHeight='1.35rem'>Name the time preset</Paragraph>
+                  <Spacer size='xs' />
+                  <Spacer size='xs' />
+                  <Spacer size='xs' />
+                  <div style={{ width: '16rem' }}>
+                    <Input label='Medium input' inputSize='small' border='outside' />
+                  </div>
+                  <Spacer size='md' />
+                  <Paragraph lineHeight='1.35rem'>Select uptimes</Paragraph>
+                  <Spacer size='md' />
+                  <div style={{ width: '100%', overflow: 'auto' }}>
+                    <PricingTable
+                      sun={TUESDAY}
+                      mon={MONDAY}
+                      tues={TUESDAY}
+                      wed={MONDAY}
+                      thu={TUESDAY}
+                      sat={TUESDAY}
+                    />
+                  </div>
+                </Container>
+              </Column>
+            </Row>
+          </Grid>
+          <Grid>
+            <Row>
+              <Column>
+                <Container
+                  horizontal='md'
+                  vertical='md'
+                  style={{ display: 'flex', justifyContent: 'flex-end' }}
+                >
+                  <Button label='Save' onClick={handleOpen} />
+                </Container>
+              </Column>
+            </Row>
+          </Grid>
+        </div>
       </Drawer>
     </BodyContent>
   );

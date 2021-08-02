@@ -8,7 +8,7 @@ import {
   Container,
   GroupTab,
 } from '@jp-olvera/jp-viaducto-components';
-import { ChevronLeft } from 'react-ikonate';
+import { ChevronLeft, Close } from 'react-ikonate';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { PricingTable } from '../../components/PricingTable';
 import { MONDAY } from '../../dummy_data/pricingtable';
@@ -23,6 +23,7 @@ import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
 import TableContentSkeleton, { TableContentSkeletonBidding } from './TableContentSkeleton';
 import { useLoading } from '../../hooks/useLoading';
+import CloseButton from '../../components/CloseButton/CloseButton';
 const Shop = () => {
   const [openTable, setOpenTable] = useState(false);
   const [openshop, setOpenshop] = useState(false);
@@ -159,35 +160,28 @@ const Shop = () => {
         }}
         size='md'
       >
-        <div style={{ width: '100%' }}>
-          <div className='border-bottom' style={{ width: '100%' }}>
-            <Container
-              vertical='md'
-              left='md'
-              right='md'
-              expandHorizontal
-              style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}
-            >
-              <Button
-                icon={<ChevronLeft />}
-                variant='outline'
-                size='small'
-                colors={{ text: '#000' }}
-                onClick={() => {
-                  setOpenConfig(false);
-                  setOpenTable(true);
-                }}
-              />
-              <Spacer direction='horizontal' size='xs' />
-              <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                Configure time window
-              </Paragraph>
-            </Container>
-          </div>
-          <Container top='md' left='sm' right='lg' style={{ height: '88%' }}>
-            <div style={{ maxWidth: 750 }}>
-              <PricingTable sun={MONDAY} tues={MONDAY} />
-            </div>
+        <div style={{ overflow: 'auto', height: '100%' }}>
+          <Container
+            vertical='md'
+            left='md'
+            right='md'
+            expandHorizontal
+            className='border-bottom'
+            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+          >
+            <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
+              Configure time window
+            </Paragraph>
+            <CloseButton
+              onClick={() => {
+                setOpenConfig(false);
+                setOpenTable(true);
+              }}
+            />
+          </Container>
+
+          <Container top='md' left='sm' right='lg' style={{ width: '100%', overflow: 'auto' }}>
+            <PricingTable sun={MONDAY} tues={MONDAY} />
           </Container>
           <Spacer direction='vertical' size='md' />
           <Spacer direction='vertical' size='md' />

@@ -295,7 +295,7 @@ const LocationManagement = () => {
         active={isDrawerActive}
         size='lg'
       >
-        <Grid expanded>
+        <Grid expanded style={{ height: '100%', overflow: 'auto' }}>
           <Row>
             <Column>
               <Container
@@ -308,6 +308,7 @@ const LocationManagement = () => {
               >
                 <button
                   onClick={handleDrawerActive}
+                  className='bare-button'
                   style={{
                     cursor: 'pointer',
                     border: 'none',

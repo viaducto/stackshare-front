@@ -7,7 +7,6 @@ import {
   Input,
   Grid,
   Paragraph,
-  Pill,
   Radio,
   Row,
   Spacer,
@@ -28,6 +27,7 @@ import { Center } from '../../components/Center';
 import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from './TableContent';
 import { useLoading } from '../../hooks/useLoading';
+import CloseButton from '../../components/CloseButton/CloseButton';
 
 const Buy = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -207,7 +207,7 @@ const Buy = () => {
         </BodyMain>
       </div>
       <Drawer active={openTable} onClose={() => setOpenTable(false)} size={newBid ? 'md' : 'sm'}>
-        <Grid expanded>
+        <Grid expanded style={{ overflow: 'auto', height: '100%' }}>
           <Row>
             <Column>
               <div style={{ width: '100%' }}>
@@ -229,12 +229,7 @@ const Buy = () => {
                       />
                     )}
                     {!newBid && <Spacer direction='horizontal' size='lg' />}
-                    <Pill
-                      background='transparent'
-                      color='#000'
-                      handleAction={() => setOpenTable(false)}
-                      label=''
-                    />
+                    <CloseButton onClick={() => setOpenTable(false)} />
                   </div>
                 </Container>
               </div>

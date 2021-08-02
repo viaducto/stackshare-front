@@ -1,5 +1,5 @@
-import { Paragraph, Pill, Spacer } from '@jp-olvera/jp-viaducto-components';
-import React from 'react';
+import { Paragraph, Spacer } from '@jp-olvera/jp-viaducto-components';
+import CloseButton from '../../components/CloseButton/CloseButton';
 import RolesPermissions from './RolesPermissions';
 
 const Roles = ({ setOpen }: { setOpen: Function }) => (
@@ -8,7 +8,7 @@ const Roles = ({ setOpen }: { setOpen: Function }) => (
       <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
         Organization Owner
       </Paragraph>
-      <Pill background='transparent' color='#000' handleAction={() => setOpen(false)} />
+      <CloseButton onClick={() => setOpen(false)} />
     </div>
     <Spacer size='lg' />
     <RolesPermissions role='Organization Permission' />

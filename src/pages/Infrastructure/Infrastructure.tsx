@@ -164,7 +164,9 @@ const Infrastructure = () => {
       </div>
 
       <Drawer active={open} onClose={() => setOpen(!open)} size='lg'>
-        <InfrastructureDrawer type={type} setOpen={setOpen} />
+        <div style={{ height: '100%', overflow: 'auto' }}>
+          <InfrastructureDrawer type={type} setOpen={setOpen} />
+        </div>
       </Drawer>
     </BodyContent>
   );

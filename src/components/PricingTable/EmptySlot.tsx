@@ -10,6 +10,7 @@ import {
   Paragraph,
   Row,
 } from '@jp-olvera/jp-viaducto-components';
+import CloseButton from '../CloseButton/CloseButton';
 
 const StyledButton = styled.button`
   margin: 0;
@@ -41,10 +42,14 @@ const EmptySlot = () => {
         <Grid expanded className='border-bottom'>
           <Row>
             <Column>
-              <Container vertical='md' style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Container
+                vertical='md'
+                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+              >
                 <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
                   Time preset
                 </Paragraph>
+                <CloseButton onClick={onCloseDrawer} />
               </Container>
             </Column>
           </Row>
