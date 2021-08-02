@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Spacer } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import SellParameters from '../../components/SellParameters/SellParameters';
+import { useLoading } from '../../hooks/useLoading';
 
 const BiddingB2B = () => {
   const [open, setOpen] = useState(false);
@@ -17,13 +18,7 @@ const BiddingB2B = () => {
       setLoad(false);
     }, 1500);
   };
-  const [load, setLoad] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  }, []);
+  const { load, setLoad } = useLoading();
   return (
     <BodyContent>
       {/* Header */}

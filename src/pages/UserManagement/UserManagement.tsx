@@ -19,14 +19,15 @@ import Kebab from '../../components/Kebab/Kebab';
 import { Center } from '../../components/Center';
 import { Left } from '../../components/Left';
 import { Right } from '../../components/Right';
-import { useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
 import DrawerManagement from './DrawerManagement';
+import { useLoading } from '../../hooks/useLoading';
 
 const UserManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
-  const [load, setLoad] = useState(true);
+  const { load } = useLoading();
+
   const [selectedUser, setselectedUser] = useState<{
     name: string;
     email: string;
@@ -48,12 +49,6 @@ const UserManagement = () => {
   const handleDrawerActive = () => {
     setIsDrawerActive((e) => !e);
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  });
 
   return (
     <>

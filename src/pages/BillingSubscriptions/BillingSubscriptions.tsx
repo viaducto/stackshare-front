@@ -22,19 +22,15 @@ import BillingAlert from './BillingAlert';
 import BillingManager from './BillingManager';
 import SubscriptionsTable from './SubscriptionsTable';
 import master from './mastercard.svg';
-import { useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import { useLoading } from '../../hooks/useLoading';
 
 const BillingSubscriptions = () => {
   const [isReadonly, setIsReadonly] = useState(true);
   const { configuration } = useContext(ConfigContext);
   const { defaultInputBorderColor: borderColor } = configuration.colors;
-  const [load, setLoad] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  });
+  const { load } = useLoading();
+
   const handleEnable = () => {
     setIsReadonly(!isReadonly);
   };

@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useEffect } from 'react';
+import { useContext, useRef, useState } from 'react';
 import {
   Paragraph,
   Container,
@@ -16,6 +16,8 @@ import { Help, ChevronDown, Search, User, Cart, ArrowDown } from 'react-ikonate'
 import { AppContext } from '../../../providers';
 import Notification from './Notification';
 import { Icon } from '../../Icon';
+import { useWindowResize } from '../../../hooks/useWindowSize';
+import { useEffect } from 'react';
 
 const StyledNavbar = styled.nav`
   position: sticky;
@@ -45,12 +47,17 @@ const Navbar = () => {
   const { showMenu } = useContext(AppContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-
+  const { offset } = useWindowResize();
   const avatarRef = useRef(null);
   const [dropActive, setDropActive] = useState(false);
   const handleDropActive = () => {
     setDropActive((d) => !d);
   };
+  useEffect(() => {
+    if (offset) {
+      setDropActive(false);
+    }
+  }, [offset]);
   return (
     <StyledNavbar className='border-bottom'>
       <Container vertical='sm' expandVertical>
@@ -134,20 +141,8 @@ export const MobileNavbar = () => {
   const { showMenu } = useContext(AppContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-  const [isDrawerActive, setIsDrawerActive] = useState(false);
-
-  useEffect(() => {
-    const hide = (ev: UIEvent) => {
-      const element = ev.target as Window;
-      if (element.innerWidth >= 576) {
-        setIsDrawerActive(false);
-      }
-    };
-    window.addEventListener('resize', hide);
-    return () => {
-      window.addEventListener('resize', hide);
-    };
-  }, []);
+  const { offset } = useWindowResize();
+  const [isDrawerActive, setIsDrawerActive] = useState(!offset);
   return (
     <StyledMobileNavbar>
       <button

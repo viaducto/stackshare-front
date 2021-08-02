@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Button,
   Container,
@@ -22,18 +22,15 @@ import CreateRoles from './CreateRole';
 import Kebab from '../../components/Kebab/Kebab';
 import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
+import { useLoading } from '../../hooks/useLoading';
 
 const PermissionManagement = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [create, setCreate] = useState<boolean>(false);
-  const [load, setLoad] = useState(true);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  });
+  const { load } = useLoading();
+
   return (
     <BodyContent>
       <HeaderSell

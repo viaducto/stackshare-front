@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   Button,
   Column,
@@ -16,6 +16,7 @@ import { MONDAY, TUESDAY } from '../../dummy_data/pricingtable';
 import { PricingTable } from '../../components/PricingTable';
 import SellParameters from '../../components/SellParameters/SellParameters';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
+import { useLoading } from '../../hooks/useLoading';
 
 const BiddingTelco = () => {
   const [open, setOpen] = useState(false);
@@ -30,13 +31,8 @@ const BiddingTelco = () => {
       setLoad(false);
     }, 1500);
   };
-  const [load, setLoad] = useState(true);
+  const { load, setLoad } = useLoading();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  }, []);
   return (
     <BodyContent>
       {/* Header */}

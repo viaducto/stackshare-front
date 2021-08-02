@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Button,
   Column,
@@ -27,6 +27,7 @@ import Tag from '../../components/Tag/Tag';
 import { Center } from '../../components/Center';
 import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from './TableContent';
+import { useLoading } from '../../hooks/useLoading';
 
 const Buy = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -37,13 +38,7 @@ const Buy = () => {
   const [data, setData] = useState<any>({});
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-  const [load, setLoad] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  }, []);
+  const { load } = useLoading();
 
   return (
     <BodyContent>

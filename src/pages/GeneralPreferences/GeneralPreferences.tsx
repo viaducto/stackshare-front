@@ -16,16 +16,11 @@ import { useState } from 'react';
 import Overview from './Overview';
 import Security from './Security';
 import BrandLocalization from './BrandLocalization';
-import { useEffect } from 'react';
+import { useLoading } from '../../hooks/useLoading';
 
 const GeneralPreferences = () => {
   const [tab, setTab] = useState<number>(0);
-  const [load, setLoad] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  }, []);
+  const { load, setLoad } = useLoading();
   return (
     <BodyContent>
       <HeaderSell

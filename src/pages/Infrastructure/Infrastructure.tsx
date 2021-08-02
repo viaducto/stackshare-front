@@ -8,7 +8,6 @@ import {
   Tab,
   WrapperTable,
 } from '@jp-olvera/jp-viaducto-components';
-import { useEffect } from 'react';
 import { useContext, useState } from 'react';
 import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
 import Skeleton from 'react-loading-skeleton';
@@ -17,21 +16,18 @@ import Kebab from '../../components/Kebab/Kebab';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import Table from '../../components/Table/Table';
+import { useLoading } from '../../hooks/useLoading';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
 import { columnsInfrastructure, dataInfrastructure } from './DataInfrastructure';
 import InfrastructureDrawer from './InfrastructureDrawer';
 
 const Infrastructure = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [load, setLoad] = useState(true);
   const [type, setType] = useState<string>('Type');
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  });
+  const { load } = useLoading();
+
   return (
     <BodyContent>
       <HeaderSell

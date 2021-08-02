@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Paragraph,
   Spacer,
@@ -22,6 +22,7 @@ import {
 import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
 import TableContentSkeleton, { TableContentSkeletonBidding } from './TableContentSkeleton';
+import { useLoading } from '../../hooks/useLoading';
 const Shop = () => {
   const [openTable, setOpenTable] = useState(false);
   const [openshop, setOpenshop] = useState(false);
@@ -31,13 +32,7 @@ const Shop = () => {
   const [configuration, setConfiguration] = useState(0);
   const [activeTooltip, setActiveTooltip] = useState(false);
   const [appName, setAppName] = useState('App name');
-  const [load, setLoad] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
-  }, []);
+  const { load, setLoad } = useLoading();
 
   return (
     <BodyContent>
