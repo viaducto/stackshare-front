@@ -14,6 +14,7 @@ import { AppContext, StackShareThemeContext } from '../../../providers';
 import Logo from '../../Logo/Logo';
 import MenuTitle from '../../MenuTitle/MenuTitle';
 import { SecondaryBackground } from '../../Backgrounds';
+import { useWindowResize } from '../../../hooks/useWindowSize';
 
 interface StyledStackMenuProps {
   active: boolean;
@@ -70,19 +71,20 @@ const StyledStackMenu = styled.div<StyledStackMenuProps>`
 
 /** The sidebar Menu */
 const StackMenu = () => {
-  const { isMenuActive, showMenu } = useContext(AppContext);
+  const { isMenuActive, setisMenuActive } = useContext(AppContext);
   const { pathname } = useLocation();
   const { isDarkMode, setDarkMode } = useContext(StackShareThemeContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
+  const { offset } = useWindowResize();
+
   useEffect(() => {
-    if (window.innerWidth <= 576) {
-      showMenu();
-      console.log('hey');
+    if (window.innerWidth <= 576 && offset) {
+      // menu must hide
+      setisMenuActive(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
-
+  }, [pathname, offset]);
   return (
     <StyledStackMenu active={isMenuActive} configuration={configuration}>
       <Container vertical='md' expandHorizontal horizontal='sm' className='logo'>
