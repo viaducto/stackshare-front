@@ -7,6 +7,7 @@ import {
   Drawer,
   Container,
   GroupTab,
+  Hideable,
 } from '@jp-olvera/jp-viaducto-components';
 import { ChevronLeft, Close } from 'react-ikonate';
 import { BodyContent, BodyMain } from '../../components/layout';
@@ -107,6 +108,7 @@ const Shop = () => {
               justifyContent: 'center',
               alignItems: 'flex-start',
               flexWrap: 'wrap',
+              height: '100%',
             }}
           >
             <Container style={{ width: '70%' }} horizontal='md' vertical='md'>
@@ -118,15 +120,15 @@ const Shop = () => {
               <Spacer size='sm' />
               <TableContentSkeleton />
             </Container>
-            <Container style={{ flexGrow: 1 }} horizontal='md' vertical='md'>
+            <Container horizontal='md' vertical='md'>
               <Spacer size='lg' />
-              <Spacer size='xs' />
+              <Hideable visibleOn='sm'>
+                <Spacer size='xs' />
+                <Spacer size='sm' />
+              </Hideable>
+              <Skeleton height='2.5rem' width='100%' />
               <Spacer size='sm' />
-              <Skeleton height='2.5rem' width='80%' />
-              <Spacer size='sm' />
-              <Container style={{ width: '80%' }}>
-                <TableContentSkeletonBidding />
-              </Container>
+              <TableContentSkeletonBidding />
             </Container>
           </div>
         ) : (
