@@ -118,15 +118,16 @@ const Navbar = () => {
 
 const StyledMobileNavbar = styled.div`
   height: 50px;
-  z-index: 1;
+  z-index: 9999;
   border-top: 0.063rem solid #d9d9d9;
   box-sizing: border-box;
   display: flex;
   padding: 14px 28px;
   background-color: ${(p) => p.theme.mainBackground};
   justify-content: space-between;
-  position: sticky;
+  position: absolute;
   bottom: 0;
+  width: 100%;
 `;
 
 export const MobileNavbar = () => {

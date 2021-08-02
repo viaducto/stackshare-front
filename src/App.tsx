@@ -41,8 +41,8 @@ function App() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              width: '100%',
-              height: '100vh',
+              position: 'fixed',
+              inset: 0,
             }}
           >
             <div
