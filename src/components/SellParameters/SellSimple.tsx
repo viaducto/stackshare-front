@@ -29,12 +29,12 @@ const SellSimple = ({
   const { dark } = configuration.colors.text;
 
   return (
-    <Grid gutter={0} expanded>
+    <Grid gutter={0} expanded className='aaaa'>
       <Row>
-        <Column>
-          <Grid gutter={0}>
+        <Column xs={12} lg={6}>
+          <Grid gutter={0} expanded>
             <Row>
-              <Column>
+              <Column size={12}>
                 {load ? (
                   <Skeleton width='35%' />
                 ) : (
@@ -46,7 +46,7 @@ const SellSimple = ({
             </Row>
           </Grid>
           <Spacer size='sm' />
-          <Grid gutter={0}>
+          <Grid gutter={0} expanded>
             <Row>
               <Column md={11} sm={8} xs={12}>
                 {load ? (
@@ -68,7 +68,7 @@ const SellSimple = ({
 
           <Spacer size='lg' />
 
-          <Grid gutter={0}>
+          <Grid gutter={0} expanded>
             <Row>
               <Column>
                 {load ? (
@@ -82,7 +82,7 @@ const SellSimple = ({
             </Row>
           </Grid>
           <Spacer size='sm' />
-          <Grid gutter={0}>
+          <Grid gutter={0} expanded>
             <Row>
               <Column xl={7} md={8}>
                 {load ? (
@@ -104,7 +104,7 @@ const SellSimple = ({
             </Row>
           </Grid>
           <Spacer size='sm' />
-          <Grid gutter={0}>
+          <Grid gutter={0} expanded>
             <Row>
               <Column md={11} sm={8} xs={12}>
                 {load ? (
@@ -133,7 +133,7 @@ const SellSimple = ({
           <Spacer size='lg' />
 
           {!b2b && (
-            <Grid gutter={0}>
+            <Grid gutter={0} expanded>
               <Row>
                 <Column>
                   {load ? (
@@ -187,10 +187,10 @@ const SellSimple = ({
         <Hideable visibleOn='lg' after={false}>
           <Spacer size='lg' />
         </Hideable>
-        <Column>
+        <Column xs={12} lg={6}>
           {!b2b && (
             <div>
-              <Grid gutter={0}>
+              <Grid gutter={0} expanded>
                 <Row>
                   <Column>
                     {load ? (
@@ -215,7 +215,7 @@ const SellSimple = ({
               </Grid>
 
               <Spacer size='xs' />
-              <Grid gutter={0}>
+              <Grid gutter={0} expanded>
                 <Row>
                   <Column>
                     {load ? (
