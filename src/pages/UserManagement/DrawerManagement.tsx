@@ -152,7 +152,7 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
           </Container>
         </Container>
       </div>
-      <div style={{ height: '50%', overflow: 'auto' }} ref={ref}>
+      <div style={{ height: '40%', overflow: 'auto' }} ref={ref}>
         <Container bottom='lg' top='sm' className='overflow'>
           <Spacer size='sm' />
           {showApps ? (

@@ -8,13 +8,13 @@ interface OFI {
 
 export const Offset = styled.div<OFI>`
   .hide {
-    transition: opacity 0.4s ease;
+    transition: opacity 200ms ease;
     opacity: ${(p) => (p.off ? 0 : 1)};
     max-height: ${(p) => (p.off ? '0' : '400px')};
   }
   .center {
     background-color: ${(p) => p.configuration.colors.background};
-    transition: all 0.4s ease;
+    transition: all 200ms ease;
     & > div {
       display: flex;
       flex-direction: column;
