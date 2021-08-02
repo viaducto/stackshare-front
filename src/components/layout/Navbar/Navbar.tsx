@@ -141,8 +141,14 @@ export const MobileNavbar = () => {
   const { showMenu } = useContext(AppContext);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
+  const [isDrawerActive, setIsDrawerActive] = useState(false);
   const { offset } = useWindowResize();
-  const [isDrawerActive, setIsDrawerActive] = useState(!offset);
+  useEffect(() => {
+    if (!offset) {
+      setIsDrawerActive(false);
+    }
+  }, [offset]);
+
   return (
     <StyledMobileNavbar>
       <button
