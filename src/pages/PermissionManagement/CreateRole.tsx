@@ -1,4 +1,4 @@
-import { Container, Input, Paragraph, Pill, Spacer } from '@jp-olvera/jp-viaducto-components';
+import { Container, Input, Paragraph, Spacer } from '@jp-olvera/jp-viaducto-components';
 import React from 'react';
 import CloseButton from '../../components/CloseButton/CloseButton';
 import RolesPermissions from './RolesPermissions';

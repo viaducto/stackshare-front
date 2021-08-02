@@ -35,11 +35,11 @@ const UserManagement = () => {
     role: string;
     id: string;
   }>({
-    name: '',
-    email: '',
-    location: '',
-    role: '',
-    id: '',
+    name: 'Jorge Rojas',
+    email: 'jorge.rojas.arcos@gmail.com',
+    location: 'Querétaro',
+    role: 'Software Engineer',
+    id: '1',
   });
 
   const handleAction = (userProps: any) => {
@@ -272,8 +272,10 @@ const UserManagement = () => {
           </Container>
         </BodyMain>
       </div>
-      <Drawer onClose={handleDrawerActive} active={isDrawerActive}>
-        <DrawerManagement selectedUser={selectedUser} handleDrawerActive={handleDrawerActive} />
+      <Drawer onClose={handleDrawerActive} active={true}>
+        <div style={{ height: '100%', overflow: 'auto' }}>
+          <DrawerManagement selectedUser={selectedUser} handleDrawerActive={handleDrawerActive} />
+        </div>
       </Drawer>
     </>
   );

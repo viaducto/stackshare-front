@@ -7,7 +7,6 @@ import {
   Grid,
   Input,
   Paragraph,
-  Pill,
   Row,
   Spacer,
 } from '@jp-olvera/jp-viaducto-components';

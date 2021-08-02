@@ -9,7 +9,6 @@ import {
   GroupTab,
   Hideable,
 } from '@jp-olvera/jp-viaducto-components';
-import { ChevronLeft, Close } from 'react-ikonate';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { PricingTable } from '../../components/PricingTable';
 import { MONDAY } from '../../dummy_data/pricingtable';

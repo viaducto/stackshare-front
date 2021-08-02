@@ -206,47 +206,49 @@ const Table = ({
     <>
       <Container
         vertical='md'
-        style={{ display: 'flex', justifyContent: 'flex-start' }}
+        style={{ display: 'flex', justifyContent: 'flex-start', position: 'sticky', left: 0 }}
         expandHorizontal
       >
-        {filter && (
-          <div style={{ display: 'flex', position: 'sticky', left: 0 }}>
-            <Container right='sm'>
-              <GlobalFilter globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
-            </Container>
-            <Button
-              leftSpacing='sm'
-              iconSpacing='none'
-              rightSpacing='sm'
-              icon={<Filter color={dark} fontSize='1rem' />}
-              type='button'
-              onClick={() => {}}
-              variant='outline'
-              size='small'
-              colors={{
-                text: '#595959',
-                default: '#D9D9D9',
-                hover: '#D9D9D9',
-                click: '#D9D9D9',
-              }}
-            />
-          </div>
-        )}
-        {Object.keys(state.selectedRowIds).length > 0 && (
-          <Container
-            horizontal='md'
-            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-          >
-            <Title level='5'>{Object.keys(state.selectedRowIds).length} Items selected</Title>
-            <Spacer direction='horizontal' size='sm' />
-            <Kebab>
-              <Container vertical='md' horizontal='md'>
-                <Button shapeColor='primary' label='Edit' variant='ghost' block />
-                <Button shapeColor='danger' label='Delete' variant='ghost' block />
+        <div style={{ display: 'flex', position: 'sticky', left: 0 }}>
+          {filter && (
+            <>
+              <Container right='sm'>
+                <GlobalFilter globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
               </Container>
-            </Kebab>
-          </Container>
-        )}
+              <Button
+                leftSpacing='sm'
+                iconSpacing='none'
+                rightSpacing='sm'
+                icon={<Filter color={dark} fontSize='1rem' />}
+                type='button'
+                onClick={() => {}}
+                variant='outline'
+                size='small'
+                colors={{
+                  text: '#595959',
+                  default: '#D9D9D9',
+                  hover: '#D9D9D9',
+                  click: '#D9D9D9',
+                }}
+              />
+            </>
+          )}
+          {Object.keys(state.selectedRowIds).length > 0 && (
+            <Container
+              horizontal='md'
+              style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+              <Title level='5'>{Object.keys(state.selectedRowIds).length} Items selected</Title>
+              <Spacer direction='horizontal' size='sm' />
+              <Kebab>
+                <Container vertical='md' horizontal='md'>
+                  <Button shapeColor='primary' label='Edit' variant='ghost' block />
+                  <Button shapeColor='danger' label='Delete' variant='ghost' block />
+                </Container>
+              </Kebab>
+            </Container>
+          )}
+        </div>
       </Container>
       <table {...getTableProps()}>
         <thead>

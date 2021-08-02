@@ -7,7 +7,6 @@ import {
   Spacer,
   Anchor,
   Drawer,
-  Pill,
   Tab,
   Tooltip,
   Select,
