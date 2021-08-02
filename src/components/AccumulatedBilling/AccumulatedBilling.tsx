@@ -1,5 +1,11 @@
 import React from 'react';
-import { ConfigContext, Container, Paragraph, Spacer } from '@jp-olvera/jp-viaducto-components';
+import {
+  AvatarWithText,
+  ConfigContext,
+  Container,
+  Paragraph,
+  Spacer,
+} from '@jp-olvera/jp-viaducto-components';
 import { useContext } from 'react';
 
 const AccumulatedBilling = () => {
@@ -9,7 +15,7 @@ const AccumulatedBilling = () => {
     <Container
       horizontal='md'
       style={{
-        width: '23rem',
+        width: '100%',
         border: '0.063rem solid #BFBFBF',
         borderRadius: 4,
         textAlign: 'center',
@@ -94,23 +100,26 @@ const AppsAccumulated = ({ app }: any) => {
   return (
     <>
       <Spacer direction='vertical' size='md' />
-      <div style={{ display: 'flex' }}>
-        <div
-          style={{
-            width: '65%',
-            padding: '0 0 0 0.5rem',
-            display: 'flex',
-            gap: '0.563rem',
-            alignItems: 'center',
-          }}
+      <Container
+        horizontal='sm'
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        <AvatarWithText
+          avatar={{ src: 'https://i.pravatar.cc/32', alt: 'avatar', width: '32', height: '32' }}
         >
-          <img src='https://i.pravatar.cc/32' alt='avatar' style={{ borderRadius: '50%' }} />
           <Paragraph lineHeight='1.375rem'>{app}</Paragraph>
-        </div>
-        <div style={{ width: '35%' }}>
+        </AvatarWithText>
+
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Spacer direction='horizontal' size='md' />
           <Paragraph lineHeight='1.375rem'>$400</Paragraph>
         </div>
-      </div>
+      </Container>
     </>
   );
 };

@@ -26,6 +26,7 @@ import AccumulatedBilling from '../../components/AccumulatedBilling/AccumulatedB
 import { useState } from 'react';
 import { Center } from '../../components/Center';
 import CloseButton from '../../components/CloseButton/CloseButton';
+import { useWindowResize } from '../../hooks/useWindowSize';
 
 export const StoreTab = ({
   setAppName,
@@ -271,6 +272,7 @@ export const MyAppsOrganizationTab = ({
           show: false,
         },
   ];
+  const { offset } = useWindowResize();
 
   return (
     <Container style={{ height: '50%' }} top='md' horizontal='md'>
@@ -319,13 +321,20 @@ export const MyAppsOrganizationTab = ({
             </div>
           </Column>
           <Column>
+            <Spacer size='md' />
             <Container
-              left='lg'
               top='xxxl'
-              style={{ height: '50vh', position: 'sticky', top: '5rem' }}
+              horizontal={offset ? 'none' : 'lg'}
+              style={{
+                height: '50vh',
+                position: 'sticky',
+                top: '5rem',
+                overflow: 'auto',
+              }}
             >
               <AccumulatedBilling />
             </Container>
+            <Spacer size='xxl' />
           </Column>
         </Row>
       </Grid>
