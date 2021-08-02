@@ -13,10 +13,11 @@ import {
   Title,
   WrapperTable,
 } from '@jp-olvera/jp-viaducto-components';
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import { Cup } from 'react-ikonate';
 import CloseButton from '../../components/CloseButton/CloseButton';
 import Tag from '../../components/Tag/Tag';
+import { useScroll } from '../../hooks/useScroll';
 import { Offset } from './StyledUserManagement';
 
 const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
@@ -41,32 +42,12 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
     { appname: 'AWA', type: 'Game' },
   ];
 
-  const [offset, setScrolling] = useState<boolean>(false);
-  const scrollTop = 20;
-
   let ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const element = ref;
-    const scroll = (el: Event) => {
-      const element = el.target as Element;
-
-      if (element.scrollTop > scrollTop) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
-    };
-    if (element && element.current) {
-      element.current.addEventListener('scroll', scroll);
-    }
-    return function cleanup() {
-      element.current?.removeEventListener('scroll', scroll);
-    };
-  }, []);
+  const { scroll } = useScroll(ref);
 
   return (
     <Offset
-      off={offset}
+      off={scroll}
       configuration={configuration}
       style={{ height: '100%', overflow: 'hidden' }}
     >
@@ -83,7 +64,7 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
             </Column>
           </Row>
         </Grid>
-        <Container top={offset ? 'none' : 'lg'} className={offset ? 'center' : 'no-center'}>
+        <Container top={scroll ? 'none' : 'lg'} className={scroll ? 'center' : 'no-center'}>
           <Container horizontal='md'>
             <Avatar
               src='https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg'
@@ -148,7 +129,7 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
               </>
             ) : null}
           </Container>
-          <Spacer size={offset ? 'xs' : 'lg'} />
+          <Spacer size={scroll ? 'xs' : 'lg'} />
           <hr />
           <Container horizontal='md' className='flex '>
             <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
@@ -167,6 +148,7 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
                 }}
               />
             </GroupTab>
+            <Spacer size='lg' />
           </Container>
         </Container>
       </div>
