@@ -1,6 +1,10 @@
+import { ConfigProps } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
 
-export const StyledLogo = styled.div<any>`
+interface LI {
+  configuration: ConfigProps;
+}
+export const StyledLogo = styled.div<LI>`
   display: flex;
   align-items: center;
   justify-content: flex-start;

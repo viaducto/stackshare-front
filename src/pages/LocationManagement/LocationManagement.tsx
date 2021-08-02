@@ -244,12 +244,12 @@ const LocationManagement = () => {
       <HeaderSell
         title='Location Management'
         breadcrums={[
-          { label: 'Home', href: '', active: false },
+          { label: 'Home', href: '/', active: false },
           { label: 'Organization Settings', href: '', active: false },
           { label: 'User Management', href: '', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
           <Tab text='All Locations' />
           <Tab text='Country' />
           <Tab text='Region' />
@@ -275,7 +275,14 @@ const LocationManagement = () => {
               flexWrap: 'wrap',
             }}
           >
-            <WrapperTable border='horizontal' zebra={false}>
+            <WrapperTable
+              fontSize='md'
+              zebra={false}
+              verticalSpacing='md'
+              border='horizontal'
+              borderColor='#E8E8E8'
+              horizontalSpacing='sm'
+            >
               <Table cols={columns} dataTable={data} />
             </WrapperTable>
           </Container>
@@ -288,7 +295,7 @@ const LocationManagement = () => {
         active={isDrawerActive}
         size='lg'
       >
-        <Grid expanded>
+        <Grid expanded style={{ height: '100%', overflow: 'auto' }}>
           <Row>
             <Column>
               <Container
@@ -301,6 +308,7 @@ const LocationManagement = () => {
               >
                 <button
                   onClick={handleDrawerActive}
+                  className='bare-button'
                   style={{
                     cursor: 'pointer',
                     border: 'none',
@@ -438,7 +446,14 @@ const LocationManagement = () => {
           <Row>
             <Column size={12}>
               <Container className='overflow'>
-                <WrapperTable zebra={false}>
+                <WrapperTable
+                  fontSize='md'
+                  zebra={false}
+                  verticalSpacing='md'
+                  border='horizontal'
+                  borderColor='#E8E8E8'
+                  horizontalSpacing='sm'
+                >
                   <Table cols={infrastructureColumns} dataTable={infrastructureData} />
                 </WrapperTable>
               </Container>

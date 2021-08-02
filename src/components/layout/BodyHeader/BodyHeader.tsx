@@ -8,6 +8,7 @@ const Div = styled.div`
   top: 0;
   box-shadow: 0 0.125rem 0.313rem -0.125rem rgba(0, 0, 0, 0.2);
   z-index: 1;
+  overflow: hidden;
 `;
 const BodyHeader = ({ children, ...rest }: BodyHeaderProps) => {
   return (

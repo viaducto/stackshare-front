@@ -1,5 +1,6 @@
-import { Container, Input, Paragraph, Pill, Spacer } from '@jp-olvera/jp-viaducto-components';
+import { Container, Input, Paragraph, Spacer } from '@jp-olvera/jp-viaducto-components';
 import React from 'react';
+import CloseButton from '../../components/CloseButton/CloseButton';
 import RolesPermissions from './RolesPermissions';
 
 const CreateRoles = ({ setOpen }: { setOpen: Function }) => (
@@ -8,7 +9,7 @@ const CreateRoles = ({ setOpen }: { setOpen: Function }) => (
       <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
         Create User Role
       </Paragraph>
-      <Pill background='transparent' color='#000' handleAction={() => setOpen(false)} />
+      <CloseButton onClick={() => setOpen(false)} />
     </div>
     <Spacer size='lg' />
     <Container right='lg'>

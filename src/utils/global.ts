@@ -4,11 +4,13 @@ export const GlobalStyle: any = createGlobalStyle`
 
   html{
     /* background-color: #F0F2F5; */
-    font-size: 87.5% !important;
+    /* font-size: 87.5% !important; */
+    scroll-behavior: smooth;
   }
   
   body {
-    font-size: 1rem !important;
+    /* font-size: 1rem !important; */
+    overflow: hidden;
   }
 
   * {
@@ -17,8 +19,41 @@ export const GlobalStyle: any = createGlobalStyle`
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
+    scrollbar-width: thin; // firefox required
+    scrollbar-color: #b4b7bb #F1f1f1; // firefox required
+
   }
 
+  .sticky-top{
+    position: sticky;
+    top: 0;
+  }
+
+  .sticky-bottom{
+    position: sticky;
+    bottom: 0;
+  }
+
+    /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #F1F1F1; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #b4b7bb; 
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A8A8A8; 
+  }
   input > label {
     font-weight: bold;
   }
@@ -53,22 +88,27 @@ export const GlobalStyle: any = createGlobalStyle`
     color:inherit;
     cursor: pointer;
   }
-  
+
   .is-today{
     font-weight: bold;
     color: #7cb305;
   }
 
   .resizer{
-    width: .6rem !important;
-    top: 25% !important;
-    background-color: #d9d9d9 !important;
-    height: 50% !important;
+    width: .5rem !important;
+    top: 0% !important;
+    height: 100%;
+    background-color: transparent;
     position: absolute;
     right: 0;
+    z-index: 1;
     &:focus, &:active{
       background-color: #595959 !important;
     }
+  }
+  .resizer:hover{
+    background-color: #d9d9d9 !important;
+    filter: drop-shadow(4px 1px 3px black);
   }
 
   .flex{
@@ -153,4 +193,23 @@ export const GlobalStyle: any = createGlobalStyle`
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
   }
+
+  .dropzone {
+    box-sizing: border-box;
+  }
+  .dragging{
+    opacity: 0.5;
+    box-shadow: inset 0px -2px 0px #d9d9d9 !important;
+    
+  }
+  .drag-enter{
+    box-sizing: border-box;
+    box-shadow: inset 0px -2px 0px #1665D8;
+  }
+  .avatar-text{
+    img{
+      object-fit: contain !important;
+    }
+  }
+
 `;

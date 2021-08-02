@@ -5,8 +5,8 @@ export const StyledVerticalSteps = styled.div<any>`
     width: 0.063rem;
     background-color: #e8e8e8;
     position: absolute;
-    margin-top: 3.1rem;
-    margin-left: 0.7rem;
+    margin-top: 3.3rem;
+    margin-left: 0.8rem;
     height: 2.5rem;
   }
   & .finished {
@@ -19,7 +19,7 @@ export const Step = styled.div<any>`
   & .index {
     position: absolute;
     font-size: 1rem !important;
-    margin-left: 0.56rem;
+    margin-left: 0.6rem;
     margin-top: 0.15rem;
     color: ${(p) => (!p.actual ? '#BFBFBF' : 'white')};
   }

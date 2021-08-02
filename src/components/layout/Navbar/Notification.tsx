@@ -9,10 +9,11 @@ const Notification = ({ number }: { number: number }) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
       <Bell fontSize='1.5rem' color={dark} />
-      <div style={{ position: 'absolute', top: -8, left: 7, zIndex: 1 }} className='notification'>
+      <div style={{ position: 'absolute', top: -6, left: 7, zIndex: 1 }} className='notification'>
         <Badge
           clipPath='square'
-          size={{ width: '1.8rem', height: '1.375rem' }}
+          fontSize='xs'
+          size={{ width: '1.2rem', height: '1rem' }}
           content={number}
           align='center'
           background='#F5222D'

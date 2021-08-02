@@ -3,6 +3,7 @@ import { Spacer } from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import SellParameters from '../../components/SellParameters/SellParameters';
+import { useLoading } from '../../hooks/useLoading';
 
 const BiddingB2B = () => {
   const [open, setOpen] = useState(false);
@@ -10,14 +11,16 @@ const BiddingB2B = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
+  const handleSimple = () => {
+    setSimple(!simple);
+    setLoad(true);
+    setTimeout(() => {
+      setLoad(false);
+    }, 1500);
+  };
+  const { load, setLoad } = useLoading();
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       {/* Header */}
       <HeaderSell
         title='Sell parameters'
@@ -29,14 +32,15 @@ const BiddingB2B = () => {
         <Spacer size='sm' />
       </HeaderSell>
       {/* Body */}
-      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+      <div style={{ display: 'flex', overflow: 'hidden', width: '100%' }}>
         <BodyMain className='overflow' style={{ width: '100%' }}>
           <div style={{ height: '100%' }}>
             <SellParameters
               handleOpen={handleOpen}
-              setSimple={setSimple}
+              setSimple={handleSimple}
               simple={simple}
               b2b={true}
+              load={load}
             />
           </div>
         </BodyMain>

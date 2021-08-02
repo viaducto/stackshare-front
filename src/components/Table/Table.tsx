@@ -6,6 +6,7 @@ import {
   Container,
   Spacer,
   ConfigContext,
+  Title,
 } from '@jp-olvera/jp-viaducto-components';
 import {
   useTable,
@@ -21,7 +22,6 @@ import {
   useFilters,
 } from 'react-table';
 import {
-  Apps,
   ArrowUp,
   ArrowDown,
   ChevronLeft,
@@ -31,6 +31,7 @@ import {
   Filter,
   Search,
 } from 'react-ikonate';
+import Kebab from '../Kebab/Kebab';
 
 const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   const { configuration } = useContext(ConfigContext);
@@ -44,7 +45,8 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   return (
     <Input
       label='Search'
-      icon={<Search color={dark} />}
+      icon={<Search />}
+      iconColor={dark}
       inputSize='small'
       border='outside'
       defaultValue={value || ''}
@@ -55,6 +57,19 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
     />
   );
 };
+
+const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }: any, ref: any) => {
+  const defaultRef = useRef<HTMLInputElement>(null);
+  const resolvedRef = ref || defaultRef;
+
+  useEffect(() => {
+    if (resolvedRef.current) {
+      resolvedRef.current.indeterminate = indeterminate;
+    }
+  }, [resolvedRef, indeterminate]);
+
+  return <input type='checkbox' ref={resolvedRef} {...rest} />;
+});
 
 const Table = ({
   cols,
@@ -69,7 +84,6 @@ const Table = ({
 }) => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
-
   const defaultColumn = useMemo(() => ({}), []);
   const renderRowSubComponent = React.useCallback(({ row }) => row.original.expandible, []);
   const {
@@ -113,13 +127,13 @@ const Table = ({
           width: 'max-content',
           Header: ({ getToggleAllRowsSelectedProps }: any) => (
             <div style={{ userSelect: 'none' }}>
-              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} size='sm' />
+              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
             </div>
           ),
           Cell: ({ row }: any) => {
             return (
               <div style={{ width: '100%' }}>
-                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} size='sm' />
+                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
               </div>
             );
           },
@@ -132,38 +146,29 @@ const Table = ({
   const handleDragEnter = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
+    // console.log(e.target.classList);
     if (e.target.classList.contains('dropzone')) {
-      e.target.parentNode.classList.add('dragColor');
-      e.target.parentNode.classList.remove('dragNocolor');
-    } else if (e.target.classList.contains('sortable-dropzone')) {
-      e.target.classList.add('drag-sort-enter');
+      e.target.parentNode.classList.add('drag-enter');
     }
   };
   const handleDragLeave = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
     if (e.target.classList.contains('dropzone')) {
-      e.target.parentNode.classList.remove('dragColor');
-      e.target.parentNode.classList.add('dragNocolor');
-    } else if (e.target.classList.contains('sortable-dropzone')) {
-      e.target.classList.remove('drag-sort-enter');
+      e.target.parentNode.classList.remove('drag-enter');
     }
   };
   const handleDragOver = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
+    // console.log('drag over');
   };
   const handleDrop = (e: any, id: string) => {
     e.preventDefault();
     e.stopPropagation();
     const { classList } = e.target;
-    if (classList.contains('dropzone') || classList.contains('sortable-dropzone')) {
-      if (classList.contains('dropzone')) {
-        e.target.parentNode.classList.remove('dragColor');
-        e.target.parentNode.classList.add('dragNocolor');
-      } else {
-        e.target.classList.remove('drag-sort-enter');
-      }
+    if (classList.contains('dropzone')) {
+      e.target.parentNode.classList.remove('drag-enter');
       if (draggedId && id) {
         let id1: any, id2: any;
         for (let i = 0; i < visibleColumns.length; i++) {
@@ -184,10 +189,7 @@ const Table = ({
     e.stopPropagation();
     const { classList } = e.target;
     if (classList.contains('dropzone')) {
-      e.target.parentNode.classList.add('dragStart');
-      e.target.parentNode.classList.remove('dragEnd');
-    } else if (classList.contains('sortable-dropzone')) {
-      e.target.classList.add('drag-sort-active');
+      e.target.parentNode.classList.add('dragging');
     }
     setDraggedId(id);
   };
@@ -196,52 +198,57 @@ const Table = ({
     e.stopPropagation();
     const { classList } = e.target;
     if (classList.contains('dropzone')) {
-      e.target.parentNode.classList.remove('dragStart');
-      e.target.parentNode.classList.add('dragEnd');
-    } else {
-      e.target.classList.remove('drag-sort-active');
+      e.target.parentNode.classList.remove('dragging');
     }
   };
-  const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }: any, ref: any) => {
-    const defaultRef = useRef();
-    const resolvedRef = ref || defaultRef;
-
-    useEffect(() => {
-      if (resolvedRef.current) {
-        resolvedRef.current.indeterminate = indeterminate;
-      }
-    }, [resolvedRef, indeterminate]);
-
-    return <input type='checkbox' ref={resolvedRef} {...rest} />;
-  });
 
   return (
     <>
-      <Container bottom='md' style={{ display: 'flex', justifyContent: 'flex-start' }}>
-        {filter && (
-          <>
-            <Container right='sm'>
-              <GlobalFilter globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
+      <Container
+        vertical='md'
+        style={{ display: 'flex', justifyContent: 'flex-start', position: 'sticky', left: 0 }}
+        expandHorizontal
+      >
+        <div style={{ display: 'flex', position: 'sticky', left: 0 }}>
+          {filter && (
+            <>
+              <Container right='sm'>
+                <GlobalFilter globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
+              </Container>
+              <Button
+                leftSpacing='sm'
+                iconSpacing='none'
+                rightSpacing='sm'
+                icon={<Filter color={dark} fontSize='1rem' />}
+                type='button'
+                onClick={() => {}}
+                variant='outline'
+                size='small'
+                colors={{
+                  text: '#595959',
+                  default: '#D9D9D9',
+                  hover: '#D9D9D9',
+                  click: '#D9D9D9',
+                }}
+              />
+            </>
+          )}
+          {Object.keys(state.selectedRowIds).length > 0 && (
+            <Container
+              horizontal='md'
+              style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+              <Title level='5'>{Object.keys(state.selectedRowIds).length} Items selected</Title>
+              <Spacer direction='horizontal' size='sm' />
+              <Kebab>
+                <Container vertical='md' horizontal='md'>
+                  <Button shapeColor='primary' label='Edit' variant='ghost' block />
+                  <Button shapeColor='danger' label='Delete' variant='ghost' block />
+                </Container>
+              </Kebab>
             </Container>
-            <Button
-              leftSpacing='sm'
-              iconSpacing='none'
-              rightSpacing='sm'
-              icon={<Filter color={dark} fontSize='1rem' />}
-              type='button'
-              onClick={() => {}}
-              variant='outline'
-              height='2.063rem'
-              size='small'
-              colors={{
-                text: '#595959',
-                default: '#D9D9D9',
-                hover: '#D9D9D9',
-                click: '#D9D9D9',
-              }}
-            />
-          </>
-        )}
+          )}
+        </div>
       </Container>
       <table {...getTableProps()}>
         <thead>
@@ -255,6 +262,7 @@ const Table = ({
                         style={{
                           display: 'flex',
                           alignItems: 'center',
+                          justifyContent: 'center',
                         }}
                         draggable={column.id !== 'selection'}
                         onDragStart={(ev) => {
@@ -269,9 +277,8 @@ const Table = ({
                         onDragEnd={handleDragEnd}
                         className={column.id !== 'selection' ? 'dropzone' : ''}
                       >
-                        {index !== 0 && <Apps />}
                         {index !== 0 && <Spacer direction='horizontal' size='tiny' />}
-                        <span style={{ marginRight: 'auto' }}>{column.render('Header')}</span>
+                        {column.render('Header')}
                         {column.isSorted ? column.isSortedDesc ? <ArrowDown /> : <ArrowUp /> : '  '}
                       </div>
                       {column.id !== 'selection' && (

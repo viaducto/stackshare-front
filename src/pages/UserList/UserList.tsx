@@ -35,19 +35,13 @@ const UserList = () => {
   const tableInstance = useTable({ columns, data });
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       <BodyHeader>
         <Container vertical='sm'>
           <Title level='3'>User Management</Title>
         </Container>
       </BodyHeader>
-      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden', width: '100%' }}>
+      <div style={{ display: 'flex', overflow: 'hidden', width: '100%' }}>
         <BodyMain
           style={{
             boxSizing: 'border-box',
@@ -55,7 +49,14 @@ const UserList = () => {
             overflowY: 'auto',
           }}
         >
-          <WrapperTable horizontalSpacing='sm' zebra={false}>
+          <WrapperTable
+            fontSize='md'
+            zebra={false}
+            verticalSpacing='md'
+            border='horizontal'
+            borderColor='#E8E8E8'
+            horizontalSpacing='sm'
+          >
             <table {...getTableProps()}>
               <thead>
                 {

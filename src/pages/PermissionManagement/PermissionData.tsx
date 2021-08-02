@@ -1,36 +1,54 @@
+import { Paragraph } from '@jp-olvera/jp-viaducto-components';
+import { Center } from '../../components/Center';
+
 export const permissionColumns = [
   {
     Header: 'Role',
     accessor: 'role',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
+    width: Math.round(window.innerWidth / 4),
+    minWidth: 200,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
   {
     Header: 'Role type',
     accessor: 'type',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
+    width: Math.round(window.innerWidth / 5),
+    minWidth: 200,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
   {
     Header: 'Number of Users',
     accessor: 'money',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
-    prefix: '$',
+    width: Math.round(window.innerWidth / 6),
+    minWidth: 200,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
   {
     Header: 'Number of Users',
     accessor: 'users',
     Filter: () => null,
-    width: 188,
-    maxWidth: 250,
-    minWidth: 100,
+    width: Math.round(window.innerWidth / 6),
+    minWidth: 200,
+    Cell: (row: any) => (
+      <Center>
+        <Paragraph>{row.value}</Paragraph>
+      </Center>
+    ),
   },
 ];
 

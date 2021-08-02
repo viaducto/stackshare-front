@@ -7,7 +7,6 @@ import {
   Spacer,
   Anchor,
   Drawer,
-  Pill,
   Tab,
   Tooltip,
   Select,
@@ -25,6 +24,8 @@ import { appsData } from './AppsData';
 import { colsTabOne, colsTabZero } from './Columns';
 import AccumulatedBilling from '../../components/AccumulatedBilling/AccumulatedBilling';
 import { useState } from 'react';
+import { Center } from '../../components/Center';
+import CloseButton from '../../components/CloseButton/CloseButton';
 
 export const StoreTab = ({
   setAppName,
@@ -34,8 +35,8 @@ export const StoreTab = ({
   setOpenshop: Function;
 }) => {
   return (
-    <Container style={{ height: '100%' }} horizontal='lg'>
-      <Container top='md' horizontal='sm' expandHorizontal style={{ overflow: 'auto' }}>
+    <Container expandVertical horizontal='md' vertical='md'>
+      <div style={{ overflow: 'auto' }}>
         <WrapperTable
           fontSize='md'
           zebra={false}
@@ -51,15 +52,12 @@ export const StoreTab = ({
               {
                 Header: 'Action',
                 accessor: 'action',
-                width: 200,
-                minWidth: 100,
-                maxWidth: 300,
-                sortable: true,
-                Filter: () => null,
+                width: Math.round(window.innerWidth / 5),
+                minWidth: 200,
                 Cell: (props: any) => {
                   const installed = [1, 3, 5];
                   return (
-                    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                    <Center>
                       {!installed.includes(props.row.index) ? (
                         <Button
                           label='Install'
@@ -77,14 +75,14 @@ export const StoreTab = ({
                           style={{ border: 'none' }}
                         />
                       )}
-                    </div>
+                    </Center>
                   );
                 },
               },
             ]}
           />
         </WrapperTable>
-      </Container>
+      </div>
     </Container>
   );
 };
@@ -100,154 +98,143 @@ export const StoreTabDrawer = ({
 }) => {
   return (
     <Drawer active={openshop} onClose={() => setOpenshop(false)}>
-      <Grid expanded className='border-bottom'>
-        <Row>
-          <Column>
-            <Container
-              expandVertical
-              vertical='md'
-              style={{ display: 'flex', justifyContent: 'space-between' }}
-            >
-              <div
-                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-              >
-                <img src='https://i.pravatar.cc/24' alt='avatar' style={{ borderRadius: '50%' }} />
-                <Spacer direction='horizontal' size='xs' />
-                <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                  {appName}
-                </Paragraph>
-              </div>
-              <Pill
-                label=''
-                background='transparent'
-                color='#000'
-                handleAction={() => setOpenshop(false)}
-              />
-            </Container>
-          </Column>
-        </Row>
-      </Grid>
-      <Grid expanded>
-        <Row>
-          <Column>
-            <Container
-              top='md'
-              style={{ display: 'flex', justifyContent: 'space-evenly', height: '87vh' }}
-              expandVertical
-            >
+      <div style={{ overflow: 'auto', height: '100%' }}>
+        <Grid expanded className='border-bottom'>
+          <Row>
+            <Column>
               <Container
-                top='xxl'
-                bottom='lg'
-                horizontal='sm'
-                style={{
-                  border: '0.063rem solid #EAEDF3',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: '26rem',
-                }}
+                expandVertical
+                vertical='md'
+                style={{ display: 'flex', justifyContent: 'space-between' }}
               >
                 <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    width: 100,
-                    height: 100,
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(22, 101, 216, .1)',
-                  }}
+                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                 >
-                  <ListAlt color='#1665D8' fontSize='3rem' />
-                </div>
-                <Spacer direction='vertical' size='md' />
-                <Paragraph
-                  align='center'
-                  size='lg'
-                  color='#3E3F42'
-                  lineHeight='1.75rem'
-                  weight='500'
-                >
-                  Personal Usage
-                </Paragraph>
-                <Spacer direction='vertical' size='sm' />
-                <div style={{ width: '10.563rem', height: '5.5rem' }}>
-                  <Paragraph align='center' color='#6B6C6F' lineHeight='1.375rem' weight='400'>
-                    Applications for personal use. These will be charged against your account
+                  <img
+                    src='https://i.pravatar.cc/24'
+                    alt='avatar'
+                    style={{ borderRadius: '50%' }}
+                  />
+                  <Spacer direction='horizontal' size='xs' />
+                  <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
+                    {appName}
                   </Paragraph>
                 </div>
-                <Spacer direction='vertical' size='lg' />
-                <Anchor label='See More' icon='->' color='#1665D8' />
+                <CloseButton onClick={() => setOpenshop(false)} />
               </Container>
-              <Spacer direction='horizontal' size='md' />
+            </Column>
+          </Row>
+        </Grid>
+        <Grid expanded>
+          <Row>
+            <Column>
               <Container
-                top='xxl'
-                bottom='lg'
-                horizontal='sm'
-                style={{
-                  border: '0.063rem solid #EAEDF3',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: '26rem',
-                }}
+                top='md'
+                style={{ display: 'flex', justifyContent: 'space-evenly', height: '87vh' }}
+                expandVertical
               >
-                <div
+                <Container
+                  top='xxl'
+                  bottom='lg'
+                  horizontal='sm'
                   style={{
+                    border: '0.063rem solid #EAEDF3',
                     display: 'flex',
+                    flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: 100,
-                    height: 100,
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(22, 101, 216, .1)',
+                    height: '26rem',
                   }}
                 >
-                  <Film color='#1665D8' fontSize='3rem' />
-                </div>
-                <Spacer direction='vertical' size='md' />
-                <Paragraph
-                  align='center'
-                  size='lg'
-                  color='#3E3F42'
-                  lineHeight='1.75rem'
-                  weight='500'
-                >
-                  Group Usage
-                </Paragraph>
-                <Spacer direction='vertical' size='sm' />
-                <div style={{ width: '10.563rem', height: '5.5rem' }}>
-                  <Paragraph align='center' color='#6B6C6F' lineHeight='1.375rem' weight='400'>
-                    Applications for a group of users. Access Groups are managed in Organization
-                    Settings {'>'} Access Groups
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      width: 100,
+                      height: 100,
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(22, 101, 216, .1)',
+                    }}
+                  >
+                    <ListAlt color='#1665D8' fontSize='3rem' />
+                  </div>
+                  <Spacer direction='vertical' size='md' />
+                  <Paragraph align='center' size='lg' lineHeight='1.75rem' weight='500'>
+                    Personal Usage
                   </Paragraph>
-                </div>
-                <Spacer direction='vertical' size='lg' />
-                <Anchor label='See More' icon='->' color='#1665D8' />
+                  <Spacer direction='vertical' size='sm' />
+                  <div style={{ width: '10.563rem', height: '5.5rem' }}>
+                    <Paragraph align='center' color='#6B6C6F' lineHeight='1.375rem' weight='400'>
+                      Applications for personal use. These will be charged against your account
+                    </Paragraph>
+                  </div>
+                  <Spacer direction='vertical' size='lg' />
+                  <Anchor label='See More' icon='->' color='#1665D8' />
+                </Container>
+                <Spacer direction='horizontal' size='md' />
+                <Container
+                  top='xxl'
+                  bottom='lg'
+                  horizontal='sm'
+                  style={{
+                    border: '0.063rem solid #EAEDF3',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '26rem',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      width: 100,
+                      height: 100,
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(22, 101, 216, .1)',
+                    }}
+                  >
+                    <Film color='#1665D8' fontSize='3rem' />
+                  </div>
+                  <Spacer direction='vertical' size='md' />
+                  <Paragraph align='center' size='lg' lineHeight='1.75rem' weight='500'>
+                    Group Usage
+                  </Paragraph>
+                  <Spacer direction='vertical' size='sm' />
+                  <div style={{ width: '10.563rem', height: '5.5rem' }}>
+                    <Paragraph align='center' color='#6B6C6F' lineHeight='1.375rem' weight='400'>
+                      Applications for a group of users. Access Groups are managed in Organization
+                      Settings {'>'} Access Groups
+                    </Paragraph>
+                  </div>
+                  <Spacer direction='vertical' size='lg' />
+                  <Anchor label='See More' icon='->' color='#1665D8' />
+                </Container>
               </Container>
-            </Container>
-          </Column>
-        </Row>
-      </Grid>
-      <Container style={{ height: '4rem', boxShadow: ' 0px -4px 12px rgba(0, 0, 0, 0.05)' }}>
-        <Container
-          expandVertical
-          horizontal='md'
-          style={{
-            height: '100%',
-            position: 'sticky',
-            bottom: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <Paragraph color='#000000'>Monthly price calculated at market value</Paragraph>
-          <Button label='Add app' onClick={() => setOpenshop(false)} />
+            </Column>
+          </Row>
+        </Grid>
+        <Container style={{ height: '4rem', boxShadow: ' 0px -4px 12px rgba(0, 0, 0, 0.05)' }}>
+          <Container
+            expandVertical
+            horizontal='md'
+            style={{
+              height: '100%',
+              position: 'sticky',
+              bottom: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Paragraph>Monthly price calculated at market value</Paragraph>
+            <Button label='Add app' onClick={() => setOpenshop(false)} />
+          </Container>
         </Container>
-      </Container>
+      </div>
     </Drawer>
   );
 };
@@ -270,6 +257,11 @@ export const MyAppsOrganizationTab = ({
           width: 150,
           minWidth: 120,
           maxWidth: 300,
+          Cell: (row: any) => (
+            <Center>
+              <Paragraph>{row.value}</Paragraph>
+            </Center>
+          ),
         }
       : {
           Header: '',
@@ -281,63 +273,63 @@ export const MyAppsOrganizationTab = ({
   ];
 
   return (
-    <Container style={{ height: '50%' }} top='md'>
-      <Container
-        top='none'
-        horizontal='xl'
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          minHeight: '72vh',
-          flexWrap: 'wrap',
-        }}
-      >
-        <div className='overflow'>
-          <WrapperTable
-            fontSize='md'
-            verticalSpacing='md'
-            hover
-            zebra={false}
-            hoverColor='#D1D5DA'
-            border='horizontal'
-            borderColor='#E8E8E8'
-            horizontalSpacing='sm'
-          >
-            <Table
-              dataTable={appsData}
-              cols={[
-                ...colsTabOne,
-                ...addColumn,
-                {
-                  Header: 'Action',
-                  accessor: 'action',
-                  width: 150,
-                  minWidth: 120,
-                  maxWidth: 300,
-                  Filter: () => null,
-                  Cell: (props: any) => {
-                    return (
-                      <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                        <Button
-                          label='Edit'
-                          variant='ghost'
-                          onClick={() => {
-                            setAppName(props.data[props.row.index].app_name);
-                            setOpenTable(true);
-                          }}
-                        />
-                      </div>
-                    );
-                  },
-                },
-              ]}
-            />
-          </WrapperTable>
-        </div>
-        <Container horizontal='lg' vertical='xxl' style={{ height: '50vh' }}>
-          <AccumulatedBilling />
-        </Container>
-      </Container>
+    <Container style={{ height: '50%' }} top='md' horizontal='md'>
+      <Grid gutter={0} expanded>
+        <Row>
+          <Column xl={7} lg={7} sm={12} xs={12}>
+            <div className='overflow'>
+              <WrapperTable
+                fontSize='md'
+                zebra={false}
+                verticalSpacing='md'
+                border='horizontal'
+                borderColor='#E8E8E8'
+                horizontalSpacing='sm'
+              >
+                <Table
+                  dataTable={appsData}
+                  cols={[
+                    ...addColumn,
+                    ...colsTabOne,
+                    {
+                      Header: 'Action',
+                      accessor: 'action',
+                      width: 150,
+                      minWidth: 120,
+                      maxWidth: 300,
+                      Filter: () => null,
+                      Cell: (props: any) => {
+                        return (
+                          <Center>
+                            <Button
+                              label='Edit'
+                              variant='ghost'
+                              onClick={() => {
+                                setAppName(props.data[props.row.index].app_name);
+                                setOpenTable(true);
+                              }}
+                            />
+                          </Center>
+                        );
+                      },
+                    },
+                  ]}
+                />
+              </WrapperTable>
+            </div>
+          </Column>
+          <Column>
+            <Container
+              left='lg'
+              top='xxxl'
+              style={{ height: '50vh', position: 'sticky', top: '5rem' }}
+            >
+              <AccumulatedBilling />
+            </Container>
+          </Column>
+        </Row>
+      </Grid>
+      <Spacer size='lg' />
     </Container>
   );
 };
@@ -389,7 +381,7 @@ export const MyAppsOrganizationDrawer = ({
   );
   return (
     <Drawer active={openTable} onClose={() => setOpenTable(false)}>
-      <div style={{ overflowX: 'hidden' }}>
+      <div style={{ overflowX: 'hidden', overflowY: 'auto', height: '100%' }}>
         <Grid expanded className='border-bottom'>
           <Row>
             <Column>
@@ -407,12 +399,7 @@ export const MyAppsOrganizationDrawer = ({
                     {appName}
                   </Paragraph>
                 </div>
-                <Pill
-                  background='transparent'
-                  color='#000'
-                  handleAction={() => setOpenTable(false)}
-                  label=''
-                />
+                <CloseButton onClick={() => setOpenTable(false)} />
               </Container>
             </Column>
           </Row>
@@ -420,7 +407,7 @@ export const MyAppsOrganizationDrawer = ({
 
         {tab === 2 && (
           <Container horizontal='md' vertical='sm'>
-            <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+            <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
               <Tab
                 onFocus={() => setTabDrawer(0)}
                 text='Preferences'

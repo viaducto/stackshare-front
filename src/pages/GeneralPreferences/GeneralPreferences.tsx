@@ -1,5 +1,14 @@
 import React from 'react';
-import { Card, Container, GroupTab, Spacer, Tab } from '@jp-olvera/jp-viaducto-components';
+import {
+  Card,
+  Column,
+  Container,
+  Grid,
+  GroupTab,
+  Row,
+  Spacer,
+  Tab,
+} from '@jp-olvera/jp-viaducto-components';
 import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import { VerticalSteps } from '../../components/VerticalSteps';
@@ -7,48 +16,87 @@ import { useState } from 'react';
 import Overview from './Overview';
 import Security from './Security';
 import BrandLocalization from './BrandLocalization';
+import { useLoading } from '../../hooks/useLoading';
 
 const GeneralPreferences = () => {
   const [tab, setTab] = useState<number>(0);
+  const { load, setLoad } = useLoading();
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       <HeaderSell
         title='General Preferences'
         breadcrums={[
-          { label: 'Home', href: '#', active: false },
+          { label: 'Home', href: '/', active: false },
           { label: 'Organization Settings', href: '#', active: false },
           { label: 'Organization', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
-          <Tab text='Overview' onFocus={() => setTab(0)} />
-          <Tab text='Security' onFocus={() => setTab(1)} />
-          <Tab text='Brand Localization' onFocus={() => setTab(2)} />
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
+          <Tab
+            text='Overview'
+            onFocus={() => {
+              setLoad(true);
+              setTab(0);
+              setTimeout(() => {
+                setLoad(false);
+              }, 1500);
+            }}
+          />
+          <Tab
+            text='Security'
+            onFocus={() => {
+              setLoad(true);
+              setTab(1);
+              setTimeout(() => {
+                setLoad(false);
+              }, 1500);
+            }}
+          />
+          <Tab
+            text='Brand Localization'
+            onFocus={() => {
+              setLoad(true);
+              setTab(2);
+              setTimeout(() => {
+                setLoad(false);
+              }, 1500);
+            }}
+          />
         </GroupTab>
       </HeaderSell>
-      <div style={{ display: 'flex', height: '75vh', overflow: 'hidden' }}>
-        <BodyMain horizontal='md' style={{ flexBasis: '100%', overflow: 'auto' }} expandVertical>
-          <Container vertical='md' horizontal='md' style={{ overflow: 'hidden' }}>
-            {tab === 0 && <Overview />}
-            {tab === 1 && <Security />}
-            {tab === 2 && <BrandLocalization />}
-          </Container>
-        </BodyMain>
-        <Container horizontal='xl' expandVertical style={{ flexBasis: 600 }}>
-          <Spacer size='xxl' />
-          <div className='flotant'>
-            <Card style={{ height: '68%' }} elevation={1}>
-              <Container vertical='md' horizontal='md' expandVertical>
-                <VerticalSteps title='Setup your organization.' />
+      <div style={{ height: '75vh', overflow: 'auto' }}>
+        <Grid expanded style={{ background: 'transparent' }}>
+          <Row>
+            <Column lg={tab === 1 ? 6 : 8} md={12} sm={12} xs={12}>
+              <BodyMain horizontal='none' style={{ overflow: 'auto' }} expandVertical>
+                <Container vertical='md' style={{ overflow: 'hidden' }}>
+                  {tab === 0 && <Overview load={load} />}
+                  {tab === 1 && <Security load={load} />}
+                  {tab === 2 && <BrandLocalization load={load} />}
+                </Container>
+              </BodyMain>
+            </Column>
+            <Column lg={4} md={12} sm={12}>
+              <Container horizontal='md' className='flotant'>
+                <Card style={{ height: 'auto' }} elevation={1}>
+                  <Container
+                    vertical='md'
+                    horizontal='md'
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    }}
+                  >
+                    <VerticalSteps title='Setup your organization.' />
+                  </Container>
+                </Card>
               </Container>
-            </Card>
-          </div>
-        </Container>
+            </Column>
+          </Row>
+        </Grid>
+        <Spacer size='lg' />
       </div>
     </BodyContent>
   );

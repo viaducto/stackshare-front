@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  Breadcrum,
-  Breadcrums,
   Button,
   Column,
   Container,
@@ -14,8 +12,8 @@ import {
   Title,
 } from '@jp-olvera/jp-viaducto-components';
 import { ChevronLeft } from 'react-ikonate';
-import { DummyBadge } from '../BiddingTelco/StoryData';
 import Graph from '../BiddingTelco/Graph';
+import Tag from '../../components/Tag/Tag';
 
 const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Function }) => (
   <>
@@ -25,12 +23,8 @@ const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Functi
       vertical='md'
       style={{ borderBottom: '0.063rem solid #d9d9d9' }}
     >
-      <Breadcrums fontSize='md'>
-        <Breadcrum label='Breadcrumb Link' href='#' active={false} separator />
-        <Breadcrum label='Breadcrumb Link' href='#' active={false} separator />
-      </Breadcrums>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Button
             icon={<ChevronLeft />}
             label='Infrastructure'
@@ -38,17 +32,11 @@ const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Functi
             lead
             leftSpacing='tiny'
             rightSpacing='tiny'
-            colors={{
-              default: '#595959',
-              click: '#59595955',
-              hover: '#fff',
-              text: '#262626',
-            }}
             size='large'
             onClick={() => setOpen(false)}
           />
           <Spacer direction='horizontal' size='sm' />
-          <DummyBadge label={type} color='#E6F7FF' textColor='#1890FF' />
+          <Tag label={type} backgroundColor='#E6F7FF' color='#1890FF' borderColor='#1890FF' />
         </div>
         <Button label='Edit Location' variant='ghost' disabled size='small' />
       </div>
@@ -82,23 +70,34 @@ const InfrastructureDrawer = ({ type, setOpen }: { type: string; setOpen: Functi
         />
       </div>
       <Spacer size='lg' />
-      <Title level='6' lineHeight='1.5rem' weight='600'>
-        General Information
-      </Title>
-      <Spacer size='sm' />
-      <Paragraph lineHeight='1.375rem' weight='600'>
-        Device Information
-      </Paragraph>
     </Container>
+    <Grid>
+      <Row>
+        <Column>
+          <Title level='6' lineHeight='1.5rem' weight='600'>
+            General Information
+          </Title>
+        </Column>
+      </Row>
+      <Spacer size='sm' />
+      <Row>
+        <Column>
+          <Paragraph lineHeight='1.375rem' weight='600'>
+            Device Information
+          </Paragraph>
+        </Column>
+      </Row>
+    </Grid>
+    <Spacer size='md' />
     <Grid expanded>
       <Row>
-        <Column size={5}>
+        <Column>
           <Paragraph lineHeight='1.375rem'>Brand</Paragraph>
           <Select border='all'>
             <option value='USA'>USA</option>
           </Select>
         </Column>
-        <Column size={5}>
+        <Column>
           <Paragraph lineHeight='1.375rem'>Inventory ID</Paragraph>
           <Select border='all'>
             <option value='USA'>USA</option>

@@ -1,9 +1,7 @@
 import { AppContext, AppProvider } from './AppProvider';
-import StackShareThemeProvider, {
-  StackShareThemeContext,
-  darkTheme,
-  defaultTheme,
-} from './StackShareThemeProvider';
+import StackShareThemeProvider, { StackShareThemeContext } from './StackShareThemeProvider';
+
+import { darkTheme, defaultTheme } from './themes';
 
 export {
   AppProvider,

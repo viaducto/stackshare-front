@@ -108,6 +108,7 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
         active={activePopover}
         position='left'
         elevation={1}
+        zIndex={9999}
         content={
           <Container expandVertical expandHorizontal vertical='lg' horizontal='lg'>
             <Container>
@@ -116,7 +117,7 @@ const Slot = ({ title, timeLapse, top, height, ...rest }: SlotProps) => {
               </Paragraph>
             </Container>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+              <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
                 <Tab text='Bandwidth' />
                 <Tab text='Packages' />
                 <Tab text='Secure channels' />

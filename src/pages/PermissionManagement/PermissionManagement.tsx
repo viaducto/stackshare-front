@@ -20,127 +20,159 @@ import { EllypsisVertical, Filter, Plus } from 'react-ikonate';
 import Roles from './Roles';
 import CreateRoles from './CreateRole';
 import Kebab from '../../components/Kebab/Kebab';
+import Skeleton from 'react-loading-skeleton';
+import { SkeletonTable } from '../BiddingTelco/TableContent';
+import { useLoading } from '../../hooks/useLoading';
 
 const PermissionManagement = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [create, setCreate] = useState<boolean>(false);
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
+  const { load } = useLoading();
+
   return (
-    <BodyContent
-      style={{
-        boxSizing: 'border-box',
-        height: '100%',
-        overflowY: 'auto',
-      }}
-    >
+    <BodyContent>
       <HeaderSell
         title='Permission Management'
         breadcrums={[
-          { label: 'Home', href: '#', active: false },
+          { label: 'Home', href: '/', active: false },
           { label: 'Organization Management', href: '#', active: false },
           { label: 'User Management', href: '#', active: true },
         ]}
       >
-        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none' base={14}>
+        <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
           <Tab text='Roles' active />
           <Tab text='Default Roles' />
           <Tab text='Custom Roles' />
         </GroupTab>
       </HeaderSell>
-      <div style={{ display: 'flex', height: '77vh', overflow: 'hidden' }}>
-        <BodyMain horizontal='md' expandVertical className='overflow'>
+      <div style={{ display: 'flex', overflow: 'hidden' }}>
+        <BodyMain horizontal='sm' expandVertical className='overflow'>
           <Container vertical='md' horizontal='md' style={{ height: '95%' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 1150 }}>
-              <Button
-                label='Create New Role'
-                icon={<Plus />}
-                lead
-                onClick={() => {
-                  setCreate(true);
-                  setOpen(true);
-                }}
-              />
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              {load ? (
+                <Skeleton width='10rem' height='2rem' />
+              ) : (
+                <Button
+                  label='Create New Role'
+                  icon={<Plus />}
+                  lead
+                  onClick={() => {
+                    setCreate(true);
+                    setOpen(true);
+                  }}
+                />
+              )}
               <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  icon={<Filter color={dark} fontSize='1rem' />}
-                  type='button'
-                  onClick={() => {}}
-                  variant='outline'
-                  height='2.063rem'
-                  size='small'
-                />
+                {load ? (
+                  <Skeleton width='2rem' height='2rem' />
+                ) : (
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    icon={<Filter color={dark} fontSize='1rem' />}
+                    type='button'
+                    onClick={() => {}}
+                    variant='outline'
+                    height='2.063rem'
+                    size='small'
+                  />
+                )}
                 <Spacer direction='horizontal' size='sm' />
-                <Button
-                  leftSpacing='sm'
-                  iconSpacing='none'
-                  rightSpacing='sm'
-                  icon={<EllypsisVertical color={dark} fontSize='1rem' />}
-                  type='button'
-                  onClick={() => {}}
-                  variant='outline'
-                  height='2.063rem'
-                  size='small'
-                />
+                {load ? (
+                  <Skeleton width='2rem' height='2rem' />
+                ) : (
+                  <Button
+                    leftSpacing='sm'
+                    iconSpacing='none'
+                    rightSpacing='sm'
+                    icon={<EllypsisVertical color={dark} fontSize='1rem' />}
+                    type='button'
+                    onClick={() => {}}
+                    variant='outline'
+                    height='2.063rem'
+                    size='small'
+                  />
+                )}
               </div>
             </div>
             <Container className='overflow'>
-              <WrapperTable hoverColor='#E6F7FF' colorSelected='#FAFAFA' zebra={false}>
-                <Table
-                  filter={false}
-                  cols={[
-                    ...permissionColumns,
-                    {
-                      Header: 'Action',
-                      accessor: 'action',
-                      Filter: () => null,
-                      width: 180,
-                      Cell: (props: any) => {
-                        const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
-                          props.data[props.row.index].action;
+              {load ? (
+                <>
+                  <Spacer size='lg' />
+                  <Skeleton height='3rem' />
+                  <Spacer size='sm' />
+                  <SkeletonTable large />
+                </>
+              ) : (
+                <WrapperTable
+                  fontSize='md'
+                  zebra={false}
+                  verticalSpacing='md'
+                  border='horizontal'
+                  borderColor='#E8E8E8'
+                  horizontalSpacing='sm'
+                >
+                  <Table
+                    filter={false}
+                    cols={[
+                      ...permissionColumns,
+                      {
+                        Header: 'Action',
+                        accessor: 'action',
+                        Filter: () => null,
+                        width: 178,
+                        Cell: (props: any) => {
+                          const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
+                            props.data[props.row.index].action;
 
-                        return (
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'center',
-                              alignItems: 'center',
-                              height: '100%',
-                              width: '100%',
-                            }}
-                          >
-                            <Kebab>
-                              {deleteBtn && (
-                                <Button variant='ghost' label='Delete' shapeColor='danger' block />
-                              )}
-                              <Button
-                                variant='ghost'
-                                label={action}
-                                onClick={() => {
-                                  setCreate(false);
-                                  setOpen(true);
-                                }}
-                                block
-                              />
-                            </Kebab>
-                          </div>
-                        );
+                          return (
+                            <div
+                              style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                height: '100%',
+                                width: '100%',
+                              }}
+                            >
+                              <Kebab>
+                                {deleteBtn && (
+                                  <Button
+                                    variant='ghost'
+                                    label='Delete'
+                                    shapeColor='danger'
+                                    block
+                                  />
+                                )}
+                                <Button
+                                  variant='ghost'
+                                  label={action}
+                                  onClick={() => {
+                                    setCreate(false);
+                                    setOpen(true);
+                                  }}
+                                  block
+                                />
+                              </Kebab>
+                            </div>
+                          );
+                        },
                       },
-                    },
-                  ]}
-                  dataTable={permissionData}
-                />
-              </WrapperTable>
+                    ]}
+                    dataTable={permissionData}
+                  />
+                </WrapperTable>
+              )}
             </Container>
           </Container>
         </BodyMain>
       </div>
 
       <Drawer onClose={() => setOpen(!open)} active={open} size='sm'>
-        <Grid expanded>
+        <Grid expanded style={{ height: '100%', overflow: 'auto' }}>
           <Row>
             <Column>
               <Container expandHorizontal vertical='md'>
