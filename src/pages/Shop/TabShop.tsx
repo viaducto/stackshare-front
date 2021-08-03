@@ -35,6 +35,8 @@ export const StoreTab = ({
   setAppName: Function;
   setOpenshop: Function;
 }) => {
+  const { offset } = useWindowResize();
+  const hiddenColumns = offset ? ['type'] : [];
   return (
     <Container expandVertical horizontal='md' vertical='md'>
       <div style={{ overflow: 'auto' }}>
@@ -47,9 +49,10 @@ export const StoreTab = ({
           horizontalSpacing='sm'
         >
           <Table
+            hiddenColumns={hiddenColumns}
             dataTable={appsData}
             cols={[
-              ...colsTabZero,
+              ...colsTabZero(),
               {
                 Header: 'Action',
                 accessor: 'action',
@@ -249,12 +252,14 @@ export const MyAppsOrganizationTab = ({
   setAppName: Function;
   setOpenTable: Function;
 }) => {
+  const { offset } = useWindowResize();
+  const hiddenColumns = offset ? ['type', 'installed_by', 'expense_period'] : [];
+
   const addColumn = [
     tab === 2
       ? {
           Header: 'User Group',
           accessor: 'user_group',
-          Filter: () => null,
           width: 150,
           minWidth: 120,
           maxWidth: 300,
@@ -267,12 +272,10 @@ export const MyAppsOrganizationTab = ({
       : {
           Header: '',
           accessor: 'hidden',
-          Filter: () => null,
           isVisible: false,
           show: false,
         },
   ];
-  const { offset } = useWindowResize();
 
   return (
     <Container style={{ height: '50%' }} top='md' horizontal='md'>
@@ -289,6 +292,7 @@ export const MyAppsOrganizationTab = ({
                 horizontalSpacing='sm'
               >
                 <Table
+                  hiddenColumns={hiddenColumns}
                   dataTable={appsData}
                   cols={[
                     ...addColumn,
@@ -299,7 +303,7 @@ export const MyAppsOrganizationTab = ({
                       width: 150,
                       minWidth: 120,
                       maxWidth: 300,
-                      Filter: () => null,
+
                       Cell: (props: any) => {
                         return (
                           <Center>

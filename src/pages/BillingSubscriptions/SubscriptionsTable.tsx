@@ -6,8 +6,10 @@ import { Center } from '../../components/Center';
 
 import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
+import { useWindowResize } from '../../hooks/useWindowSize';
 
 const SubscriptionsTable = ({ load }: { load: boolean }) => {
+  const { offset } = useWindowResize();
   return (
     <Column style={{ overflow: 'auto' }}>
       {load ? (
@@ -29,6 +31,7 @@ const SubscriptionsTable = ({ load }: { load: boolean }) => {
           horizontalSpacing='sm'
         >
           <Table
+            hiddenColumns={offset ? ['invoice_id', 'method', 'amount', 'pay'] : []}
             pagination={false}
             filter={false}
             cols={[

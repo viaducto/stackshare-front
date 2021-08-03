@@ -23,6 +23,8 @@ import Tag from '../../components/Tag/Tag';
 import Graph from '../BiddingTelco/Graph';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import Kebab from '../../components/Kebab/Kebab';
+import { Center } from '../../components/Center';
+import { useWindowResize } from '../../hooks/useWindowSize';
 
 const LocationManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -30,51 +32,69 @@ const LocationManagement = () => {
     setIsDrawerActive((d) => !d);
   };
   const [currentLocation, setCurrentLocation] = useState<null | any>(null);
+  const { offset } = useWindowResize();
   const columns = [
-    { Header: 'Location name', accessor: 'location_name' },
+    {
+      Header: 'Location name',
+      accessor: 'location_name',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
     {
       Header: 'Type',
       accessor: 'type',
       Cell: (props: any) => {
         return (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100%',
-            }}
-          >
+          <Center>
             <Tag
               label={props.data[props.row.index].location_name}
               color='#2F54EB'
               backgroundColor='#F0F5FF'
               borderColor='#ADC6FF'
             />
-          </div>
+          </Center>
         );
       },
     },
-    { Header: 'Country', accessor: 'country' },
-    { Header: 'State', accessor: 'state' },
-    { Header: 'Region', accessor: 'region' },
+    {
+      Header: 'Country',
+      accessor: 'country',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
+    {
+      Header: 'State',
+      accessor: 'state',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
+    {
+      Header: 'Region',
+      accessor: 'region',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
     {
       Header: 'Specification',
       accessor: 'specification',
       sortable: false,
       minWidth: 125,
       maxWidth: 125,
-      Filter: () => null,
       Cell: (props: any) => {
         return (
-          <span
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%',
-            }}
-          >
+          <Center>
             <Kebab>
               <Button
                 label='See details'
@@ -96,7 +116,7 @@ const LocationManagement = () => {
                 block
               />
             </Kebab>
-          </span>
+          </Center>
         );
       },
     },
@@ -175,27 +195,52 @@ const LocationManagement = () => {
   ];
 
   const infrastructureColumns = [
-    { Header: 'Device Name', accessor: 'device_name' },
-    { Header: 'Device Id', accessor: 'device_id' },
-    { Header: 'Serial #', accessor: 'serial' },
-    { Header: 'Manufacturer', accessor: 'manufacturer' },
+    {
+      Header: 'Device Name',
+      accessor: 'device_name',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
+    {
+      Header: 'Device Id',
+      accessor: 'device_id',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
+    {
+      Header: 'Serial #',
+      accessor: 'serial',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
+    {
+      Header: 'Manufacturer',
+      accessor: 'manufacturer',
+      Cell: (row: any) => (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      ),
+    },
     {
       Header: 'Specification',
       accessor: 'specification',
-      Filter: () => null,
-      Cell: (props: any) => {
+      Cell: () => {
         return (
-          <span
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <Center>
             <Button label='see details' variant='ghost' />
             |
             <Button label='Delete' variant='ghost' shapeColor='danger' />
-          </span>
+          </Center>
         );
       },
     },
@@ -283,7 +328,11 @@ const LocationManagement = () => {
               borderColor='#E8E8E8'
               horizontalSpacing='sm'
             >
-              <Table cols={columns} dataTable={data} />
+              <Table
+                hiddenColumns={offset ? ['location_name', 'state', 'region'] : []}
+                cols={columns}
+                dataTable={data}
+              />
             </WrapperTable>
           </Container>
         </Container>
@@ -445,7 +494,7 @@ const LocationManagement = () => {
           <Spacer size='sm' />
           <Row>
             <Column size={12}>
-              <Container className='overflow'>
+              <Container className='overflow' expandHorizontal>
                 <WrapperTable
                   fontSize='md'
                   zebra={false}
@@ -454,8 +503,13 @@ const LocationManagement = () => {
                   borderColor='#E8E8E8'
                   horizontalSpacing='sm'
                 >
-                  <Table cols={infrastructureColumns} dataTable={infrastructureData} />
+                  <Table
+                    hiddenColumns={offset ? ['device_id', 'serial'] : []}
+                    cols={infrastructureColumns}
+                    dataTable={infrastructureData}
+                  />
                 </WrapperTable>
+                <Spacer size='lg' />
               </Container>
             </Column>
           </Row>

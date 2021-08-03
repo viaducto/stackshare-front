@@ -5,13 +5,12 @@ import {
   Paragraph,
   Title,
   Spacer,
-  Anchor,
   Popover,
   Select,
   WrapperTable,
   ConfigContext,
 } from '@jp-olvera/jp-viaducto-components';
-import { ArrowRight, ArrowRightTop, ArrowLeftBottom, Cup, Ellypsis, Person } from 'react-ikonate';
+import { ArrowRight, ArrowRightTop, ArrowRightBottom, Cup, Ellypsis, Person } from 'react-ikonate';
 import {
   XYPlot,
   DiscreteColorLegend,
@@ -36,21 +35,70 @@ import {
   DAYS,
   today,
 } from './DataTableGraph';
-import Graph from '../BiddingTelco/Graph';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
+import {
+  CircularOptions,
+  DataTitleGraph,
+  GraphPercent,
+  LabelNumber,
+  ProgressWidget,
+} from '../../components/Widgets';
+import CircularTable from '../../components/Widgets/CircularTable';
+
+const myDATA = [
+  {
+    x: 0,
+    y: 2,
+  },
+  {
+    x: 1,
+    y: 1.7,
+  },
+  {
+    x: 2,
+    y: 1,
+  },
+  {
+    x: 3,
+    y: 4,
+  },
+  {
+    x: 4,
+    y: 3,
+  },
+  {
+    x: 5,
+    y: 2.1,
+  },
+  {
+    x: 6,
+    y: 2,
+  },
+];
 
 const GraphsPage = () => {
   const ref = useRef<any | null>(null);
+  const gref = useRef<any | null>(null);
   const [activePopover, setActivePopover] = useState(false);
+  const [pop, setpop] = useState(false);
+  const [data, setdata] = useState<{ size?: number; title?: string }>({ size: 0, title: '' });
   const [values, setValues] = useState<number | string>(0);
   const onClose = () => {
     setActivePopover(!activePopover);
+  };
+  const handleClose = () => {
+    setpop(!pop);
   };
   const showInfo = () => {
     setActivePopover(true);
   };
   const { configuration } = useContext(ConfigContext);
-  const { dark } = configuration.colors.text;
+  const {
+    colors: {
+      text: { dark, success, danger },
+    },
+    border,
+  } = configuration;
 
   return (
     <BodyContent>
@@ -88,113 +136,41 @@ const GraphsPage = () => {
                 flexWrap: 'wrap',
               }}
             >
-              <Container style={{ width: 160 }} vertical='sm' horizontal='sm'>
-                <div
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                >
-                  <Title level='3' lineHeight='2.375rem'>
-                    £632,569
-                  </Title>
-                  <Container
-                    vertical='nano'
-                    horizontal='sm'
-                    style={{
-                      backgroundColor: '#34AA44',
-                      minWidth: 28,
-                      textAlign: 'center',
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                  >
-                    <Paragraph color='white' size='sm' lineHeight='1.125rem' align='center'>
-                      +6
-                    </Paragraph>
-                  </Container>
-                </div>
-                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
-                  Total Invoiced
-                </Paragraph>
-              </Container>
-
+              <LabelNumber title='£ 632,569' number={6} description='Total Invoiced' />
               <Spacer direction='horizontal' size='xl' />
+
               <div style={{ height: 60, width: 1, backgroundColor: '#EAEDF3' }} />
-              <Spacer direction='horizontal' size='xl' />
-
-              <Container style={{ width: 160 }} vertical='sm' horizontal='sm'>
-                <div
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                >
-                  <Title level='3' lineHeight='2.375rem'>
-                    £2,500
-                  </Title>
-                  <Container
-                    vertical='nano'
-                    horizontal='sm'
-                    style={{
-                      backgroundColor: '#E6492D',
-                      minWidth: 28,
-                      textAlign: 'center',
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                  >
-                    <Paragraph color='white' size='sm' lineHeight='1.125rem' align='center'>
-                      -1
-                    </Paragraph>
-                  </Container>
-                </div>
-                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
-                  Unpaid Invoices
-                </Paragraph>
-              </Container>
 
               <Spacer direction='horizontal' size='xl' />
+              <LabelNumber title='£ 2,500' number={-1} description='Unpaid Invoices' />
+              <Spacer direction='horizontal' size='xl' />
+
               <div style={{ height: 60, width: 1, backgroundColor: '#EAEDF3' }} />
+
+              <Spacer direction='horizontal' size='xl' />
+              <LabelNumber
+                title='$ 123,456'
+                number={-10}
+                description='Warning'
+                shapeColor='warning'
+              />
               <Spacer direction='horizontal' size='xl' />
 
-              <Container style={{ width: 160 }} vertical='sm' horizontal='sm'>
-                <div
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                >
-                  <Title level='3' lineHeight='2.375rem'>
-                    £35,558
-                  </Title>
-                  <Container
-                    vertical='nano'
-                    horizontal='sm'
-                    style={{
-                      backgroundColor: '#34AA44',
-                      minWidth: 28,
-                      textAlign: 'center',
-                      borderTopLeftRadius: 5,
-                      borderBottomLeftRadius: 5,
-                    }}
-                  >
-                    <Paragraph color='white' size='sm' lineHeight='1.125rem' align='center'>
-                      +12
-                    </Paragraph>
-                  </Container>
-                </div>
-                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
-                  Total Expenses
-                </Paragraph>
-              </Container>
-              <Spacer direction='horizontal' size='xl' />
               <div style={{ height: 60, width: 1, backgroundColor: '#EAEDF3' }} />
+
+              <Spacer direction='horizontal' size='xl' />
+              <LabelNumber
+                title='154 users'
+                description='Custom'
+                backgroundColor='#999'
+                number={5}
+              />
               <Spacer direction='horizontal' size='xl' />
 
-              <Container style={{ width: 160 }} vertical='sm' horizontal='sm'>
-                <div
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                >
-                  <Title level='3' lineHeight='2.375rem' color={dark}>
-                    £0
-                  </Title>
-                </div>
-                <Paragraph color={dark} size='sm' lineHeight='1.125rem'>
-                  Unpaid Expenses
-                </Paragraph>
-              </Container>
+              <div style={{ height: 60, width: 1, backgroundColor: '#EAEDF3' }} />
+
+              <Spacer direction='horizontal' size='xl' />
+              <LabelNumber title='$ 0' description='Unpaid Expenses' shapeColor='warning' />
             </Container>
           </Container>
 
@@ -209,7 +185,7 @@ const GraphsPage = () => {
               Top Graph
             </Paragraph>
             <Container
-              vertical='md'
+              vertical='sm'
               horizontal='md'
               style={{
                 border: '0.063rem solid #d9d9d9',
@@ -217,173 +193,97 @@ const GraphsPage = () => {
                 justifyContent: 'space-evenly',
                 alignItems: 'center',
                 flexWrap: 'wrap',
+                overflow: 'auto',
               }}
             >
-              <div>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Paragraph lineHeight='1.75rem' size='lg' weight='500'>
-                    Your Performance
-                  </Paragraph>
-                  <Anchor
-                    label='See more'
-                    icon={<ArrowRight color={dark} fontSize='1rem' />}
-                    color={dark}
-                  />
-                </div>
-                <Spacer size='xl' />
-
-                <div
-                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-                >
-                  <div>
-                    <div style={{ float: 'right', marginRight: 10 }}>
-                      <DiscreteColorLegend orientation='horizontal' items={ITEMS} />
-                    </div>
-                    <XYPlot width={200} height={100} margin={{ left: 0 }}>
-                      <LineSeries
-                        style={{
-                          fill: 'none',
-                        }}
-                        color='#1665D8'
-                        data={[
-                          { x: 1, y: 0 },
-                          { x: 2, y: 7 },
-                          { x: 3, y: -3 },
-                          { x: 4, y: 2 },
-                          { x: 5, y: -6 },
-                          { x: 6, y: -4 },
-                        ]}
-                      />
-                      <LineSeries
-                        style={{
-                          strokeDasharray: '2 2',
-                          fill: 'none',
-                        }}
-                        color={dark}
-                        data={[
-                          { x: 1, y: 3 },
-                          { x: 2, y: 4 },
-                          { x: 3, y: -1 },
-                          { x: 4, y: -0.5 },
-                          { x: 5, y: -9 },
-                          { x: 6, y: 1 },
-                        ]}
-                      />
-                    </XYPlot>
+              <GraphPercent
+                title='Your Performance'
+                percent={10}
+                description='6 Months Increase'
+                link={{ label: 'See more', href: '', icon: <ArrowRight /> }}
+              >
+                <Container vertical='sm'>
+                  <div style={{ float: 'right', marginRight: 10, marginBottom: 30 }}>
+                    <DiscreteColorLegend orientation='horizontal' items={ITEMS} />
                   </div>
-                  <Spacer direction='horizontal' size='xl' />
-                  <div>
-                    <Title level='D2' color='success' lineHeight='5rem'>
-                      32%
-                    </Title>
-                    <Paragraph color={dark} size='sm' lineHeight='1.125rem' weight='500'>
-                      6 Months Increase
-                    </Paragraph>
-                  </div>
-                </div>
+                  <XYPlot width={200} height={100} margin={{ left: 0 }}>
+                    <LineSeries
+                      style={{
+                        fill: 'none',
+                      }}
+                      color='#1665D8'
+                      data={[
+                        { x: 1, y: 0 },
+                        { x: 2, y: 7 },
+                        { x: 3, y: -3 },
+                        { x: 4, y: 2 },
+                        { x: 5, y: -6 },
+                        { x: 6, y: -4 },
+                      ]}
+                    />
+                    <LineSeries
+                      style={{
+                        strokeDasharray: '2 2',
+                        fill: 'none',
+                      }}
+                      color={dark}
+                      data={[
+                        { x: 1, y: 3 },
+                        { x: 2, y: 4 },
+                        { x: 3, y: -1 },
+                        { x: 4, y: -0.5 },
+                        { x: 5, y: -9 },
+                        { x: 6, y: 1 },
+                      ]}
+                    />
+                  </XYPlot>
+                </Container>
+              </GraphPercent>
 
-                <Spacer size='lg' />
+              <Spacer size='xl' />
 
-                <div
-                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+              <div className='overflow'>
+                <CircularTable
+                  title='Monthly Statistics'
+                  link={{ label: 'See more', icon: <ArrowRight />, href: '' }}
+                  data='£12,595'
+                  description='Invoiced this month'
+                  additional={
+                    <>
+                      <Title level='4' lineHeight='2rem' align='right'>
+                        £10,095
+                      </Title>
+                      <Title level='4' lineHeight='2rem' align='right'>
+                        £2,500
+                      </Title>
+                    </>
+                  }
                 >
-                  <div>
-                    <div style={{ float: 'right', marginRight: 10 }}>
-                      <DiscreteColorLegend orientation='horizontal' items={ITEMS} />
-                    </div>
-                    <XYPlot width={200} height={100} margin={{ left: 0 }}>
-                      <LineSeries
-                        style={{
-                          fill: 'none',
-                        }}
-                        color='#1665D8'
-                        data={[
-                          { x: 1, y: -0.5 },
-                          { x: 2, y: 7 },
-                          { x: 3, y: -5 },
-                          { x: 4, y: -4 },
-                          { x: 5, y: 1 },
-                          { x: 6, y: -1 },
-                          { x: 7, y: -7 },
-                          { x: 8, y: -0.5 },
-                          { x: 9, y: 3 },
-                          { x: 10, y: 0 },
-                          { x: 11, y: 2 },
-                          { x: 12, y: -2 },
-                        ]}
-                      />
-                      <LineSeries
-                        style={{
-                          strokeDasharray: '2 2',
-                          fill: 'none',
-                        }}
-                        color={dark}
-                        data={[
-                          { x: 1, y: 1.5 },
-                          { x: 2, y: 5 },
-                          { x: 3, y: -4 },
-                          { x: 4, y: -1 },
-                          { x: 5, y: -2 },
-                          { x: 6, y: -3 },
-                          { x: 7, y: -5 },
-                          { x: 8, y: -4 },
-                          { x: 9, y: -8 },
-                          { x: 10, y: -5 },
-                          { x: 11, y: -6 },
-                          { x: 12, y: 0 },
-                        ]}
-                      />
-                    </XYPlot>
-                  </div>
-                  <Spacer direction='horizontal' size='xl' />
-                  <div>
-                    <Title level='D2' color='success' lineHeight='5rem'>
-                      9%
-                    </Title>
-                    <Paragraph color={dark} size='sm' lineHeight='1.125rem' weight='500'>
-                      Yearly Increase
-                    </Paragraph>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ height: 60, width: 1, backgroundColor: '#EAEDF3' }} />
-
-              <div>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Paragraph lineHeight='1.75rem' size='lg' weight='500'>
-                    Monthly Statistics
-                  </Paragraph>
-                  <Anchor
-                    label='See more'
-                    icon={<ArrowRight color={dark} fontSize='1rem' />}
-                    color={dark}
-                  />
-                </div>
-                <Spacer size='xl' />
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    minWidth: '30rem',
-                  }}
-                >
-                  <div>
+                  <div ref={gref}>
+                    <Popover
+                      position='left'
+                      content={
+                        <Container vertical='md' horizontal='md'>
+                          <Title>
+                            {data.title} : {data.size?.toString()}
+                          </Title>
+                        </Container>
+                      }
+                      active={pop}
+                      target={gref}
+                      handleClose={handleClose}
+                    />
                     <Sunburst
                       animation={{ damping: 20, stiffness: 300 }}
+                      onValueClick={(e) => {
+                        setpop(false);
+                        setTimeout(() => {
+                          if (e.size && e.size > 0) {
+                            setdata({ size: e.size, title: e.title });
+                            setpop(true);
+                          }
+                        }, 100);
+                      }}
                       getSize={(d) => d.size}
                       data={{
                         title: '',
@@ -391,12 +291,12 @@ const GraphsPage = () => {
                         color: 'transparent',
                         children: [
                           {
-                            title: '',
+                            title: 'Ice cream',
                             size: 35,
                             color: '#E6492D',
                           },
                           {
-                            title: '',
+                            title: 'Pizza',
                             size: 150,
                             color: '#1665D8',
                           },
@@ -408,24 +308,7 @@ const GraphsPage = () => {
                       style={{ stroke: 'transparent' }}
                     />
                   </div>
-                  <div>
-                    <Title level='D4' lineHeight='3.75rem' align='right'>
-                      £12,595
-                    </Title>
-                    <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
-                      {'Invoiced this month'.toUpperCase()}
-                    </Paragraph>
-                    <Spacer size='sm' />
-                    <hr />
-                    <Spacer size='sm' />
-                    <Title level='4' lineHeight='2rem' align='right'>
-                      £10,095
-                    </Title>
-                    <Title level='4' lineHeight='2rem' align='right'>
-                      £2,500
-                    </Title>
-                  </div>
-                </div>
+                </CircularTable>
               </div>
             </Container>
           </Container>
@@ -475,8 +358,15 @@ const GraphsPage = () => {
                 onClick={showInfo}
                 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 ref={ref}
+                className='overflow'
               >
-                <XYPlot margin={{ left: 0, right: 20 }} width={550} height={250} xType='ordinal'>
+                <XYPlot
+                  margin={{ left: 0, right: 20 }}
+                  width={550}
+                  height={250}
+                  xType='ordinal'
+                  className='overflow'
+                >
                   <VerticalGridLines />
                   <HorizontalGridLines />
                   <XAxis />
@@ -493,6 +383,7 @@ const GraphsPage = () => {
                 </XYPlot>
               </div>
               <Spacer size='lg' />
+
               <div
                 style={{
                   display: 'flex',
@@ -501,53 +392,13 @@ const GraphsPage = () => {
                   flexWrap: 'wrap',
                 }}
               >
-                <Container
-                  vertical='lg'
-                  horizontal='md'
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    border: '0.063rem solid #d9d9d9',
-                    justifyContent: 'space-around',
-                    width: 255,
-                    height: 240,
-                    borderRadius: 4,
-                  }}
+                <DataTitleGraph
+                  title='Realtime users'
+                  data='56'
+                  percent={9.8}
+                  icon={<ArrowRightTop color={success} />}
                 >
-                  <Paragraph
-                    weight='bold'
-                    size='sm'
-                    color={dark}
-                    lineHeight='1.125rem'
-                    align='center'
-                  >
-                    {'Realtime Users'.toUpperCase()}
-                  </Paragraph>
-                  <Title level='1' lineHeight='3.125rem' align='center'>
-                    56
-                  </Title>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Paragraph color='success'>+9.8%</Paragraph>
-                    <Spacer direction='horizontal' size='xs' />
-                    <div
-                      style={{
-                        border: '0.125rem solid #689F38',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      <ArrowRightTop color='#689F38' strokeWidth={2} />
-                    </div>
-                  </div>
-                  <XYPlot width={195} height={50} margin={{ left: 0, right: 0, bottom: 0 }}>
+                  <XYPlot width={195} height={50} margin={{ left: 20, right: 5, bottom: 0 }}>
                     <LineSeries
                       style={{
                         fill: 'rgba(22, 101, 216, .1)',
@@ -571,54 +422,14 @@ const GraphsPage = () => {
                       ]}
                     />
                   </XYPlot>
-                </Container>
+                </DataTitleGraph>
 
-                <Container
-                  vertical='lg'
-                  horizontal='md'
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    border: '0.063rem solid #d9d9d9',
-                    justifyContent: 'space-around',
-                    width: 255,
-                    height: 240,
-                    borderRadius: 4,
-                  }}
+                <DataTitleGraph
+                  title='Total visits'
+                  data='54,598'
+                  percent={-11.9}
+                  icon={<ArrowRightBottom color={danger} />}
                 >
-                  <Paragraph
-                    weight='bold'
-                    size='sm'
-                    color={dark}
-                    lineHeight='1.125rem'
-                    align='center'
-                  >
-                    {'Total Visits'.toUpperCase()}
-                  </Paragraph>
-                  <Title level='1' lineHeight='3.125rem' align='center'>
-                    54,598
-                  </Title>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Paragraph color='#E6492D'>-11.9%</Paragraph>
-                    <Spacer direction='horizontal' size='xs' />
-                    <div
-                      style={{
-                        border: '0.125rem solid #E6492D',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      <ArrowLeftBottom color='#E6492D' strokeWidth={2} />
-                    </div>
-                  </div>
                   <XYPlot width={195} height={50} margin={{ left: 0, right: 0, bottom: 0 }}>
                     <LineSeries
                       style={{
@@ -643,54 +454,14 @@ const GraphsPage = () => {
                       ]}
                     />
                   </XYPlot>
-                </Container>
+                </DataTitleGraph>
 
-                <Container
-                  vertical='lg'
-                  horizontal='md'
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    border: '0.063rem solid #d9d9d9',
-                    justifyContent: 'space-around',
-                    width: 255,
-                    height: 240,
-                    borderRadius: 4,
-                  }}
+                <DataTitleGraph
+                  title='Bounce rate'
+                  data='73.67%'
+                  percent={12.2}
+                  icon={<ArrowRightTop color={success} />}
                 >
-                  <Paragraph
-                    weight='bold'
-                    size='sm'
-                    color={dark}
-                    lineHeight='1.125rem'
-                    align='center'
-                  >
-                    {'Bounce Rate'.toUpperCase()}
-                  </Paragraph>
-                  <Title level='1' lineHeight='3.125rem' align='center'>
-                    73.67%
-                  </Title>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Paragraph color='success'>+12.2%</Paragraph>
-                    <Spacer direction='horizontal' size='xs' />
-                    <div
-                      style={{
-                        border: '0.125rem solid #689F38',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      <ArrowRightTop color='#689F38' strokeWidth={2} />
-                    </div>
-                  </div>
                   <XYPlot width={195} height={50} margin={{ left: 0, right: 0, bottom: 0 }}>
                     <LineSeries
                       style={{
@@ -714,54 +485,14 @@ const GraphsPage = () => {
                       ]}
                     />
                   </XYPlot>
-                </Container>
+                </DataTitleGraph>
 
-                <Container
-                  vertical='lg'
-                  horizontal='md'
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    border: '0.063rem solid #d9d9d9',
-                    justifyContent: 'space-around',
-                    width: 255,
-                    height: 240,
-                    borderRadius: 4,
-                  }}
+                <DataTitleGraph
+                  title='Visit duration'
+                  data='1m 4s'
+                  percent={19.6}
+                  icon={<ArrowRightTop color={success} />}
                 >
-                  <Paragraph
-                    weight='bold'
-                    size='sm'
-                    color={dark}
-                    lineHeight='1.125rem'
-                    align='center'
-                  >
-                    {'Visit Duration'.toUpperCase()}
-                  </Paragraph>
-                  <Title level='1' lineHeight='3.125rem' align='center'>
-                    1m 4s
-                  </Title>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Paragraph color='success'>+19.6%</Paragraph>
-                    <Spacer direction='horizontal' size='xs' />
-                    <div
-                      style={{
-                        border: '0.125rem solid #689F38',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      <ArrowRightTop color='#689F38' strokeWidth={2} />
-                    </div>
-                  </div>
                   <XYPlot width={195} height={50} margin={{ left: 0, right: 0, bottom: 0 }}>
                     <LineSeries
                       style={{
@@ -786,7 +517,7 @@ const GraphsPage = () => {
                       ]}
                     />
                   </XYPlot>
-                </Container>
+                </DataTitleGraph>
               </div>
             </Container>
           </Container>
@@ -802,6 +533,7 @@ const GraphsPage = () => {
               Most Visited / Social Media
             </Paragraph>
             <Container
+              className='overflow'
               style={{
                 border: '0.063rem solid #d9d9d9',
               }}
@@ -817,7 +549,7 @@ const GraphsPage = () => {
                   flexWrap: 'wrap',
                 }}
               >
-                <div>
+                <div className='overflow'>
                   <Paragraph size='lg' lineHeight='1.75rem' weight='600'>
                     Most Visited Pages
                   </Paragraph>
@@ -837,6 +569,7 @@ const GraphsPage = () => {
                     />
                   </WrapperTable>
                 </div>
+                <Spacer size='md' />
                 <div>
                   <Paragraph size='lg' lineHeight='1.75rem' weight='600'>
                     Social Media Traffic
@@ -876,34 +609,88 @@ const GraphsPage = () => {
               horizontal='md'
               expandHorizontal
               style={{
-                border: '0.063rem solid #d9d9d9',
+                border,
                 display: 'flex',
                 justifyContent: 'center',
                 alignContent: 'center',
                 flexWrap: 'wrap',
               }}
             >
-              <Graph
-                title='Broadband Usage'
-                percent='+6.9%'
-                data='98.1%'
-                profit='Daily'
-                progress='76.92%'
-                color='#1665D8'
-              />
-              <Spacer direction='horizontal' size='xl' />
-              <Graph title='Revenue' percent='+11.3%' data='$13,893' profit='Total Profit' />
-              <Spacer direction='horizontal' size='xl' />
-              <Graph
-                title='Clients'
-                percent='+3.2%'
-                data='1,232'
-                profit='Subscribed'
-                progress='76.92%'
-                color='#6758F3'
-              />
-              <Spacer direction='horizontal' size='xl' />
-              <Graph title='Active Users' percent='+12.4%' data='29,981' color='#FACF55' />
+              <Spacer direction='horizontal' size='md' />
+              <ProgressWidget title='Broadband Usage' profit='Daily' data='98.1%' percent={6.9}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    flexDirection: 'column',
+                    height: 100,
+                    width: '100%',
+                  }}
+                >
+                  <div style={{ width: '100%', height: 4, background: dark }}>
+                    <div style={{ width: '70%', height: 4, background: danger }} />
+                  </div>
+                  <Spacer size='sm' />
+                  <Paragraph size='sm' color='#9EA0A5'>
+                    Yearly Goal
+                  </Paragraph>
+                </div>
+              </ProgressWidget>
+
+              <Spacer direction='horizontal' size='md' />
+              <ProgressWidget title='Revenue' profit='Total Profit' data='$13,893' percent={11.3}>
+                <Container horizontal='lg'>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <XYPlot
+                      margin={{ left: 20, right: 20 }}
+                      width={230}
+                      height={100}
+                      xType='ordinal'
+                    >
+                      <VerticalBarSeries barWidth={0.6} data={myDATA} color={success} />
+                    </XYPlot>
+                  </div>
+                </Container>
+              </ProgressWidget>
+
+              <Spacer direction='horizontal' size='md' />
+              <ProgressWidget title='Clients' profit='Subscribed' data='1,232' percent={3.2}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    flexDirection: 'column',
+                    height: 100,
+                    width: '100%',
+                  }}
+                >
+                  <div style={{ width: '100%', height: 4, background: dark }}>
+                    <div style={{ width: '35%', height: 4, background: 'purple' }} />
+                  </div>
+                  <Spacer size='sm' />
+                  <Paragraph size='sm' color='#9EA0A5'>
+                    Yearly Goal
+                  </Paragraph>
+                </div>
+              </ProgressWidget>
+
+              <Spacer direction='horizontal' size='md' />
+              <ProgressWidget title='Active Users' data='29,981' percent={12.4}>
+                <Container horizontal='lg'>
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <XYPlot
+                      margin={{ left: 20, right: 20 }}
+                      width={230}
+                      height={100}
+                      xType='ordinal'
+                    >
+                      <VerticalBarSeries barWidth={0.6} data={myDATA} color={'yellow'} />
+                    </XYPlot>
+                  </div>
+                </Container>
+              </ProgressWidget>
             </Container>
           </Container>
 
@@ -929,226 +716,96 @@ const GraphsPage = () => {
                 flexWrap: 'wrap',
               }}
             >
-              <div style={{ border: '0.063rem solid #d9d9d9', width: 350 }}>
-                <div style={{ borderBottom: '0.063rem solid #d9d9d9', width: '100%' }}>
-                  <Container
-                    vertical='md'
-                    horizontal='md'
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: 46,
-                          height: 46,
-                          background: '#1665D8',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Cup color='white' fontSize={22} />
-                      </div>
-                      <Spacer direction='horizontal' size='md' />
-                      <div>
-                        <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                          Total Sales
-                        </Paragraph>
-                        <Paragraph color='success' lineHeight='1.375'>
-                          +$985.56
-                        </Paragraph>
-                      </div>
-                    </div>
-                    <div>
-                      <Ellypsis fontSize={22} color={dark} />
-                    </div>
-                  </Container>
-                </div>
-
-                <div>
-                  <Container
-                    vertical='md'
-                    horizontal='md'
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-around',
-                        alignItems: 'center',
-                        width: '100%',
-                      }}
-                    >
-                      <div>
-                        <Sunburst
-                          animation={{ damping: 25, stiffness: 300 }}
-                          getSize={(d) => d.size}
-                          data={{
-                            title: '',
-                            size: 1,
-                            color: 'transparent',
-                            children: [
-                              {
-                                title: '',
-                                size: 150,
-                                color: '#1665D8',
-                              },
-                              {
-                                title: '',
-                                size: 35,
-                                color: '#EAECEE',
-                              },
-                            ],
-                          }}
-                          margin={{ left: 0, bottom: 0, right: 0, top: 0 }}
-                          height={162}
-                          width={162}
-                          style={{ stroke: '#fff' }}
-                        />
-                      </div>
-                      <div>
-                        <Title level='3' lineHeight='3.75rem' align='right'>
-                          $2,595
-                        </Title>
-                        <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
-                          {'Invoiced'.toUpperCase()}
-                        </Paragraph>
-                        <Spacer size='sm' />
-                        <hr />
-                        <Spacer size='sm' />
-                        <Title level='3' lineHeight='2rem' align='right'>
-                          23
-                        </Title>
-                        <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
-                          {'Invoices'.toUpperCase()}
-                        </Paragraph>
-                      </div>
-                    </div>
-                  </Container>
-                </div>
-              </div>
-
+              <CircularOptions
+                title='Total Sales'
+                additional={
+                  <Paragraph color='success' lineHeight='1.375'>
+                    +$985.56
+                  </Paragraph>
+                }
+                data='$2,595'
+                dataDescription='Invoiced'
+                dataAdditional={
+                  <>
+                    <Title level='3' lineHeight='2rem' align='right'>
+                      23
+                    </Title>
+                    <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
+                      {'Invoices'.toUpperCase()}
+                    </Paragraph>
+                  </>
+                }
+                icon={<Cup color='white' fontSize={22} />}
+                optionsIcon={<Ellypsis fontSize={22} color={dark} />}
+              >
+                <Sunburst
+                  animation={{ damping: 25, stiffness: 300 }}
+                  getSize={(d) => d.size}
+                  data={{
+                    title: '',
+                    size: 1,
+                    color: 'transparent',
+                    children: [
+                      {
+                        title: '',
+                        size: 150,
+                        color: '#1665D8',
+                      },
+                      {
+                        title: '',
+                        size: 35,
+                        color: dark,
+                      },
+                    ],
+                  }}
+                  margin={{ left: 0, bottom: 0, right: 0, top: 0 }}
+                  height={162}
+                  width={162}
+                  style={{ stroke: dark }}
+                />
+              </CircularOptions>
               <Spacer direction='horizontal' size='xl' />
 
-              <div style={{ border: '0.063rem solid #d9d9d9', width: 350 }}>
-                <div style={{ borderBottom: '0.063rem solid #d9d9d9', width: '100%' }}>
-                  <Container
-                    vertical='md'
-                    horizontal='md'
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: 46,
-                          height: 46,
-                          background: '#FACF55',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Person color='white' fontSize={22} />
-                      </div>
-                      <Spacer direction='horizontal' size='md' />
-                      <div>
-                        <Paragraph weight='600' size='lg' lineHeight='1.75rem'>
-                          User Onboarding
-                        </Paragraph>
-                        <Paragraph color='success' lineHeight='1.375'>
-                          Q3 Goal: 8,000 Users
-                        </Paragraph>
-                      </div>
-                    </div>
-                    <div>
-                      <Ellypsis fontSize={22} color={dark} />
-                    </div>
-                  </Container>
-                </div>
-
-                <div>
-                  <Container
-                    vertical='md'
-                    horizontal='md'
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-around',
-                        alignItems: 'center',
-                        width: '100%',
-                      }}
-                    >
-                      <div>
-                        <Sunburst
-                          animation={{ damping: 25, stiffness: 300 }}
-                          getSize={(d) => d.size}
-                          data={{
-                            title: '',
-                            size: 1,
-                            color: 'transparent',
-                            children: [
-                              {
-                                title: '',
-                                size: 50,
-                                color: '#FACF55',
-                              },
-                              {
-                                title: '',
-                                size: 100,
-                                color: '#EAECEE',
-                              },
-                            ],
-                          }}
-                          margin={{ left: 0, bottom: 0, right: 0, top: 0 }}
-                          height={162}
-                          width={162}
-                          style={{ stroke: '#fff' }}
-                        />
-                      </div>
-                      <div>
-                        <Title level='3' lineHeight='3.75rem' align='right'>
-                          2,452
-                        </Title>
-                        <Paragraph align='right' size='sm' color={dark} lineHeight='1.125rem'>
-                          {'Onboarded'.toUpperCase()}
-                        </Paragraph>
-                        <Spacer direction='vertical' size='md' />
-                        <hr />
-                      </div>
-                    </div>
-                  </Container>
-                </div>
-              </div>
+              <CircularOptions
+                color='#FACF55'
+                title='User Onboarding'
+                additional={
+                  <Paragraph color='success' lineHeight='1.375'>
+                    Q3 Goal: 8,000 Users
+                  </Paragraph>
+                }
+                data='2,452'
+                dataDescription='ONBOARDED'
+                icon={<Person color='white' fontSize={22} />}
+                optionsIcon={<Ellypsis fontSize={22} color={dark} />}
+              >
+                <Sunburst
+                  animation={{ damping: 25, stiffness: 300 }}
+                  getSize={(d) => d.size}
+                  data={{
+                    title: '',
+                    size: 1,
+                    color: 'transparent',
+                    children: [
+                      {
+                        title: '',
+                        size: 50,
+                        color: '#FACF55',
+                      },
+                      {
+                        title: '',
+                        size: 100,
+                        color: dark,
+                      },
+                    ],
+                  }}
+                  margin={{ left: 0, bottom: 0, right: 0, top: 0 }}
+                  height={162}
+                  width={162}
+                  style={{ stroke: dark }}
+                />
+              </CircularOptions>
+              <Spacer direction='horizontal' size='xl' />
             </Container>
           </Container>
 
@@ -1163,46 +820,53 @@ const GraphsPage = () => {
               Graph
             </Paragraph>
             <Container
+              className='overflow'
               vertical='md'
               horizontal='md'
               expandHorizontal
               style={{
                 border: '0.063rem solid #d9d9d9',
                 display: 'flex',
-                justifyContent: 'center',
-                alignContent: 'center',
                 flexWrap: 'wrap',
               }}
             >
-              <div
+              <Container
+                vertical='md'
+                expandHorizontal
+                horizontal='md'
                 style={{
-                  width: 730,
-                  height: 326,
-                  border: '0.063rem solid #d9d9d9',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignContent: 'center',
                 }}
               >
-                <Container
-                  vertical='md'
-                  horizontal='md'
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignContent: 'center',
-                    borderBottom: '0.063rem solid #d9d9d9',
-                  }}
-                >
-                  <Paragraph size='lg' weight='600'>
-                    Daily Active Clients
-                  </Paragraph>
-                  <Ellypsis fontSize={22} color={dark} />
-                </Container>
-                <Container top='xl' bottom='md' horizontal='md'>
-                  <XYPlot width={670} height={200} margin={{ left: 10, right: 10, bottom: 20 }}>
+                <Paragraph size='lg' weight='600'>
+                  Daily Active Clients
+                </Paragraph>
+                <Ellypsis fontSize={22} color={dark} />
+              </Container>
+              <div
+                style={{
+                  width: '100%',
+                  height: 326,
+                  overflow: 'auto',
+                }}
+              >
+                <Container top='xl' bottom='md'>
+                  <XYPlot
+                    width={window.innerWidth * 0.7}
+                    height={200}
+                    margin={{ left: 10, right: 10, bottom: 20 }}
+                  >
                     <HorizontalGridLines />
                     <VerticalGridLines />
                     <HorizontalGridLines />
                     <XAxis top={170} tickFormat={(v) => DAYS[v]} />
-                    <YAxis hideLine={false} left={670} tickValues={[20, 40, 60]} />
+                    <YAxis
+                      hideLine={false}
+                      left={window.innerWidth * 0.7}
+                      tickValues={[20, 40, 60]}
+                    />
 
                     <LineMarkSeries
                       style={{

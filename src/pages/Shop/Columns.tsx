@@ -10,11 +10,10 @@ const avatar: AvatarProps = {
   height: '45',
 };
 
-export const colsTabZero = [
+export const colsTabZero = () => [
   {
     Header: 'App name',
     accessor: 'app_name_display',
-    Filter: () => null,
     width: Math.round(window.innerWidth / 4),
     minWidth: 200,
     Cell: (row: any) => (
@@ -30,14 +29,15 @@ export const colsTabZero = [
   {
     Header: 'Type',
     accessor: 'type',
-    Filter: () => null,
     width: Math.round(window.innerWidth / 3),
     minWidth: 200,
-    Cell: (row: any) => (
-      <Center>
-        <Paragraph>{row.value}</Paragraph>
-      </Center>
-    ),
+    Cell: (row: any) => {
+      return (
+        <Center>
+          <Paragraph>{row.value}</Paragraph>
+        </Center>
+      );
+    },
   },
 ];
 
@@ -45,7 +45,6 @@ export const colsTabOne = [
   {
     Header: 'App name',
     accessor: 'app_name_display',
-    Filter: () => null,
     width: 180,
     minWidth: 120,
     maxWidth: 300,
@@ -62,7 +61,6 @@ export const colsTabOne = [
   {
     Header: 'Type',
     accessor: 'type',
-    Filter: () => null,
     width: 200,
     minWidth: 120,
     maxWidth: 300,
@@ -75,7 +73,6 @@ export const colsTabOne = [
   {
     Header: 'Installed by',
     accessor: 'installed_by',
-    Filter: () => null,
     width: 200,
     minWidth: 120,
     maxWidth: 300,
@@ -88,7 +85,6 @@ export const colsTabOne = [
   {
     Header: 'Expense period',
     accessor: 'expense_period',
-    Filter: () => null,
     width: 150,
     minWidth: 90,
     maxWidth: 300,

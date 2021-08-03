@@ -72,7 +72,6 @@ export const columnsInfrastructure = [
   {
     Header: 'Device Name',
     accessor: 'device',
-    Filter: () => null,
     width: Math.round(window.innerWidth / 5),
     minWidth: 200,
     Cell: (row: any) => (
@@ -84,7 +83,6 @@ export const columnsInfrastructure = [
   {
     Header: 'Device Type',
     accessor: 'type',
-    Filter: () => null,
     width: Math.round(window.innerWidth / 5),
     minWidth: 200,
     Cell: (row: any) => (
@@ -96,7 +94,6 @@ export const columnsInfrastructure = [
   {
     Header: 'Device ID',
     accessor: 'device_id',
-    Filter: () => null,
     width: 188,
     maxWidth: 250,
     minWidth: 100,
@@ -109,7 +106,6 @@ export const columnsInfrastructure = [
   {
     Header: 'Series Number',
     accessor: 'series',
-    Filter: () => null,
     width: 188,
     maxWidth: 250,
     minWidth: 100,

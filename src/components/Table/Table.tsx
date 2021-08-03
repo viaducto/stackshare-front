@@ -76,11 +76,13 @@ const Table = ({
   dataTable,
   filter = true,
   pagination = true,
+  hiddenColumns,
 }: {
   cols: any[];
   dataTable: any[];
   filter?: boolean;
   pagination?: boolean;
+  hiddenColumns?: string[] | undefined;
 }) => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
@@ -108,7 +110,7 @@ const Table = ({
       data: dataTable,
       defaultColumn,
       initialState: {
-        hiddenColumns: ['hidden'],
+        hiddenColumns: hiddenColumns ? hiddenColumns?.concat(['hidden']) : ['hidden'],
       },
     },
     useFilters,

@@ -145,7 +145,6 @@ export const visitedColumns = [
   {
     Header: 'Page Name',
     accessor: 'page',
-    Filter: () => null,
     width: 180,
     Cell: (row: any) => (
       <Center>
@@ -156,7 +155,6 @@ export const visitedColumns = [
   {
     Header: 'Visitors',
     accessor: 'visitors',
-    Filter: () => null,
     width: 100,
     Cell: (row: any) => (
       <Center>
@@ -167,7 +165,6 @@ export const visitedColumns = [
   {
     Header: 'Unique Page Visits',
     accessor: 'visits',
-    Filter: () => null,
     width: 150,
     Cell: (row: any) => (
       <Center>
@@ -178,7 +175,6 @@ export const visitedColumns = [
   {
     Header: 'Bounce Rate',
     accessor: 'bounce',
-    Filter: () => null,
     width: 150,
     Cell: (row: any) => <Center>{row.value}</Center>,
   },
@@ -187,7 +183,6 @@ export const socialColumns = [
   {
     Header: 'Network',
     accessor: 'network',
-    Filter: () => null,
     width: 90,
     Cell: (row: any) => (
       <Center>
@@ -198,7 +193,6 @@ export const socialColumns = [
   {
     Header: 'Visitors',
     accessor: 'traffic',
-    Filter: () => null,
     width: 200,
     Cell: (row: any) => (
       <Center>

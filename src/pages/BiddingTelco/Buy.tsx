@@ -28,6 +28,7 @@ import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from './TableContent';
 import { useLoading } from '../../hooks/useLoading';
 import CloseButton from '../../components/CloseButton/CloseButton';
+import { useWindowResize } from '../../hooks/useWindowSize';
 
 const Buy = () => {
   const [openTable, setOpenTable] = useState(false);
@@ -38,6 +39,7 @@ const Buy = () => {
   const [data, setData] = useState<any>({});
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
+  const { offset } = useWindowResize();
   const { load } = useLoading();
 
   return (
@@ -133,70 +135,72 @@ const Buy = () => {
                             <SkeletonTable />
                           </Container>
                         ) : (
-                          <WrapperTable
-                            fontSize='md'
-                            zebra={false}
-                            verticalSpacing='md'
-                            border='horizontal'
-                            borderColor='#E8E8E8'
-                            horizontalSpacing='sm'
-                          >
-                            <Table
-                              cols={[
-                                ...buyColumns,
-                                {
-                                  Header: 'Specification',
-                                  accessor: 'specification',
-                                  width: Math.round(window.innerWidth / 8),
-                                  minWidth: 200,
-                                  Filter: () => null,
-                                  Cell: (props: any) => {
-                                    return (
-                                      <Center
-                                        style={{
-                                          display: 'flex',
-                                          justifyContent: 'center',
-                                          height: '100%',
-                                          alignItems: 'center',
-                                          width: '100%',
-                                        }}
-                                      >
-                                        <Kebab>
-                                          <Button
-                                            label='See details'
-                                            onClick={() => {
-                                              setData(props.data[props.row.index]);
-                                              setNewBid(false);
-                                              setOpenTable(true);
-                                            }}
-                                            variant='ghost'
-                                            block
-                                            radius='none'
-                                          />
-                                          <Button
-                                            label='Delete'
-                                            variant='ghost'
-                                            shapeColor='danger'
-                                            onClick={() => {
-                                              setData(props.data[props.row.index]);
-                                              setNewBid(false);
-                                              setOpenTable(true);
-                                            }}
-                                            block
-                                            radius='none'
-                                          />
-                                        </Kebab>
-                                      </Center>
-                                    );
+                          <div className='overflow'>
+                            <WrapperTable
+                              fontSize='md'
+                              zebra={false}
+                              verticalSpacing='md'
+                              border='horizontal'
+                              borderColor='#E8E8E8'
+                              horizontalSpacing='sm'
+                            >
+                              <Table
+                                hiddenColumns={offset ? ['expires', 'rate'] : []}
+                                cols={[
+                                  ...buyColumns,
+                                  {
+                                    Header: 'Specification',
+                                    accessor: 'specification',
+                                    width: Math.round(window.innerWidth / 8),
+                                    minWidth: 200,
+                                    Cell: (props: any) => {
+                                      return (
+                                        <Center
+                                          style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            height: '100%',
+                                            alignItems: 'center',
+                                            width: '100%',
+                                          }}
+                                        >
+                                          <Kebab>
+                                            <Button
+                                              label='See details'
+                                              onClick={() => {
+                                                setData(props.data[props.row.index]);
+                                                setNewBid(false);
+                                                setOpenTable(true);
+                                              }}
+                                              variant='ghost'
+                                              block
+                                              radius='none'
+                                            />
+                                            <Button
+                                              label='Delete'
+                                              variant='ghost'
+                                              shapeColor='danger'
+                                              onClick={() => {
+                                                setData(props.data[props.row.index]);
+                                                setNewBid(false);
+                                                setOpenTable(true);
+                                              }}
+                                              block
+                                              radius='none'
+                                            />
+                                          </Kebab>
+                                        </Center>
+                                      );
+                                    },
                                   },
-                                },
-                              ]}
-                              dataTable={dummyData}
-                              filter={false}
-                            />
-                          </WrapperTable>
-                        )}{' '}
-                        <Spacer size='md' />
+                                ]}
+                                dataTable={dummyData}
+                                filter={false}
+                              />
+                            </WrapperTable>
+                          </div>
+                        )}
+                        <Spacer size='xxxl' />
                       </Container>
                     </Column>
                   </Row>

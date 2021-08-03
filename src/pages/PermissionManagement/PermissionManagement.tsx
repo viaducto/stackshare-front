@@ -23,6 +23,8 @@ import Kebab from '../../components/Kebab/Kebab';
 import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
 import { useLoading } from '../../hooks/useLoading';
+import { Center } from '../../components/Center';
+import { useWindowResize } from '../../hooks/useWindowSize';
 
 const PermissionManagement = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -30,7 +32,7 @@ const PermissionManagement = () => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
   const { load } = useLoading();
-
+  const { offset } = useWindowResize();
   return (
     <BodyContent>
       <HeaderSell
@@ -116,28 +118,20 @@ const PermissionManagement = () => {
                   horizontalSpacing='sm'
                 >
                   <Table
+                    hiddenColumns={offset ? ['type', 'money'] : []}
                     filter={false}
                     cols={[
                       ...permissionColumns,
                       {
                         Header: 'Action',
                         accessor: 'action',
-                        Filter: () => null,
                         width: 178,
                         Cell: (props: any) => {
                           const { deleteBtn, action }: { deleteBtn: boolean; action: string } =
                             props.data[props.row.index].action;
 
                           return (
-                            <div
-                              style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                height: '100%',
-                                width: '100%',
-                              }}
-                            >
+                            <Center>
                               <Kebab>
                                 {deleteBtn && (
                                   <Button
@@ -157,7 +151,7 @@ const PermissionManagement = () => {
                                   block
                                 />
                               </Kebab>
-                            </div>
+                            </Center>
                           );
                         },
                       },

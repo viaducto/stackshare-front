@@ -17,6 +17,7 @@ import { BodyContent, BodyMain } from '../../components/layout';
 import HeaderSell from '../../components/SellParameters/HeaderSell';
 import Table from '../../components/Table/Table';
 import { useLoading } from '../../hooks/useLoading';
+import { useWindowResize } from '../../hooks/useWindowSize';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
 import { columnsInfrastructure, dataInfrastructure } from './DataInfrastructure';
 import InfrastructureDrawer from './InfrastructureDrawer';
@@ -27,7 +28,7 @@ const Infrastructure = () => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
   const { load } = useLoading();
-
+  const { offset } = useWindowResize();
   return (
     <BodyContent>
       <HeaderSell
@@ -114,13 +115,13 @@ const Infrastructure = () => {
                   horizontalSpacing='sm'
                 >
                   <Table
+                    hiddenColumns={offset ? ['device_id', 'series'] : []}
                     filter={false}
                     cols={[
                       ...columnsInfrastructure,
                       {
                         Header: 'Action',
                         accessor: 'action',
-                        Filter: () => null,
                         width: 180,
                         maxWidth: 250,
                         minWidth: 150,

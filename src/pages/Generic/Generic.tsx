@@ -3,6 +3,7 @@ import { Column, Container, Grid, Row, Title } from '@jp-olvera/jp-viaducto-comp
 import { NavLink, useLocation } from 'react-router-dom';
 import { BodyContent, BodyMain } from '../../components/layout';
 import { VerticalSteps } from '../../components/VerticalSteps';
+import LocationManagement from '../LocationManagement/LocationManagement';
 
 const Generic = ({ path }: { path?: string }) => {
   const location = useLocation().pathname;
@@ -75,6 +76,8 @@ const redirection = (path: string): JSX.Element => {
         return <Profile path='billing' />;
       case '/profile/devices':
         return <Profile path='devices' />;
+      case '/location-management':
+        return <LocationManagement />;
       case '/':
       case '/dashboard':
       default:
@@ -107,6 +110,11 @@ const Dashboard = () => (
           <Container vertical='md'>
             <NavLink className='link link-router' to='/profile/billing'>
               Personal Subscription & Billing
+            </NavLink>
+          </Container>
+          <Container vertical='md'>
+            <NavLink className='link link-router' to={`/location-management`}>
+              Location Management
             </NavLink>
           </Container>
           <Container vertical='md'>

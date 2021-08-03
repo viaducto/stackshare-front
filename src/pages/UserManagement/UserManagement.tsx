@@ -23,6 +23,7 @@ import Skeleton from 'react-loading-skeleton';
 import { SkeletonTable } from '../BiddingTelco/TableContent';
 import DrawerManagement from './DrawerManagement';
 import { useLoading } from '../../hooks/useLoading';
+import { useWindowResize } from '../../hooks/useWindowSize';
 
 const UserManagement = () => {
   const [isDrawerActive, setIsDrawerActive] = useState(false);
@@ -49,6 +50,7 @@ const UserManagement = () => {
   const handleDrawerActive = () => {
     setIsDrawerActive((e) => !e);
   };
+  const { offset } = useWindowResize();
 
   return (
     <>
@@ -104,6 +106,7 @@ const UserManagement = () => {
                     horizontalSpacing='sm'
                   >
                     <Table
+                      hiddenColumns={offset ? ['role'] : []}
                       cols={[
                         {
                           Header: 'Name',
