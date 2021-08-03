@@ -34,7 +34,7 @@ const GraphPercent = ({
     colors.text[textColor ? textColor : Math.sign(percent) === 1 ? 'success' : 'danger'];
 
   return (
-    <Container style={{ overflow: 'auto' }}>
+    <Container style={{ overflow: 'auto', minHeight: 225 }}>
       <div
         style={{
           display: 'flex',
