@@ -35,7 +35,7 @@ const CircularOptions = ({
   const backColor = color || colors.text[color ? color : 'primary'];
 
   return (
-    <div style={{ border, maxWidth: 350, width: '100%' }}>
+    <div style={{ border, maxWidth: 350, width: '100%', overflow: 'auto' }}>
       <div style={{ borderBottom: border, width: '100%' }}>
         <Container
           vertical='md'

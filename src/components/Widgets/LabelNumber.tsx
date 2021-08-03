@@ -40,7 +40,13 @@ const LabelNumber = ({
     ].default;
   return (
     <Container style={{ minWidth: 160 }} vertical='sm' horizontal='sm'>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <Title level='3' lineHeight='2.375rem'>
           {title}
         </Title>

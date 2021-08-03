@@ -42,6 +42,7 @@ const ProgressWidget = ({ title, profit, data, percent, children, textColor }: P
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          flexWrap: 'wrap',
         }}
       >
         <Paragraph size='lg' lineHeight='1.5rem' weight='500'>
