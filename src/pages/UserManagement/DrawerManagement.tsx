@@ -22,7 +22,7 @@ import { Offset } from './StyledUserManagement';
 
 const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
   const { configuration } = useContext(ConfigContext);
-  const { dark } = configuration.colors.text;
+  const { dark } = configuration.colors;
 
   const [showApps, setShowApps] = useState(true);
   const apps = [
@@ -46,115 +46,111 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
   const { scroll } = useScroll(ref);
 
   return (
-    <Offset
-      off={scroll}
-      configuration={configuration}
-      style={{ height: '100%', overflow: 'hidden' }}
-    >
-      <div style={{ position: 'sticky', top: 0 }}>
-        <Grid expanded className='border-bottom'>
-          <Row>
-            <Column>
-              <Container vertical='md' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Paragraph weight='600' size='lg' lineHeight='2.1rem'>
-                  User Details
-                </Paragraph>
-                <CloseButton onClick={handleDrawerActive} />
-              </Container>
-            </Column>
-          </Row>
-        </Grid>
-        <Container top={scroll ? 'none' : 'lg'} className={scroll ? 'center' : 'no-center'}>
-          <Container horizontal='md'>
-            <Avatar
-              src='https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg'
-              alt=''
-              height='80px'
-              width='80px'
-            />
-            {selectedUser !== null ? (
-              <>
-                <Title level='3' weight='bold'>
-                  {selectedUser?.name}
-                </Title>
-
-                <Spacer size='sm' className='hide' />
-                <Paragraph size='md' color='gray' className='hide'>
-                  Efficiently network progressive ROI and multifunctional metrics.
-                </Paragraph>
-                <Spacer size='sm' className='hide' />
-
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    alignContent: 'center',
-                  }}
-                  className='hide'
-                >
-                  <Cup color={dark} />
-                  <Spacer size='sm' direction='horizontal' />
-                  <Paragraph size='md' color='gray'>
-                    {selectedUser?.email}
-                  </Paragraph>
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    alignContent: 'center',
-                  }}
-                  className='hide'
-                >
-                  <Cup color={dark} />
-                  <Spacer size='sm' direction='horizontal' />
-                  <Paragraph size='md' color='gray'>
-                    +1 245 878 7878
-                  </Paragraph>
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    alignContent: 'center',
-                  }}
-                  className='hide'
-                >
-                  <Cup color={dark} />
-                  <Spacer size='sm' direction='horizontal' />
-                  <Paragraph size='md' color='gray'>
-                    $127 USD mo.
-                  </Paragraph>
-                </div>
-              </>
-            ) : null}
+    <Offset off={scroll} configuration={configuration}>
+      <div className='ref' ref={ref}>
+        <div className='absolute-top'>
+          <Container
+            vertical='sm'
+            className='border-bottom'
+            horizontal='md'
+            style={{ display: 'flex', justifyContent: 'space-between' }}
+          >
+            <Paragraph weight='600' size='lg' lineHeight='2.6rem'>
+              User Details
+            </Paragraph>
+            <CloseButton onClick={handleDrawerActive} />
           </Container>
-          <Spacer size={scroll ? 'xs' : 'lg'} />
-          <hr />
-          <Container horizontal='md' className='flex '>
-            <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
-              <Tab
-                text='Overview'
-                active={showApps}
-                onFocus={() => {
-                  setShowApps(true);
-                }}
+          <Container top={scroll ? 'none' : 'lg'} className={scroll ? 'center' : 'no-center'}>
+            <Container horizontal='md'>
+              <Avatar
+                src='https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg'
+                alt=''
+                height='80px'
+                width='80px'
               />
-              <Tab
-                text='Apps'
-                active={!showApps}
-                onFocus={() => {
-                  setShowApps(false);
-                }}
-              />
-            </GroupTab>
-            <Spacer size='lg' />
+              {selectedUser !== null ? (
+                <>
+                  <Title level='3' weight='bold'>
+                    {selectedUser?.name}
+                  </Title>
+
+                  <Spacer size='sm' className='hide' />
+                  <Paragraph size='md' color='gray' className='hide'>
+                    Efficiently network progressive ROI and multifunctional metrics.
+                  </Paragraph>
+                  <Spacer size='sm' className='hide' />
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      alignContent: 'center',
+                    }}
+                    className='hide'
+                  >
+                    <Cup color={dark} />
+                    <Spacer size='sm' direction='horizontal' />
+                    <Paragraph size='md' color='gray'>
+                      {selectedUser?.email}
+                    </Paragraph>
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      alignContent: 'center',
+                    }}
+                    className='hide'
+                  >
+                    <Cup color={dark} />
+                    <Spacer size='sm' direction='horizontal' />
+                    <Paragraph size='md' color='gray'>
+                      +1 245 878 7878
+                    </Paragraph>
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      alignContent: 'center',
+                    }}
+                    className='hide'
+                  >
+                    <Cup color={dark} />
+                    <Spacer size='sm' direction='horizontal' />
+                    <Paragraph size='md' color='gray'>
+                      $127 USD mo.
+                    </Paragraph>
+                  </div>
+                </>
+              ) : null}
+            </Container>
+            <Spacer size={scroll ? 'xs' : 'lg'} />
+            <hr />
+            <Container horizontal='md' className='flex '>
+              <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
+                <Tab
+                  text='Overview'
+                  active={showApps}
+                  onFocus={() => {
+                    setShowApps(true);
+                  }}
+                />
+                <Tab
+                  text='Apps'
+                  active={!showApps}
+                  onFocus={() => {
+                    setShowApps(false);
+                  }}
+                />
+              </GroupTab>
+              <Spacer size='md' />
+            </Container>
           </Container>
-        </Container>
-      </div>
-      <div style={{ height: '40%', overflow: 'auto' }} ref={ref}>
-        <Container bottom='lg' top='sm' className='overflow'>
-          <Spacer size='sm' />
+        </div>
+
+        <Container bottom='lg' top='sm' className='overflow margin-top-scroll'>
+          <Spacer size='md' />
           {showApps ? (
             <Container horizontal='md'>
               <Title level='5' weight='bold'>

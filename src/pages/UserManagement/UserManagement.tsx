@@ -276,9 +276,7 @@ const UserManagement = () => {
         </BodyMain>
       </div>
       <Drawer onClose={handleDrawerActive} active={isDrawerActive}>
-        <div style={{ height: '100%', overflow: 'auto' }}>
-          <DrawerManagement selectedUser={selectedUser} handleDrawerActive={handleDrawerActive} />
-        </div>
+        <DrawerManagement selectedUser={selectedUser} handleDrawerActive={handleDrawerActive} />
       </Drawer>
     </>
   );

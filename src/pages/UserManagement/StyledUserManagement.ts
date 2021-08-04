@@ -7,6 +7,21 @@ interface OFI {
 }
 
 export const Offset = styled.div<OFI>`
+  height: 100%;
+  overflow: hidden;
+
+  .ref {
+    height: 100%;
+    overflow: auto;
+  }
+  .margin-top-scroll {
+    margin-top: 100%;
+  }
+  .absolute-top {
+    position: absolute;
+    top: 0;
+    background-color: ${(p) => p.configuration.colors.background};
+  }
   .hide {
     transition: opacity 200ms ease;
     opacity: ${(p) => (p.off ? 0 : 1)};
