@@ -242,7 +242,9 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
                 <Paragraph size='lg'>System Administrator</Paragraph>
               </Column>
               <Column>
-                <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                <label htmlFor='sysadmin'>
+                  <Switch inputSize='xsmall' defaultChecked color='#1890FF' id='sysadmin' />
+                </label>
               </Column>
             </Row>
           </Grid>
@@ -252,7 +254,9 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
                 <Paragraph size='lg'>Billing Manager</Paragraph>
               </Column>
               <Column>
-                <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                <label htmlFor='manager'>
+                  <Switch inputSize='xsmall' defaultChecked color='#1890FF' id='manager' />
+                </label>
               </Column>
             </Row>
           </Grid>
@@ -262,7 +266,9 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
                 <Paragraph size='lg'>Location Owner</Paragraph>
               </Column>
               <Column>
-                <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                <label htmlFor='owner'>
+                  <Switch inputSize='xsmall' defaultChecked color='#1890FF' id='owner' />
+                </label>
               </Column>
             </Row>
           </Grid>
@@ -272,7 +278,9 @@ const DrawerManagement = ({ selectedUser, handleDrawerActive }: any) => {
                 <Paragraph size='lg'>Super admin</Paragraph>
               </Column>
               <Column>
-                <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                <label htmlFor='sudo'>
+                  <Switch inputSize='xsmall' defaultChecked color='#1890FF' id='sudo' />
+                </label>
               </Column>
             </Row>
           </Grid>

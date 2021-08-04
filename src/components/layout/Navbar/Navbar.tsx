@@ -50,10 +50,12 @@ const Navbar = () => {
   const { offset } = useWindowResize();
   const avatarRef = useRef(null);
   const [dropActive, setDropActive] = useState(false);
+  const [number, setNumber] = useState(1);
   const handleDropActive = () => {
     setDropActive((d) => !d);
   };
   useEffect(() => {
+    setNumber(Math.floor(Math.random() * (99 - 1)) + 1);
     if (offset) {
       setDropActive(false);
     }
@@ -85,7 +87,7 @@ const Navbar = () => {
                 </button>
                 <div className='user-navbar'>
                   <Help fontSize='1.5rem' color={dark} />
-                  <Notification number={12} />
+                  <Notification number={number} />
                   <div
                     onClick={handleDropActive}
                     ref={avatarRef}

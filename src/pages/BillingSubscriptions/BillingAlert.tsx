@@ -40,25 +40,9 @@ const BillingAlert = ({ load }: { load: boolean }) => {
                     {load ? (
                       <Skeleton width='2rem' />
                     ) : (
-                      <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
-                    )}
-                  </Column>
-                </Row>
-              </Grid>
-              <Grid gutter={0}>
-                <Row>
-                  <Column>
-                    {load ? (
-                      <Skeleton width='7rem' />
-                    ) : (
-                      <Paragraph color='gray'>Failed transaction</Paragraph>
-                    )}
-                  </Column>
-                  <Column>
-                    {load ? (
-                      <Skeleton width='2rem' />
-                    ) : (
-                      <Switch inputSize='xsmall' defaultChecked color='#1890FF' />
+                      <label htmlFor='failed'>
+                        <Switch id='failed' inputSize='xsmall' defaultChecked color='#1890FF' />
+                      </label>
                     )}
                   </Column>
                 </Row>

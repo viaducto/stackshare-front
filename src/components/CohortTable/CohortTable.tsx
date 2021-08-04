@@ -193,6 +193,7 @@ const Page = () => {
     ],
   };
   // const DATA: datos = ;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const plotData: { x: number; y: number }[] = [];
   for (let i = 0; i < DATA.data.length; i++) {
     const column = DATA.data[i];
@@ -219,7 +220,7 @@ const Page = () => {
       }
       setIndex(sequenceStart + selectedCell.valueIndex);
     }
-  }, [selectedCell]);
+  }, [plotData, selectedCell]);
   const handleCellClick = (columnDetails: any) => {
     setSelectedCell(columnDetails);
     handleModalActive();

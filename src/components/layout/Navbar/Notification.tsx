@@ -14,7 +14,7 @@ const Notification = ({ number }: { number: number }) => {
           clipPath='square'
           fontSize='xs'
           size={{ width: '1.2rem', height: '1rem' }}
-          content={number}
+          content={number >= 51 ? `+50` : number}
           align='center'
           background='#F5222D'
         />

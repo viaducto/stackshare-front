@@ -58,7 +58,9 @@ const Security = ({ load }: { load: boolean }) => {
           {load ? (
             <Skeleton width='2rem' />
           ) : (
-            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+            <label htmlFor='MFA'>
+              <Switch id='MFA' color='#1890FF' inputSize='xsmall' defaultChecked />
+            </label>
           )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
@@ -83,7 +85,9 @@ const Security = ({ load }: { load: boolean }) => {
           {load ? (
             <Skeleton width='2rem' />
           ) : (
-            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+            <label htmlFor='dangerous'>
+              <Switch id='dangerous' color='#1890FF' inputSize='xsmall' defaultChecked />
+            </label>
           )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
@@ -110,7 +114,9 @@ const Security = ({ load }: { load: boolean }) => {
           {load ? (
             <Skeleton width='2rem' />
           ) : (
-            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+            <label htmlFor='limit'>
+              <Switch id='limit' color='#1890FF' inputSize='xsmall' defaultChecked />
+            </label>
           )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
@@ -173,32 +179,9 @@ const Security = ({ load }: { load: boolean }) => {
           {load ? (
             <Skeleton width='2rem' />
           ) : (
-            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
-          )}
-          <Hideable visibleOn='sm' after={false}>
-            <Spacer size='md' />
-          </Hideable>
-        </Column>
-      </Row>
-
-      <Spacer size='md' />
-
-      <Row>
-        <Column xl={6} md={10} sm={9} xs={12}>
-          {load ? (
-            <Skeleton width='80%' />
-          ) : (
-            <Paragraph lineHeight='1.375rem'>SAML And SSO Security Off</Paragraph>
-          )}
-        </Column>
-        <Column>
-          <Hideable visibleOn='sm' after={false}>
-            <Spacer size='sm' />
-          </Hideable>
-          {load ? (
-            <Skeleton width='2rem' />
-          ) : (
-            <Switch color='#1890FF' inputSize='xsmall' defaultChecked />
+            <label htmlFor='SAML'>
+              <Switch id='SAML' color='#1890FF' inputSize='xsmall' defaultChecked />
+            </label>
           )}
           <Hideable visibleOn='sm' after={false}>
             <Spacer size='md' />
