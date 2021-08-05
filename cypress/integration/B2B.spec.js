@@ -5,7 +5,7 @@
 
 describe('B2B option', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/b2b');
+    cy.visit('http://138.197.11.134:3000/b2b');
   });
   describe('Simple option', () => {
     it('should change input values', () => {
@@ -14,17 +14,17 @@ describe('B2B option', () => {
     });
   });
   describe('Advanced option', () => {
-    it('open drawer with calendar', () => {
+    it('open popover with data', () => {
       cy.get(`input[type='radio']`)
         .eq(1)
         .click()
+        .wait(1500)
         .then(() => {
-          cy.get('button')
-            .eq(15)
-            .click()
+          cy.contains(/comer/)
+            .click({ force: true })
+            .wait(5)
             .then(() => {
-              cy.contains(/Time preset/g).should('be.visible');
-              cy.get('.input').eq(2).type('Cypress integration test');
+              cy.contains(/March 4, 2021. 4:00 am/g).should('be.visible');
             });
         });
     });

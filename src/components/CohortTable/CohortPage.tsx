@@ -64,6 +64,7 @@ const CohortPage = () => {
       }
       setIndex(sequenceStart + selectedCell.valueIndex);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCell]);
   const handleCellClick = (columnDetails: any) => {
     setSelectedCell(columnDetails);

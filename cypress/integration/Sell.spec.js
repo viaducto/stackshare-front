@@ -3,85 +3,82 @@
 /* eslint-disable no-undef */
 /// <reference types="cypress" />
 
-describe('Sell parameters', () => {
+describe('Simple option', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://138.197.11.134:3000/sell').wait(1500);
+  });
+  it('should change inputs values', () => {
+    cy.get('input').eq(3).type(10, { force: true });
+    cy.get('select')
+      .select('Option')
+      .then(() => {
+        cy.get('input')
+          .eq(3)
+          .invoke('val')
+          .then((value) => {
+            expect(value.toString()).eq('10');
+          });
+        cy.get('input')
+          .eq(4)
+          .invoke('val')
+          .then((value) => {
+            expect(value.toString()).eq('95%');
+          });
+        cy.get('select')
+          .invoke('val')
+          .then((value) => {
+            expect(value).eq('Option');
+          });
+      });
   });
 
-  describe('Simple option', () => {
-    it('should change inputs values', () => {
-      cy.get('input').eq(2).type(10);
-      cy.get('input').eq(3).clear().type(50);
-      cy.get('select')
-        .select('Option')
-        .then(() => {
-          cy.get('input')
-            .eq(2)
-            .invoke('val')
-            .then((value) => {
-              expect(value.toString()).eq('10');
-            });
-          cy.get('input')
-            .eq(3)
-            .invoke('val')
-            .then((value) => {
-              expect(value.toString()).eq('50');
-            });
-          cy.get('select')
-            .invoke('val')
-            .then((value) => {
-              expect(value).eq('Option');
-            });
+  it('should open drawer', () => {
+    cy.get('button')
+      .eq(1)
+      .click()
+      .then(() => {
+        cy.then(() => {
+          cy.contains(/Time preset/g).should('be.visible');
+          cy.get('input').eq(5).type('Cypress testing', { force: true });
         });
+      });
+  });
+});
+
+describe('Advanced option', () => {
+  beforeEach(() => {
+    cy.visit('http://138.197.11.134:3000/sell').wait(1500);
+  });
+
+  it('should change to advanced', () => {
+    cy.contains(/Advanced/g)
+      .click({ force: true })
+      .then(() => {
+        cy.contains(/Prices and availiability/g).should('be.visible');
+      });
+  });
+
+  describe('Calendar', () => {
+    beforeEach(() => {
+      cy.contains(/Advanced/g)
+        .click({ force: true })
+        .wait(1500);
+    });
+    it('should open popover', () => {
+      cy.contains(/Uptime/g)
+        .eq(0)
+        .click({ force: true });
+
+      cy.contains(/Expires by/g).should('be.visible');
     });
 
     it('should open drawer', () => {
       cy.get('button')
-        .eq(1)
-        .click()
+        .eq(3)
+        .click({ force: true })
         .then(() => {
-          cy.then(() => {
-            cy.contains(/Time preset/g).should('be.visible');
-            cy.get('input').eq(4).type('Cypress testing');
-          });
+          cy.contains(/Time preset/g).should('be.visible');
         });
-    });
-  });
-
-  describe('Advanced option', () => {
-    it('should change to advanced', () => {
-      cy.contains(/Advanced/g)
-        .click()
-        .then(() => {
-          cy.contains(/Prices and availiability/g).should('be.visible');
-        });
-    });
-
-    describe('Calendar', () => {
-      const init = cy
-        .contains(/Advanced/g)
-        .click()
-        .then(() => {
-          cy.contains(/Uptime/g)
-            .eq(0)
-            .click();
-        });
-      it('should open popover', () => {
-        init.then(() => {
-          cy.contains(/Expires by/g).should('be.visible');
-        });
-      });
-
-      it('should open drawer', () => {
-        init.then(() => {
-          cy.get('button')
-            .eq(3)
-            .click()
-            .then(() => {
-              cy.contains(/Time preset/g).should('be.visible');
-            });
-        });
-      });
     });
   });
 });

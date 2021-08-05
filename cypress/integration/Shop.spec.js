@@ -6,7 +6,7 @@
 describe('Bytebroker Shop', () => {
   beforeEach(() => {
     cy.viewport(1920, 1080).then(() => {
-      cy.visit('http://localhost:3000/shop');
+      cy.visit('http://138.197.11.134:3000/shop').wait(1500);
     });
   });
 
@@ -32,17 +32,17 @@ describe('Bytebroker Shop', () => {
     it('should open drawer with table', () => {
       cy.get('button')
         .eq(7)
-        .click()
+        .click({ force: true })
         .then(() => {
           cy.contains(/Personal Usage/g).should('be.visible');
-          cy.contains(/Add app/g).click();
+          cy.contains(/Add app/g).click({ force: true });
         });
     });
   });
 
   describe('My apps tab', () => {
     beforeEach(() => {
-      cy.contains(/My apps/g).click();
+      cy.contains(/My apps/g).click({ force: true });
     });
 
     it('should render properly', () => {
@@ -54,60 +54,40 @@ describe('Bytebroker Shop', () => {
     });
 
     it('should open drawer with table', () => {
-      cy.contains(/Edit/g)
-        .click()
-        .then(() => {
-          cy.contains(/App configuration/g).should('be.visible');
-          cy.get('p').eq(164).next().click();
-        });
+      cy.contains(/Edit/g).click({ force: true });
+      cy.contains(/App configuration/g).should('be.visible');
+      cy.get(`input[type='radio']`).eq(5).click({ force: true });
+      cy.contains(/Configure/).click({ force: true });
+      cy.contains(/Configure time window/).should('be.visible');
     });
 
     it('should open caldendar in drawer', () => {
       cy.contains(/Edit/g)
-        .click()
+        .click({ force: true })
         .then(() => {
-          cy.contains(/Configure/g).click();
-        });
-    });
-
-    it('should go to change week in calendar', () => {
-      cy.contains(/Edit/g)
-        .click()
-        .then(() => {
-          cy.contains(/Configure/g)
-            .click()
-            .then(() => {
-              cy.get('button')
-                .eq(20)
-                .click()
-                .click()
-                .click()
-                .then(() => {
-                  cy.contains('SAT').should('be.visible');
-                });
-            });
+          cy.contains(/Configure/g).click({ force: true });
         });
     });
   });
 
   describe('Organization Apps tab', () => {
     beforeEach(() => {
-      cy.contains(/Organization Apps/g).click();
+      cy.contains(/Organization Apps/g).click({ force: true });
     });
 
     it('should change tab in table drawer', () => {
       cy.contains(/Edit/g)
-        .click()
+        .click({ force: true })
         .then(() => {
           cy.contains(/App configuration/g).should('be.visible');
         });
     });
     it('should change input value in second tab', () => {
       cy.contains(/Edit/g)
-        .click()
+        .click({ force: true })
         .then(() => {
           cy.contains(/Group Access/g)
-            .click()
+            .click({ force: true })
             .then(() => {
               cy.get('.input').eq(1).type('Cypress testing is fun');
             });

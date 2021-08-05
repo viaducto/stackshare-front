@@ -5,7 +5,7 @@
 
 describe('Menu Test', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://138.197.11.134:3000/');
   });
 
   it('should render properly', () => {
@@ -34,15 +34,13 @@ describe('Menu Test', () => {
   });
 
   it('should hide and show the menu', () => {
-    cy.get('.bare-button')
-      .click()
-      .then(() => {
-        cy.contains(/Graphs/g).should('not.be.visible');
-        cy.get('.bare-button')
-          .click()
-          .then(() => {
-            cy.contains(/Graphs/g).should('be.visible');
-          });
-      });
+    const icon = cy.get('.bare-button').eq(0).click({ force: true });
+
+    icon.then(() => {
+      cy.contains(/Graphs/g).should('be.visible');
+    });
+    icon.then(() => {
+      cy.contains(/Graphs/g).should('not.be.visible');
+    });
   });
 });

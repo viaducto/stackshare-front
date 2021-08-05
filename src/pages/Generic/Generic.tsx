@@ -11,27 +11,23 @@ const Generic = ({ path }: { path?: string }) => {
   return (
     <BodyContent>
       <BodyMain>
-        <div className='overflow'>
-          <Container vertical='lg' style={{ height: '80vh', overflow: 'auto' }}>
-            <Container
-              vertical='sm'
-              style={{ display: 'flex', justifyContent: 'center' }}
-              expandHorizontal
-            >
-              <Title
-                style={{ cursor: 'pointer' }}
-                align='center'
-                onClick={() => (window.location.href = '/')}
-                color='primary'
-              >
-                app.stackshare.co
-              </Title>
-              <Title align='center'>{uri}</Title>
-            </Container>
+        <Container
+          vertical='sm'
+          style={{ display: 'flex', justifyContent: 'center' }}
+          expandHorizontal
+        >
+          <Title
+            style={{ cursor: 'pointer' }}
+            align='center'
+            onClick={() => (window.location.href = '/')}
+            color='primary'
+          >
+            app.stackshare.co
+          </Title>
+          <Title align='center'>{uri}</Title>
+        </Container>
 
-            {redirection(path || location)}
-          </Container>
-        </div>
+        {redirection(path || location)}
       </BodyMain>
     </BodyContent>
   );
