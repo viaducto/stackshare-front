@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom/';
 import { AppProvider, StackShareThemeProvider } from './providers';
 import { ConfigProvider } from '@jp-olvera/jp-viaducto-components';
@@ -25,4 +25,4 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
 export * from '@testing-library/react';
 
 // override render method
-export { customRender as render, axe };
+export { customRender as render };
