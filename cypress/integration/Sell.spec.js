@@ -5,7 +5,7 @@
 
 describe('Simple option', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/sell').wait(1500);
+    cy.visit('http://138.197.11.134:3000/sell').then(() => wait(1500));
   });
   it('should change inputs values', () => {
     cy.get('input').eq(3).type(10, { force: true });
@@ -47,7 +47,7 @@ describe('Simple option', () => {
 
 describe('Advanced option', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/sell').wait(1500);
+    cy.visit('http://138.197.11.134:3000/sell').then(() => wait(1500));
   });
 
   it('should change to advanced', () => {
@@ -62,7 +62,7 @@ describe('Advanced option', () => {
     beforeEach(() => {
       cy.contains(/Advanced/g)
         .click({ force: true })
-        .wait(1500);
+        .then(() => wait(1500));
     });
     it('should open popover', () => {
       cy.contains(/Uptime/g)

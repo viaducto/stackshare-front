@@ -5,7 +5,7 @@
 
 describe('Testing resize props', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/').wait(1500);
+    cy.visit('http://138.197.11.134:3000/').then(() => wait(1500));
   });
   it('should render top navbar', () => {
     cy.contains(/Ted Russell/).should('be.visible');
@@ -37,7 +37,7 @@ describe('Testing resize props', () => {
 
 describe('Testing sidebar when resize', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/').wait(1500);
+    cy.visit('http://138.197.11.134:3000/').then(() => wait(1500));
   });
   it('should render open sidebar', () => {
     cy.contains(/Auctions/).should('be.visible');
@@ -58,7 +58,7 @@ describe('Testing sidebar when resize', () => {
 
 describe('Testing notifications', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/').wait(1500);
+    cy.visit('http://138.197.11.134:3000/').then(() => wait(1500));
   });
   it('should delete notifications', () => {
     cy.get('.notification')

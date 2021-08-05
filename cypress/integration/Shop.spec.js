@@ -6,7 +6,7 @@
 describe('Bytebroker Shop', () => {
   beforeEach(() => {
     cy.viewport(1920, 1080).then(() => {
-      cy.visit('http://138.197.11.134:3000/shop').wait(1500);
+      cy.visit('http://138.197.11.134:3000/shop').then(() => wait(1500));
     });
   });
 

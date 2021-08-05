@@ -6,7 +6,7 @@
 describe('Testing Location Management', () => {
   beforeEach(() => {
     cy.viewport(550, 739).then(() => {
-      cy.visit('http://138.197.11.134:3000/location-management').wait(1500);
+      cy.visit('http://138.197.11.134:3000/location-management').then(() => wait(1500));
     });
   });
 

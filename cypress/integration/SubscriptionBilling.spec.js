@@ -5,7 +5,7 @@
 
 describe('Subscription and Billing', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/profile/billing').wait(1500);
+    cy.visit('http://138.197.11.134:3000/profile/billing').then(() => wait(1500));
   });
   it('should enable inputs', () => {
     cy.get('input').eq(3).should('have.attr', 'readonly');

@@ -5,7 +5,7 @@
 
 describe('Testing dark mode', () => {
   beforeEach(() => {
-    cy.visit('http://138.197.11.134:3000/').wait(1500);
+    cy.visit('http://138.197.11.134:3000/').then(() => wait(1500));
   });
   it('should change to dark mode', () => {
     cy.get('div').eq(4).should('have.css', 'background-color', 'rgb(255, 255, 255)');
