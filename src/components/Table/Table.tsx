@@ -45,6 +45,7 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }: any) => {
   return (
     <Input
       label='Search'
+      id='table-search'
       icon={<Search />}
       iconColor={dark}
       inputSize='small'

@@ -47,7 +47,7 @@ const BiddingTelco = () => {
       </HeaderSell>
 
       {/* Body */}
-      <div style={{ width: '100%' }}>
+      <Container expandHorizontal expandVertical>
         <BodyMain className='overflow'>
           <Container expandHorizontal style={{ height: '100%' }} className='overflow'>
             <SellParameters
@@ -59,7 +59,7 @@ const BiddingTelco = () => {
             />
           </Container>
         </BodyMain>
-      </div>
+      </Container>
 
       <Drawer active={open} onClose={handleOpen} size='lg'>
         <div style={{ height: '100%', overflow: 'auto' }}>

@@ -34,7 +34,10 @@ export const StyledIcon = styled.div<any>`
       top: 0.063rem;
     }
     &:nth-child(2) {
-      top: 0.45rem;
+      top: 0.4rem;
+      @media (min-width: ${(p) => p.configuration.breakpoints.sm}) {
+        top: 0.45rem;
+      }
     }
     &:nth-child(3) {
       top: 0.8rem;
