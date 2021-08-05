@@ -17,7 +17,7 @@ import BillingSubscriptions from './pages/BillingSubscriptions/BillingSubscripti
 import { ConfigContext, Hideable } from '@jp-olvera/jp-viaducto-components';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import React from 'react';
-import CohortTable from './components/CohortTable/CohortTable';
+import CohortPage from './components/CohortTable/CohortPage';
 
 function App() {
   const { configuration } = React.useContext(ConfigContext);
@@ -95,7 +95,7 @@ function App() {
                     <BiddingTelco />
                   </Route>
                   <Route path='/cohort' exact>
-                    <CohortTable />
+                    <CohortPage />
                   </Route>
                   <Route path='/'>
                     <Generic />
