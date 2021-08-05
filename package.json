@@ -51,11 +51,13 @@
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^1.6.0",
+    "@types/jest-axe": "^3.5.2",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-table": "^7.7.1",
     "@types/react-vis": "^1.11.6",
     "@types/styled-components": "^5.1.10",
     "cypress": "^7.6.0",
+    "jest-axe": "^5.0.1",
     "prettier": "^2.3.1"
   }
 }
