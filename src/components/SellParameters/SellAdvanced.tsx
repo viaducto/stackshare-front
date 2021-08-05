@@ -25,7 +25,7 @@ const SellAdvanced = ({ load }: { load: boolean }) => {
           {load ? (
             <Skeleton width='6rem' />
           ) : (
-            <Paragraph lineHeight='1.375rem' weight='600'>
+            <Paragraph lineHeight='1.375rem' weight='600' id='mb-price'>
               Default Mb price
             </Paragraph>
           )}
@@ -45,6 +45,7 @@ const SellAdvanced = ({ load }: { load: boolean }) => {
               min={0}
               defaultValue={0}
               icon={<Dolar color={dark} />}
+              aria-labelledby='mb-price'
             />
           )}
         </Column>
@@ -104,7 +105,7 @@ const SellAdvanced = ({ load }: { load: boolean }) => {
           {load ? (
             <Skeleton width='6rem' />
           ) : (
-            <Paragraph lineHeight='1.375rem' weight='600'>
+            <Paragraph lineHeight='1.375rem' weight='600' id='infractrusture-bandwith'>
               Infractrusture bandwith cap
             </Paragraph>
           )}
@@ -130,6 +131,7 @@ const SellAdvanced = ({ load }: { load: boolean }) => {
             <Skeleton />
           ) : (
             <Input
+              aria-labelledby='infractrusture-bandwith'
               type='number'
               inputSize='small'
               border='outside'

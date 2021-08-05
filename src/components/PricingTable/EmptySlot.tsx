@@ -37,7 +37,7 @@ const EmptySlot = () => {
 
   return (
     <>
-      <StyledButton type='button' onClick={showDrawer}></StyledButton>
+      <StyledButton type='button' onClick={showDrawer} aria-label='available slot'></StyledButton>
       <Drawer active={activeDrawer} onClose={onCloseDrawer}>
         <Grid expanded className='border-bottom'>
           <Row>

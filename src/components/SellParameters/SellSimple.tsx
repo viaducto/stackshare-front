@@ -38,7 +38,7 @@ const SellSimple = ({
                 {load ? (
                   <Skeleton width='35%' />
                 ) : (
-                  <Paragraph lineHeight='1.375rem' weight='600'>
+                  <Paragraph lineHeight='1.375rem' weight='600' id='mb-price'>
                     {!b2b ? 'Default Mb price' : 'Minimum ask per Mb/s'}
                   </Paragraph>
                 )}
@@ -60,6 +60,7 @@ const SellSimple = ({
                     min={0}
                     iconColor={dark}
                     icon={<Dolar />}
+                    aria-labelledby='mb-price'
                   />
                 )}
               </Column>
@@ -74,7 +75,7 @@ const SellSimple = ({
                 {load ? (
                   <Skeleton width='35%' />
                 ) : (
-                  <Paragraph lineHeight='70%' weight='600'>
+                  <Paragraph lineHeight='70%' weight='600' id='infractrusture-bandwith'>
                     Infractrusture bandwith cap
                   </Paragraph>
                 )}
@@ -124,6 +125,7 @@ const SellSimple = ({
                         setValue(val.toString() + '%');
                       }
                     }}
+                    aria-labelledby='infractrusture-bandwith'
                   />
                 )}
               </Column>
