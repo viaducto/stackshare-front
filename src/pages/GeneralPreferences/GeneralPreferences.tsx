@@ -64,12 +64,13 @@ const GeneralPreferences = () => {
           />
         </GroupTab>
       </HeaderSell>
-      <div style={{ height: '75vh', overflow: 'auto' }}>
-        <Grid expanded style={{ background: 'transparent' }}>
+      
+        <Container top='md'>
+          <Grid expanded style={{ background: 'transparent' }}>
           <Row>
             <Column lg={tab === 1 ? 6 : 8} md={12} sm={12} xs={12}>
               <BodyMain horizontal='none' style={{ overflow: 'auto' }} expandVertical>
-                <Container vertical='md' style={{ overflow: 'hidden' }}>
+                  <Container vertical='md' style={{ overflow: 'hidden' }}>
                   {tab === 0 && <Overview load={load} />}
                   {tab === 1 && <Security load={load} />}
                   {tab === 2 && <BrandLocalization load={load} />}
@@ -96,8 +97,9 @@ const GeneralPreferences = () => {
             </Column>
           </Row>
         </Grid>
+        </Container>
         <Spacer size='lg' />
-      </div>
+      
     </BodyContent>
   );
 };
