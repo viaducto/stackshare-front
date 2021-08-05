@@ -75,7 +75,15 @@ const BillingManager = ({ load }: { load: boolean }) => {
                 {load ? (
                   <Skeleton width='2rem' />
                 ) : (
-                  <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+                  <label htmlFor='permission_UpgradePlan'>
+                    <Switch
+                      id='permission_UpgradePlan'
+                      inputSize='xsmall'
+                      circular={false}
+                      defaultChecked
+                      color='#1890FF'
+                    />
+                  </label>
                 )}
               </Column>
             </Row>
@@ -91,7 +99,15 @@ const BillingManager = ({ load }: { load: boolean }) => {
                 {load ? (
                   <Skeleton width='2rem' />
                 ) : (
-                  <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+                  <label htmlFor='permission_DowngradePlan'>
+                    <Switch
+                      id='permission_DowngradePlan'
+                      inputSize='xsmall'
+                      circular={false}
+                      defaultChecked
+                      color='#1890FF'
+                    />
+                  </label>
                 )}
               </Column>
             </Row>
@@ -107,7 +123,15 @@ const BillingManager = ({ load }: { load: boolean }) => {
                 {load ? (
                   <Skeleton width='2rem' />
                 ) : (
-                  <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+                  <label htmlFor='permission_Billing'>
+                    <Switch
+                      id='permission_Billing'
+                      inputSize='xsmall'
+                      circular={false}
+                      defaultChecked
+                      color='#1890FF'
+                    />
+                  </label>
                 )}
               </Column>
             </Row>
@@ -123,7 +147,15 @@ const BillingManager = ({ load }: { load: boolean }) => {
                 {load ? (
                   <Skeleton width='2rem' />
                 ) : (
-                  <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+                  <label htmlFor='permission_Invoices'>
+                    <Switch
+                      id='permission_Invoices'
+                      inputSize='xsmall'
+                      circular={false}
+                      defaultChecked
+                      color='#1890FF'
+                    />
+                  </label>
                 )}
               </Column>
             </Row>
@@ -135,7 +167,15 @@ const BillingManager = ({ load }: { load: boolean }) => {
                 {load ? (
                   <Skeleton width='2rem' />
                 ) : (
-                  <Switch inputSize='xsmall' circular={false} defaultChecked color='#1890FF' />
+                  <label htmlFor='permissions'>
+                    <Switch
+                      id='permissions'
+                      inputSize='xsmall'
+                      circular={false}
+                      defaultChecked
+                      color='#1890FF'
+                    />
+                  </label>
                 )}
               </Column>
             </Row>

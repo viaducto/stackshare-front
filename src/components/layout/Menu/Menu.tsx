@@ -171,7 +171,14 @@ const StackMenu = () => {
           <MenuTitle title='Dark mode' />
         </div>
         <Container left='sm'>
-          <Switch change={setDarkMode} defaultChecked={isDarkMode} inputSize={'xsmall'} />
+          <label htmlFor='darkMode'>
+            <Switch
+              id='darkMode'
+              change={setDarkMode}
+              defaultChecked={isDarkMode}
+              inputSize={'xsmall'}
+            />
+          </label>
         </Container>
       </Container>
     </StyledStackMenu>

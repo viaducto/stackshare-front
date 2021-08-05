@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledBodyContent = styled.div`
-  overflow-y: auto;
+  /* overflow-y: auto; */
   box-sizing: border-box;
   height: 100%;
 `;

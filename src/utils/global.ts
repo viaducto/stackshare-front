@@ -155,6 +155,7 @@ export const GlobalStyle: any = createGlobalStyle`
     &:after {
       border-color: transparent;
       background: linear-gradient(270deg,rgba(217, 217, 217, 1) 0%,rgba(255, 255, 255, 0) 100%);
+      -webkit-background-clip: border-box;
       background-clip: border-box;
       border: inherit;
       content: '';

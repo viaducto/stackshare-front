@@ -5,6 +5,8 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   background-color: ${(p) => p.theme.secondaryBackground} !important;
   width: 100%;
+  overflow-y: auto;
+  height: 80vh;
 `;
 const Div = styled.div`
   background-color: ${(p) => p.theme.mainBackground};

@@ -12,7 +12,7 @@ import {
   Drawer,
 } from '@jp-olvera/jp-viaducto-components';
 import styled from 'styled-components';
-import { Help, ChevronDown, Search, User, Cart, ArrowDown } from 'react-ikonate';
+import { Help, ChevronDown, User, ArrowDown } from 'react-ikonate';
 import { AppContext } from '../../../providers';
 import Notification from './Notification';
 import { Icon } from '../../Icon';
@@ -49,13 +49,21 @@ const Navbar = () => {
   const { dark } = configuration.colors.text;
   const { offset } = useWindowResize();
   const avatarRef = useRef(null);
+  const notificationRef = useRef(null);
   const [dropActive, setDropActive] = useState(false);
+  const [notification, setNotification] = useState(false);
+  const [number, setNumber] = useState(1);
   const handleDropActive = () => {
     setDropActive((d) => !d);
   };
+  const handleNotification = () => {
+    setNotification((d) => !d);
+  };
   useEffect(() => {
+    setNumber(Math.floor(Math.random() * (99 - 1)) + 1);
     if (offset) {
       setDropActive(false);
+      setNotification(false);
     }
   }, [offset]);
   return (
@@ -85,7 +93,13 @@ const Navbar = () => {
                 </button>
                 <div className='user-navbar'>
                   <Help fontSize='1.5rem' color={dark} />
-                  <Notification number={12} />
+                  <div
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleNotification}
+                    ref={notificationRef}
+                  >
+                    <Notification number={number} />
+                  </div>
                   <div
                     onClick={handleDropActive}
                     ref={avatarRef}
@@ -112,6 +126,13 @@ const Navbar = () => {
                     active={dropActive}
                     target={avatarRef}
                     handleClose={handleDropActive}
+                  />
+                  <NotificationDropdown
+                    active={notification}
+                    target={notificationRef}
+                    handleClose={handleNotification}
+                    setNumber={setNumber}
+                    number={number}
                   />
                 </div>
               </div>
@@ -142,10 +163,15 @@ export const MobileNavbar = () => {
   const { configuration } = useContext(ConfigContext);
   const { dark } = configuration.colors.text;
   const [isDrawerActive, setIsDrawerActive] = useState(false);
+  const [notification, setNotification] = useState(false);
   const { offset } = useWindowResize();
+  const [number, setNumber] = useState(1);
+
   useEffect(() => {
+    setNumber(Math.floor(Math.random() * (99 - 1)) + 1);
     if (!offset) {
       setIsDrawerActive(false);
+      setNotification(false);
     }
   }, [offset]);
 
@@ -168,7 +194,15 @@ export const MobileNavbar = () => {
         </Container>
       </button>
       <button className='bare-button'>
-        <Search fontSize='1.5rem' color={dark} />
+        <Help fontSize='1.5rem' color={dark} />
+      </button>
+      <button
+        className='bare-button'
+        onClick={() => {
+          setNotification(!notification);
+        }}
+      >
+        <Notification number={number} />
       </button>
       <button
         className='bare-button'
@@ -178,9 +212,21 @@ export const MobileNavbar = () => {
       >
         <User fontSize='1.5rem' color={dark} />
       </button>
-      <button className='bare-button'>
-        <Cart fontSize='1.5rem' color={dark} />
-      </button>
+      <Drawer
+        onClose={() => {
+          setNotification(!notification);
+        }}
+        active={notification}
+        placement='bottom'
+      >
+        <NotificationDropContent
+          handleClose={() => {
+            setNotification(!notification);
+          }}
+          setNumber={setNumber}
+          number={number}
+        />
+      </Drawer>
       <Drawer
         onClose={() => {
           setIsDrawerActive(!isDrawerActive);
@@ -232,6 +278,61 @@ export const ProfileDropDown = ({
     }
   />
 );
+
+export const NotificationDropdown = ({
+  active,
+  handleClose,
+  setNumber,
+  number,
+  target,
+}: {
+  active: boolean;
+  handleClose: () => void;
+  number: number;
+  setNumber: (number: number) => void;
+  target: any;
+}) => (
+  <Popover
+    active={active}
+    handleClose={handleClose}
+    target={target}
+    zIndex={5}
+    content={
+      <div style={{ width: '200px' }}>
+        <NotificationDropContent handleClose={handleClose} setNumber={setNumber} number={number} />
+      </div>
+    }
+  />
+);
+
+const NotificationDropContent = ({
+  handleClose,
+  setNumber,
+  number,
+}: {
+  handleClose: () => void;
+  number: number;
+  setNumber: (number: number) => void;
+}) =>
+  number > 0 ? (
+    <Button
+      label='Delete all'
+      onClick={() => {
+        setNumber(0);
+        handleClose();
+      }}
+      variant='ghost'
+      radius='none'
+      shapeColor='danger'
+      block
+    />
+  ) : (
+    <Container vertical='sm'>
+      <Paragraph size='sm' align='center' fontStyle='italic' color='gray'>
+        Is empty here
+      </Paragraph>
+    </Container>
+  );
 
 const ProfileDropContent = ({ handleClose }: { handleClose: () => void }) => {
   return (
