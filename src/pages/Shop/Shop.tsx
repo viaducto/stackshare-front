@@ -33,7 +33,7 @@ const Shop = () => {
   const [configuration, setConfiguration] = useState(0);
   const [activeTooltip, setActiveTooltip] = useState(false);
   const [appName, setAppName] = useState('App name');
-  const { load, setLoad } = useLoading();
+  const { load } = useLoading();
 
   return (
     <BodyContent>
@@ -49,11 +49,11 @@ const Shop = () => {
         <GroupTab fontSize='lg' spacing='md' horizontalSpacing='none'>
           <Tab
             onFocus={() => {
-              setLoad(true);
+              // setLoad(true);
               setTab(0);
-              setTimeout(() => {
-                setLoad(false);
-              }, 1500);
+              // setTimeout(() => {
+              //   setLoad(false);
+              // }, 1500);
             }}
             text='Store'
             id='store'
@@ -61,11 +61,11 @@ const Shop = () => {
           />
           <Tab
             onFocus={() => {
-              setLoad(true);
+              // setLoad(true);
               setTab(1);
-              setTimeout(() => {
-                setLoad(false);
-              }, 1500);
+              // setTimeout(() => {
+              //   setLoad(false);
+              // }, 1500);
             }}
             text='My apps'
             id='apps'
@@ -73,11 +73,11 @@ const Shop = () => {
           />
           <Tab
             onFocus={() => {
-              setLoad(true);
+              // setLoad(true);
               setTab(2);
-              setTimeout(() => {
-                setLoad(false);
-              }, 1500);
+              // setTimeout(() => {
+              //   setLoad(false);
+              // }, 1500);
             }}
             text='Organization Apps'
             id='org_apps'

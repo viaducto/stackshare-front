@@ -13,12 +13,12 @@ const BiddingB2B = () => {
   };
   const handleSimple = () => {
     setSimple(!simple);
-    setLoad(true);
-    setTimeout(() => {
-      setLoad(false);
-    }, 1500);
+    // setLoad(true);
+    // setTimeout(() => {
+    //   setLoad(false);
+    // }, 1500);
   };
-  const { load, setLoad } = useLoading();
+  const { load } = useLoading();
   return (
     <BodyContent>
       {/* Header */}

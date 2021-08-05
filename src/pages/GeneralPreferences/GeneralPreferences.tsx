@@ -23,7 +23,7 @@ import { useContext } from 'react';
 
 const GeneralPreferences = () => {
   const [tab, setTab] = useState<number>(0);
-  const { load, setLoad } = useLoading();
+  const { load } = useLoading();
   const {
     configuration: { colors },
   } = useContext(ConfigContext);
@@ -41,31 +41,31 @@ const GeneralPreferences = () => {
           <Tab
             text='Overview'
             onFocus={() => {
-              setLoad(true);
+              // setLoad(true);
               setTab(0);
-              setTimeout(() => {
-                setLoad(false);
-              }, 1500);
+              // setTimeout(() => {
+              //   setLoad(false);
+              // }, 1500);
             }}
           />
           <Tab
             text='Security'
             onFocus={() => {
-              setLoad(true);
+              // setLoad(true);
               setTab(1);
-              setTimeout(() => {
-                setLoad(false);
-              }, 1500);
+              // setTimeout(() => {
+              //   setLoad(false);
+              // }, 1500);
             }}
           />
           <Tab
             text='Brand Localization'
             onFocus={() => {
-              setLoad(true);
+              // setLoad(true);
               setTab(2);
-              setTimeout(() => {
-                setLoad(false);
-              }, 1500);
+              // setTimeout(() => {
+              //   setLoad(false);
+              // }, 1500);
             }}
           />
         </GroupTab>

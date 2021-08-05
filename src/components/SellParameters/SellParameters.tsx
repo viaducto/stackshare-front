@@ -8,7 +8,7 @@ const SellParameters = ({
   setSimple,
   handleOpen,
   b2b = false,
-  load = true,
+  load = false,
 }: {
   simple: boolean;
   b2b: boolean;
