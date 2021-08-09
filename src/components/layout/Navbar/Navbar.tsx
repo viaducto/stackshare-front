@@ -96,16 +96,28 @@ const Navbar = () => {
                   <div
                     style={{ cursor: 'pointer' }}
                     onClick={handleNotification}
+                    onKeyUp={(ev) => {
+                      if (ev.key === 'Enter') {
+                        handleNotification();
+                      }
+                    }}
                     ref={notificationRef}
+                    tabIndex={0}
                   >
                     <Notification number={number} />
                   </div>
                   <div
                     onClick={handleDropActive}
+                    onKeyUp={(ev) => {
+                      if (ev.key === 'Enter') {
+                        handleDropActive();
+                      }
+                    }}
                     ref={avatarRef}
                     style={{
                       cursor: 'pointer',
                     }}
+                    tabIndex={0}
                   >
                     <AvatarWithText
                       avatar={{
@@ -249,6 +261,7 @@ export const MobileNavbar = () => {
           onClick={() => {
             setIsDrawerActive(!isDrawerActive);
           }}
+          aria-label='Close user options'
         />
       </Drawer>
     </StyledMobileNavbar>

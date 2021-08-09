@@ -361,6 +361,7 @@ const Table = ({
                     disabled={!canPreviousPage}
                     variant='outline'
                     height='2.063rem'
+                    aria-label='Go to start of table'
                   />
                   <Button
                     leftSpacing='sm'
@@ -372,6 +373,7 @@ const Table = ({
                     disabled={!canPreviousPage}
                     variant='outline'
                     height='2.063rem'
+                    aria-label='Go to previous page'
                   />
                   <Button
                     leftSpacing='sm'
@@ -383,6 +385,7 @@ const Table = ({
                     variant='outline'
                     height='2.063rem'
                     icon={<ChevronRight color={dark} />}
+                    aria-label='Go to next page'
                   />
                   <Button
                     leftSpacing='sm'
@@ -394,6 +397,7 @@ const Table = ({
                     disabled={!canNextPage}
                     variant='outline'
                     height='2.063rem'
+                    aria-label='Go to end of table'
                   />
                 </div>
               </td>

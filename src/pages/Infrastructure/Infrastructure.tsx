@@ -84,15 +84,16 @@ const Infrastructure = () => {
                   <Skeleton width='2rem' height='2rem' />
                 ) : (
                   <Button
-                    leftSpacing='sm'
-                    iconSpacing='none'
-                    rightSpacing='sm'
-                    icon={<EllypsisVertical color={dark} fontSize='1rem' />}
-                    type='button'
-                    onClick={() => {}}
-                    variant='outline'
+                    aria-label='Group actions'
                     height='2.063rem'
+                    icon={<EllypsisVertical color={dark} fontSize='1rem' />}
+                    iconSpacing='none'
+                    leftSpacing='sm'
+                    onClick={() => {}}
+                    rightSpacing='sm'
                     size='small'
+                    type='button'
+                    variant='outline'
                   />
                 )}
               </div>

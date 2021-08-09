@@ -27,7 +27,7 @@ const SellParameters = ({
           <div className='flex' style={{ flexWrap: 'wrap' }}>
             <Radio
               radioSize='sm'
-              name='princig'
+              name='pricing'
               label='Simple'
               spacing='sm'
               color='#1890FF'
@@ -41,7 +41,7 @@ const SellParameters = ({
             </Hideable>
             <Radio
               radioSize='sm'
-              name='princig'
+              name='pricing'
               label='Advanced'
               spacing='sm'
               color='#1890FF'

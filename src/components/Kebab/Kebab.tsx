@@ -26,6 +26,7 @@ const Kebab = ({ children, ...rest }: { children: React.ReactNode }) => {
         height='30px'
         style={{ color: '#595959' }}
         shapeColor='secondary'
+        aria-label='row options'
       />
       <Popover
         target={ref}

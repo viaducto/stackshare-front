@@ -144,6 +144,7 @@ const PricingTable = ({
             onClick={() => {
               handleChangeWeek(false);
             }}
+            aria-label='Go one week before'
           />
           <Spacer size='sm' direction='horizontal' />
           <Button
@@ -152,6 +153,7 @@ const PricingTable = ({
             onClick={() => {
               handleChangeWeek();
             }}
+            aria-label='Go one week after'
           />
         </div>
       </div>

@@ -130,35 +130,35 @@ const StackMenu = () => {
         <SidebarSection title='Viaducto Technologies' isMenu>
           <Container bottom='md' className='border-bottom'>
             <MenuTitle title='MENU' />
-            <MenuItem label='Applications' />
-            <MenuItem label='Devices' />
+            <MenuItem label='Applications' href='#' />
+            <MenuItem label='Devices' href='#' />
           </Container>
           <SecondaryBackground>
             <Container>
               <MenuTitle title='SUBSCRIPTIONS AND BILLING' />
-              <MenuItem label='Stackshop' />
-              <MenuItem label='Billing Management' />
+              <MenuItem href='#' label='Stackshop' />
+              <MenuItem href='#' label='Billing Management' />
               <Container horizontal='sm' top='sm'>
                 <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
               </Container>
               <MenuTitle title='HARDWARE MANAGEMENT' />
-              <MenuItem label='End User Devices' />
-              <MenuItem label='Infrastructure Devices' />
+              <MenuItem href='#' label='End User Devices' />
+              <MenuItem href='#' label='Infrastructure Devices' />
               <Container horizontal='sm' top='sm'>
                 <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
               </Container>
               <MenuTitle title='BYTEBROKER' />
-              <MenuItem label='Metrics' />
-              <MenuItem label='Sell Parameters' />
-              <MenuItem label='Buy Parameters' />
+              <MenuItem href='#' label='Metrics' />
+              <MenuItem href='#' label='Sell Parameters' />
+              <MenuItem href='#' label='Buy Parameters' />
               <Container horizontal='sm' top='sm'>
                 <div className='border-bottom' style={{ width: '100%', height: '1px' }}></div>
               </Container>
               <MenuTitle title='ORGANIZATION MANAGEMENT' />
-              <MenuItem label='Users' />
-              <MenuItem label='Access Groups' />
-              <MenuItem label='Roles and Permissions' />
-              <MenuItem label='Audit Logs' />
+              <MenuItem href='#' label='Users' />
+              <MenuItem href='#' label='Access Groups' />
+              <MenuItem href='#' label='Roles and Permissions' />
+              <MenuItem href='#' label='Audit Logs' />
             </Container>
           </SecondaryBackground>
         </SidebarSection>

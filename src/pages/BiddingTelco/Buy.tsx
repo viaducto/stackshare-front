@@ -110,6 +110,7 @@ const Buy = () => {
                             <Skeleton width='2.2rem' height='2rem' />
                           ) : (
                             <Button
+                              aria-label='group actions'
                               leftSpacing='sm'
                               iconSpacing='none'
                               rightSpacing='sm'
