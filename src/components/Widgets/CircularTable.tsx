@@ -9,8 +9,30 @@ interface CTI extends React.HTMLAttributes<HTMLDivElement> {
   link?: { label?: string; href?: string; icon?: any };
   description?: string;
   additional?: any;
-  verticalSpacing?: string;
-  horizontalSpacing?: string;
+  verticalSpacing?:
+    | 'none'
+    | 'nano'
+    | 'micro'
+    | 'tiny'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl';
+  horizontalSpacing?:
+    | 'none'
+    | 'nano'
+    | 'micro'
+    | 'tiny'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl';
 }
 
 const CircularTable = ({

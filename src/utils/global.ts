@@ -213,4 +213,18 @@ export const GlobalStyle: any = createGlobalStyle`
     }
   }
 
+  .animated-show{
+    transition: transform .2s ease;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .animated-hide{
+    transition: .3s ease;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transform: translateX(100%);
+  }
+
 `;

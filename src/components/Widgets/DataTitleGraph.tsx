@@ -14,7 +14,18 @@ interface DTGI extends React.HTMLAttributes<HTMLDivElement> {
   percent: number;
   icon?: any;
   textColor?: string;
-  verticalSpacing?: string;
+  verticalSpacing?:
+    | 'none'
+    | 'nano'
+    | 'micro'
+    | 'tiny'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl';
 }
 
 const DataTitleGraph = ({

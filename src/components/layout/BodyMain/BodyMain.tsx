@@ -13,7 +13,7 @@ const Div = styled.div`
 `;
 const BodyMain = ({
   children,
-  horizontal,
+  horizontal = 'none',
   expandVertical,
   ...rest
 }: BodyMainProps & React.HTMLAttributes<HTMLDivElement>) => {
@@ -32,7 +32,19 @@ const BodyMain = ({
 };
 interface BodyMainProps {
   children: any;
-  horizontal?: string;
+  horizontal?:
+    | null
+    | 'none'
+    | 'nano'
+    | 'micro'
+    | 'tiny'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl';
   expandVertical?: boolean;
 }
 export default BodyMain;

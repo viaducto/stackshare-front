@@ -14,7 +14,18 @@ interface GPI extends React.HTMLAttributes<HTMLDivElement> {
   percent: number;
   link?: { label?: string; href?: string; icon?: any };
   description?: string;
-  verticalSpacing?: string;
+  verticalSpacing?:
+    | 'none'
+    | 'nano'
+    | 'micro'
+    | 'tiny'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl';
   textColor?: string;
 }
 

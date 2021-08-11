@@ -20,7 +20,7 @@ const Logo = ({ title = true }: LogoI) => {
       {title && (
         <>
           <Spacer size='nano' direction='horizontal' />
-          <Title level={offset ? 'd4' : '4'} weight='600'>
+          <Title level={offset ? 'D4' : '4'} weight='600'>
             Stackshare
           </Title>
         </>

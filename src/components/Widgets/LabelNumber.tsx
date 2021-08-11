@@ -10,7 +10,7 @@ import {
 interface LabelI extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   description?: string;
-  spacing?: string;
+  spacing?: 'none' | 'nano' | 'micro' | 'tiny' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
   number?: number;
   shapeColor?: string;
   backgroundColor?: string;

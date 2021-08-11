@@ -18,6 +18,7 @@ import Notification from './Notification';
 import { Icon } from '../../Icon';
 import { useWindowResize } from '../../../hooks/useWindowSize';
 import { useEffect } from 'react';
+import NotificationData from './NotificationData';
 
 const StyledNavbar = styled.nav`
   position: sticky;
@@ -60,7 +61,7 @@ const Navbar = () => {
     setNotification((d) => !d);
   };
   useEffect(() => {
-    setNumber(Math.floor(Math.random() * (99 - 1)) + 1);
+    setNumber(Math.floor(Math.random() * (5 - 1)) + 1);
     if (offset) {
       setDropActive(false);
       setNotification(false);
@@ -311,7 +312,7 @@ export const NotificationDropdown = ({
     target={target}
     zIndex={5}
     content={
-      <div style={{ width: '200px' }}>
+      <div style={{ width: '300px' }}>
         <NotificationDropContent handleClose={handleClose} setNumber={setNumber} number={number} />
       </div>
     }
@@ -328,17 +329,7 @@ const NotificationDropContent = ({
   setNumber: (number: number) => void;
 }) =>
   number > 0 ? (
-    <Button
-      label='Delete all'
-      onClick={() => {
-        setNumber(0);
-        handleClose();
-      }}
-      variant='ghost'
-      radius='none'
-      shapeColor='danger'
-      block
-    />
+    <NotificationData number={number} setNumber={setNumber} />
   ) : (
     <Container vertical='sm'>
       <Paragraph size='sm' align='center' fontStyle='italic' color='gray'>
