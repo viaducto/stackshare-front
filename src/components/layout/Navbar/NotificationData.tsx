@@ -67,7 +67,7 @@ const notifications: NotificationsInterfaceProps[] = [
     time: days,
     description: (
       <Paragraph size='xs' color='warning' weight='bold'>
-        Were you trying to login from IPhone?
+        Login from IPhone
       </Paragraph>
     ),
   },
@@ -95,7 +95,7 @@ const NotificationData = ({ number, setNumber }: { number: number; setNumber: Fu
   const [itemsShowed] = useState(number || 0);
 
   return (
-    <Container expandHorizontal vertical='sm' tabIndex={0}>
+    <Container expandHorizontal vertical='sm' tabIndex={0} style={{ overflowX: 'hidden' }}>
       {data.map(
         (items: NotificationsInterfaceProps, index: number) =>
           index < itemsShowed &&
@@ -109,7 +109,7 @@ const NotificationData = ({ number, setNumber }: { number: number; setNumber: Fu
                     setHide({ index: -1, hide: false });
                     setNotification((before) => [...before, index]);
                     setNumber((before: number) => (before - 1 >= 0 ? before - 1 : 0));
-                  }, 100);
+                  }, 200);
                 }
               }}
               key={items.title}
@@ -126,7 +126,7 @@ const NotificationData = ({ number, setNumber }: { number: number; setNumber: Fu
                     setHide({ index: -1, hide: false });
                     setNotification((before) => [...before, index]);
                     setNumber((before: number) => (before - 1 >= 0 ? before - 1 : 0));
-                  }, 100);
+                  }, 200);
                 }}
               />
             </Container>

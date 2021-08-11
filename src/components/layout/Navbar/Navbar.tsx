@@ -181,7 +181,7 @@ export const MobileNavbar = () => {
   const [number, setNumber] = useState(1);
 
   useEffect(() => {
-    setNumber(Math.floor(Math.random() * (99 - 1)) + 1);
+    setNumber(Math.floor(Math.random() * (5 - 1)) + 1);
     if (!offset) {
       setIsDrawerActive(false);
       setNotification(false);
@@ -320,7 +320,6 @@ export const NotificationDropdown = ({
 );
 
 const NotificationDropContent = ({
-  handleClose,
   setNumber,
   number,
 }: {
