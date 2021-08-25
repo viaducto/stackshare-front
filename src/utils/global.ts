@@ -1,4 +1,23 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
+
+const slide = keyframes`
+  0%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  25%{
+    opacity: .8;
+    transform: translateX(35%);
+  }
+  65%{
+    transform: translateX(85%);
+    opacity: .1;
+  }
+  100%{
+    height: 0;
+    transform: translateX(100%);
+  }
+`;
 
 export const GlobalStyle: any = createGlobalStyle`
 
@@ -211,6 +230,15 @@ export const GlobalStyle: any = createGlobalStyle`
     img{
       object-fit: contain !important;
     }
+  }
+
+  .animated-show{
+    transition: transform 500ms ease;
+    transform: translateX(0);
+  }
+
+  .animated-hide{
+    animation: ${slide} 300ms ease-in-out;
   }
 
 `;
